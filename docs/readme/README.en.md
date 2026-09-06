@@ -1,7 +1,7 @@
 <h1 align="center">UI Reference Screens</h1>
 
 <p align="center">
-  **English** | [한국어](docs/readme/README.ko.md) | [简体中文](docs/readme/README.zh.md) | [日本語](docs/readme/README.ja.md) | [Español](docs/readme/README.es.md) | [Français](docs/readme/README.fr.md) | [Русский](docs/readme/README.ru.md) | [العربية](docs/readme/README.ar.md) | [हिन्दी](docs/readme/README.hi.md) • [📜 Changelog](docs/changelog/CHANGELOG.md)
+  **English** | [한국어](../readme/README.ko.md) | [简体中文](../readme/README.zh.md) | [日本語](../readme/README.ja.md) | [Español](../readme/README.es.md) | [Français](../readme/README.fr.md) | [Русский](../readme/README.ru.md) | [العربية](../readme/README.ar.md) | [हिन्दी](../readme/README.hi.md) • [📜 Changelog](../changelog/CHANGELOG.md)
 </p>
 
 ---
@@ -14,13 +14,13 @@ Browse all screens in the browser
 
 ## What it looks like
 
-![What it looks like](docs/assets/gallery-demo.gif)
+![What it looks like](../assets/gallery-demo.gif)
 
 *Hover any row to preview the real screen; filter by title or viewport.*
 
 | Desktop screens render at 1280px | Mobile screens render at 390px |
 | --- | --- |
-| ![](docs/assets/preview-desktop.jpg) | ![](docs/assets/preview-mobile.jpg) |
+| ![](../assets/preview-desktop.jpg) | ![](../assets/preview-mobile.jpg) |
 
 ## Highlights
 
@@ -104,5 +104,5 @@ One entry per screen:
 ---
 
 <p align="center">
-  <a href="https://krcupro.github.io/ui-reference-screens/">Live gallery</a> · <a href="docs/changelog/CHANGELOG.md">Changelog</a>
+  <a href="https://krcupro.github.io/ui-reference-screens/">Live gallery</a> · <a href="../../README.md">Back to the main README</a>
 </p>
