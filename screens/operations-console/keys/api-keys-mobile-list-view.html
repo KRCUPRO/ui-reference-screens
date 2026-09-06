@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mobile API Keys</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed": "#d5e3fc",
+          "secondary-container": "#d5e3fc",
+          "on-primary-fixed-variant": "#003fa4",
+          "on-primary": "#ffffff",
+          "surface-variant": "#d8e3fb",
+          "on-surface": "#111c2d",
+          "on-secondary": "#ffffff",
+          "on-primary-fixed": "#001849",
+          "surface-dim": "#cfdaf2",
+          "on-tertiary-container": "#f6f8fa",
+          "surface-bright": "#f9f9ff",
+          "primary-fixed": "#dae1ff",
+          "inverse-surface": "#263143",
+          "inverse-primary": "#b3c5ff",
+          "surface-container-highest": "#d8e3fb",
+          "primary": "#0050cb",
+          "background": "#f9f9ff",
+          "tertiary-container": "#6f7274",
+          "tertiary": "#565a5b",
+          "primary-container": "#0066ff",
+          "on-secondary-container": "#57657a",
+          "surface-container-low": "#f0f3ff",
+          "on-primary-container": "#f8f7ff",
+          "on-tertiary": "#ffffff",
+          "secondary": "#515f74",
+          "on-tertiary-fixed": "#191c1e",
+          "on-error-container": "#93000a",
+          "surface-container": "#e7eeff",
+          "surface": "#f9f9ff",
+          "error-container": "#ffdad6",
+          "tertiary-fixed": "#e0e3e5",
+          "outline-variant": "#c2c6d8",
+          "on-tertiary-fixed-variant": "#444749",
+          "inverse-on-surface": "#ecf1ff",
+          "on-background": "#111c2d",
+          "secondary-fixed-dim": "#b9c7df",
+          "surface-container-high": "#dee8ff",
+          "on-surface-variant": "#424656",
+          "surface-container-lowest": "#ffffff",
+          "on-secondary-fixed-variant": "#3a485b",
+          "on-secondary-fixed": "#0d1c2e",
+          "primary-fixed-dim": "#b3c5ff",
+          "outline": "#727687",
+          "on-error": "#ffffff",
+          "tertiary-fixed-dim": "#c4c7c9",
+          "surface-tint": "#0054d6",
+          "error": "#ba1a1a"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "md": "16px",
+          "gutter": "24px",
+          "xs": "4px",
+          "sm": "8px",
+          "lg": "24px",
+          "xl": "48px",
+          "container-max": "1280px",
+          "base": "4px"
+        },
+        "fontFamily": {
+          "headline-lg": ["Inter"],
+          "mono-sm": ["JetBrains Mono"],
+          "headline-md": ["Inter"],
+          "headline-lg-mobile": ["Inter"],
+          "label-md": ["Inter"],
+          "body-md": ["Inter"],
+          "body-lg": ["Inter"]
+        },
+        "fontSize": {
+          "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "mono-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+          "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md h-screen w-screen overflow-hidden flex flex-col antialiased">
+<!-- TopAppBar Component -->
+<header class="bg-surface-container border-b border-outline-variant fixed top-0 w-full flex justify-between items-center px-gutter h-16 z-50 transition-colors duration-200">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary font-variation-settings: 'FILL' 1;">terminal</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">System Console</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A pristine, high-key corporate headshot of a technical system administrator in a minimal white studio. The lighting is soft and bright, emphasizing a clean, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmt4JvFpDEr6eHCmvUZrlKPUI8iOjQpx13DAkA_QbaYqFIqbl6aCreR6nLa6pl4y68Y4DFI1uf4LWmX8c-i5zj5rstp50rzshYyqwhhtBBhBwb_2kMufo9HLKgkIA0gcOXbwQoGOgurEkOxHnj0XGgTnn3V4s8sFak2c9NpOLyner096g1toNxNaRFxp73WvqLeKYIzLuXnPpl02FlLFa2Dkgpe4oT6Yuwoh6uZ8NYKiw8B-i3kEkFc8yqaABjHiHON3ygm44Wjas"/>
+</div>
+</header>
+<!-- Main Scrollable Area -->
+<main class="flex-1 w-full overflow-y-auto overflow-x-hidden pt-16 pb-28 px-md flex flex-col relative z-0">
+<!-- Filter Chips -->
+<div class="flex overflow-x-auto gap-sm py-md hide-scrollbar sticky top-0 bg-background/95 backdrop-blur-sm z-10 border-b border-transparent">
+<button class="px-md py-[6px] rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md whitespace-nowrap hover:bg-surface-bright transition-colors">
+        All
+      </button>
+<button class="px-md py-[6px] rounded-full border border-primary bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap shadow-[0_0_0_2px_rgba(0,80,203,0.1)] ring-offset-1 ring-offset-background ring-2 ring-primary">
+        Active
+      </button>
+<button class="px-md py-[6px] rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md whitespace-nowrap hover:bg-surface-bright transition-colors">
+        Cooldown
+      </button>
+<button class="px-md py-[6px] rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md whitespace-nowrap hover:bg-surface-bright transition-colors">
+        Error
+      </button>
+</div>
+<!-- API Keys List -->
+<div class="flex flex-col gap-sm mt-2">
+<!-- Key Card: Active -->
+<button class="w-full text-left bg-surface-container-lowest border border-[#E2E8F0] rounded-lg p-md flex items-center justify-between transition-all duration-200 active:scale-[0.98] hover:bg-surface-bright group">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm">
+<div aria-label="Status: Active" class="w-2 h-2 rounded-sm bg-primary"></div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Production Gateway</span>
+</div>
+<div class="flex items-center gap-sm pl-4 text-on-surface-variant">
+<span class="font-mono-sm text-mono-sm bg-surface-container-low px-1 py-0.5 rounded text-on-surface">sk-****-a91c</span>
+<span class="material-symbols-outlined text-[14px] hover:text-primary transition-colors" title="Copy to clipboard">content_copy</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Key Card: Cooldown -->
+<button class="w-full text-left bg-surface-container-lowest border border-[#E2E8F0] rounded-lg p-md flex items-center justify-between transition-all duration-200 active:scale-[0.98] hover:bg-surface-bright group">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm">
+<div aria-label="Status: Cooldown" class="w-2 h-2 rounded-sm bg-error"></div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Staging Environment</span>
+<span class="bg-error-container text-on-error-container font-label-md text-label-md px-2 py-0.5 rounded-full ml-xs inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">timer</span>
+              0:42
+            </span>
+</div>
+<div class="flex items-center gap-sm pl-4 text-on-surface-variant">
+<span class="font-mono-sm text-mono-sm bg-surface-container-low px-1 py-0.5 rounded text-on-surface">sk-****-f4x8</span>
+<span class="material-symbols-outlined text-[14px] hover:text-primary transition-colors" title="Copy to clipboard">content_copy</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Key Card: Active -->
+<button class="w-full text-left bg-surface-container-lowest border border-[#E2E8F0] rounded-lg p-md flex items-center justify-between transition-all duration-200 active:scale-[0.98] hover:bg-surface-bright group">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm">
+<div aria-label="Status: Active" class="w-2 h-2 rounded-sm bg-primary"></div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Internal Analytics</span>
+</div>
+<div class="flex items-center gap-sm pl-4 text-on-surface-variant">
+<span class="font-mono-sm text-mono-sm bg-surface-container-low px-1 py-0.5 rounded text-on-surface">sk-****-b22m</span>
+<span class="material-symbols-outlined text-[14px] hover:text-primary transition-colors" title="Copy to clipboard">content_copy</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Key Card: Active -->
+<button class="w-full text-left bg-surface-container-lowest border border-[#E2E8F0] rounded-lg p-md flex items-center justify-between transition-all duration-200 active:scale-[0.98] hover:bg-surface-bright group">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm">
+<div aria-label="Status: Active" class="w-2 h-2 rounded-sm bg-primary"></div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Billing Sync Worker</span>
+</div>
+<div class="flex items-center gap-sm pl-4 text-on-surface-variant">
+<span class="font-mono-sm text-mono-sm bg-surface-container-low px-1 py-0.5 rounded text-on-surface">sk-****-v8n1</span>
+<span class="material-symbols-outlined text-[14px] hover:text-primary transition-colors" title="Copy to clipboard">content_copy</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- End of List Indicator -->
+<div class="w-full py-lg flex justify-center items-center">
+<div class="w-12 h-1 rounded-full bg-surface-variant"></div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button aria-label="Create new API key" class="fixed bottom-[104px] right-gutter w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.15)] flex items-center justify-center z-40 active:scale-95 hover:bg-primary-container hover:text-on-primary-container transition-all duration-200">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</button>
+<!-- BottomNavBar Component -->
+<nav class="bg-surface-container-low border-t border-outline-variant fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-sm rounded-t-xl pb-6">
+<!-- Dashboard - Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-md py-xs hover:text-primary active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-md text-label-md mt-1">Dashboard</span>
+</button>
+<!-- Keys - Active -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-md py-xs active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">vpn_key</span>
+<span class="font-label-md text-label-md mt-1">Keys</span>
+</button>
+<!-- Logs - Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-md py-xs hover:text-primary active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+<span class="font-label-md text-label-md mt-1">Logs</span>
+</button>
+<!-- Settings - Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-md py-xs hover:text-primary active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-md text-label-md mt-1">Settings</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>API Key Pool Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&amp;family=Noto+Sans+KR:wght@400;600&amp;family=Public+Sans:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414844",
+                        "surface-container-low": "#f4f3f1",
+                        "outline": "#717973",
+                        "surface-tint": "#3f6653",
+                        "tertiary": "#401b1b",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e3e2e0",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c8c2",
+                        "on-tertiary-fixed-variant": "#673a39",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1b4332",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#f5b7b4",
+                        "surface-variant": "#e3e2e0",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3130",
+                        "surface-bright": "#faf9f7",
+                        "inverse-primary": "#a5d0b9",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface": "#faf9f7",
+                        "secondary-container": "#e2dfde",
+                        "surface-dim": "#dadad8",
+                        "on-background": "#1a1c1b",
+                        "background": "#faf9f7",
+                        "primary": "#012d1d",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-container-high": "#e9e8e6",
+                        "on-surface": "#1a1c1b",
+                        "on-primary-fixed": "#002114",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-primary-container": "#86af99",
+                        "tertiary-fixed": "#ffdad8",
+                        "inverse-on-surface": "#f1f1ef",
+                        "surface-container": "#efeeec",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#e5e2e1",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-container": "#d29895",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-container": "#636262",
+                        "on-tertiary-fixed": "#331111",
+                        "tertiary-container": "#5a302f",
+                        "on-secondary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0",
+                        "lg": "0",
+                        "xl": "0",
+                        "full": "0"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "sidebar_width": "240px",
+                        "gutter": "1px",
+                        "edge_margin": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "code-sm": [
+                            "JetBrains Mono", "monospace"
+                        ],
+                        "body-base": [
+                            "Noto Sans KR", "sans-serif"
+                        ],
+                        "headline-md": [
+                            "Public Sans", "sans-serif"
+                        ],
+                        "display-metrics": [
+                            "Public Sans", "sans-serif"
+                        ],
+                        "label-caps": [
+                            "Public Sans", "sans-serif"
+                        ],
+                        "headline-lg": [
+                            "Public Sans", "sans-serif"
+                        ]
+                    },
+                    "fontSize": {
+                        "code-sm": [
+                            "13px",
+                            {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "body-base": [
+                            "14px",
+                            {
+                                "lineHeight": "22px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-md": [
+                            "18px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "display-metrics": [
+                            "48px",
+                            {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "label-caps": [
+                            "11px",
+                            {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.08em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-lg": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #faf9f7;
+            color: #1a1c1b;
+        }
+        .keep-all {
+            word-break: keep-all;
+        }
+    </style>
+</head>
+<body class="font-body-base bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="w-sidebar_width h-screen fixed left-0 top-0 bg-surface border-r border-outline-variant flex flex-col gap-unit py-edge_margin">
+<div class="px-4 pb-8 mb-4 border-b border-outline-variant">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-2">INFRA-CORE</div>
+<div class="font-headline-md text-headline-md text-primary truncate">OPERATOR_01</div>
+<div class="font-body-base text-body-base text-secondary truncate">us-east-1a</div>
+</div>
+<div class="flex-1 overflow-y-auto">
+<a class="flex items-center text-secondary hover:text-on-surface pl-4 py-2 hover:bg-surface-container-low transition-colors cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center text-secondary hover:text-on-surface pl-4 py-2 hover:bg-surface-container-low transition-colors cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">memory</span>
+                Instances
+            </a>
+<a class="flex items-center text-secondary hover:text-on-surface pl-4 py-2 hover:bg-surface-container-low transition-colors cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">lan</span>
+                Network
+            </a>
+<a class="flex items-center text-secondary hover:text-on-surface pl-4 py-2 hover:bg-surface-container-low transition-colors cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">storage</span>
+                Storage
+            </a>
+<a class="flex items-center text-secondary hover:text-on-surface pl-4 py-2 hover:bg-surface-container-low transition-colors cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">security</span>
+                Security
+            </a>
+<a class="flex items-center text-secondary hover:text-on-surface pl-4 py-2 hover:bg-surface-container-low transition-colors cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">terminal</span>
+                System Logs
+            </a>
+<a class="flex items-center border-l-2 border-primary text-primary font-semibold pl-4 py-2 cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]" style="font-variation-settings: 'FILL' 1;">key</span>
+                API 키
+            </a>
+<a class="flex items-center text-secondary hover:text-on-surface pl-4 py-2 hover:bg-surface-container-low transition-colors cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">payments</span>
+                Billing
+            </a>
+<a class="flex items-center text-secondary hover:text-on-surface pl-4 py-2 hover:bg-surface-container-low transition-colors cursor-pointer select-none" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">settings</span>
+                Settings
+            </a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="ml-sidebar_width flex-1 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full h-10 bg-surface border-b border-outline-variant flex items-center justify-between px-edge_margin">
+<div class="font-headline-lg text-headline-lg text-primary tracking-tighter">OPERATIONS CONSOLE</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-colors duration-150 ease-linear cursor-pointer">account_circle</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-colors duration-150 ease-linear cursor-pointer">help</span>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-edge_margin flex-1 flex flex-col gap-stack-lg">
+<!-- Header section -->
+<div class="flex justify-between items-end border-b border-outline-variant pb-stack-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-background m-0 p-0 leading-none mb-2 keep-all">API 키 풀 관리</h1>
+<p class="font-body-base text-body-base text-secondary m-0 p-0 keep-all">활성 API 키의 글로벌 할당량 및 상태 모니터링</p>
+</div>
+<button class="bg-primary-container text-on-primary h-[40px] px-6 font-label-caps text-label-caps hover:bg-primary transition-colors">키 추가</button>
+</div>
+<!-- Toolbar -->
+<div class="flex items-center border-b border-outline-variant pb-2">
+<button class="text-secondary hover:text-on-background font-label-caps text-label-caps pr-4 mr-4 border-r border-outline-variant uppercase transition-colors">새로고침</button>
+<button class="text-secondary hover:text-on-background font-label-caps text-label-caps pr-4 mr-4 border-r border-outline-variant uppercase transition-colors">전체 검사</button>
+<button class="text-secondary hover:text-on-background font-label-caps text-label-caps pr-4 mr-4 border-r border-outline-variant uppercase transition-colors">중복 정리</button>
+<button class="text-secondary hover:text-on-background font-label-caps text-label-caps uppercase transition-colors">내보내기</button>
+</div>
+<!-- Quota Band -->
+<div class="flex flex-col gap-2 py-4">
+<div class="flex justify-between items-end">
+<div class="flex items-baseline gap-4">
+<span class="font-label-caps text-label-caps text-secondary uppercase">오늘 사용량</span>
+<span class="font-display-metrics text-display-metrics text-on-background leading-none">0 / 400</span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="font-code-sm text-code-sm text-secondary">잔여 400</span>
+<span class="font-code-sm text-code-sm text-secondary">리셋까지 8시간 53분</span>
+</div>
+</div>
+<div class="w-full h-[2px] bg-outline-variant relative mt-2">
+<div class="absolute left-0 top-0 h-full bg-primary-container w-[0%]"></div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="w-full overflow-x-auto pb-8">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest min-w-[60px]">상태</th>
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest min-w-[120px]">이름</th>
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest min-w-[160px]">키</th>
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest text-right min-w-[100px]">호출</th>
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest text-right min-w-[100px]">성공률</th>
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest text-right min-w-[120px]">평균 지연</th>
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest min-w-[100px] pl-4">쿼터</th>
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest min-w-[120px] text-right">최근 오류</th>
+<th class="font-label-caps text-label-caps text-secondary uppercase py-3 font-normal tracking-widest text-right min-w-[80px]">작업</th>
+</tr>
+</thead>
+<tbody class="font-body-base text-body-base">
+<tr class="border-b border-outline-variant h-[44px] hover:bg-surface-container-low transition-colors">
+<td class="py-2"><div class="w-2 h-2 bg-primary-container ml-2"></div></td>
+<td class="py-2 text-on-background">Production Primary</td>
+<td class="py-2 font-code-sm text-code-sm text-secondary">sk_live_••••••••</td>
+<td class="py-2 font-code-sm text-code-sm text-on-background text-right">0</td>
+<td class="py-2 font-code-sm text-code-sm text-on-background text-right">0.00%</td>
+<td class="py-2 font-code-sm text-code-sm text-on-background text-right">0ms</td>
+<td class="py-2 pl-4"><div class="w-full h-[1px] bg-outline-variant relative"><div class="absolute left-0 top-0 h-full bg-primary-container w-[0%]"></div></div></td>
+<td class="py-2 font-code-sm text-code-sm text-secondary text-right">-</td>
+<td class="py-2 text-right">
+<span class="material-symbols-outlined text-[18px] text-secondary hover:text-on-background cursor-pointer">more_vert</span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant h-[44px] hover:bg-surface-container-low transition-colors">
+<td class="py-2"><div class="w-2 h-2 bg-primary-container ml-2"></div></td>
+<td class="py-2 text-on-background">Staging Backend</td>
+<td class="py-2 font-code-sm text-code-sm text-secondary">sk_test_••••••••</td>
+<td class="py-2 font-code-sm text-code-sm text-on-background text-right">0</td>
+<td class="py-2 font-code-sm text-code-sm text-on-background text-right">0.00%</td>
+<td class="py-2 font-code-sm text-code-sm text-on-background text-right">0ms</td>
+<td class="py-2 pl-4"><div class="w-full h-[1px] bg-outline-variant relative"><div class="absolute left-0 top-0 h-full bg-primary-container w-[0%]"></div></div></td>
+<td class="py-2 font-code-sm text-code-sm text-secondary text-right">-</td>
+<td class="py-2 text-right">
+<span class="material-symbols-outlined text-[18px] text-secondary hover:text-on-background cursor-pointer">more_vert</span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant h-[44px] hover:bg-surface-container-low transition-colors">
+<td class="py-2"><div class="w-2 h-2 bg-outline ml-2"></div></td>
+<td class="py-2 text-secondary">Legacy Integration</td>
+<td class="py-2 font-code-sm text-code-sm text-secondary">sk_old_••••••••</td>
+<td class="py-2 font-code-sm text-code-sm text-secondary text-right">0</td>
+<td class="py-2 font-code-sm text-code-sm text-secondary text-right">0.00%</td>
+<td class="py-2 font-code-sm text-code-sm text-secondary text-right">0ms</td>
+<td class="py-2 pl-4"><div class="w-full h-[1px] bg-outline-variant relative"><div class="absolute left-0 top-0 h-full bg-outline w-[0%]"></div></div></td>
+<td class="py-2 font-code-sm text-code-sm text-secondary text-right">-</td>
+<td class="py-2 text-right">
+<span class="material-symbols-outlined text-[18px] text-secondary hover:text-on-background cursor-pointer">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer -->
+<div class="mt-auto pt-8 flex justify-end">
+<button class="font-label-caps text-label-caps text-error hover:text-on-error-container uppercase tracking-wide transition-colors">전체 비우기</button>
+</div>
+</div>
+</main>
+</body></html>

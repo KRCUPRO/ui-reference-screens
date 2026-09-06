@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Colour Tokens Editor - Picker Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "on-secondary-fixed": "#001a42",
+              "outline-variant": "#c6c6cd",
+              "surface": "#fcf8fa",
+              "tertiary-fixed-dim": "#dcc2a4",
+              "on-secondary-fixed-variant": "#004395",
+              "surface-bright": "#fcf8fa",
+              "secondary-container": "#2170e4",
+              "surface-container-high": "#eae7e9",
+              "on-secondary-container": "#fefcff",
+              "on-primary-container": "#7d8497",
+              "on-primary": "#ffffff",
+              "error": "#ba1a1a",
+              "surface-variant": "#e5e2e3",
+              "on-error-container": "#93000a",
+              "primary-container": "#141b2b",
+              "surface-container-highest": "#e5e2e3",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0edee",
+              "on-surface": "#1b1b1d",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "secondary": "#0058be",
+              "primary-fixed-dim": "#c0c6db",
+              "inverse-surface": "#303031",
+              "background": "#fcf8fa",
+              "on-primary-fixed-variant": "#404758",
+              "tertiary-fixed": "#f9debf",
+              "primary": "#000000",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f6f3f4",
+              "inverse-on-surface": "#f3f0f1",
+              "on-tertiary-fixed-variant": "#55442d",
+              "on-tertiary-fixed": "#261906",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#d8e2ff",
+              "on-background": "#1b1b1d",
+              "tertiary": "#000000",
+              "surface-tint": "#575e70",
+              "tertiary-container": "#261906",
+              "primary-fixed": "#dce2f7",
+              "surface-dim": "#dcd9db",
+              "inverse-primary": "#c0c6db",
+              "outline": "#76777d",
+              "on-tertiary-container": "#968065",
+              "on-primary-fixed": "#141b2b",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-surface-variant": "#45464c"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            "spacing": {
+              "gutter": "1rem",
+              "unit": "4px",
+              "stack-base": "0.5rem",
+              "row-height-md": "32px",
+              "row-height-sm": "24px",
+              "container-padding": "1.5rem",
+              "stack-tight": "0.25rem"
+            },
+            "fontFamily": {
+              "ui-regular": ["Inter"],
+              "ui-bold": ["Inter"],
+              "mono-data": ["JetBrains Mono"],
+              "mono-label": ["JetBrains Mono"],
+              "h1": ["Inter"],
+              "ui-medium": ["Inter"],
+              "h2": ["Inter"]
+            },
+            "fontSize": {
+              "ui-regular": ["13px", {"lineHeight": "16px", "fontWeight": "400"}],
+              "ui-bold": ["13px", {"lineHeight": "16px", "fontWeight": "600"}],
+              "mono-data": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+              "mono-label": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+              "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+              "ui-medium": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+              "h2": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .checkerboard {
+            background-color: #fff;
+            background-image: linear-gradient(45deg, #e5e7eb 25%, transparent 25%, transparent 75%, #e5e7eb 75%, #e5e7eb),
+                              linear-gradient(45deg, #e5e7eb 25%, transparent 25%, transparent 75%, #e5e7eb 75%, #e5e7eb);
+            background-size: 16px 16px;
+            background-position: 0 0, 8px 8px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-ui-regular antialiased h-screen w-screen overflow-hidden flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-lg h-14 bg-surface-container-lowest dark:bg-primary-container border-b border-outline-variant dark:border-outline z-10 shrink-0">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 bg-primary text-on-primary flex items-center justify-center rounded-sm">
+<span class="material-symbols-outlined text-lg">palette</span>
+</div>
+<span class="font-h2 text-h2 text-on-surface dark:text-on-primary-fixed">Slate Console</span>
+</div>
+<div class="flex-1 max-w-md mx-8">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-1.5 border border-outline-variant dark:border-outline bg-surface dark:bg-surface-variant text-on-surface dark:text-on-surface-variant focus:ring-1 focus:ring-primary focus:border-primary text-ui-regular placeholder-outline-variant rounded-sm" placeholder="Search tokens..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-on-primary-container hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-sm transition-colors active:bg-surface-container-high duration-75">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-primary-container hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-sm transition-colors active:bg-surface-container-high duration-75">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="bg-primary text-on-primary font-ui-medium text-ui-medium px-4 py-1.5 rounded-sm hover:bg-primary-container transition-colors">
+                Save
+            </button>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- SideNavBar -->
+<nav class="flex flex-col fixed left-0 top-14 bottom-0 z-40 bg-surface-container-low dark:bg-surface-container-highest border-r border-outline-variant dark:border-outline w-64">
+<div class="p-container-padding border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-3 mb-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small, professional user avatar portrait. Light mode, high contrast studio lighting, simple grey background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvmEaSMIjoQtH6x5voMizmJqFjSqaGtnHixvPtY5enus0RYQmnXtK_AIOyKcnzvMUNO3ZYDWPtTHS7R-Q6J6ssTXX8D6OoYViWQqO-UE5OxPJpyhauBRkjW50GJ14Me8JJkMq16x3f2j63HkoHSwemUDDWPYvm6LVxpPsHHYD0kz74unZ8MS7o6h-UZz4QUM3Z8dhh15dsjnk8ctCcI9lWfmIqI0NUP25LhliD4J4_3orAZXBTA9P691eZP3fnt6l57EQiR89B2w0"/>
+<div>
+<div class="font-ui-bold text-ui-bold text-on-surface">Project Workspace</div>
+<div class="font-mono-label text-mono-label text-on-surface-variant">v1.2.4-stable</div>
+</div>
+</div>
+</div>
+<div class="flex-1 py-4 flex flex-col gap-1">
+<!-- Active Item: Colour -->
+<a class="bg-surface-dim dark:bg-primary-fixed-variant text-on-surface dark:text-on-primary-fixed border-l-4 border-primary dark:border-primary-fixed font-ui-bold text-ui-bold flex items-center gap-3 px-4 py-3 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">palette</span>
+                    Colour
+                </a>
+<!-- Inactive Items -->
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant font-ui-regular text-ui-regular flex items-center gap-3 px-4 py-3 border-l-4 border-transparent transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">text_fields</span>
+                    Type Scale
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant font-ui-regular text-ui-regular flex items-center gap-3 px-4 py-3 border-l-4 border-transparent transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">space_bar</span>
+                    Spacing
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant font-ui-regular text-ui-regular flex items-center gap-3 px-4 py-3 border-l-4 border-transparent transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">rounded_corner</span>
+                    Radius
+                </a>
+</div>
+</nav>
+<!-- Main Content Area (Blurred Background) -->
+<main class="flex-1 ml-64 p-container-padding overflow-y-auto filter blur-[2px] opacity-80 pointer-events-none">
+<div class="max-w-5xl mx-auto">
+<h1 class="font-h1 text-h1 text-on-background mb-8">Colour Tokens</h1>
+<div class="grid grid-cols-3 gap-gutter">
+<!-- Dummy Content Cards to fill background -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-sm flex flex-col gap-4">
+<div class="h-24 bg-[#7C8CFF] rounded-sm"></div>
+<div>
+<div class="font-mono-label text-mono-label text-outline mb-1">primary-blue</div>
+<div class="font-mono-data text-mono-data text-on-surface">#7C8CFF</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-sm flex flex-col gap-4">
+<div class="h-24 bg-[#FF7C8C] rounded-sm"></div>
+<div>
+<div class="font-mono-label text-mono-label text-outline mb-1">error-red</div>
+<div class="font-mono-data text-mono-data text-on-surface">#FF7C8C</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-sm flex flex-col gap-4">
+<div class="h-24 bg-[#7CFF8C] rounded-sm"></div>
+<div>
+<div class="font-mono-label text-mono-label text-outline mb-1">success-green</div>
+<div class="font-mono-data text-mono-data text-on-surface">#7CFF8C</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- MODAL OVERLAY -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-[#111827]/60">
+<!-- DIALOG BOX -->
+<div class="bg-surface-container-lowest w-[480px] rounded-lg border border-outline-variant shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Header -->
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h2 class="font-ui-bold text-ui-bold text-on-surface">Edit Token Colour</h2>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<!-- Body -->
+<div class="p-6 flex flex-col gap-6">
+<!-- Colour Picker Area -->
+<div class="flex gap-4 h-48">
+<!-- Saturation/Lightness Gradient Box -->
+<div class="flex-1 relative rounded-sm border border-outline-variant overflow-hidden" style="background: linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, transparent), #7C8CFF;">
+<!-- Draggable Indicator -->
+<div class="absolute w-4 h-4 rounded-full border-2 border-white shadow-sm -ml-2 -mt-2 cursor-pointer" style="left: 70%; top: 30%;"></div>
+</div>
+<!-- Hue Slider -->
+<div class="w-6 relative rounded-sm border border-outline-variant overflow-hidden" style="background: linear-gradient(to bottom, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);">
+<!-- Slider Handle -->
+<div class="absolute left-0 right-0 h-2 bg-white border border-outline-variant shadow-sm -mt-1 cursor-pointer" style="top: 67%;"></div>
+</div>
+<!-- Alpha Slider (Optional, keeping consistent with standard pickers) -->
+<div class="w-6 relative rounded-sm border border-outline-variant overflow-hidden checkerboard">
+<div class="absolute inset-0" style="background: linear-gradient(to bottom, #7C8CFF, transparent);"></div>
+<!-- Slider Handle -->
+<div class="absolute left-0 right-0 h-2 bg-white border border-outline-variant shadow-sm -mt-1 cursor-pointer" style="top: 0%;"></div>
+</div>
+</div>
+<!-- Input Fields -->
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-mono-label text-mono-label text-on-surface-variant uppercase">Hex</label>
+<div class="relative flex items-center">
+<span class="absolute left-2 text-outline font-mono-data text-mono-data">#</span>
+<input class="w-full pl-6 pr-2 py-1.5 border border-outline-variant bg-surface font-mono-data text-mono-data text-on-surface focus:ring-1 focus:ring-primary focus:border-primary rounded-sm uppercase" type="text" value="7C8CFF"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-mono-label text-mono-label text-on-surface-variant uppercase">RGB</label>
+<input class="w-full px-2 py-1.5 border border-outline-variant bg-surface font-mono-data text-mono-data text-on-surface focus:ring-1 focus:ring-primary focus:border-primary rounded-sm" type="text" value="124, 140, 255"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-mono-label text-mono-label text-on-surface-variant uppercase">HSB</label>
+<input class="w-full px-2 py-1.5 border border-outline-variant bg-surface font-mono-data text-mono-data text-on-surface focus:ring-1 focus:ring-primary focus:border-primary rounded-sm" type="text" value="233, 51, 100"/>
+</div>
+</div>
+<!-- Recent Colours -->
+<div class="flex flex-col gap-2">
+<label class="font-ui-medium text-ui-medium text-on-surface-variant">Recent</label>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-sm border border-outline-variant bg-[#7C8CFF] hover:ring-2 hover:ring-primary hover:ring-offset-1 transition-all"></button>
+<button class="w-8 h-8 rounded-sm border border-outline-variant bg-[#FF7C8C] hover:ring-2 hover:ring-primary hover:ring-offset-1 transition-all"></button>
+<button class="w-8 h-8 rounded-sm border border-outline-variant bg-[#7CFF8C] hover:ring-2 hover:ring-primary hover:ring-offset-1 transition-all"></button>
+<button class="w-8 h-8 rounded-sm border border-outline-variant bg-[#FFD17C] hover:ring-2 hover:ring-primary hover:ring-offset-1 transition-all"></button>
+<button class="w-8 h-8 rounded-sm border border-outline-variant bg-[#7CEBFF] hover:ring-2 hover:ring-primary hover:ring-offset-1 transition-all"></button>
+<button class="w-8 h-8 rounded-sm border border-outline-variant bg-[#C87CFF] hover:ring-2 hover:ring-primary hover:ring-offset-1 transition-all"></button>
+<button class="w-8 h-8 rounded-sm border border-outline-variant bg-[#1A1A1A] hover:ring-2 hover:ring-primary hover:ring-offset-1 transition-all"></button>
+<button class="w-8 h-8 rounded-sm border border-outline-variant bg-[#F5F5F5] hover:ring-2 hover:ring-primary hover:ring-offset-1 transition-all"></button>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-6 py-4 border-t border-outline-variant bg-surface-container-low flex justify-end gap-3">
+<button class="px-4 py-2 font-ui-medium text-ui-medium text-on-surface hover:bg-surface-variant rounded-sm transition-colors">
+                    Cancel
+                </button>
+<button class="px-6 py-2 font-ui-medium text-ui-medium bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container rounded-sm transition-colors shadow-sm">
+                    Apply
+                </button>
+</div>
+</div>
+</div>
+</body></html>

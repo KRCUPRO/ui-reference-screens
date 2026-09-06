@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings: Appearance - System Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#dadadb",
+            "on-secondary": "#ffffff",
+            "outline": "#737686",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#2f3132",
+            "tertiary-fixed": "#ffdbcd",
+            "error": "#ba1a1a",
+            "surface-bright": "#f9f9fa",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#360f00",
+            "on-error": "#ffffff",
+            "on-surface": "#1a1c1d",
+            "surface-variant": "#e2e2e3",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#e2e2e3",
+            "background": "#f9f9fa",
+            "on-primary-fixed": "#00174b",
+            "on-secondary-fixed": "#1c1b1b",
+            "outline-variant": "#c3c6d7",
+            "secondary-container": "#e5e2e1",
+            "tertiary-fixed-dim": "#ffb596",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "surface-container-low": "#f3f3f4",
+            "secondary-fixed-dim": "#c8c6c5",
+            "primary-fixed-dim": "#b4c5ff",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-surface-variant": "#434655",
+            "surface-container": "#eeeeef",
+            "inverse-primary": "#b4c5ff",
+            "surface-container-high": "#e8e8e9",
+            "on-secondary-fixed-variant": "#474646",
+            "on-secondary-container": "#656464",
+            "tertiary": "#943700",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#004ac6",
+            "on-background": "#1a1c1d",
+            "secondary": "#5f5e5e",
+            "tertiary-container": "#bc4800",
+            "surface": "#f9f9fa",
+            "secondary-fixed": "#e5e2e1",
+            "primary-fixed": "#dbe1ff",
+            "primary-container": "#2563eb",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f0f1f2",
+            "surface-tint": "#0053db",
+            "on-tertiary-container": "#ffede6",
+            "on-primary-container": "#eeefff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "stack-lg": "32px",
+            "stack-sm": "8px",
+            "margin-page": "48px",
+            "gutter": "32px",
+            "stack-md": "16px",
+            "inset-squish": "8px 12px",
+            "inset-stretch": "16px 12px"
+          },
+          "fontFamily": {
+            "label-sm": [
+              "Public Sans"
+            ],
+            "headline-lg-mobile": [
+              "Public Sans"
+            ],
+            "body-lg": [
+              "Public Sans"
+            ],
+            "title-md": [
+              "Public Sans"
+            ],
+            "headline-lg": [
+              "Public Sans"
+            ],
+            "body-md": [
+              "Public Sans"
+            ],
+            "display": [
+              "Public Sans"
+            ],
+            "code-md": [
+              "JetBrains Mono"
+            ]
+          },
+          "fontSize": {
+            "label-sm": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.05em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg-mobile": [
+              "24px",
+              {
+                "lineHeight": "32px",
+                "fontWeight": "600"
+              }
+            ],
+            "body-lg": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "title-md": [
+              "18px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg": [
+              "32px",
+              {
+                "lineHeight": "40px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "body-md": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "display": [
+              "48px",
+              {
+                "lineHeight": "56px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "code-md": [
+              "13px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="bg-surface w-64 h-screen border-r border-outline-variant flex flex-col py-stack-md shrink-0 hidden md:flex">
+<div class="px-6 mb-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface">System Console</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Technical Suite</p>
+</div>
+<div class="flex-1 flex flex-col gap-1 px-3 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+          Overview
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
+          Analytics
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">vpn_key</span>
+          Keys
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+          MCP
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">extension</span>
+          Playground
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+          Logs
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-body-md text-body-md text-primary bg-surface-container-high border-l-4 border-primary cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+          Settings
+        </a>
+</div>
+<div class="px-6 mt-auto flex items-center gap-3 pt-6 border-t border-outline-variant">
+<img alt="User Profile" class="w-8 h-8 rounded-full bg-surface-variant object-cover border border-outline-variant" data-alt="A highly detailed close-up of a futuristic glowing server rack light indicator, sharp focus, minimal background, high contrast, technical atmosphere, subtle blue and white light mode tones, 8k resolution, photorealistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDrylVtvuCQY7nT9p6xX8O0ezlNmadGnr_UPfAlP4XG9WPe8la7kVun79wt_E6H1g8z5DLLQ80cGvsd-eglfy0zs0AcURcuI78b91m4rW9gXyiRkSB7tvrzAxh3g4_H1xJymCPD9QUsARLumZ8noFl6QLBHWc95AbNRfoyEIKjVDs3oAN7xd6eIIvUm8wIE2JB3D2DdiF6Ic0B7lmF4DZ9nY6MWDfB4Y4jDspQbxcbjI0sHpuicBC9xQIFVh4fcwkkOMOQjmOO5IM"/>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Admin User</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Console Access</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden bg-background">
+<!-- Top Bar (Mobile Only Placeholder, actual layout is SideNav focused as per prompt, but good to have for structural completeness if scaling down) -->
+<header class="md:hidden flex items-center justify-between p-4 border-b border-outline-variant bg-surface">
+<h1 class="font-title-md text-title-md text-on-surface">Settings</h1>
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+</header>
+<div class="flex-1 overflow-y-auto p-6 md:p-gutter">
+<div class="max-w-4xl mx-auto">
+<!-- Header -->
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Appearance</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Customize the visual theme and density of the console.</p>
+</div>
+<!-- Theme Selection Grid -->
+<section class="mb-stack-lg">
+<h3 class="font-title-md text-title-md text-on-surface mb-stack-md">System Theme</h3>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Selected: System -->
+<button class="flex flex-col items-center gap-3 p-4 rounded-xl border-2 border-primary-container bg-[#F0F7FF] transition-all hover:bg-surface-container-low">
+<div class="w-16 h-16 rounded-full overflow-hidden flex border border-outline-variant relative shadow-[4px_4px_0px_rgba(18,18,18,0.05)]">
+<div class="w-1/2 h-full bg-[#f9f9fa]"></div>
+<div class="w-1/2 h-full bg-[#1a1c1d]"></div>
+<div class="absolute inset-0 border border-black/10 rounded-full"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">System</span>
+</button>
+<!-- Light -->
+<button class="flex flex-col items-center gap-3 p-4 rounded-xl border border-outline-variant bg-surface transition-all hover:border-[#121212] hover:bg-surface-container-low group">
+<div class="w-16 h-16 rounded-full bg-[#f9f9fa] border border-outline-variant group-hover:border-[#121212] transition-colors shadow-sm"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">Light</span>
+</button>
+<!-- Dark -->
+<button class="flex flex-col items-center gap-3 p-4 rounded-xl border border-outline-variant bg-surface transition-all hover:border-[#121212] hover:bg-surface-container-low group">
+<div class="w-16 h-16 rounded-full bg-[#1a1c1d] border border-outline-variant group-hover:border-[#121212] transition-colors shadow-sm"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">Dark</span>
+</button>
+<!-- Slate -->
+<button class="flex flex-col items-center gap-3 p-4 rounded-xl border border-outline-variant bg-surface transition-all hover:border-[#121212] hover:bg-surface-container-low group">
+<div class="w-16 h-16 rounded-full bg-[#334155] border border-outline-variant group-hover:border-[#121212] transition-colors shadow-sm"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">Slate</span>
+</button>
+<!-- OLED -->
+<button class="flex flex-col items-center gap-3 p-4 rounded-xl border border-outline-variant bg-surface transition-all hover:border-[#121212] hover:bg-surface-container-low group">
+<div class="w-16 h-16 rounded-full bg-[#000000] border border-outline-variant group-hover:border-[#121212] transition-colors shadow-sm"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">OLED</span>
+</button>
+<!-- Neon -->
+<button class="flex flex-col items-center gap-3 p-4 rounded-xl border border-outline-variant bg-surface transition-all hover:border-[#121212] hover:bg-surface-container-low group">
+<div class="w-16 h-16 rounded-full bg-[#0f172a] border border-[#38bdf8] group-hover:border-[#121212] transition-colors shadow-sm flex items-center justify-center overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-[#38bdf8]/20 to-transparent"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">Neon</span>
+</button>
+</div>
+</section>
+<!-- Split Preview Panel -->
+<section class="mt-stack-lg border border-outline-variant rounded-xl overflow-hidden bg-surface shadow-[4px_4px_0px_rgba(18,18,18,0.05)]">
+<div class="flex h-[300px] relative">
+<!-- Left Side: Light Preview -->
+<div class="w-1/2 bg-[#f9f9fa] p-4 flex flex-col gap-3 relative overflow-hidden">
+<!-- Mockup UI elements -->
+<div class="w-3/4 h-4 bg-surface-variant rounded"></div>
+<div class="w-full h-24 border border-outline-variant bg-white rounded flex flex-col p-3 gap-2">
+<div class="w-1/3 h-3 bg-surface-variant rounded"></div>
+<div class="w-full h-2 bg-surface-container-highest rounded mt-auto"></div>
+<div class="w-4/5 h-2 bg-surface-container-highest rounded"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-1/2 h-20 border border-outline-variant bg-white rounded"></div>
+<div class="w-1/2 h-20 border border-outline-variant bg-white rounded"></div>
+</div>
+</div>
+<!-- Vertical Rule -->
+<div class="absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant -ml-[0.5px] z-10"></div>
+<!-- Center dividing handle indicator -->
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-surface border border-outline-variant z-20 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">swap_horiz</span>
+</div>
+<!-- Right Side: Dark Preview -->
+<div class="w-1/2 bg-[#1a1c1d] p-4 flex flex-col gap-3 relative overflow-hidden">
+<!-- Mockup UI elements (Dark versions) -->
+<div class="w-3/4 h-4 bg-[#2f3132] rounded"></div>
+<div class="w-full h-24 border border-[#434655] bg-[#222425] rounded flex flex-col p-3 gap-2">
+<div class="w-1/3 h-3 bg-[#434655] rounded"></div>
+<div class="w-full h-2 bg-[#434655] rounded mt-auto"></div>
+<div class="w-4/5 h-2 bg-[#434655] rounded"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-1/2 h-20 border border-[#434655] bg-[#222425] rounded"></div>
+<div class="w-1/2 h-20 border border-[#434655] bg-[#222425] rounded"></div>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-outline-variant bg-surface-container-low text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">Follows your OS appearance — currently <span class="font-bold text-on-surface">Light</span></p>
+</div>
+</section>
+<section class="mt-stack-lg p-6 rounded-xl border border-error/20 bg-error-container/10">
+<div class="flex items-center gap-2 mb-stack-md text-error">
+<span class="material-symbols-outlined">error</span>
+<h3 class="font-title-md text-title-md font-bold">Danger Zone</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between py-2 border-b border-error/10">
+<span class="font-body-md text-on-surface">Reset all service behaviour to defaults</span>
+<button class="px-3 py-1 rounded border border-error text-error text-label-sm hover:bg-error/5 transition-colors">Reset</button>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-error/10">
+<span class="font-body-md text-on-surface">Clear cached screens and analytics (2.1 GB)</span>
+<button class="px-3 py-1 rounded border border-error text-error text-label-sm hover:bg-error/5 transition-colors">Clear Cache</button>
+</div>
+<div class="flex items-center justify-between py-2">
+<span class="font-body-md text-on-surface">Delete all keys and start over</span>
+<button class="px-3 py-1 rounded border border-error text-error text-label-sm hover:bg-error/5 transition-colors">Delete All</button>
+</div>
+</div>
+</section></div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design System Applied</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed": "#001a42",
+                "on-primary-fixed": "#141b2b",
+                "tertiary-fixed-dim": "#dcc2a4",
+                "inverse-on-surface": "#f3f0f1",
+                "on-background": "#1b1b1d",
+                "on-primary-fixed-variant": "#404758",
+                "background": "#fcf8fa",
+                "surface": "#fcf8fa",
+                "primary-fixed": "#dce2f7",
+                "surface-tint": "#575e70",
+                "secondary-fixed": "#d8e2ff",
+                "tertiary-container": "#261906",
+                "outline": "#76777d",
+                "on-tertiary-fixed": "#261906",
+                "inverse-primary": "#c0c6db",
+                "on-tertiary-container": "#968065",
+                "on-tertiary": "#ffffff",
+                "surface-container": "#f0edee",
+                "primary-fixed-dim": "#c0c6db",
+                "surface-variant": "#e5e2e3",
+                "surface-container-high": "#eae7e9",
+                "on-surface-variant": "#45464c",
+                "primary-container": "#141b2b",
+                "on-secondary": "#ffffff",
+                "on-primary-container": "#7d8497",
+                "on-primary": "#ffffff",
+                "on-surface": "#1b1b1d",
+                "tertiary-fixed": "#f9debf",
+                "surface-bright": "#fcf8fa",
+                "error": "#ba1a1a",
+                "inverse-surface": "#303031",
+                "outline-variant": "#c6c6cd",
+                "surface-dim": "#dcd9db",
+                "secondary": "#0058be",
+                "on-error-container": "#93000a",
+                "tertiary": "#000000",
+                "on-secondary-container": "#fefcff",
+                "on-tertiary-fixed-variant": "#55442d",
+                "on-secondary-fixed-variant": "#004395",
+                "surface-container-highest": "#e5e2e3",
+                "on-error": "#ffffff",
+                "secondary-fixed-dim": "#adc6ff",
+                "error-container": "#ffdad6",
+                "primary": "#000000",
+                "surface-container-low": "#f6f3f4",
+                "secondary-container": "#2170e4"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "unit": "4px",
+                "row-height-sm": "24px",
+                "row-height-md": "32px",
+                "stack-tight": "0.25rem",
+                "gutter": "1rem",
+                "stack-base": "0.5rem",
+                "container-padding": "1.5rem"
+              },
+              "fontFamily": {
+                "ui-regular": [
+                  "Inter"
+                ],
+                "mono-data": [
+                  "JetBrains Mono"
+                ],
+                "h2": [
+                  "Inter"
+                ],
+                "h1": [
+                  "Inter"
+                ],
+                "mono-label": [
+                  "JetBrains Mono"
+                ],
+                "ui-medium": [
+                  "Inter"
+                ],
+                "ui-bold": [
+                  "Inter"
+                ]
+              },
+              "fontSize": {
+                "ui-regular": [
+                  "13px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "mono-data": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "h2": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "h1": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "mono-label": [
+                  "10px",
+                  {
+                    "lineHeight": "12px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "ui-medium": [
+                  "13px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "ui-bold": [
+                  "13px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "600"
+                  }
+                ]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-ui-regular text-ui-regular h-full flex flex-col antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Toast Banner -->
+<div class="w-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-between px-container-padding h-row-height-md shrink-0 border-b border-secondary-fixed-dim z-50" id="toast-banner">
+<div class="flex items-center gap-stack-base">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-ui-medium text-ui-medium">Applied Slate Console to Gateway Console — 18 tokens updated</span>
+</div>
+<button aria-label="Close notification" class="text-on-secondary-fixed hover:text-on-surface transition-colors flex items-center justify-center p-unit focus:outline-none focus:ring-1 focus:ring-secondary focus:ring-offset-1 focus:ring-offset-secondary-fixed rounded-DEFAULT" onclick="document.getElementById('toast-banner').style.display='none'">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Main Navigation (TopAppBar) -->
+<header class="bg-surface text-primary font-ui-medium text-ui-medium h-row-height-md sticky top-0 z-10 border-b border-outline-variant flex items-center justify-between px-container-padding shrink-0 transition-all duration-200">
+<div class="flex items-center gap-gutter">
+<div class="font-h1 text-h1 text-primary">System Console</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-stack-base ml-gutter">
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200 px-unit py-unit" href="#">Projects</a>
+<a class="text-primary border-b-2 border-primary transition-all duration-200 px-unit py-unit" href="#">Design Systems</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200 px-unit py-unit" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="bg-primary text-on-primary font-ui-medium text-ui-medium px-stack-base py-unit rounded-DEFAULT hover:bg-inverse-surface transition-colors focus:outline-none focus:ring-1 focus:ring-primary focus:ring-offset-1 focus:ring-offset-surface">
+                New Design System
+            </button>
+<div class="flex items-center gap-stack-tight">
+<button aria-label="Notifications" class="text-on-surface-variant hover:text-primary transition-colors p-unit rounded-DEFAULT hover:bg-surface-container-low focus:outline-none">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="User Profile" class="text-on-surface-variant hover:text-primary transition-colors p-unit rounded-DEFAULT hover:bg-surface-container-low focus:outline-none">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Side Navigation (SideNavBar) - Rendered only on Web -->
+<nav class="bg-surface text-primary font-ui-regular text-ui-regular w-64 h-full border-r border-outline-variant hidden md:flex flex-col py-spacing-gutter shrink-0 overflow-y-auto">
+<div class="flex flex-col gap-unit px-stack-base flex-1">
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">palette</span>
+<span>Design</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">extension</span>
+<span>Components</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">inventory_2</span>
+<span>Assets</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">format_size</span>
+<span>Typography</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">colorize</span>
+<span>Colors</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-primary font-ui-bold bg-surface-container transition-colors duration-150 ease-in-out group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span>Library</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group mt-gutter" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">help_outline</span>
+<span>Help</span>
+</a>
+</div>
+<div class="px-stack-base mt-auto">
+<a class="flex items-center gap-stack-base px-stack-base py-stack-tight rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 ease-in-out font-ui-regular group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto p-container-padding bg-surface">
+<div class="max-w-4xl mx-auto space-y-gutter">
+<!-- Page Header -->
+<div class="flex flex-col gap-stack-tight mb-gutter">
+<h1 class="font-h1 text-h1 text-primary">Deployment Successful</h1>
+<p class="font-ui-regular text-ui-regular text-on-surface-variant">The configuration changes have been compiled and distributed to the target environment.</p>
+</div>
+<!-- Bento Grid Layout for Information Density -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Token Delta Pane (Takes up 2 cols on Desktop) -->
+<div class="md:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT p-gutter flex flex-col gap-gutter">
+<div class="flex items-center justify-between border-b border-outline-variant pb-stack-tight">
+<h2 class="font-ui-medium text-ui-medium text-primary">Token Delta: Button Component</h2>
+<span class="font-mono-label text-mono-label text-on-surface-variant uppercase tracking-wider">Visual Verification</span>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Before Column -->
+<div class="flex flex-col gap-stack-base items-start">
+<span class="font-mono-label text-mono-label text-on-surface-variant uppercase">Previous State</span>
+<div class="w-full h-32 bg-surface-container-low border border-outline-variant rounded-DEFAULT flex items-center justify-center p-gutter">
+<button class="bg-surface-tint text-on-primary font-ui-medium text-ui-medium px-4 py-2 rounded-DEFAULT opacity-80 cursor-not-allowed">
+                                        Primary Action
+                                    </button>
+</div>
+<div class="flex flex-col gap-unit w-full">
+<div class="flex justify-between items-center border-b border-outline-variant py-unit">
+<span class="font-mono-data text-mono-data text-on-surface-variant">bg-color</span>
+<span class="font-mono-data text-mono-data text-surface-tint">#575e70</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant py-unit">
+<span class="font-mono-data text-mono-data text-on-surface-variant">radius</span>
+<span class="font-mono-data text-mono-data text-primary">0.25rem</span>
+</div>
+</div>
+</div>
+<!-- After Column -->
+<div class="flex flex-col gap-stack-base items-start">
+<span class="font-mono-label text-mono-label text-primary uppercase">Current State (Slate)</span>
+<div class="w-full h-32 bg-surface-container-lowest border border-primary rounded-DEFAULT flex items-center justify-center p-gutter relative overflow-hidden">
+<!-- Subtle background pattern indicating new state -->
+<div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<button class="bg-primary text-on-primary font-ui-medium text-ui-medium px-4 py-2 rounded-DEFAULT shadow-[0_4px_12px_rgba(17,24,39,0.1)] relative z-10 hover:bg-inverse-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-lowest">
+                                        Primary Action
+                                    </button>
+</div>
+<div class="flex flex-col gap-unit w-full">
+<div class="flex justify-between items-center border-b border-outline-variant py-unit">
+<span class="font-mono-data text-mono-data text-on-surface-variant">bg-color</span>
+<span class="font-mono-data text-mono-data text-primary font-bold">#000000</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant py-unit">
+<span class="font-mono-data text-mono-data text-on-surface-variant">radius</span>
+<span class="font-mono-data text-mono-data text-primary">0.125rem</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Deployment Meta Data Pane -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-DEFAULT p-gutter flex flex-col gap-gutter">
+<div class="flex items-center justify-between border-b border-outline-variant pb-stack-tight">
+<h2 class="font-ui-medium text-ui-medium text-primary">Deployment Log</h2>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">terminal</span>
+</div>
+<div class="flex flex-col gap-stack-base flex-1">
+<div class="flex justify-between items-center">
+<span class="font-ui-regular text-ui-regular text-on-surface-variant">Source</span>
+<span class="font-mono-data text-mono-data text-primary bg-surface-container px-unit rounded-sm">Slate Console</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-regular text-ui-regular text-on-surface-variant">Target</span>
+<span class="font-mono-data text-mono-data text-primary bg-surface-container px-unit rounded-sm">Gateway Console</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-regular text-ui-regular text-on-surface-variant">Environment</span>
+<span class="font-mono-data text-mono-data text-primary">Production</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-regular text-ui-regular text-on-surface-variant">Timestamp</span>
+<span class="font-mono-data text-mono-data text-primary">14:32:01 UTC</span>
+</div>
+</div>
+<div class="mt-auto pt-gutter border-t border-outline-variant">
+<button class="w-full border border-outline-variant text-primary font-ui-medium text-ui-medium py-unit rounded-DEFAULT hover:bg-surface-container-low transition-colors focus:outline-none focus:ring-1 focus:ring-primary focus:ring-offset-1 focus:ring-offset-surface-container-lowest">
+                                View Full Diff
+                            </button>
+</div>
+</div>
+<!-- Environment Registry Pane (Spans full width below) -->
+<div class="md:col-span-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT flex flex-col">
+<div class="p-gutter border-b border-outline-variant flex items-center justify-between">
+<h2 class="font-ui-medium text-ui-medium text-primary">Environment Registry</h2>
+<div class="flex items-center gap-stack-tight bg-surface-container-low border border-outline-variant rounded-DEFAULT px-stack-base py-unit">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">search</span>
+<input class="bg-transparent border-none p-0 text-ui-regular text-primary placeholder:text-on-surface-variant focus:ring-0 w-48 font-ui-regular h-4" placeholder="Filter environments..." type="text"/>
+</div>
+</div>
+<!-- Data Table -->
+<div class="flex flex-col w-full">
+<!-- Table Header -->
+<div class="flex items-center w-full px-gutter py-stack-tight border-b border-outline-variant bg-surface-container-low/50">
+<div class="w-1/3 font-mono-label text-mono-label text-on-surface-variant uppercase">Project Name</div>
+<div class="w-1/4 font-mono-label text-mono-label text-on-surface-variant uppercase">Active Theme</div>
+<div class="w-1/4 font-mono-label text-mono-label text-on-surface-variant uppercase">Last Sync</div>
+<div class="w-1/12 font-mono-label text-mono-label text-on-surface-variant uppercase text-right">Status</div>
+</div>
+<!-- Table Rows -->
+<div class="flex items-center w-full px-gutter h-row-height-md border-b border-outline-variant hover:bg-surface-container-low transition-colors cursor-default">
+<div class="w-1/3 font-ui-medium text-ui-medium text-primary flex items-center gap-stack-base">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">cloud</span>
+                                    Auth Gateway Service
+                                </div>
+<div class="w-1/4 font-mono-data text-mono-data text-on-surface-variant">Core Light v2.1</div>
+<div class="w-1/4 font-mono-data text-mono-data text-on-surface-variant">2 days ago</div>
+<div class="w-1/12 flex justify-end">
+<div class="w-2 h-2 rounded-full bg-surface-tint" title="Stable"></div>
+</div>
+</div>
+<!-- Highlighted Target Row -->
+<div class="flex items-center w-full px-gutter h-row-height-md border-b border-outline-variant bg-secondary-fixed-dim/10 hover:bg-secondary-fixed-dim/20 transition-colors cursor-default relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-r-sm"></div>
+<div class="w-1/3 font-ui-medium text-ui-medium text-primary flex items-center gap-stack-base">
+<span class="material-symbols-outlined text-[16px] text-secondary">web</span>
+                                    Gateway Console
+                                </div>
+<div class="w-1/4 font-mono-data text-mono-data text-primary flex items-center gap-stack-tight">
+                                    Slate Console
+                                    <span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] px-1 rounded-sm leading-tight tracking-wide border border-secondary-fixed-dim">UPDATED</span>
+</div>
+<div class="w-1/4 font-mono-data text-mono-data text-primary">Just now</div>
+<div class="w-1/12 flex justify-end items-center gap-stack-tight">
+<span class="font-mono-label text-mono-label text-secondary uppercase hidden md:inline-block">Synced</span>
+<div class="w-2 h-2 rounded-full bg-secondary" title="Just Applied"></div>
+</div>
+</div>
+<div class="flex items-center w-full px-gutter h-row-height-md border-b border-outline-variant hover:bg-surface-container-low transition-colors cursor-default">
+<div class="w-1/3 font-ui-medium text-ui-medium text-primary flex items-center gap-stack-base">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">database</span>
+                                    Customer Data Platform
+                                </div>
+<div class="w-1/4 font-mono-data text-mono-data text-on-surface-variant">Enterprise Dark v1.0</div>
+<div class="w-1/4 font-mono-data text-mono-data text-on-surface-variant">1 week ago</div>
+<div class="w-1/12 flex justify-end">
+<div class="w-2 h-2 rounded-full bg-surface-tint" title="Stable"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RPM MONITOR - Headroom Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#87929a",
+                        "on-primary-fixed-variant": "#004c69",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary-container": "#613b00",
+                        "on-error": "#690005",
+                        "surface-tint": "#7bd0ff",
+                        "on-secondary": "#131e8c",
+                        "primary": "#8ed5ff",
+                        "on-primary": "#00354a",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-primary-container": "#004965",
+                        "secondary-container": "#2f3aa3",
+                        "surface-container-high": "#222a3d",
+                        "tertiary": "#ffc176",
+                        "primary-fixed-dim": "#7bd0ff",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#dae2fd",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#283044",
+                        "surface-variant": "#2d3449",
+                        "tertiary-fixed": "#ffddb8",
+                        "secondary": "#bdc2ff",
+                        "surface-bright": "#31394d",
+                        "surface-container-highest": "#2d3449",
+                        "on-secondary-fixed-variant": "#2f3aa3",
+                        "on-primary-fixed": "#001e2c",
+                        "outline-variant": "#3e484f",
+                        "on-tertiary": "#472a00",
+                        "on-surface-variant": "#bdc8d1",
+                        "surface-container": "#171f33",
+                        "surface": "#0b1326",
+                        "on-secondary-container": "#a8afff",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary-fixed": "#c4e7ff",
+                        "tertiary-fixed-dim": "#ffb960",
+                        "inverse-surface": "#dae2fd",
+                        "tertiary-container": "#f1a02b",
+                        "on-surface": "#dae2fd",
+                        "on-secondary-fixed": "#000767",
+                        "surface-container-lowest": "#060e20",
+                        "primary-container": "#38bdf8",
+                        "inverse-primary": "#00668a",
+                        "background": "#0b1326",
+                        "surface-dim": "#0b1326",
+                        "secondary-fixed": "#e0e0ff",
+                        "error-container": "#93000a",
+                        "caution": "#facc15" // Added for the amber/yellow request, matching tailwind yellow-400
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "pane-margin": "1rem",
+                        "gutter": "1px",
+                        "stack-sm": "0.5rem",
+                        "container-padding": "12px",
+                        "stack-xs": "0.25rem"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "data-label": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "data-value": ["JetBrains Mono"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "data-label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "data-value": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "code-sm": ["11px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .meter-bg { fill: none; stroke: theme('colors.surface-container-highest'); stroke-width: 8; stroke-linecap: round; }
+        .meter-fill { fill: none; stroke-width: 8; stroke-linecap: round; transform: rotate(-90deg); transform-origin: center; transition: stroke-dasharray 1s ease-out; }
+        .meter-fill.normal { stroke: theme('colors.primary'); }
+        .meter-fill.caution { stroke: theme('colors.tertiary-container'); }
+        
+        /* Custom scrollbar for high-density environments */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: theme('colors.outline-variant'); border-radius: 2px; }
+        ::-webkit-scrollbar-thumb:hover { background: theme('colors.outline'); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- App Container: Split Pane Architecture -->
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<nav class="w-[240px] h-screen fixed left-0 top-0 bg-surface-container border-r border-outline-variant flex flex-col py-pane-margin z-20">
+<!-- Header -->
+<div class="px-pane-margin mb-8">
+<div class="flex items-center gap-3 mb-1">
+<img alt="System Administrator" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A small, stylized, high-tech geometric avatar representing a system administrator, rendered in cool blue and dark slate tones, clean flat vector style against a dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHtOb9sc3hiMfXGVayKoDxj6XRHKE4dbc065UCVhNt_QpeBa3_xT5tj6PlLO-KLpqjeAxq49zDfxy0B3Wah8nwPI7aq4wn_wK5FJ0Z2gwgkd3lP-JsreaTLjZ02Zb5IypMf3ZL8UZ4RscV_dgnZdOa_5nIQykdpk9E4afexFazFm--SJfrdjBDaNigIIVLh11SVxS68n5uv5h9RFg0D_RPf9mM6uIPub6ZPs_fycTfWFyGKghWW0IGOdO64CUHczyd6cwSnW9JIF17"/>
+<div class="font-data-value text-data-value text-primary tracking-tighter">RPM MONITOR</div>
+</div>
+<div class="font-data-label text-data-label text-on-surface-variant pl-11">v4.2.0-STABLE</div>
+</div>
+<!-- Main Navigation -->
+<div class="flex-1 flex flex-col gap-1 px-2">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-75 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+<span class="font-data-label text-data-label">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-75 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+<span class="font-data-label text-data-label">Live Telemetry</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-container-high text-primary font-bold border-l-2 border-primary rounded-r-DEFAULT opacity-90 transition-opacity" href="#">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+<span class="font-data-label text-data-label">Capacity Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-75 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined text-[18px]">lan</span>
+<span class="font-data-label text-data-label">Node Health</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-75 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span class="font-data-label text-data-label">System Logs</span>
+</a>
+</div>
+<!-- Footer Navigation -->
+<div class="mt-auto px-2 border-t border-outline-variant pt-2 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-75 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span class="font-data-label text-data-label">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-75 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined text-[18px]">help_center</span>
+<span class="font-data-label text-data-label">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[240px] flex-1 flex flex-col h-screen overflow-hidden bg-background">
+<!-- TopAppBar -->
+<header class="h-12 w-full flex items-center justify-between px-pane-margin bg-surface border-b border-outline-variant shrink-0 z-10">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">HEADROOM ANALYTICS</div>
+<div class="flex items-center gap-4">
+<!-- Right aligned search/actions as per JSON -->
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center w-8 h-8 rounded-DEFAULT hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center w-8 h-8 rounded-DEFAULT hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center w-8 h-8 rounded-DEFAULT hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-pane-margin">
+<!-- Section Header -->
+<div class="mb-stack-md pb-stack-sm border-b border-outline-variant">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">RPM headroom</h1>
+</div>
+<!-- High-Density Grid Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter bg-outline-variant border border-outline-variant rounded-DEFAULT overflow-hidden">
+<!-- Gauge 1: prod-key-1 -->
+<div class="bg-surface-container flex flex-col p-container-padding hover:bg-surface-container-high transition-colors duration-75">
+<div class="font-data-label text-data-label text-on-surface-variant mb-4 pb-2 border-b border-outline-variant text-center">
+                            prod-key-1 · 42/60 rpm
+                        </div>
+<div class="relative flex-1 flex items-center justify-center py-4">
+<!-- SVG Meter -->
+<svg class="w-32 h-32" viewbox="0 0 100 100">
+<circle class="meter-bg" cx="50" cy="50" r="40"></circle>
+<!-- 70% fill: dasharray = circumference (2*pi*40 = ~251.2), fill = 251.2 * 0.7 = 175.84 -->
+<circle class="meter-fill normal" cx="50" cy="50" r="40" stroke-dasharray="175.84 251.2"></circle>
+</svg>
+<!-- Center Text -->
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-data-value text-data-value text-on-surface">42</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">/60</span>
+</div>
+</div>
+<div class="mt-4 pt-2 border-t border-outline-variant text-center">
+<span class="font-data-label text-data-label text-primary">70.0%</span>
+</div>
+</div>
+<!-- Gauge 2: prod-key-2 (Caution) -->
+<div class="bg-surface-container flex flex-col p-container-padding hover:bg-surface-container-high transition-colors duration-75">
+<div class="font-data-label text-data-label text-tertiary-container mb-4 pb-2 border-b border-outline-variant text-center">
+                            prod-key-2 · 58/60 rpm
+                        </div>
+<div class="relative flex-1 flex items-center justify-center py-4">
+<!-- SVG Meter -->
+<svg class="w-32 h-32" viewbox="0 0 100 100">
+<circle class="meter-bg" cx="50" cy="50" r="40"></circle>
+<!-- 96.6% fill: 251.2 * 0.966 = 242.66 -->
+<circle class="meter-fill caution" cx="50" cy="50" r="40" stroke-dasharray="242.66 251.2"></circle>
+</svg>
+<!-- Center Text -->
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-data-value text-data-value text-tertiary-container">58</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">/60</span>
+</div>
+</div>
+<div class="mt-4 pt-2 border-t border-outline-variant text-center">
+<span class="font-data-label text-data-label text-tertiary-container">96.6%</span>
+</div>
+</div>
+<!-- Gauge 3: backup-key -->
+<div class="bg-surface-container flex flex-col p-container-padding hover:bg-surface-container-high transition-colors duration-75">
+<div class="font-data-label text-data-label text-on-surface-variant mb-4 pb-2 border-b border-outline-variant text-center">
+                            backup-key · 12/30 rpm
+                        </div>
+<div class="relative flex-1 flex items-center justify-center py-4">
+<!-- SVG Meter -->
+<svg class="w-32 h-32" viewbox="0 0 100 100">
+<circle class="meter-bg" cx="50" cy="50" r="40"></circle>
+<!-- 40% fill: 251.2 * 0.4 = 100.48 -->
+<circle class="meter-fill normal" cx="50" cy="50" r="40" stroke-dasharray="100.48 251.2"></circle>
+</svg>
+<!-- Center Text -->
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-data-value text-data-value text-on-surface">12</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">/30</span>
+</div>
+</div>
+<div class="mt-4 pt-2 border-t border-outline-variant text-center">
+<span class="font-data-label text-data-label text-primary">40.0%</span>
+</div>
+</div>
+</div> <!-- End Grid -->
+</div> <!-- End Scrollable Canvas -->
+</main>
+</div>
+<script>
+        // Optional: Add simple entry animation for meters if desired
+        document.addEventListener("DOMContentLoaded", () => {
+            const meters = document.querySelectorAll('.meter-fill');
+            meters.forEach(meter => {
+                const targetDash = meter.getAttribute('stroke-dasharray');
+                // Temporarily set to 0 to trigger transition on load
+                const parts = targetDash.split(' ');
+                meter.setAttribute('stroke-dasharray', `0 ${parts[1]}`);
+                setTimeout(() => {
+                    meter.setAttribute('stroke-dasharray', targetDash);
+                }, 100);
+            });
+        });
+    </script>
+</body></html>

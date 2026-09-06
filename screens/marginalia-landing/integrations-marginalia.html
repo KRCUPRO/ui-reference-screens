@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Works with your existing tools - Marginalia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&amp;family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "primary-container": "#1c1b1b",
+                "tertiary": "#000000",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-high": "#ebe7e6",
+                "on-tertiary-fixed-variant": "#484645",
+                "on-tertiary": "#ffffff",
+                "background": "#fdf8f8",
+                "tertiary-container": "#1c1b1a",
+                "surface-dim": "#ddd9d8",
+                "on-primary-container": "#858383",
+                "on-background": "#1c1b1b",
+                "on-error-container": "#93000a",
+                "primary-fixed-dim": "#c8c6c5",
+                "on-secondary-container": "#646464",
+                "on-secondary-fixed": "#1b1c1c",
+                "on-primary": "#ffffff",
+                "secondary": "#5e5e5e",
+                "on-secondary-fixed-variant": "#464747",
+                "inverse-on-surface": "#f4f0ef",
+                "on-primary-fixed-variant": "#474746",
+                "surface": "#fdf8f8",
+                "on-surface-variant": "#444748",
+                "on-error": "#ffffff",
+                "outline": "#747878",
+                "on-secondary": "#ffffff",
+                "inverse-surface": "#313030",
+                "surface-container-low": "#f7f3f2",
+                "tertiary-fixed-dim": "#cac6c4",
+                "secondary-fixed": "#e4e2e2",
+                "secondary-container": "#e4e2e2",
+                "surface-tint": "#5f5e5e",
+                "secondary-fixed-dim": "#c8c6c6",
+                "surface-bright": "#fdf8f8",
+                "tertiary-fixed": "#e6e2df",
+                "primary-fixed": "#e5e2e1",
+                "on-primary-fixed": "#1c1b1b",
+                "on-tertiary-fixed": "#1c1b1a",
+                "on-tertiary-container": "#868382",
+                "surface-variant": "#e5e2e1",
+                "outline-variant": "#c4c7c7",
+                "on-surface": "#1c1b1b",
+                "surface-container-highest": "#e5e2e1",
+                "inverse-primary": "#c8c6c5",
+                "error-container": "#ffdad6",
+                "primary": "#000000",
+                "surface-container": "#f1edec",
+                "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "stack-md": "16px",
+                "stack-lg": "32px",
+                "stack-sm": "8px",
+                "margin-safe": "40px",
+                "gutter": "24px",
+                "section-gap": "80px",
+                "unit": "4px"
+              },
+              "fontFamily": {
+                "ui-medium": [
+                  "Public Sans"
+                ],
+                "display-lg-mobile": [
+                  "EB Garamond"
+                ],
+                "display-lg": [
+                  "EB Garamond"
+                ],
+                "body-md": [
+                  "EB Garamond"
+                ],
+                "headline-md": [
+                  "EB Garamond"
+                ],
+                "label-bold": [
+                  "Public Sans"
+                ],
+                "body-lg": [
+                  "EB Garamond"
+                ],
+                "caption": [
+                  "Public Sans"
+                ]
+              },
+              "fontSize": {
+                "ui-medium": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "display-lg-mobile": [
+                  "32px",
+                  {
+                    "lineHeight": "40px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "display-lg": [
+                  "48px",
+                  {
+                    "lineHeight": "56px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "body-md": [
+                  "16px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "label-bold": [
+                  "13px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-lg": [
+                  "18px",
+                  {
+                    "lineHeight": "28px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "caption": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        [data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<nav class="bg-background dark:bg-background w-full top-0 sticky border-b border-surface-variant dark:border-outline-variant z-50">
+<div class="max-w-[1200px] mx-auto px-margin-safe h-20 flex items-center justify-between">
+<div class="flex items-center gap-gutter">
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary dark:text-on-background" href="#">
+                    Marginalia
+                </a>
+<div class="hidden md:flex gap-stack-md ml-margin-safe">
+<a class="font-label-bold text-label-bold text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Archive</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Indices</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Journal</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-colors duration-200 cursor-pointer active:opacity-70" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="hidden md:block font-label-bold text-label-bold bg-primary text-on-primary px-4 py-2 border border-primary cursor-pointer active:opacity-70">Subscribe</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-margin-safe py-section-gap">
+<header class="mb-stack-lg">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary text-center md:text-left tracking-tight mb-stack-md">
+                Works with your existing tools
+            </h1>
+<div class="w-full h-px bg-outline-variant"></div>
+</header>
+<section class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-px bg-outline-variant border-x border-b border-outline-variant">
+<!-- Tile 1: Google Drive -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="cloud">cloud</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">Google Drive</span>
+</div>
+<!-- Tile 2: Notion -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="description">description</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">Notion</span>
+</div>
+<!-- Tile 3: Confluence -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="forum">forum</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">Confluence</span>
+</div>
+<!-- Tile 4: Slack -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="tag">tag</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">Slack</span>
+</div>
+<!-- Tile 5: Dropbox -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">Dropbox</span>
+</div>
+<!-- Tile 6: SharePoint -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="share">share</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">SharePoint</span>
+</div>
+<!-- Tile 7: GitHub -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="code">code</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">GitHub</span>
+</div>
+<!-- Tile 8: Zapier -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="bolt">bolt</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">Zapier</span>
+</div>
+<!-- Tile 9: Salesforce -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="cloud_sync">cloud_sync</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">Salesforce</span>
+</div>
+<!-- Tile 10: Box -->
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center p-stack-md group">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-stack-sm" data-icon="deployed_code">deployed_code</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest text-center mt-auto">Box</span>
+</div>
+<!-- Empty Tiles (14 remaining to make 24) -->
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+<div class="aspect-square bg-surface-container-low"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest w-full mt-section-gap border-t border-surface-variant dark:border-outline-variant">
+<div class="max-w-[1200px] mx-auto px-margin-safe py-stack-lg flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="font-label-bold text-label-bold uppercase tracking-widest text-primary">
+                Marginalia
+            </div>
+<div class="flex flex-wrap justify-center gap-stack-md font-caption text-caption text-on-secondary-container">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Colophon</a>
+<a class="hover:text-primary transition-colors" href="#">RSS</a>
+</div>
+<div class="font-caption text-caption text-on-surface dark:text-on-surface">
+                © 2024 Marginalia Press. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

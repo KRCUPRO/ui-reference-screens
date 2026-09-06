@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Typographic Metrics Band</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "tertiary": "#000000",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "surface-container-high": "#ebe7e6",
+              "on-background": "#1c1b1b",
+              "surface-container-highest": "#e5e2e1",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#c8c6c5",
+              "surface-tint": "#5f5e5e",
+              "on-primary-fixed-variant": "#474746",
+              "background": "#fdf8f8",
+              "on-tertiary-fixed-variant": "#484645",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#e5e2e1",
+              "surface": "#fdf8f8",
+              "on-primary-fixed": "#1c1b1b",
+              "tertiary-container": "#1c1b1a",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#c8c6c6",
+              "surface-bright": "#fdf8f8",
+              "on-secondary-container": "#656464",
+              "secondary-container": "#e4e2e1",
+              "surface-container": "#f1edec",
+              "tertiary-fixed": "#e6e2df",
+              "surface-variant": "#e5e2e1",
+              "on-tertiary-fixed": "#1c1b1a",
+              "outline-variant": "#c4c7c7",
+              "inverse-surface": "#313030",
+              "on-tertiary-container": "#868382",
+              "error": "#ba1a1a",
+              "secondary": "#5f5e5e",
+              "surface-container-low": "#f7f3f2",
+              "primary": "#000000",
+              "on-secondary-fixed": "#1b1c1c",
+              "inverse-primary": "#c8c6c5",
+              "on-secondary-fixed-variant": "#474747",
+              "secondary-fixed": "#e4e2e1",
+              "outline": "#747878",
+              "on-surface-variant": "#444748",
+              "error-container": "#ffdad6",
+              "primary-container": "#1c1b1b",
+              "on-primary-container": "#858383",
+              "surface-dim": "#ddd9d8",
+              "tertiary-fixed-dim": "#cac6c4",
+              "on-surface": "#1c1b1b",
+              "on-tertiary": "#ffffff",
+              "inverse-on-surface": "#f4f0ef"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "gutter": "8px",
+              "column-gap": "12px",
+              "unit": "4px",
+              "row-gap": "4px",
+              "margin-page": "16px"
+            },
+            "fontFamily": {
+              "footer-note": [
+                "Archivo Narrow"
+              ],
+              "label-caps": [
+                "Archivo Narrow"
+              ],
+              "body-sm": [
+                "\"Source Serif 4\""
+              ],
+              "headline-lg": [
+                "\"Source Serif 4\""
+              ],
+              "headline-md": [
+                "\"Source Serif 4\""
+              ],
+              "body-md": [
+                "\"Source Serif 4\""
+              ]
+            },
+            "fontSize": {
+              "footer-note": [
+                "10px",
+                {
+                  "lineHeight": "14px",
+                  "letterSpacing": "0.01em",
+                  "fontWeight": "400"
+                }
+              ],
+              "label-caps": [
+                "11px",
+                {
+                  "lineHeight": "12px",
+                  "letterSpacing": "0.08em",
+                  "fontWeight": "700"
+                }
+              ],
+              "body-sm": [
+                "12px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "400"
+                }
+              ],
+              "headline-lg": [
+                "30px",
+                {
+                  "lineHeight": "32px",
+                  "letterSpacing": "-0.02em",
+                  "fontWeight": "700"
+                }
+              ],
+              "headline-md": [
+                "20px",
+                {
+                  "lineHeight": "24px",
+                  "fontWeight": "700"
+                }
+              ],
+              "body-md": [
+                "14px",
+                {
+                  "lineHeight": "18px",
+                  "fontWeight": "400"
+                }
+              ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .metric-rule {
+            border-right: 1px solid #f7f3f2;
+        }
+        .metric-rule:last-child {
+            border-right: none;
+        }
+        /* Using a generic monospace font for the requested monospace figures as it's not explicitly in the config */
+        .font-mono-custom {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 48px; /* Significantly larger than labels */
+            line-height: 1;
+            font-weight: 300;
+        }
+        /* Specifically targeting the requested colors from the prompt since they slightly diverge from the exact config names for this specific aesthetic block, but mapping as best as possible. The prompt asks for #1a1a1a (close to tertiary-container) and #f7f3f2 (surface-container-low). */
+        .bg-ink-black {
+            background-color: #1a1a1a;
+        }
+        .text-cream {
+            color: #f7f3f2;
+        }
+        .border-cream {
+            border-color: #f7f3f2;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased">
+<!-- Typographic Metrics Band -->
+<div class="w-full bg-ink-black text-cream flex items-stretch border-y border-cream">
+<div class="grid grid-cols-4 w-full h-full max-w-7xl mx-auto">
+<!-- Column 1 -->
+<div class="flex flex-col justify-center items-start py-8 px-8 metric-rule border-cream">
+<div class="font-mono-custom mb-[12px] tracking-tight">2,800</div>
+<div class="font-body-md text-body-md lowercase">teams onboarded</div>
+</div>
+<!-- Column 2 -->
+<div class="flex flex-col justify-center items-start py-8 px-8 metric-rule border-cream">
+<div class="font-mono-custom mb-[12px] tracking-tight">40,000</div>
+<div class="font-body-md text-body-md lowercase">documents indexed</div>
+</div>
+<!-- Column 3 -->
+<div class="flex flex-col justify-center items-start py-8 px-8 metric-rule border-cream">
+<div class="font-mono-custom mb-[12px] tracking-tight">92%</div>
+<div class="font-body-md text-body-md lowercase">citation accuracy</div>
+</div>
+<!-- Column 4 -->
+<div class="flex flex-col justify-center items-start py-8 px-8 metric-rule border-cream">
+<div class="font-mono-custom mb-[12px] tracking-tight">14,000</div>
+<div class="font-body-md text-body-md lowercase">hours saved</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia Testimonial Carousel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&amp;family=Archivo+Narrow:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#474747",
+            "on-background": "#1c1b1b",
+            "on-primary-fixed-variant": "#474746",
+            "background": "#fdf8f8",
+            "surface-dim": "#ddd9d8",
+            "surface-container-low": "#f7f3f2",
+            "on-primary": "#ffffff",
+            "surface": "#fdf8f8",
+            "surface-tint": "#5f5e5e",
+            "secondary-fixed": "#e4e2e1",
+            "on-secondary-container": "#656464",
+            "surface-bright": "#fdf8f8",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c4c7c7",
+            "tertiary-fixed": "#e6e2df",
+            "secondary-container": "#e4e2e1",
+            "on-primary-container": "#858383",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#cac6c4",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#1c1b1a",
+            "on-tertiary-container": "#868382",
+            "on-secondary-fixed": "#1b1c1c",
+            "inverse-primary": "#c8c6c5",
+            "primary-container": "#1c1b1b",
+            "surface-container": "#f1edec",
+            "error-container": "#ffdad6",
+            "surface-variant": "#e5e2e1",
+            "surface-container-highest": "#e5e2e1",
+            "primary": "#000000",
+            "on-error-container": "#93000a",
+            "on-surface": "#1c1b1b",
+            "tertiary-container": "#1c1b1a",
+            "primary-fixed-dim": "#c8c6c5",
+            "inverse-on-surface": "#f4f0ef",
+            "surface-container-high": "#ebe7e6",
+            "primary-fixed": "#e5e2e1",
+            "outline": "#747878",
+            "on-tertiary-fixed-variant": "#484645",
+            "tertiary": "#000000",
+            "inverse-surface": "#313030",
+            "secondary-fixed-dim": "#c8c6c6",
+            "on-surface-variant": "#444748",
+            "on-primary-fixed": "#1c1b1b",
+            "on-error": "#ffffff",
+            "secondary": "#5f5e5e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-page": "16px",
+            "column-gap": "12px",
+            "gutter": "8px",
+            "row-gap": "4px",
+            "unit": "4px"
+          },
+          "fontFamily": {
+            "headline-md": [
+              "\"Source Serif 4\""
+            ],
+            "body-sm": [
+              "\"Source Serif 4\""
+            ],
+            "headline-lg": [
+              "\"Source Serif 4\""
+            ],
+            "footer-note": [
+              "Archivo Narrow"
+            ],
+            "label-caps": [
+              "Archivo Narrow"
+            ],
+            "body-md": [
+              "\"Source Serif 4\""
+            ]
+          },
+          "fontSize": {
+            "headline-md": [
+              "20px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "700"
+              }
+            ],
+            "body-sm": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-lg": [
+              "30px",
+              {
+                "lineHeight": "32px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "footer-note": [
+              "10px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.01em",
+                "fontWeight": "400"
+              }
+            ],
+            "label-caps": [
+              "11px",
+              {
+                "lineHeight": "12px",
+                "letterSpacing": "0.08em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-md": [
+              "14px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "400"
+              }
+            }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Hide scrollbar for carousel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:hidden">
+<!-- TopAppBar Semantic Shell -->
+<header class="w-full sticky top-0 border-b border-outline-variant dark:border-outline bg-surface dark:bg-background z-10 flex justify-between items-center px-margin-mobile h-16 w-full">
+<button aria-label="Menu" class="text-primary dark:text-on-background hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors active:opacity-80 transition-opacity p-2 -ml-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-on-background flex-1 text-center truncate">
+      Marginalia
+    </div>
+<button aria-label="Search" class="text-primary dark:text-on-background hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors active:opacity-80 transition-opacity p-2 -mr-2">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col justify-center py-12 relative overflow-hidden">
+<!-- Section Header (Editorial Double Rule) -->
+<div class="px-[20px] mb-8">
+<div class="w-full h-[1px] bg-[#333] mb-[2px]"></div>
+<div class="w-full h-[1px] bg-[#333] mb-4"></div>
+<h2 class="font-label-caps text-label-caps text-on-background uppercase">Field Reports</h2>
+</div>
+<!-- Carousel Container -->
+<div class="w-full overflow-x-auto no-scrollbar snap-x snap-mandatory flex px-[10px] scroll-smooth">
+<!-- Card 1 (Partially Visible Left) -->
+<div class="flex-shrink-0 w-[85vw] snap-center px-[10px]">
+<div class="border border-[#333] p-6 h-full flex flex-col justify-between opacity-50 transition-opacity duration-300 bg-surface">
+<div class="mb-4">
+<img alt="Previous Testimonial" class="w-16 h-16 object-cover border border-[#333] grayscale" data-alt="A stark, high-contrast black and white portrait of a professional looking slightly away, resembling a newspaper etching or archival photograph. The lighting is dramatic, emphasizing texture and authoritative presence against a plain bright background. Minimalist editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdnl1w9oXfzWcIP1tQVabtGyS_NLC-3BUJarfTZnrTmpNMZBMZo4-xVdZQAxum5ZvdlXZlNSjKMcjeCX_TCM_V7Vx9BlZDnz_iqCurfdDihpjQS8IDAjPTwdWieWLi9sKHxKXjCNGcAOrLKvALZ86dsiUkQNhlocHSNIVOrpIFMegUVW7EpcBe4o6RWWCcRmXxCMNAR0wKY4egMzz1cZmwTHV_CI2a_cFBjOGlbswZ2nmPrrfSe0gD2kb7XExIP05mwOik7H9wSUhB"/>
+</div>
+<p class="font-headline-md text-headline-md text-on-background mb-8 leading-tight">
+              "The indexing capability fundamentally shifted our archival review process."
+            </p>
+<div>
+<p class="font-label-caps text-label-caps text-on-background uppercase">Marcus Vance</p>
+<p class="font-footer-note text-footer-note text-on-surface-variant">Senior Archivist, State Historical Society</p>
+</div>
+</div>
+</div>
+<!-- Card 2 (Active/Center) -->
+<div class="flex-shrink-0 w-[85vw] snap-center px-[10px]">
+<div class="border-[2px] border-primary p-6 h-full flex flex-col justify-between bg-surface relative">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-outline-variant" data-icon="format_quote" style="font-size: 32px;">format_quote</span>
+</div>
+<div class="mb-6">
+<img alt="Grace Odom" class="w-16 h-16 object-cover border border-[#333] grayscale" data-alt="A tightly cropped, high-contrast black and white square portrait of a female professional (Grace Odom) with glasses, looking directly at the camera with a focused expression. The style evokes a classic broadsheet newspaper headshot, stark and authoritative, set against a solid warm cream (#fdf8f8) background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAThEyaHyc0pqIJk39WReFrfntI-NJHcMreb0hDijQzk_39iYhWrnbyF8XdtQkn8jiQaBGejN_5ErUh9ttAoZTwusBFT9zHHlhWDU4phQOA-CyZ9e3-xfB4_cLthHBvnS8zUoGBo8Iu3OZhDY3w5P5vegHI_qFy-ZPUg5ILjHlk1F2hXNPsPvUmP_fhAB__FzHZrHh27fBRvHHJw1kf_JLh7zSDOHHnJzmwgI0qyF25a_51pmlDKlik9mNGtsIFjiwLnMASItKqY9s7"/>
+</div>
+<p class="font-headline-lg text-[24px] leading-[28px] font-bold text-on-background mb-8 tracking-tight">
+              "I stopped re-reading entire depositions; Marginalia points me straight to the paragraph."
+            </p>
+<div class="border-t border-[#333] pt-4 mt-auto">
+<p class="font-label-caps text-label-caps text-on-background uppercase mb-1">Grace Odom</p>
+<p class="font-footer-note text-footer-note text-on-surface-variant">Paralegal, Bright Path Legal</p>
+</div>
+</div>
+</div>
+<!-- Card 3 (Partially Visible Right) -->
+<div class="flex-shrink-0 w-[85vw] snap-center px-[10px]">
+<div class="border border-[#333] p-6 h-full flex flex-col justify-between opacity-50 transition-opacity duration-300 bg-surface">
+<div class="mb-4">
+<img alt="Next Testimonial" class="w-16 h-16 object-cover border border-[#333] grayscale" data-alt="A stark, high-contrast black and white portrait of a male academic, looking thoughtful, resembling a classic scholarly journal contributor photo. The lighting is stark and directional, creating strong shadows against a stark white background. Pure functional editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9VKIp5TKtG0yfwbt0d7VkYcNy0q-AXrYrK1aYrvZLTi1UZ8UNmWjkZrqe1F88Z4MbOeysrwxIFiP9f9H4BDATNuOV_dachlmnR3XH-IPBPA5yXI7hB_aQDe7mgRHn5gBl3h346bFtJd4AnqDnrF-BZVJanSBxpA0TXriBWE8lFw35PepXwLP_GdNRzGl5u5JRE0caWECuozxr22HlG0FvaUUMmMydr3DYo44rU7GtGO1mZMRtrGytxv9pm-1aL71evhztqP4daIRd"/>
+</div>
+<p class="font-headline-md text-headline-md text-on-background mb-8 leading-tight">
+              "Cross-referencing footnotes across decades of literature now takes seconds, not days."
+            </p>
+<div>
+<p class="font-label-caps text-label-caps text-on-background uppercase">Dr. Elias Thorne</p>
+<p class="font-footer-note text-footer-note text-on-surface-variant">Professor of Literature, University of the East</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Dot Indicators -->
+<div class="flex justify-center items-center space-x-3 mt-8">
+<div class="w-2 h-2 rounded-full border border-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full border border-primary"></div>
+<div class="w-2 h-2 rounded-full border border-primary"></div>
+<div class="w-2 h-2 rounded-full border border-primary"></div>
+</div>
+</main>
+<!-- BottomNavBar Semantic Shell (Active: Research based on intent of viewing testimonials/case studies) -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-outline-variant dark:border-outline bg-surface dark:bg-background flex justify-around items-center py-2 px-margin-mobile w-full">
+<button aria-label="Search" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-low dark:hover:bg-surface-variant active:scale-95 transition-transform duration-100 p-2 w-16">
+<span class="material-symbols-outlined mb-1" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</button>
+<button aria-label="Research" class="flex flex-col items-center justify-center text-primary dark:text-on-background font-bold hover:bg-surface-container-low dark:hover:bg-surface-variant active:scale-95 transition-transform duration-100 p-2 w-16">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-sm text-label-sm">Research</span>
+</button>
+<button aria-label="Library" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-low dark:hover:bg-surface-variant active:scale-95 transition-transform duration-100 p-2 w-16">
+<span class="material-symbols-outlined mb-1" data-icon="folder_open">folder_open</span>
+<span class="font-label-sm text-label-sm">Library</span>
+</button>
+<button aria-label="Settings" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-low dark:hover:bg-surface-variant active:scale-95 transition-transform duration-100 p-2 w-16">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+<script>
+    // Simple script to ensure the middle card is snapped to on load for demonstration
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.querySelector('.overflow-x-auto');
+      if(container) {
+        // Scroll to the second item roughly
+        container.scrollLeft = container.offsetWidth * 0.8;
+      }
+    });
+  </script>
+</body></html>

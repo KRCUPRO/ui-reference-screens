@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia Updates</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#261900",
+                        "surface-cream": "#fdf8f8",
+                        "primary-fixed": "#e6e1e2",
+                        "ink-charcoal": "#1c1b1c",
+                        "tertiary-fixed-dim": "#dcc397",
+                        "paper-shadow": "#f7f2f2",
+                        "on-secondary-container": "#636262",
+                        "tertiary": "#000000",
+                        "divider-hairline": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#464747",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#313030",
+                        "surface-container-highest": "#e6e1e1",
+                        "on-tertiary-container": "#968159",
+                        "surface-bright": "#fdf8f8",
+                        "primary-container": "#1c1b1c",
+                        "on-surface-variant": "#48464a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#f9dfb1",
+                        "outline-variant": "#cac5ca",
+                        "surface-container": "#f1eded",
+                        "inverse-on-surface": "#f4f0f0",
+                        "on-tertiary-fixed": "#261900",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary": "#5e5e5e",
+                        "secondary-container": "#e1dfdf",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e6e1e1",
+                        "background": "#fdf8f8",
+                        "on-primary-fixed": "#1c1b1c",
+                        "secondary-fixed": "#e4e2e2",
+                        "on-primary-fixed-variant": "#484647",
+                        "surface-container-low": "#f7f2f2",
+                        "on-surface": "#1c1b1c",
+                        "on-tertiary-fixed-variant": "#554422",
+                        "surface": "#fdf8f8",
+                        "surface-dim": "#ddd9d9",
+                        "surface-tint": "#605e5f",
+                        "primary-fixed-dim": "#c9c5c6",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#c9c5c6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1c1b1c",
+                        "outline": "#79767a",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container-high": "#ece7e7",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#868384",
+                        "primary": "#000000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "80px",
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "unit": "4px",
+                        "margin-safe": "40px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "caption": ["Public Sans"],
+                        "ui-medium": ["Public Sans"],
+                        "body-lg": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "body-md": ["EB Garamond"],
+                        "display-lg-mobile": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "ui-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary selection:text-on-primary pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface border-b border-divider-hairline dark:border-outline-variant flat no shadows z-40">
+<div class="flex items-center justify-between px-margin-safe h-16 w-full max-w-[1200px] mx-auto md:px-[20px]">
+<button class="text-primary dark:text-on-surface hover:bg-paper-shadow dark:hover:bg-surface-container-highest transition-colors active:opacity-70 transition-opacity p-2 -ml-2 rounded-none flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-label-bold text-label-bold tracking-widest text-primary dark:text-on-surface uppercase">MARGINALIA</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto pt-stack-lg md:px-[20px]">
+<div class="flex flex-col">
+<!-- Update 1 -->
+<div class="px-3 py-3 border-b border-divider-hairline flex flex-col gap-1 hover:bg-paper-shadow transition-colors group">
+<span class="font-mono text-[11px] tracking-wider text-secondary uppercase">v2.4.0</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Confluence connector added</span>
+<span class="font-caption text-caption text-secondary">Mar 3, 2026</span>
+</div>
+<!-- Update 2 -->
+<div class="px-3 py-3 border-b border-divider-hairline flex flex-col gap-1 hover:bg-paper-shadow transition-colors group">
+<span class="font-mono text-[11px] tracking-wider text-secondary uppercase">v2.3.9</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Enhanced citation parsing</span>
+<span class="font-caption text-caption text-secondary">Feb 28, 2026</span>
+</div>
+<!-- Update 3 -->
+<div class="px-3 py-3 border-b border-divider-hairline flex flex-col gap-1 hover:bg-paper-shadow transition-colors group">
+<span class="font-mono text-[11px] tracking-wider text-secondary uppercase">v2.3.8</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">PDF annotation stability</span>
+<span class="font-caption text-caption text-secondary">Feb 21, 2026</span>
+</div>
+<!-- Update 4 -->
+<div class="px-3 py-3 border-b border-divider-hairline flex flex-col gap-1 hover:bg-paper-shadow transition-colors group">
+<span class="font-mono text-[11px] tracking-wider text-secondary uppercase">v2.3.7</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Global search performance</span>
+<span class="font-caption text-caption text-secondary">Feb 14, 2026</span>
+</div>
+<!-- Update 5 -->
+<div class="px-3 py-3 border-b border-divider-hairline flex flex-col gap-1 hover:bg-paper-shadow transition-colors group">
+<span class="font-mono text-[11px] tracking-wider text-secondary uppercase">v2.3.6</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Mobile layout optimizations</span>
+<span class="font-caption text-caption text-secondary">Feb 7, 2026</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar as Footer Strip -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-center items-stretch gap-0 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container border-t border-divider-hairline dark:border-outline-variant flat no shadows md:hidden">
+<!-- Subscribe Input Area -->
+<div class="flex-grow flex items-center bg-primary p-4 gap-4">
+<div class="flex-grow relative">
+<label class="sr-only" for="email-subscribe">SUBSCRIBE TO UPDATES</label>
+<input class="w-full bg-transparent border-b border-on-primary text-on-primary font-label-bold text-label-bold placeholder:text-on-primary/50 focus:outline-none focus:border-on-primary focus:ring-0 pb-1 rounded-none px-0" id="email-subscribe" placeholder="SUBSCRIBE TO UPDATES" type="email"/>
+</div>
+</div>
+<!-- Notify Me Button (Simulating Active state for visual weight) -->
+<button class="flex flex-col items-center justify-center bg-tertiary-container text-on-tertiary-container rounded-none p-4 hover:bg-on-secondary-fixed-variant transition-colors active:scale-[0.98] transition-transform duration-150 min-w-[100px]">
+<span class="font-label-bold text-label-bold">NOTIFY ME</span>
+</button>
+</footer>
+</body></html>

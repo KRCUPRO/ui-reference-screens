@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Network Timeout Error</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed": "#dae2fd",
+          "tertiary-fixed-dim": "#ffb596",
+          "on-tertiary-container": "#ffede6",
+          "surface": "#131313",
+          "primary-fixed-dim": "#b4c5ff",
+          "on-primary-fixed-variant": "#003ea8",
+          "on-background": "#e5e2e1",
+          "on-tertiary": "#581e00",
+          "surface-container-low": "#1c1b1b",
+          "on-secondary-fixed": "#131b2e",
+          "on-tertiary-fixed-variant": "#7d2d00",
+          "surface-variant": "#353535",
+          "surface-bright": "#393939",
+          "on-surface-variant": "#c3c6d7",
+          "outline": "#8d90a0",
+          "tertiary": "#ffb596",
+          "inverse-on-surface": "#313030",
+          "surface-container": "#20201f",
+          "secondary-fixed-dim": "#bec6e0",
+          "on-tertiary-fixed": "#360f00",
+          "inverse-surface": "#e5e2e1",
+          "inverse-primary": "#0053db",
+          "on-error-container": "#ffdad6",
+          "on-secondary-container": "#adb4ce",
+          "on-secondary": "#283044",
+          "primary-container": "#2563eb",
+          "background": "#131313",
+          "tertiary-container": "#bc4800",
+          "secondary": "#bec6e0",
+          "secondary-container": "#3f465c",
+          "error": "#ffb4ab",
+          "error-container": "#93000a",
+          "surface-tint": "#b4c5ff",
+          "outline-variant": "#434655",
+          "on-primary-fixed": "#00174b",
+          "primary": "#b4c5ff",
+          "surface-container-high": "#2a2a2a",
+          "on-error": "#690005",
+          "tertiary-fixed": "#ffdbcd",
+          "surface-dim": "#131313",
+          "surface-container-lowest": "#0e0e0e",
+          "on-surface": "#e5e2e1",
+          "on-secondary-fixed-variant": "#3f465c",
+          "surface-container-highest": "#353535",
+          "primary-fixed": "#dbe1ff",
+          "on-primary": "#002a78",
+          "on-primary-container": "#eeefff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "xs": "4px",
+          "gutter": "12px",
+          "md": "12px",
+          "margin": "16px",
+          "sm": "8px",
+          "lg": "16px",
+          "xl": "24px",
+          "base": "4px"
+        },
+        "fontFamily": {
+          "headline-lg": [
+            "Public Sans"
+          ],
+          "body-sm": [
+            "Public Sans"
+          ],
+          "body-md": [
+            "Public Sans"
+          ],
+          "headline-md": [
+            "Public Sans"
+          ],
+          "label-caps": [
+            "JetBrains Mono"
+          ],
+          "headline-lg-mobile": [
+            "Public Sans"
+          ],
+          "code-block": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-caps": [
+            "11px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.05em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg-mobile": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "700"
+            }
+          ],
+          "code-block": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+</style>
+</head>
+<body class="bg-background text-on-surface h-screen w-full flex justify-center items-center p-4">
+<div class="w-full max-w-[768px] flex flex-col gap-sm">
+<!-- TopAppBar Semantic Shell (Suppressed for Error State as per guidelines, but providing structural context if needed) -->
+<!-- Danger Soft Banner -->
+<div class="w-full bg-error-container/30 border border-error-container p-md rounded flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error" data-icon="error">error</span>
+<span class="font-body-md text-body-md text-error">Request timed out after 30 seconds connecting to the gateway host</span>
+</div>
+<button class="bg-error text-on-error font-label-caps text-label-caps px-md py-xs rounded hover:opacity-90 transition-opacity">Retry</button>
+</div>
+<!-- Secondary Info -->
+<div class="w-full px-xs">
+<span class="font-code-block text-code-block text-on-surface-variant">Job number 4823, attempt 2 of 3</span>
+</div>
+<!-- Disabled Form Canvas -->
+<div class="w-full bg-surface-container-low border border-outline-variant rounded mt-sm p-lg flex flex-col gap-lg opacity-50 pointer-events-none">
+<div class="flex justify-between items-center border-b border-outline-variant pb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Tool Invocation</h2>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Target Endpoint</label>
+<div class="w-full bg-surface border border-outline-variant rounded p-sm font-code-block text-code-block text-on-surface-variant flex items-center justify-between">
+<span>https://api.gateway.internal/v2/invoke</span>
+<span class="material-symbols-outlined text-outline" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Payload Structure</label>
+<div class="w-full h-32 bg-surface-container-lowest border border-outline-variant rounded p-sm font-code-block text-code-block text-outline overflow-hidden relative">
+<div class="absolute top-0 left-0 h-full w-8 bg-surface-container-low border-r border-outline-variant flex flex-col items-center py-sm text-outline/50">
+<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+</div>
+<div class="pl-10">
+<span class="text-on-surface-variant">{</span><br/>
+                    <span class="text-on-surface-variant">"action":</span> "execute_query",<br/>
+                    <span class="text-on-surface-variant">"params":</span> {<br/>
+                      <span class="text-on-surface-variant">"timeout_ms":</span> 30000<br/>
+                    }<br/>
+<span class="text-on-surface-variant">}</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-md mt-sm pt-md border-t border-outline-variant">
+<button class="border border-outline-variant text-on-surface-variant font-label-caps text-label-caps px-lg py-sm rounded">Cancel</button>
+<button class="bg-surface-variant text-on-surface-variant font-label-caps text-label-caps px-lg py-sm rounded flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span> Invoke Tool
+          </button>
+</div>
+</div>
+</div>
+</body></html>

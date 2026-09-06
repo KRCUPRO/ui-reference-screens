@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Obsidian Command - Operations Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#a15100",
+                        "tertiary": "#ffb784",
+                        "surface-container": "#221e28",
+                        "on-primary": "#3f008e",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "on-background": "#e8dfee",
+                        "inverse-surface": "#e8dfee",
+                        "inverse-on-surface": "#332f39",
+                        "on-surface-variant": "#ccc3d8",
+                        "on-tertiary": "#4f2500",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-container-lowest": "#100d16",
+                        "outline-variant": "#4a4455",
+                        "on-primary-fixed": "#25005a",
+                        "surface-variant": "#37333e",
+                        "on-tertiary-fixed": "#301400",
+                        "secondary": "#c8c6c5",
+                        "surface-dim": "#15121b",
+                        "background": "#15121b",
+                        "surface-container-high": "#2c2833",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "inverse-primary": "#732ee4",
+                        "error-container": "#93000a",
+                        "surface": "#15121b",
+                        "on-secondary": "#303030",
+                        "on-surface": "#e8dfee",
+                        "outline": "#958da1",
+                        "surface-container-highest": "#37333e",
+                        "on-primary-container": "#ede0ff",
+                        "on-tertiary-container": "#ffe0cd",
+                        "primary-fixed-dim": "#d2bbff",
+                        "surface-tint": "#d2bbff",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "secondary-container": "#474746",
+                        "surface-container-low": "#1d1a24",
+                        "primary-fixed": "#eaddff",
+                        "tertiary-fixed": "#ffdcc6",
+                        "primary-container": "#7c3aed",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-bright": "#3c3742",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary": "#d2bbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "12px",
+                        "container-max": "100%",
+                        "margin": "16px"
+                    },
+                    "fontFamily": {
+                        "data-sm": ["JetBrains Mono", "monospace"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "data-lg": ["JetBrains Mono", "monospace"],
+                        "label-caps": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "data-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "data-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1; }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #15121b; }
+        ::-webkit-scrollbar-thumb { background: #37333e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4a4455; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen overflow-hidden flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (from JSON, acting as active context 'Overview') -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-lowest text-primary dark:text-primary h-screen w-64 left-0 top-0 border-r border-outline-variant flat no shadows fixed left-0 top-0 h-full flex flex-col z-40 transition-colors duration-200">
+<div class="p-gutter border-b border-outline-variant flex items-center space-x-unit">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md">N</div>
+<div>
+<div class="font-display-lg text-primary text-headline-sm">NODE_01</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Active Session</div>
+</div>
+</div>
+<div class="flex-1 py-unit flex flex-col space-y-1">
+<a class="px-gutter py-2 flex items-center space-x-gutter text-primary bg-surface-container-high border-r-2 border-primary" href="#">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+<span class="font-label-caps text-label-caps">Overview</span>
+</a>
+<a class="px-gutter py-2 flex items-center space-x-gutter text-on-surface-variant hover:bg-surface-container-highest hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]">monitoring</span>
+<span class="font-label-caps text-label-caps">Performance</span>
+</a>
+<a class="px-gutter py-2 flex items-center space-x-gutter text-on-surface-variant hover:bg-surface-container-highest hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+<span class="font-label-caps text-label-caps">Security</span>
+</a>
+<a class="px-gutter py-2 flex items-center space-x-gutter text-on-surface-variant hover:bg-surface-container-highest hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]">lan</span>
+<span class="font-label-caps text-label-caps">Network</span>
+</a>
+<a class="px-gutter py-2 flex items-center space-x-gutter text-on-surface-variant hover:bg-surface-container-highest hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</div>
+<div class="p-gutter">
+<button class="w-full bg-primary text-on-primary py-2 rounded-none font-label-caps text-label-caps hover:bg-primary-fixed transition-colors">SYNC DATA</button>
+</div>
+<div class="border-t border-outline-variant py-unit">
+<a class="px-gutter py-2 flex items-center space-x-gutter text-on-surface-variant hover:bg-surface-container-highest hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+<a class="px-gutter py-2 flex items-center space-x-gutter text-on-surface-variant hover:bg-surface-container-highest hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span class="font-label-caps text-label-caps">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col h-full relative">
+<!-- TopNavBar (from JSON, suppressed navigation links as it conflicts with sidebar intent, but keeping brand/actions) -->
+<header class="bg-background dark:bg-background text-primary dark:text-primary w-full top-0 border-b border-outline-variant flat no shadows transition-all duration-300 ease-in-out flex justify-between items-center px-gutter py-4 w-full max-w-full mx-auto z-30">
+<div class="font-display-lg text-headline-md tracking-tighter text-primary">OBSIDIAN COMMAND</div>
+<div class="flex items-center space-x-gutter">
+<button class="text-on-surface-variant hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border border-background"></span>
+</button>
+<img alt="User profile" class="w-8 h-8 bg-surface-container-highest border border-outline-variant ml-2" data-alt="A futuristic geometric avatar pattern in deep purple and cyan neon hues, representing a secure user profile in a high-tech tactical operations dashboard environment. Minimalist and sharp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY6KTQYwhumH5i4Jkye93vKazmDxPQDXUHTZS1CQ5lkLjg0fU9lywg7Jk-hvJ7oSrlPSfAfG_Y5FLHkmDJzeN6dDxHvASf1n5kCpCGFli8ZHUr8jZS9d0iN6DbrCR_OkDp9HLnSYfFI4nL8dNo9vf0amH_nbudrR22TefgxpajYG5y-f7XkgAdAsXORQZnDWMzvJuE3wLC56X2Lt4LHjUzZ0QnqRG0YipZPag4ElDREnLpYM4W1BnxhXhxl1ZMj_7lXslaxg2BsEMi"/>
+</div>
+</header>
+<!-- Dashboard Canvas (Behind Overlay) -->
+<div class="flex-1 p-margin overflow-auto opacity-40 transition-opacity duration-300 blur-[2px] pointer-events-none">
+<div class="grid grid-cols-12 gap-margin mb-margin">
+<div class="col-span-12 md:col-span-8 bg-[#0a0a0a] border border-[#1f1f1f] p-margin">
+<div class="flex justify-between items-center mb-margin border-b border-[#1f1f1f] pb-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Service Status</h2>
+<div class="flex items-center space-x-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">MAIN POOL</span>
+<div class="w-8 h-4 bg-primary-container rounded-full relative">
+<div class="w-3 h-3 bg-on-primary-container rounded-full absolute right-0.5 top-0.5"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-unit">
+<!-- Node 1 -->
+<div class="bg-[#0a0a0a] border border-[#1f1f1f] p-unit">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface">prod-01</span>
+<div class="w-2 h-2 bg-error"></div>
+</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">CPU: 98%</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">RAM: 14GB</div>
+</div>
+<!-- Node 2 -->
+<div class="bg-[#0a0a0a] border border-[#1f1f1f] p-unit">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface">prod-02</span>
+<div class="w-2 h-2 bg-[#4ade80]"></div>
+</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">CPU: 42%</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">RAM: 8GB</div>
+</div>
+<!-- Node 3 -->
+<div class="bg-[#0a0a0a] border border-[#1f1f1f] p-unit">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface">eu-mirror</span>
+<div class="w-2 h-2 bg-[#4ade80]"></div>
+</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">CPU: 21%</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">RAM: 12GB</div>
+</div>
+<!-- Node 4 -->
+<div class="bg-[#0a0a0a] border border-[#1f1f1f] p-unit">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface">asia-node</span>
+<div class="w-2 h-2 bg-[#facc15]"></div>
+</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">CPU: 75%</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">RAM: 16GB</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-[#0a0a0a] border border-[#1f1f1f] p-margin flex flex-col justify-center items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">GLOBAL THROUGHPUT</span>
+<div class="font-data-lg text-data-lg text-primary mb-1">1,375 calls</div>
+<div class="font-data-sm text-data-sm text-[#4ade80]">94.0% success</div>
+</div>
+</div>
+<!-- Terminal Area Mock -->
+<div class="bg-black border border-[#1f1f1f] h-64 p-margin font-data-sm text-data-sm text-on-surface-variant flex flex-col space-y-1">
+<div class="text-primary-fixed-dim">[14:32:01] SYSTEM: Connection to eu-mirror established.</div>
+<div>[14:32:05] WARN: High latency detected on prod-01 (450ms).</div>
+<div>[14:32:06] INFO: Auto-scaling initiated for prod-01 pool.</div>
+<div class="text-error">[14:32:10] CRITICAL: prod-01 health check failed. Attempting restart...</div>
+<div class="flex items-center mt-2"><span class="text-primary mr-2">&gt;</span> <span class="animate-pulse bg-on-surface-variant w-2 h-4 inline-block"></span></div>
+</div>
+</div>
+<!-- Command Palette Overlay Backdrop -->
+<div class="absolute inset-0 bg-background/80 z-50 flex items-start justify-center pt-[153px]">
+<!-- Command Palette Panel -->
+<div class="w-full max-w-2xl bg-surface-container-high border border-outline-variant shadow-2xl flex flex-col overflow-hidden">
+<!-- Search Input Area -->
+<div class="flex items-center px-margin py-3 border-b border-outline-variant bg-surface-container-highest">
+<span class="material-symbols-outlined text-on-surface-variant mr-3">search</span>
+<input autofocus="" class="flex-1 bg-transparent border-none p-0 text-on-surface font-body-md focus:ring-0 placeholder:text-on-surface-variant" placeholder="Type a command..." type="text" value="Paus"/>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container border border-outline-variant px-1.5 py-0.5 rounded-sm">ESC</span>
+</div>
+<!-- Results List -->
+<div class="flex flex-col py-unit max-h-[614px] overflow-y-auto">
+<div class="px-margin py-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SUGGESTED ACTIONS</span>
+</div>
+<!-- Selected Item -->
+<button class="w-full text-left px-margin py-3 flex items-center justify-between bg-[#161616] border-l-2 border-primary outline-none focus:bg-[#161616] group">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined mr-3 text-[18px]">pause_circle</span>
+<span class="font-body-md">Pause service</span>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface-variant group-hover:text-primary tracking-widest">⌘P</span>
+</button>
+<!-- Unselected Items -->
+<button class="w-full text-left px-margin py-3 flex items-center justify-between hover:bg-[#161616] border-l-2 border-transparent outline-none group transition-colors">
+<div class="flex items-center text-on-surface group-hover:text-on-surface">
+<span class="material-symbols-outlined mr-3 text-[18px] text-on-surface-variant">key</span>
+<span class="font-body-md">Add key</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline-variant group-hover:text-on-surface-variant tracking-widest">⌘K</span>
+</button>
+<button class="w-full text-left px-margin py-3 flex items-center justify-between hover:bg-[#161616] border-l-2 border-transparent outline-none group transition-colors">
+<div class="flex items-center text-on-surface group-hover:text-on-surface">
+<span class="material-symbols-outlined mr-3 text-[18px] text-on-surface-variant">restart_alt</span>
+<span class="font-body-md">Restart pool</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline-variant group-hover:text-on-surface-variant tracking-widest">⇧⌘R</span>
+</button>
+<button class="w-full text-left px-margin py-3 flex items-center justify-between hover:bg-[#161616] border-l-2 border-transparent outline-none group transition-colors">
+<div class="flex items-center text-on-surface group-hover:text-on-surface">
+<span class="material-symbols-outlined mr-3 text-[18px] text-on-surface-variant">download</span>
+<span class="font-body-md">Export today's log</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline-variant group-hover:text-on-surface-variant tracking-widest">⌘E</span>
+</button>
+</div>
+<!-- Footer -->
+<div class="px-margin py-2 border-t border-outline-variant bg-surface-container-highest flex items-center justify-between font-label-caps text-label-caps text-on-surface-variant">
+<div class="flex space-x-4">
+<span class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-1">keyboard_return</span> to select</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-1">arrow_upward</span><span class="material-symbols-outlined text-[12px] mr-1">arrow_downward</span> to navigate</span>
+</div>
+<span>Obsidian Command v2.4</span>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Minimal interaction logic for demonstration
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // In a real app, this would hide the command palette
+                console.log('Escape pressed - would close palette');
+            }
+        });
+    </script>
+</body></html>

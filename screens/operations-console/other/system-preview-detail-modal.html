@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design System Preview Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "error": "#ffb4ab",
+              "on-primary-fixed-variant": "#00513c",
+              "surface-container-low": "#1c1b1b",
+              "surface-container-highest": "#353534",
+              "primary-fixed-dim": "#00e1ab",
+              "surface-container-lowest": "#0e0e0e",
+              "on-secondary-fixed": "#1c1b1b",
+              "error-container": "#93000a",
+              "on-secondary": "#313030",
+              "surface-variant": "#353534",
+              "tertiary-fixed-dim": "#e2c62e",
+              "on-primary-container": "#007255",
+              "inverse-primary": "#006c50",
+              "on-secondary-container": "#b7b5b4",
+              "secondary": "#c8c6c5",
+              "outline-variant": "#3a4a43",
+              "secondary-fixed-dim": "#c8c6c5",
+              "on-primary": "#003828",
+              "on-tertiary-fixed-variant": "#534600",
+              "surface-dim": "#131313",
+              "on-secondary-fixed-variant": "#474746",
+              "on-error-container": "#ffdad6",
+              "on-tertiary-fixed": "#211b00",
+              "tertiary": "#fffeff",
+              "primary-fixed": "#36ffc4",
+              "surface-container-high": "#2a2a2a",
+              "inverse-surface": "#e5e2e1",
+              "primary": "#fbfffa",
+              "secondary-fixed": "#e5e2e1",
+              "inverse-on-surface": "#313030",
+              "surface-container": "#201f1f",
+              "surface-tint": "#00e1ab",
+              "on-surface": "#e5e2e1",
+              "tertiary-fixed": "#ffe253",
+              "on-tertiary": "#393000",
+              "on-tertiary-container": "#746300",
+              "secondary-container": "#474746",
+              "surface": "#131313",
+              "on-background": "#e5e2e1",
+              "tertiary-container": "#ffe149",
+              "surface-bright": "#3a3939",
+              "background": "#131313",
+              "on-error": "#690005",
+              "on-surface-variant": "#b9cbc1",
+              "on-primary-fixed": "#002116",
+              "outline": "#83958c",
+              "primary-container": "#00ffc2"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "unit": "4px",
+              "container-padding": "12px",
+              "element-gap": "8px",
+              "toolbar-height": "40px"
+            },
+            "fontFamily": {
+              "body-md": [
+                "Geist"
+              ],
+              "headline-sm": [
+                "Geist"
+              ],
+              "label-caps": [
+                "JetBrains Mono"
+              ],
+              "label-sm": [
+                "Geist"
+              ]
+            },
+            "fontSize": {
+              "body-md": [
+                "13px",
+                {
+                  "lineHeight": "18px",
+                  "fontWeight": "400"
+                }
+              ],
+              "headline-sm": [
+                "14px",
+                {
+                  "lineHeight": "20px",
+                  "letterSpacing": "-0.01em",
+                  "fontWeight": "600"
+                }
+              ],
+              "label-caps": [
+                "11px",
+                {
+                  "lineHeight": "16px",
+                  "letterSpacing": "0.05em",
+                  "fontWeight": "500"
+                }
+              ],
+              "label-sm": [
+                "12px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen w-screen flex items-center justify-center p-4">
+<!-- Modal Container -->
+<div class="w-full max-w-6xl h-[819px] flex flex-col border border-outline-variant bg-surface rounded shadow-2xl overflow-hidden">
+<!-- Header / Window Controls (Optional Context) -->
+<div class="h-toolbar-height bg-surface border-b border-outline-variant flex items-center px-container-padding justify-between shrink-0">
+<div class="font-label-caps text-label-caps tracking-widest text-primary-fixed-dim">
+                SYSTEM PREVIEW
+             </div>
+<button class="w-7 h-7 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Toolbar Strip -->
+<div class="h-toolbar-height bg-surface-container-high border-b border-outline-variant flex items-center px-container-padding justify-between shrink-0">
+<div class="flex items-center gap-6">
+<!-- Zoom Control -->
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors rounded">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-label-sm text-label-sm text-on-surface min-w-[40px] text-center">100%</span>
+<button class="w-7 h-7 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors rounded">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<!-- Vertical Divider -->
+<div class="w-[1px] h-4 bg-outline-variant"></div>
+<!-- Device Selector (Segmented Control) -->
+<div class="flex items-center bg-surface-container border border-outline-variant p-[2px] rounded">
+<button class="px-3 py-1 font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors rounded-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">smartphone</span>
+                        Phone
+                    </button>
+<button class="px-3 py-1 font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors rounded-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">tablet</span>
+                        Tablet
+                    </button>
+<!-- Active State -->
+<button class="px-3 py-1 font-label-sm text-label-sm bg-primary-fixed-dim text-on-primary-fixed-variant transition-colors rounded-sm flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">desktop_windows</span>
+                        Desktop
+                    </button>
+</div>
+<!-- Vertical Divider -->
+<div class="w-[1px] h-4 bg-outline-variant"></div>
+<!-- Theme Swatches -->
+<div class="flex items-center gap-3">
+<!-- Light -->
+<button aria-label="Light Theme" class="w-4 h-4 rounded-full bg-white border border-outline-variant hover:scale-110 transition-transform focus:outline-none"></button>
+<!-- Dark (Active) -->
+<button aria-label="Dark Theme" class="w-4 h-4 rounded-full bg-[#1A1A1A] border-2 border-transparent ring-2 ring-primary-fixed-dim ring-offset-2 ring-offset-surface-container-high focus:outline-none"></button>
+<!-- Slate -->
+<button aria-label="Slate Theme" class="w-4 h-4 rounded-full bg-[#64748B] border border-outline-variant hover:scale-110 transition-transform focus:outline-none"></button>
+<!-- Neon -->
+<button aria-label="Neon Theme" class="w-4 h-4 rounded-full bg-[#39FF14] border border-outline-variant hover:scale-110 transition-transform focus:outline-none"></button>
+</div>
+</div>
+<!-- Utility Actions -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors rounded" title="Copy link">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors rounded" title="Open in new tab">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Preview Canvas -->
+<div class="flex-1 bg-surface-container-lowest overflow-auto p-8 relative flex items-center justify-center">
+<!-- Dummy Content for Preview Area to show Desktop mode -->
+<div class="w-full max-w-4xl h-[600px] border border-outline-variant bg-surface rounded shadow-sm flex flex-col">
+<div class="h-10 border-b border-outline-variant flex items-center px-4 gap-2 bg-surface-container-low">
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<div class="flex-1 mx-4 h-6 bg-surface-container-highest rounded border border-outline-variant flex items-center px-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">preview.designsystem.local</span>
+</div>
+</div>
+<div class="flex-1 bg-background p-8 grid grid-cols-3 gap-6">
+<!-- Skeleton Content to represent the design system page being previewed -->
+<div class="col-span-1 border border-outline-variant bg-surface-container p-4 rounded flex flex-col gap-4">
+<div class="h-4 bg-surface-variant rounded w-2/3"></div>
+<div class="h-2 bg-surface-variant rounded w-full"></div>
+<div class="h-2 bg-surface-variant rounded w-4/5"></div>
+<div class="h-2 bg-surface-variant rounded w-full"></div>
+</div>
+<div class="col-span-2 border border-outline-variant bg-surface-container p-4 rounded flex flex-col gap-4">
+<div class="h-4 bg-surface-variant rounded w-1/3"></div>
+<div class="h-32 bg-surface-variant rounded w-full mt-2"></div>
+<div class="flex gap-2 mt-4">
+<div class="h-8 bg-primary-fixed-dim rounded w-24"></div>
+<div class="h-8 border border-outline-variant rounded w-24"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Canvas Grid Overlay (Subtle) -->
+<div class="absolute inset-0 pointer-events-none" style="background-size: 20px 20px; background-image: linear-gradient(to right, rgba(58, 74, 67, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(58, 74, 67, 0.1) 1px, transparent 1px);"></div>
+</div>
+</div>
+</body></html>

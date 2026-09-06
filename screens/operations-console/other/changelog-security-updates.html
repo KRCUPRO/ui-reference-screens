@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>What's New - Marginalia</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#261a00",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e6e1e1",
+                        "surface": "#fdf8f8",
+                        "outline": "#7d7577",
+                        "background": "#fdf8f8",
+                        "inverse-on-surface": "#f4f0f0",
+                        "container-low": "#f7f3f2",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "on-secondary-container": "#636262",
+                        "on-background": "#1c1b1c",
+                        "tertiary-fixed-dim": "#dcc497",
+                        "surface-tint": "#605e5e",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#f1eded",
+                        "surface-variant": "#e6e1e1",
+                        "on-tertiary-fixed": "#261a00",
+                        "tertiary": "#000000",
+                        "surface-container-highest": "#e6e1e1",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-primary-fixed-variant": "#484646",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-tertiary-fixed-variant": "#554422",
+                        "secondary": "#5e5e5e",
+                        "on-surface-variant": "#4c4547",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fdf8f8",
+                        "secondary-container": "#e1dfdf",
+                        "on-tertiary-container": "#968159",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f7f2f2",
+                        "inverse-surface": "#313030",
+                        "on-primary-fixed": "#1c1b1b",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "outline-variant": "#cfc4c6",
+                        "on-primary-container": "#868383",
+                        "secondary-fixed": "#e4e2e2",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ece7e7",
+                        "primary-container": "#1c1b1b",
+                        "on-surface": "#1c1b1c",
+                        "divider": "#e5e2e1",
+                        "tertiary-fixed": "#f9dfb1",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "inverse-primary": "#c9c6c5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "section-gap": "80px",
+                        "margin-safe": "40px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "display-lg-mobile": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "label-bold": ["Public Sans"],
+                        "ui-medium": ["Public Sans"],
+                        "caption": ["Public Sans"],
+                        "body-md": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "label-bold": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "ui-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-ui-medium text-ui-medium">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface-dim text-primary dark:text-on-surface font-ui-medium text-ui-medium w-full top-0 sticky z-50">
+<div class="flex justify-between items-center h-16 px-margin-safe max-w-[1200px] mx-auto border-b border-outline-variant dark:border-outline">
+<a class="text-headline-md font-headline-md text-primary dark:text-on-surface" href="#">
+                Marginalia
+            </a>
+<div class="hidden md:flex items-center gap-gutter h-full">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer transition-opacity active:opacity-70 h-full flex items-center border-b border-transparent" href="#">Platform</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer transition-opacity active:opacity-70 h-full flex items-center border-b border-transparent" href="#">Resources</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer transition-opacity active:opacity-70 h-full flex items-center border-b border-transparent" href="#">Pricing</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer transition-opacity active:opacity-70 h-full flex items-center border-b border-transparent" href="#">Archive</a>
+</div>
+<div class="hidden md:flex items-center gap-stack-md">
+<a class="text-primary dark:text-on-surface hover:opacity-70 transition-opacity" href="#">Sign In</a>
+<a class="bg-primary text-on-primary px-4 py-2 rounded-DEFAULT hover:opacity-90 transition-opacity" href="#">Request Demo</a>
+</div>
+<!-- Mobile menu button -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-5 md:px-margin-safe py-section-gap flex flex-col gap-stack-lg">
+<!-- Header -->
+<header class="flex flex-col gap-stack-sm pb-stack-lg border-b border-divider">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">
+                What's new
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                A chronological record of updates, improvements, and fixes to the Marginalia platform.
+            </p>
+</header>
+<!-- Filters Row -->
+<div class="flex items-center gap-stack-sm flex-wrap py-stack-sm">
+<button class="px-4 py-2 rounded-full border border-divider text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-bold text-label-bold uppercase tracking-wider">
+                Features
+            </button>
+<button class="px-4 py-2 rounded-full border border-divider text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-bold text-label-bold uppercase tracking-wider">
+                Fixes
+            </button>
+<button class="px-4 py-2 rounded-full bg-container-low border border-outline text-primary font-label-bold text-label-bold uppercase tracking-wider">
+                Security
+            </button>
+</div>
+<!-- Content Area: Empty State -->
+<div class="flex-grow flex items-center justify-center min-h-[409px] border border-divider bg-surface-container-low/50">
+<div class="flex flex-col items-center justify-center text-center max-w-md p-stack-lg">
+<span class="material-symbols-outlined text-outline-variant mb-stack-md" data-icon="shield_lock" style="font-size: 64px;">shield_lock</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">
+                    No security updates yet
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Check back after our next release. We regularly publish security notes as they become available.
+                </p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface-dim text-primary dark:text-on-surface font-caption text-caption w-full bottom-0 border-t border-outline-variant dark:border-outline mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-safe max-w-[1200px] mx-auto gap-stack-lg">
+<div class="font-label-bold text-label-bold text-primary dark:text-on-surface">
+                Marginalia
+            </div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#">Institutional Access</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#">API Documentation</a>
+</div>
+<div class="text-on-surface-variant">
+                © 2024 Marginalia Research. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

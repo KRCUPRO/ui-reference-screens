@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Screens - Gateway Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "surface-container-high": "#dee8ff",
+                        "on-tertiary-container": "#f6f8fa",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "primary-container": "#0066ff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-primary-fixed": "#001849",
+                        "surface-tint": "#0054d6",
+                        "error": "#ba1a1a",
+                        "tertiary": "#565a5b",
+                        "primary": "#0050cb",
+                        "outline-variant": "#c2c6d8",
+                        "on-primary-fixed-variant": "#003fa4",
+                        "secondary-fixed": "#d5e3fc",
+                        "surface-variant": "#d8e3fb",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#111c2d",
+                        "on-primary-container": "#f8f7ff",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "secondary-container": "#d5e3fc",
+                        "tertiary-container": "#6f7274",
+                        "on-secondary-container": "#57657a",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "surface-container": "#e7eeff",
+                        "surface-container-highest": "#d8e3fb",
+                        "surface-container-low": "#f0f3ff",
+                        "primary-fixed": "#dae1ff",
+                        "background": "#f9f9ff",
+                        "inverse-primary": "#b3c5ff",
+                        "surface": "#f9f9ff",
+                        "secondary": "#515f74",
+                        "outline": "#727687",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-dim": "#cfdaf2",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#424656",
+                        "error-container": "#ffdad6",
+                        "on-background": "#111c2d",
+                        "inverse-surface": "#263143"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "mono-sm": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "mono-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen w-full flex overflow-hidden">
+<!-- SideNavBar (from JSON) -->
+<nav class="docked h-screen w-64 left-0 bg-surface-container-low dark:bg-surface-container-lowest flex flex-col p-md border-r border-outline-variant flex-shrink-0 z-20 relative">
+<div class="mb-lg flex items-center gap-sm px-sm">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">Gateway Console</div>
+</div>
+<div class="text-on-surface-variant font-label-md text-label-md px-sm mb-lg">Admin v2.4</div>
+<div class="flex-grow flex flex-col gap-xs font-body-md text-body-md">
+<a class="flex items-center gap-md px-sm py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-md px-sm py-2 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-bold rounded-lg scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="router">router</span>
+                Screens
+            </a>
+<a class="flex items-center gap-md px-sm py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Logs
+            </a>
+<a class="flex items-center gap-md px-sm py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+                Security
+            </a>
+<a class="flex items-center gap-md px-sm py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<button class="mt-auto flex items-center justify-center gap-sm bg-primary text-on-primary py-2 px-md rounded-lg font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            Deploy New Node
+        </button>
+<div class="mt-md pt-md border-t border-outline-variant flex items-center gap-md px-sm">
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A clean, professional headshot of a corporate administrator, rendered in a modern minimal style on a pure white background, showcasing approachability and technical competence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfAD-dZN8BNWa5IcG72BArK56HuTnrTqp-EQluItwjUdGDwY7IOe2jLdCT0BjtYnzffNN0WDOQ1KAd1ptksHbEszvPFMXnmWFxNdAk2dnZ0CWIx8JfY1zOf94bQemeNmflGAGJiDQTtrdVKlfPft96X-Y9vSNaljcKzukXPJR6bx397V32LgsKy2r6kiqbZL36auBw8w-tzaXajk_SLUZKDHzdif6Ct1hPeSMV7KoVsyPHXG1MbKgMlmgqe8b4QQ7eTwSD1Umxoo0"/>
+<span class="font-label-md text-label-md text-on-surface-variant">Admin</span>
+</div>
+</nav>
+<!-- Secondary Sidebar (Folder Tree) -->
+<aside class="w-64 bg-surface h-full border-r border-outline-variant flex-shrink-0 flex flex-col z-10 hidden lg:flex">
+<div class="p-md border-b border-outline-variant h-16 flex items-center">
+<span class="font-label-md text-label-md text-on-surface font-semibold tracking-wider">DIRECTORY</span>
+</div>
+<div class="p-sm flex-grow overflow-y-auto">
+<!-- Root Node -->
+<div class="flex items-center gap-sm px-sm py-2 rounded-lg bg-surface-container-high text-primary cursor-default group">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="folder_open">folder_open</span>
+<span class="font-body-md text-body-md font-medium">All screens (0)</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col min-w-0 bg-background relative">
+<!-- TopAppBar (from JSON) -->
+<header class="flex justify-between items-center px-lg h-16 w-full bg-surface border-b border-outline-variant flex-shrink-0">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-md text-headline-md text-primary font-bold">Technical Gateway</h1>
+<div class="hidden md:flex items-center gap-md ml-lg font-label-md text-label-md">
+<a class="text-on-surface-variant hover:text-primary transition-all pb-1" href="#">Cluster View</a>
+<a class="text-on-surface-variant hover:text-primary transition-all pb-1" href="#">Node Stats</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Screens</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" data-icon="search">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-full py-1 pl-8 pr-md text-body-md font-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none w-48 transition-all" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<button class="p-sm hover:bg-surface-container-high rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_today">calendar_today</span>
+</button>
+<button class="p-sm hover:bg-surface-container-high rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="label">label</span>
+</button>
+<button class="p-sm hover:bg-surface-container-high rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</div>
+<div class="flex items-center gap-sm ml-md">
+<button class="hidden sm:block border border-outline-variant text-on-surface font-label-md text-label-md px-md py-1.5 rounded-lg hover:bg-surface-container-high transition-colors">Export</button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-md py-1.5 rounded-lg hover:bg-on-primary-fixed-variant transition-colors shadow-sm">Add Filter</button>
+</div>
+</div>
+</header>
+<!-- Filter Bar -->
+<div class="h-12 border-b border-outline-variant bg-surface flex items-center px-lg gap-md flex-shrink-0">
+<div class="flex items-center gap-sm bg-surface-container-lowest border border-outline-variant/50 rounded-md px-3 py-1 opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="date_range">date_range</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Date Range</span>
+<span class="material-symbols-outlined text-[16px] text-outline ml-sm" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-lowest border border-outline-variant/50 rounded-md px-3 py-1 opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="sell">sell</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Tags</span>
+<span class="material-symbols-outlined text-[16px] text-outline ml-sm" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<!-- Empty State Canvas -->
+<div class="flex-grow flex flex-col items-center justify-center p-xl overflow-hidden relative">
+<!-- Subtle background grid pattern for technical feel -->
+<div class="absolute inset-0 pointer-events-none opacity-5 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+<div class="bg-surface border border-outline-variant rounded-xl p-xl flex flex-col items-center text-center max-w-md w-full shadow-[0px_4px_12px_rgba(0,0,0,0.02)] relative z-10">
+<div class="w-24 h-24 mb-lg rounded-full bg-surface-container-low flex items-center justify-center border border-outline-variant/50">
+<span class="material-symbols-outlined text-[48px] text-outline-variant" data-icon="desktop_windows">desktop_windows</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold mb-sm">No screens generated yet</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg leading-relaxed">
+                    Screens created through the playground or MCP tools will appear here, grouped by date.
+                </p>
+<button class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md py-2 px-xl rounded-lg transition-colors flex items-center gap-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface outline-none">
+<span class="material-symbols-outlined text-[18px]" data-icon="code">code</span>
+                    Open playground
+                </button>
+</div>
+</div>
+</main>
+</body></html>

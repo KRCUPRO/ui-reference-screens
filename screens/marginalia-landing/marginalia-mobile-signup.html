@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Sign Up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#e2e2e2",
+            "surface-container-highest": "#e2e2e2",
+            "on-primary-fixed-variant": "#474746",
+            "inverse-primary": "#c8c6c5",
+            "inverse-on-surface": "#f1f1f1",
+            "surface-variant": "#e2e2e2",
+            "primary": "#000000",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#1a1c1c",
+            "surface-container": "#eeeeee",
+            "surface-dim": "#dadada",
+            "on-primary-fixed": "#1c1b1b",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "outline-variant": "#c4c7c7",
+            "on-tertiary-container": "#838484",
+            "outline": "#747878",
+            "tertiary-container": "#1a1c1c",
+            "surface-bright": "#f9f9f9",
+            "surface-tint": "#5f5e5e",
+            "on-surface-variant": "#444748",
+            "surface-container-high": "#e8e8e8",
+            "surface": "#f9f9f9",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "secondary-container": "#e3e2e2",
+            "primary-container": "#1c1b1b",
+            "on-tertiary-fixed-variant": "#454747",
+            "on-secondary-fixed": "#1b1c1c",
+            "primary-fixed-dim": "#c8c6c5",
+            "on-secondary-container": "#646464",
+            "secondary": "#5e5e5e",
+            "tertiary": "#000000",
+            "on-surface": "#1a1c1c",
+            "on-secondary": "#ffffff",
+            "on-background": "#1a1c1c",
+            "on-secondary-fixed-variant": "#464747",
+            "on-error": "#ffffff",
+            "secondary-fixed-dim": "#c7c6c6",
+            "on-primary-container": "#858383",
+            "primary-fixed": "#e5e2e1",
+            "background": "#f9f9f9",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "secondary-fixed": "#e3e2e2",
+            "surface-container-low": "#f4f3f3",
+            "inverse-surface": "#2f3131"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "section-padding": "120px",
+            "gutter": "32px",
+            "container-max": "1120px",
+            "margin-mobile": "24px",
+            "unit": "8px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "caption": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+            "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+            "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "caption": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen">
+<header class="w-full sticky top-0 flex justify-between items-center px-margin-mobile h-16 w-full bg-surface">
+<button aria-label="Back" class="p-2 -ml-2 text-primary hover:bg-surface-container-low active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary">
+      Marginalia
+    </div>
+<div class="w-8"></div>
+</header>
+<main class="flex-grow flex flex-col px-margin-mobile pt-16 pb-margin-mobile w-full max-w-[480px] mx-auto">
+<div class="mb-12">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">Create account</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Join Marginalia to begin your research.</p>
+</div>
+<form class="flex flex-col space-y-4">
+<div class="flex flex-col">
+<label class="sr-only" for="email">Email address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-3 font-body-md text-body-md text-primary placeholder-outline transition-colors" id="email" placeholder="Email address" type="email"/>
+</div>
+<div class="flex flex-col">
+<label class="sr-only" for="password">Password</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-3 font-body-md text-body-md text-primary placeholder-outline transition-colors" id="password" placeholder="Password" type="password"/>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 mt-8 font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary-container active:scale-[0.98] transition-all" type="submit">
+        Create account
+      </button>
+</form>
+<div class="flex items-center my-10">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="px-4 font-label-sm text-label-sm text-outline uppercase tracking-widest bg-surface">Or continue with</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<div class="flex flex-col space-y-4">
+<button class="w-full flex items-center justify-center py-4 border border-outline-variant hover:bg-surface-container-low active:bg-surface-container transition-colors" type="button">
+<img alt="Continue with Partner" class="h-6 object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vh7pid25_nqrmplfNRA3ubmnZ-CCcxHHiPmaIVRRZG9FV-D6pmMNm-hrV0r_LVCq3v-3oEuTJXLQm38eEQ85HNnHEyNe6_raJDe0ngmGwG_kixnMnqVbJeldg0gywLg7-z15c1_FjkMSGOirdYVP9WGhdwb-RqWOzzXhD4C3IfkC0rCqocRCzKVDND_iWlFqMSs1PyBu3sKEwnPbJakT9fZ0_9Zgi415yDC01htTieXeWaDhBo4NQ7GTg"/>
+</button>
+<button class="w-full flex items-center justify-center py-4 border border-outline-variant hover:bg-surface-container-low active:bg-surface-container transition-colors" type="button">
+<span class="font-body-md text-body-md text-primary font-medium">Microsoft</span>
+</button>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Console Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-container-high": "#e6e8ea",
+                "secondary-fixed": "#d4e3ff",
+                "primary-container": "#003594",
+                "surface-container": "#eceef0",
+                "secondary": "#505f76",
+                "on-primary-fixed-variant": "#15409e",
+                "on-secondary": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed-dim": "#b8c7e2",
+                "on-tertiary-fixed-variant": "#7a3007",
+                "primary-fixed-dim": "#b4c5ff",
+                "inverse-surface": "#2d3133",
+                "on-error-container": "#93000a",
+                "success-green": "#10b981",
+                "background": "#f7f9fb",
+                "surface-variant": "#e0e3e5",
+                "primary-fixed": "#dbe1ff",
+                "on-background": "#191c1e",
+                "on-secondary-container": "#56657c",
+                "inverse-on-surface": "#eff1f3",
+                "tertiary-container": "#6d2700",
+                "surface-dim": "#d8dadc",
+                "surface-bright": "#f7f9fb",
+                "outline-variant": "#c3c6d6",
+                "on-error": "#ffffff",
+                "error-container": "#ffdad6",
+                "error-red": "#ba1a1a",
+                "tertiary-fixed": "#ffdbcd",
+                "on-primary": "#ffffff",
+                "primary": "#002265",
+                "on-tertiary-container": "#f48d5f",
+                "on-tertiary-fixed": "#360f00",
+                "tertiary-fixed-dim": "#ffb596",
+                "on-surface": "#191c1e",
+                "on-primary-container": "#87a4ff",
+                "inverse-primary": "#b4c5ff",
+                "on-secondary-fixed-variant": "#39485e",
+                "surface-container-low": "#f2f4f6",
+                "surface-container-highest": "#e0e3e5",
+                "error": "#ba1a1a",
+                "on-surface-variant": "#444652",
+                "outline": "#747683",
+                "surface-tint": "#3559b7",
+                "on-primary-fixed": "#00174b",
+                "secondary-container": "#d4e3ff",
+                "on-secondary-fixed": "#0c1c30",
+                "caution-soft": "#fff7ed",
+                "tertiary": "#4a1700",
+                "surface": "#f7f9fb",
+                "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "sidebar-width": "280px",
+                "md": "16px",
+                "sm": "8px",
+                "touch-target-min": "44px",
+                "xl": "32px",
+                "lg": "24px",
+                "gutter": "20px",
+                "xs": "4px"
+              },
+              "fontFamily": {
+                "display-lg": [
+                  "Inter"
+                ],
+                "headline-md": [
+                  "Inter"
+                ],
+                "body-lg": [
+                  "Inter"
+                ],
+                "label-md": [
+                  "Inter"
+                ],
+                "headline-sm": [
+                  "Inter"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "code": [
+                  "JetBrains Mono"
+                ]
+              },
+              "fontSize": {
+                "display-lg": [
+                  "36px",
+                  {
+                    "lineHeight": "44px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "headline-md": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-lg": [
+                  "16px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "label-md": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "headline-sm": [
+                  "20px",
+                  {
+                    "lineHeight": "28px",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "code": [
+                  "13px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for data density */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c3c6d6;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #747683;
+        }
+        
+        /* Utility class for icon rail collapse */
+        .icon-rail-width {
+            width: 72px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md font-sans antialiased h-screen overflow-hidden flex">
+<!-- SideNavBar (Collapsed Icon Rail) -->
+<nav class="bg-surface-container dark:bg-inverse-surface docked left-0 top-0 h-screen icon-rail-width flex flex-col h-full py-md px-sm z-20 border-r border-outline-variant">
+<!-- Header Logo -->
+<div class="flex items-center justify-center mb-xl">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dataset</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 flex flex-col gap-sm items-center">
+<a class="w-12 h-12 flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all rounded-lg tooltip-trigger relative group" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<span class="absolute left-14 bg-inverse-surface text-inverse-on-surface text-label-md px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 pointer-events-none">Overview</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg relative group" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="absolute left-14 bg-inverse-surface text-inverse-on-surface text-label-md px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 pointer-events-none">Analytics</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all rounded-lg tooltip-trigger relative group" href="#">
+<span class="material-symbols-outlined text-[24px]">vpn_key</span>
+<span class="absolute left-14 bg-inverse-surface text-inverse-on-surface text-label-md px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 pointer-events-none">Keys</span>
+</a>
+</div>
+<!-- Bottom Actions -->
+<div class="mt-auto flex flex-col gap-sm items-center">
+<a class="w-12 h-12 flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all rounded-lg tooltip-trigger relative group" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="absolute left-14 bg-inverse-surface text-inverse-on-surface text-label-md px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 pointer-events-none">Settings</span>
+</a>
+<div class="w-10 h-10 rounded-full bg-surface-variant border border-outline-variant mt-sm overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden bg-background">
+<!-- TopNavBar -->
+<header class="bg-surface w-full h-14 border-b border-outline-variant flex justify-between items-center px-lg shrink-0 z-10">
+<!-- Brand -->
+<div class="flex items-center gap-sm">
+<h1 class="font-headline-sm text-headline-sm text-primary font-bold">System Console</h1>
+<span class="text-on-surface-variant text-label-md px-2 py-0.5 bg-surface-variant rounded">Analytics</span>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-64 h-touch-target-min pl-10 pr-4 bg-surface-container-low border border-outline-variant rounded-lg text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-shadow" placeholder="Search metrics..." type="text"/>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error-red rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 overflow-y-auto p-lg flex flex-col gap-gutter">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">API Usage Overview</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Real-time telemetry across all active environments.</p>
+</div>
+<div class="flex gap-sm">
+<button class="h-[36px] px-4 flex items-center gap-2 border border-outline-variant rounded-lg text-body-md font-label-md text-on-surface bg-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                        Last 7 Days
+                    </button>
+<button class="h-[36px] px-4 flex items-center gap-2 bg-primary text-on-primary rounded-lg text-body-md font-label-md hover:bg-on-primary-fixed-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export Data
+                    </button>
+</div>
+</div>
+<!-- Top Panel: Line Chart Area -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[12px] p-lg flex flex-col relative h-[400px] shrink-0">
+<div class="flex justify-between items-start mb-6 border-b border-outline-variant pb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Calls Over Time</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Last 7 days, peak 1,940 calls on Sep 2</p>
+</div>
+</div>
+<!-- Abstract Chart Container -->
+<div class="flex-1 w-full relative">
+<!-- Placeholder for Line Chart Grid -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-10">
+<div class="border-b border-on-surface h-0"></div>
+<div class="border-b border-on-surface h-0"></div>
+<div class="border-b border-on-surface h-0"></div>
+<div class="border-b border-on-surface h-0"></div>
+<div class="border-b border-on-surface h-0"></div>
+</div>
+<!-- SVG Chart Representation (Stylized) -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<defs>
+<lineargradient id="lineGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#003594" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#003594" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Area -->
+<path d="M0,100 L0,60 Q10,50 20,70 T40,40 T60,80 T80,20 T100,50 L100,100 Z" fill="url(#lineGrad)"></path>
+<!-- Line -->
+<path d="M0,60 Q10,50 20,70 T40,40 T60,80 T80,20 T100,50" fill="none" stroke="#003594" stroke-linecap="round" stroke-width="0.5"></path>
+<!-- Data Points -->
+<circle cx="20" cy="70" fill="#ffffff" r="1.5" stroke="#003594" stroke-width="0.5"></circle>
+<circle cx="40" cy="40" fill="#ffffff" r="1.5" stroke="#003594" stroke-width="0.5"></circle>
+<circle cx="60" cy="80" fill="#ffffff" r="1.5" stroke="#003594" stroke-width="0.5"></circle>
+<circle cx="80" cy="20" fill="#ffffff" r="1.5" stroke="#003594" stroke-width="0.5"></circle>
+<circle cx="100" cy="50" fill="#ffffff" r="1.5" stroke="#003594" stroke-width="0.5"></circle>
+</svg>
+<!-- Inset Floating Donut Chart -->
+<div class="absolute top-0 right-0 w-[200px] bg-surface-container-lowest border border-outline-variant rounded-lg p-md shadow-sm">
+<h4 class="font-label-md text-label-md text-on-surface mb-3">Success vs Failure</h4>
+<div class="relative w-24 h-24 mx-auto mb-2">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<!-- Background Circle (Failure) -->
+<path class="text-error-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<!-- Foreground Circle (Success - 92%) -->
+<path class="text-primary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-label-md text-[10px] text-on-surface-variant">Rate</span>
+<span class="font-headline-sm text-[16px] text-on-surface font-semibold">92%</span>
+</div>
+</div>
+<div class="flex justify-between text-[10px] font-label-md mt-2">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<span class="text-on-surface">200s</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-error-container"></div>
+<span class="text-on-surface-variant">500s</span>
+</div>
+</div>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between mt-4 text-label-md font-label-md text-on-surface-variant px-2">
+<span>Aug 27</span>
+<span>Aug 28</span>
+<span>Aug 29</span>
+<span>Aug 30</span>
+<span>Aug 31</span>
+<span>Sep 1</span>
+<span>Sep 2</span>
+</div>
+</div>
+<!-- Bottom Panel: Data Grid -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[12px] flex flex-col shrink-0 overflow-hidden">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Per-key Usage</h3>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant cursor-pointer hover:text-primary transition-colors">filter_list</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant cursor-pointer hover:text-primary transition-colors">more_vert</span>
+</div>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[600px]">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="p-sm pl-md">Key Name</th>
+<th class="p-sm text-right">Calls (7d)</th>
+<th class="p-sm text-right">Success Rate</th>
+<th class="p-sm text-right pr-md">RPM Headroom</th>
+</tr>
+</thead>
+<tbody class="text-body-md font-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant hover:bg-surface-variant transition-colors group">
+<td class="p-sm pl-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">key</span>
+<span class="font-code text-code">key-alpha-01</span>
+</td>
+<td class="p-sm text-right font-code text-code">14,204</td>
+<td class="p-sm text-right">
+<div class="flex items-center justify-end gap-2">
+<span>99.9%</span>
+<div class="w-16 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-success-green w-[99%]"></div>
+</div>
+</div>
+</td>
+<td class="p-sm text-right pr-md">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-on-surface text-label-md">High (82%)</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant hover:bg-surface-variant transition-colors group">
+<td class="p-sm pl-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">key</span>
+<span class="font-code text-code">key-beta-prod</span>
+</td>
+<td class="p-sm text-right font-code text-code">8,932</td>
+<td class="p-sm text-right">
+<div class="flex items-center justify-end gap-2">
+<span>98.4%</span>
+<div class="w-16 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-success-green w-[98%]"></div>
+</div>
+</div>
+</td>
+<td class="p-sm text-right pr-md">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-on-surface text-label-md">Med (45%)</span>
+</td>
+</tr>
+<!-- Row 3: Caution State -->
+<tr class="border-b border-amber-200 bg-caution-soft hover:bg-amber-100 transition-colors group">
+<td class="p-sm pl-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">warning</span>
+<span class="font-code text-code text-tertiary-container font-semibold">key-gamma-03</span>
+</td>
+<td class="p-sm text-right font-code text-code text-tertiary-container">28,105</td>
+<td class="p-sm text-right">
+<div class="flex items-center justify-end gap-2 text-tertiary-container">
+<span>92.1%</span>
+<div class="w-16 h-1.5 bg-tertiary-fixed rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container w-[92%]"></div>
+</div>
+</div>
+</td>
+<td class="p-sm text-right pr-md">
+<span class="inline-block px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary text-label-md flex items-center gap-1 justify-end ml-auto w-fit">
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+                                         Low (4%)
+                                     </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-variant transition-colors group">
+<td class="p-sm pl-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">key_off</span>
+<span class="font-code text-code text-on-surface-variant line-through">key-legacy-v1</span>
+</td>
+<td class="p-sm text-right font-code text-code text-on-surface-variant">12</td>
+<td class="p-sm text-right text-on-surface-variant">
+<div class="flex items-center justify-end gap-2">
+<span>45.0%</span>
+<div class="w-16 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-error-red w-[45%]"></div>
+</div>
+</div>
+</td>
+<td class="p-sm text-right pr-md">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-label-md">Inactive</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bottom Spacer for scrolling -->
+<div class="h-lg"></div>
+</main>
+</div>
+</body></html>

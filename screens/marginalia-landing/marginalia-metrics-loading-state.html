@@ -1,0 +1,54 @@
+<section class="min-h-screen bg-[#fdf8f8] flex flex-col items-center justify-center font-mono overflow-hidden">
+  <div class="relative flex flex-col items-center">
+    <!-- Stat Block Container -->
+    <div class="flex items-baseline space-x-1">
+      <span class="text-8xl md:text-9xl font-bold text-[#1c1b1b] tracking-tighter">128,4</span>
+      
+      <!-- Blurred Smear Animation -->
+      <div class="relative w-[1.5ch] h-[1em] overflow-hidden">
+        <div class="absolute inset-0 flex flex-col animate-smear-up opacity-40 blur-[2px]">
+          <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+        </div>
+        <div class="absolute inset-0 flex flex-col animate-smear-down opacity-30 blur-[4px]" style="animation-delay: -0.1s;">
+          <span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
+        </div>
+        <span class="text-8xl md:text-9xl font-bold text-[#1c1b1b] opacity-20">—</span>
+      </div>
+    </div>
+
+    <!-- Animated Progress Underline -->
+    <div class="mt-8 w-64 h-[2px] bg-[#ddd9d8] relative overflow-hidden">
+      <div class="absolute inset-y-0 left-0 w-1/2 bg-[#4caf50] opacity-60 animate-progress-shimmer"></div>
+    </div>
+
+    <!-- Label -->
+    <p class="mt-6 text-sm uppercase tracking-[0.3em] text-[#5f5e5e] font-sans font-medium">
+      documents indexed and counting.
+    </p>
+  </div>
+
+  <style>
+    @keyframes smear-up {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-90%); }
+    }
+    @keyframes smear-down {
+      0% { transform: translateY(-90%); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes progress-shimmer {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(0); }
+      100% { transform: translateX(100%); }
+    }
+    .animate-smear-up {
+      animation: smear-up 0.4s infinite linear;
+    }
+    .animate-smear-down {
+      animation: smear-down 0.3s infinite linear;
+    }
+    .animate-progress-shimmer {
+      animation: progress-shimmer 2s ease-in-out infinite;
+    }
+  </style>
+</section>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Radius Tokens</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e2e2e2",
+                        "surface-variant": "#353434",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#454747",
+                        "surface-container-highest": "#353434",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-container": "#e2e2e2",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-tint": "#c6c6c7",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary": "#2f3131",
+                        "outline-variant": "#444748",
+                        "surface": "#141313",
+                        "on-surface-variant": "#c4c7c8",
+                        "outline": "#8e9192",
+                        "on-primary-container": "#636565",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-secondary-container": "#b5b5b5",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-bright": "#3a3939",
+                        "tertiary": "#ffffff",
+                        "on-secondary": "#2f3131",
+                        "on-primary": "#2f3131",
+                        "primary": "#ffffff",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "surface-container": "#201f1f",
+                        "on-tertiary-container": "#636565",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "background": "#141313",
+                        "primary-container": "#e2e2e2",
+                        "inverse-primary": "#5d5f5f",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "secondary": "#c6c6c6",
+                        "surface-dim": "#141313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-tight": "4px",
+                        "container-margin": "16px",
+                        "stack-default": "12px",
+                        "section-gap": "24px",
+                        "unit": "4px",
+                        "gutter": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "code-sm": ["JetBrains Mono"],
+                        "value-lg": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "value-md": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "code-sm": ["11px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "400" }],
+                        "value-lg": ["24px", { "lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "value-md": ["14px", { "lineHeight": "1", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #000000; color: #ffffff; }
+        .border-technical { border-color: #1A1A1A; border-width: 1px; border-style: solid; }
+        .input-technical { background-color: #000000; border: 1px solid #1A1A1A; color: #ffffff; }
+        .input-technical:focus { border-color: #ffffff; outline: none; box-shadow: none; }
+        .swatch-base { background-color: #ffffff; width: 64px; height: 32px; flex-shrink: 0; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex w-full overflow-hidden">
+<!-- SideNavBar (from JSON, acting as Semantic Shell) -->
+<nav class="hidden md:flex bg-surface dark:bg-surface border-r border-outline-variant dark:border-outline-variant h-screen w-64 fixed left-0 top-0 flex-col h-full py-section-gap px-gutter z-40">
+<div class="mb-section-gap px-container-margin">
+<h1 class="font-headline-md text-headline-md text-primary">CONSOLE_ROOT</h1>
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-stack-tight">v2.4.0-stable</p>
+</div>
+<div class="flex-1 flex flex-col gap-stack-tight px-container-margin">
+<a class="flex items-center gap-3 py-2 px-3 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-3 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="draw">draw</span>
+<span class="font-label-md text-label-md">Design</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-3 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+<span class="font-label-md text-label-md">Components</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-3 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="font-label-md text-label-md">Assets</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-3 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="text_fields">text_fields</span>
+<span class="font-label-md text-label-md">Typography</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-3 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-label-md text-label-md">Colors</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-3 bg-primary dark:bg-primary text-surface dark:text-surface font-bold rounded scale-98 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="rounded_corner">rounded_corner</span>
+<span class="font-label-md text-label-md">Radius Tokens</span>
+</a>
+</div>
+<div class="mt-auto px-container-margin flex flex-col gap-stack-tight">
+<button class="w-full py-2 border-technical text-primary hover:bg-surface-variant transition-colors font-label-md text-label-md">Deploy Tokens</button>
+<div class="mt-4 flex flex-col gap-stack-tight">
+<a class="flex items-center gap-3 py-2 px-3 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-3 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+<div class="mt-4 flex items-center gap-3 px-3 py-2">
+<img alt="System Operator" class="w-8 h-8 rounded-full border-technical object-cover" data-alt="A small, minimalist square avatar placeholder for a system operator user profile. Deep black background with a subtle gray outline, creating a highly technical, dark mode visual aesthetic suitable for an enterprise dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEcwHllArBjtUN2TWyeMavhGowUnHPiVbuVUJdRWIMNJ5yDwELLrhw0GDmkeH7Nz_dtFT-nCSLg-_72o4nWcG7OLzLHupW_UybzqfCXfJ8wMH09sU5fbklf-yJXHpzlNVx9KcpqP2aE8P2vdv7VddyFoorDwQ75Q7be33iOrAnlj8MDVqYQ41KPlMuLmVjvk_7yFokKS9fx9ItPSOEiudfYYhql6vceTwhtCan-nBTXjWFTX_6T1XMF6hcgEsoGCwqVEQPa3csCnQ"/>
+<span class="font-label-md text-label-md text-primary">System Operator</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 flex flex-col h-screen overflow-y-auto bg-[#000000]">
+<!-- TopNavBar (Mobile mainly, but structured as requested if needed for mobile layout) -->
+<header class="md:hidden flex justify-between items-center px-container-margin w-full z-50 bg-surface dark:bg-surface h-12 sticky top-0 border-b border-outline-variant dark:border-outline-variant">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary">DESIGN_CONSOLE_V1</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-variant p-1 rounded" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-variant p-1 rounded" data-icon="help">help</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-variant p-1 rounded" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<div class="p-section-gap flex flex-col gap-section-gap max-w-[1200px] w-full mx-auto">
+<div class="border-b border-[#1A1A1A] pb-4">
+<h2 class="font-headline-lg text-headline-lg md:font-headline-lg md:text-headline-lg font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Radius Tokens</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Manage border radius parameters for OLED environments.</p>
+</div>
+<!-- Bento Grid for Radius Editing -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Token: None -->
+<div class="border-technical p-4 flex flex-col gap-4 group hover:border-[#FFFFFF] transition-colors duration-200">
+<div class="flex items-center justify-between">
+<div class="swatch-base rounded-none"></div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">px</span>
+<input aria-label="Edit none radius" class="input-technical w-16 px-2 py-1 font-value-md text-value-md text-right" type="number" value="0"/>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-[#1A1A1A] pt-3 mt-auto">
+<span class="font-code-sm text-code-sm text-primary">none</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">0px</span>
+</div>
+</div>
+<!-- Token: SM -->
+<div class="border-technical p-4 flex flex-col gap-4 group hover:border-[#FFFFFF] transition-colors duration-200">
+<div class="flex items-center justify-between">
+<div class="swatch-base rounded-sm"></div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">px</span>
+<input aria-label="Edit sm radius" class="input-technical w-16 px-2 py-1 font-value-md text-value-md text-right" type="number" value="4"/>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-[#1A1A1A] pt-3 mt-auto">
+<span class="font-code-sm text-code-sm text-primary">sm</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">4px</span>
+</div>
+</div>
+<!-- Token: MD -->
+<div class="border-technical p-4 flex flex-col gap-4 group hover:border-[#FFFFFF] transition-colors duration-200">
+<div class="flex items-center justify-between">
+<div class="swatch-base rounded-md"></div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">px</span>
+<input aria-label="Edit md radius" class="input-technical w-16 px-2 py-1 font-value-md text-value-md text-right" type="number" value="8"/>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-[#1A1A1A] pt-3 mt-auto">
+<span class="font-code-sm text-code-sm text-primary">md</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">8px</span>
+</div>
+</div>
+<!-- Token: Full -->
+<div class="border-technical p-4 flex flex-col gap-4 group hover:border-[#FFFFFF] transition-colors duration-200">
+<div class="flex items-center justify-between">
+<div class="swatch-base rounded-full"></div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">px</span>
+<input aria-label="Edit full radius" class="input-technical w-16 px-2 py-1 font-value-md text-value-md text-right" type="number" value="999"/>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-[#1A1A1A] pt-3 mt-auto">
+<span class="font-code-sm text-code-sm text-primary">full</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">999px</span>
+</div>
+</div>
+</div>
+<!-- Contextual Data Area to fill the bento grid style visually -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-section-gap">
+<div class="border-technical p-6">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Implementation Notes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Avoid mixing radius tokens within the same component hierarchy. Strict adherence to exact pixel values ensures OLED optimization.</p>
+<div class="bg-[#1A1A1A] p-4 rounded-none font-code-sm text-code-sm text-primary">
+                        --radius-none: 0px;<br/>
+                        --radius-sm: 4px;<br/>
+                        --radius-md: 8px;<br/>
+                        --radius-full: 9999px;
+                    </div>
+</div>
+<div class="border-technical p-6 flex flex-col justify-center items-center relative overflow-hidden group">
+<div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity" style="background-image: radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px); background-size: 16px 16px;"></div>
+<div class="z-10 text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-2" data-icon="rounded_corner">rounded_corner</span>
+<h4 class="font-label-md text-label-md text-primary tracking-widest uppercase">System Integrity</h4>
+<div class="mt-4 font-value-lg text-value-lg text-primary">100% Validated</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple interaction script to demonstrate value updates (visual only)
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', (e) => {
+                const val = e.target.value;
+                const container = e.target.closest('.border-technical');
+                const label = container.querySelector('.text-on-surface-variant.group-hover\\:text-primary');
+                if(label) label.textContent = `${val}px`;
+            });
+        });
+    </script>
+</body></html>

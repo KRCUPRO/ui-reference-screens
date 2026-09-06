@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&amp;family=Source+Serif+4:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "on-background": "#1c1b1b",
+                        "surface-dim": "#ddd9d8",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-container": "#656464",
+                        "primary": "#000000",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-low": "#f7f3f2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#fdf8f8",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "secondary-container": "#e4e2e1",
+                        "on-primary-container": "#858383",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-primary": "#c8c6c5",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#868382",
+                        "surface-container-highest": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ebe7e6",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "background": "#fdf8f8",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-surface-variant": "#444748",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f1edec",
+                        "on-surface": "#1c1b1b",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-fixed-variant": "#474747",
+                        "surface": "#fdf8f8",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "secondary-fixed": "#e4e2e1",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-tint": "#5f5e5e",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-container": "#1c1b1a",
+                        "inverse-surface": "#313030",
+                        "tertiary": "#000000",
+                        "outline": "#747878",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1c1b1b",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "row-gap": "4px",
+                        "column-gap": "12px",
+                        "margin-page": "16px",
+                        "unit": "4px",
+                        "gutter": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Archivo Narrow"],
+                        "footer-note": ["Archivo Narrow"],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "body-md": ["\"Source Serif 4\""],
+                        "body-sm": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "label-caps": ["11px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "footer-note": ["10px", { "lineHeight": "14px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "headline-lg": ["30px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .feature-card {
+            border: 1px solid #333333;
+        }
+        .section-divider {
+            border-bottom: 2px solid #333333;
+        }
+        .item-divider {
+            border-bottom: 1px solid #333333;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<nav aria-label="Global Navigation" class="bg-surface-container-lowest text-primary font-body-md border-b border-primary w-full px-margin-page h-12 flex justify-between items-center max-w-full mx-auto">
+<div class="flex items-center gap-column-gap">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="/">Marginalia</a>
+</div>
+<div class="hidden md:flex gap-margin-page items-center h-full">
+<a class="text-secondary h-full flex items-center hover:bg-surface-container px-2 transition-colors" href="#search">Search</a>
+<a class="text-secondary h-full flex items-center hover:bg-surface-container px-2 transition-colors" href="#archive">Archive</a>
+<a class="text-secondary h-full flex items-center hover:bg-surface-container px-2 transition-colors" href="#sources">Sources</a>
+<a class="text-secondary h-full flex items-center hover:bg-surface-container px-2 transition-colors" href="#integration">Integration</a>
+</div>
+<div class="flex items-center">
+<a class="text-primary hover:bg-surface-container px-4 py-1 border border-primary transition-colors flex items-center gap-1 font-label-caps text-label-caps" href="#signin">
+                Sign In
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-page py-12 lg:py-24 grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-x-0 border-x border-primary relative">
+<!-- Vertical Grid Lines Background (Desktop only) -->
+<div class="hidden md:grid absolute inset-0 grid-cols-12 pointer-events-none z-0 border-r border-primary">
+<div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div><div class="border-l border-primary opacity-20"></div>
+</div>
+<div class="col-span-1 md:col-span-12 z-10">
+<header class="mb-12 section-divider pb-4">
+<h1 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tight">Core Capabilities</h1>
+<p class="font-body-md text-on-surface-variant mt-2 max-w-2xl">A sophisticated interface for interrogating enterprise knowledge bases, designed for high-density information retrieval and academic rigor.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+<!-- Feature 1 -->
+<article class="feature-card p-6 flex flex-col bg-surface-container-lowest md:border-r-0 md:border-b-0 hover:bg-primary hover:text-on-primary transition-colors group">
+<div class="item-divider pb-4 mb-4 flex justify-between items-center group-hover:border-on-primary transition-colors">
+<span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-tertiary-fixed-dim">01</span>
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" data-icon="forum" data-weight="fill">forum</span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2">Ask in plain English</h2>
+<p class="font-body-sm text-on-surface-variant group-hover:text-tertiary-fixed-dim mb-6 flex-grow">Query complex documentation using natural language without specialized syntax or rigid parameters.</p>
+<div class="mt-auto p-4 bg-surface-container-low group-hover:bg-inverse-surface border border-outline-variant group-hover:border-outline transition-colors">
+<p class="font-body-sm italic text-secondary group-hover:text-tertiary-fixed-dim">"What changed in our refund policy?"</p>
+</div>
+</article>
+<!-- Feature 2 -->
+<article class="feature-card p-6 flex flex-col bg-surface-container-lowest md:border-r-0 md:border-b-0 hover:bg-primary hover:text-on-primary transition-colors group">
+<div class="item-divider pb-4 mb-4 flex justify-between items-center group-hover:border-on-primary transition-colors">
+<span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-tertiary-fixed-dim">02</span>
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" data-icon="verified" data-weight="fill">verified</span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2">Answers you can trust</h2>
+<p class="font-body-sm text-on-surface-variant group-hover:text-tertiary-fixed-dim mb-6 flex-grow">Every factual assertion generated is immediately corroborated.</p>
+<div class="mt-auto pt-4 item-divider group-hover:border-on-primary border-t border-b-0 transition-colors">
+<p class="font-label-caps text-label-caps text-primary group-hover:text-on-primary">every citation links back to the source page</p>
+</div>
+</article>
+<!-- Feature 3 -->
+<article class="feature-card p-6 flex flex-col bg-surface-container-lowest md:border-b-0 hover:bg-primary hover:text-on-primary transition-colors group">
+<div class="item-divider pb-4 mb-4 flex justify-between items-center group-hover:border-on-primary transition-colors">
+<span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-tertiary-fixed-dim">03</span>
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" data-icon="cable" data-weight="fill">cable</span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2">Lives where your team already works</h2>
+<p class="font-body-sm text-on-surface-variant group-hover:text-tertiary-fixed-dim mb-6 flex-grow">Seamlessly integrates with your existing knowledge silos to establish a unified ontological framework.</p>
+<ul class="mt-auto space-y-2">
+<li class="flex items-center gap-2 font-body-sm text-secondary group-hover:text-tertiary-fixed-dim">
+<span class="w-1 h-1 bg-primary group-hover:bg-on-primary block"></span> Slack
+                        </li>
+<li class="flex items-center gap-2 font-body-sm text-secondary group-hover:text-tertiary-fixed-dim">
+<span class="w-1 h-1 bg-primary group-hover:bg-on-primary block"></span> Notion
+                        </li>
+<li class="flex items-center gap-2 font-body-sm text-secondary group-hover:text-tertiary-fixed-dim">
+<span class="w-1 h-1 bg-primary group-hover:bg-on-primary block"></span> Google Drive
+                        </li>
+</ul>
+</article>
+</div>
+<!-- Bottom Border for the grid -->
+<div class="border-t border-primary w-full hidden md:block"></div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest text-primary font-footer-note w-full px-margin-page py-4 flex flex-col md:flex-row justify-between items-center border-t border-primary mt-auto max-w-7xl mx-auto">
+<div class="font-label-caps text-label-caps font-bold mb-4 md:mb-0">
+            MARGINALIA
+        </div>
+<div class="flex flex-wrap gap-4 justify-center items-center">
+<span class="text-secondary mr-4">© 2024 Marginalia Systems. All citations verified.</span>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#privacy">Privacy</a>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#terms">Terms</a>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#api">API</a>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#changelog">Changelog</a>
+</div>
+</footer>
+</body></html>

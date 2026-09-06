@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Ask Your Docs Anything</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-highest": "#e2e2e2",
+          "background": "#f9f9f9",
+          "primary": "#000000",
+          "secondary-container": "#dfe0e0",
+          "primary-fixed-dim": "#c6c6c6",
+          "on-primary-container": "#848484",
+          "surface-container-lowest": "#ffffff",
+          "on-secondary": "#ffffff",
+          "surface-dim": "#dadada",
+          "outline": "#7e7576",
+          "inverse-on-surface": "#f1f1f1",
+          "primary-container": "#1b1b1b",
+          "on-secondary-container": "#616363",
+          "surface-tint": "#5e5e5e",
+          "outline-variant": "#cfc4c5",
+          "error-container": "#ffdad6",
+          "on-secondary-fixed-variant": "#454747",
+          "tertiary": "#000000",
+          "on-surface-variant": "#4c4546",
+          "on-surface": "#1b1b1b",
+          "on-tertiary-container": "#848484",
+          "surface-variant": "#e2e2e2",
+          "tertiary-fixed": "#e2e2e2",
+          "on-tertiary-fixed": "#1b1b1b",
+          "surface-bright": "#f9f9f9",
+          "on-primary-fixed": "#1b1b1b",
+          "surface-container-low": "#f3f3f3",
+          "secondary-fixed": "#e2e2e2",
+          "secondary-fixed-dim": "#c6c6c7",
+          "inverse-surface": "#303030",
+          "tertiary-fixed-dim": "#c6c6c6",
+          "inverse-primary": "#c6c6c6",
+          "on-error": "#ffffff",
+          "on-secondary-fixed": "#1a1c1c",
+          "surface": "#f9f9f9",
+          "on-primary": "#ffffff",
+          "error": "#ba1a1a",
+          "on-tertiary-fixed-variant": "#474747",
+          "surface-container-high": "#e8e8e8",
+          "tertiary-container": "#1b1b1b",
+          "on-error-container": "#93000a",
+          "primary-fixed": "#e2e2e2",
+          "on-primary-fixed-variant": "#474747",
+          "surface-container": "#eeeeee",
+          "secondary": "#5d5f5f",
+          "on-tertiary": "#ffffff",
+          "on-background": "#1b1b1b"
+        },
+        "borderRadius": {
+          "DEFAULT": "0px",
+          "lg": "0px",
+          "xl": "0px",
+          "full": "0px"
+        },
+        "spacing": {
+          "grid-margin": "2rem",
+          "stack-xs": "0.5rem",
+          "stack-xl": "3rem",
+          "stack-md": "1.5rem",
+          "grid-gutter": "1px"
+        },
+        "fontFamily": {
+          "headline-lg": [
+            "Courier Prime"
+          ],
+          "label-caps": [
+            "Courier Prime"
+          ],
+          "body-md": [
+            "Courier Prime"
+          ],
+          "body-lg": [
+            "Courier Prime"
+          ],
+          "headline-md": [
+            "Courier Prime"
+          ],
+          "mono-sm": [
+            "Courier Prime"
+          ],
+          "headline-lg-mobile": [
+            "Courier Prime"
+          ]
+        },
+        "fontSize": {
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "label-caps": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.1em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "letterSpacing": "0em",
+              "fontWeight": "700"
+            }
+          ],
+          "mono-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: theme('colors.surface-container-lowest');
+    color: theme('colors.primary');
+    font-family: theme('fontFamily.mono-sm');
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  /* Visible 12-column Grid Guide */
+  .grid-overlay {
+    position: fixed;
+    top: 0;
+    left: theme('spacing.grid-margin');
+    right: theme('spacing.grid-margin');
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0;
+  }
+  .grid-col-guide {
+    border-left: 1px dotted rgba(0,0,0,0.3);
+    height: 100%;
+  }
+  .grid-col-guide:last-child {
+    border-right: 1px dotted rgba(0,0,0,0.3);
+  }
+
+  /* Interaction Styles */
+  .btn-brutalist {
+    transition: transform 0.1s ease-out;
+  }
+  .btn-brutalist:hover {
+    transform: translate(2px, 2px);
+    box-shadow: -2px -2px 0 0 theme('colors.primary'); /* Recreate shadow offset backwards */
+  }
+</style>
+</head>
+<body class="p-grid-margin">
+<!-- Background Grid Guides -->
+<div class="grid-overlay hidden md:grid">
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+<div class="grid-col-guide"></div>
+</div>
+<!-- TopNavBar Component -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-lowest text-primary dark:text-on-surface font-mono-sm text-mono-sm uppercase w-full border-b border-primary dark:border-on-surface flex justify-between items-center px-grid-margin py-stack-xs sticky top-0 z-50">
+<div class="font-headline-md text-headline-md tracking-tighter font-bold text-primary dark:text-on-surface">MARGINALIA</div>
+<div class="flex space-x-6">
+<a class="text-on-surface dark:text-on-surface underline underline-offset-4 decoration-2 hover:bg-primary hover:text-on-primary dark:hover:bg-on-surface dark:hover:text-surface transition-colors duration-75" href="#">SEARCH</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-primary hover:text-on-primary dark:hover:bg-on-surface dark:hover:text-surface transition-colors duration-75" href="#">ARCHIVE</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-primary hover:text-on-primary dark:hover:bg-on-surface dark:hover:text-surface transition-colors duration-75" href="#">DOCS</a>
+</div>
+</nav>
+<!-- Hero Content -->
+<main class="grid grid-cols-1 md:grid-cols-12 gap-0 mt-stack-xl relative z-10">
+<div class="col-span-1 md:col-span-10 md:col-start-2 border border-primary p-8 bg-surface-container-lowest">
+<h1 class="font-headline-lg text-[48px] leading-[48px] font-bold tracking-tighter uppercase mb-12">
+        ASK.<br/>YOUR.DOCS.<br/>ANYTHING
+      </h1>
+<div class="flex flex-col md:flex-row gap-4 mb-8">
+<div class="flex-grow border border-primary p-4 relative">
+<span class="absolute top-0 left-0 bg-primary text-on-primary px-2 py-0.5 text-[10px] uppercase font-bold">QUERY_INPUT</span>
+<div class="mt-2 font-mono-sm text-body-lg flex items-center">
+<span class="mr-2 opacity-50">&gt;</span>
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 font-mono-sm text-primary" spellcheck="false" type="text" value='grep --semantic "refund policy annual plans"'/>
+<span class="animate-pulse inline-block w-2 h-4 bg-primary ml-1"></span>
+</div>
+</div>
+<button class="btn-brutalist bg-primary text-on-primary border border-primary px-8 py-4 font-label-caps text-label-caps flex items-center justify-center min-w-[160px]">
+          [RUN QUERY]
+        </button>
+</div>
+<div class="inline-block border border-primary p-2 mt-4 text-xs font-mono-sm bg-surface-container-highest">
+<span class="font-bold">SRC:</span> contract_2024.pdf:L42
+      </div>
+</div>
+</main>
+<script>
+    // Simple block cursor effect on input focus
+    const input = document.querySelector('input');
+    const cursor = document.querySelector('.animate-pulse');
+    
+    input.addEventListener('focus', () => {
+      cursor.style.display = 'inline-block';
+    });
+    
+    input.addEventListener('blur', () => {
+      cursor.style.display = 'none';
+    });
+  </script>
+</body></html>

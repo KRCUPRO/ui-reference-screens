@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Your documents. Finally searchable.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e4e2e2",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container": "#f1edec",
+                        "outline": "#747878",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-surface-variant": "#444748",
+                        "background": "#fdf8f8",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary-container": "#626262",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#868382",
+                        "surface": "#fdf8f8",
+                        "primary-fixed": "#e5e2e1",
+                        "inverse-surface": "#313030",
+                        "inverse-primary": "#c8c6c5",
+                        "inverse-on-surface": "#f4f0ef",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-low": "#f7f3f2",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "surface-container-highest": "#e5e2e1",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-background": "#1c1b1b",
+                        "secondary-container": "#e1dfdf",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "surface-bright": "#fdf8f8",
+                        "tertiary-container": "#1c1b1a",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "outline-variant": "#c4c7c7",
+                        "error-container": "#ffdad6",
+                        "secondary": "#5e5e5e",
+                        "primary-container": "#1c1b1b",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary": "#000000",
+                        "surface-container-high": "#ebe7e6",
+                        "on-primary-container": "#858383",
+                        "on-primary-fixed-variant": "#474746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "max-width-content": "680px",
+                        "baseline-unit": "4px",
+                        "margin-mobile": "24px",
+                        "gutter": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "body-md": ["EB Garamond"],
+                        "display-lg-mobile": ["EB Garamond"],
+                        "label-sm": ["Inter"],
+                        "footnote": ["EB Garamond"],
+                        "body-lg": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "footnote": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["21px", { "lineHeight": "32px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            /* Fallback for the oversized typography requested */
+            --oversized-hero: 96px;
+            --oversized-hero-lh: 1.1;
+        }
+        @media (max-width: 768px) {
+            body {
+                --oversized-hero: 64px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-surface-variant selection:text-on-surface">
+<!-- Hero Section -->
+<main class="flex-grow flex flex-col justify-center items-center px-margin-mobile md:px-margin-desktop py-24">
+<div class="max-w-[1000px] w-full mx-auto text-left flex flex-col gap-8 md:gap-12">
+<h1 class="font-display-lg text-primary" style="font-size: var(--oversized-hero); line-height: var(--oversized-hero-lh); letter-spacing: -0.03em;">
+                Your documents.<br/>
+                Finally searchable.
+            </h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-max-width-content uppercase tracking-widest leading-relaxed">
+                A rigorous approach to personal knowledge management, built for researchers, essayists, and serious readers who value deep focus and typographic precision.
+            </p>
+<div class="mt-4">
+<a class="font-footnote text-footnote text-primary border-b border-dotted border-on-surface/40 hover:border-solid transition-all duration-200 inline-flex items-baseline group pb-1" href="#">
+                    Read the docs 
+                    <span class="text-[10px] align-super ml-1 group-hover:translate-x-1 transition-transform duration-200">→</span>
+</a>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-background dark:bg-background border-t border-on-surface/10 full-width opacity-100 mt-auto">
+<div class="max-w-max-width-content mx-auto px-margin-mobile md:px-0 py-12 flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-primary">
+                © 2024 Marginalia Press
+            </div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="font-footnote text-footnote text-on-surface-variant dark:text-on-surface-variant hover:border-b hover:border-on-surface transition-all" href="#">Archive</a>
+<a class="font-footnote text-footnote text-on-surface-variant dark:text-on-surface-variant hover:border-b hover:border-on-surface transition-all" href="#">Methodology</a>
+<a class="font-footnote text-footnote text-on-surface-variant dark:text-on-surface-variant hover:border-b hover:border-on-surface transition-all" href="#">Colophon</a>
+<a class="font-footnote text-footnote text-on-surface-variant dark:text-on-surface-variant hover:border-b hover:border-on-surface transition-all" href="#">Privacy</a>
+</nav>
+</div>
+</footer>
+</body></html>

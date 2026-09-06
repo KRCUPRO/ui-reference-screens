@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Screens - Technical Gateway</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-container-lowest": "#ffffff",
+                "tertiary": "#565a5b",
+                "on-secondary": "#ffffff",
+                "surface-dim": "#cfdaf2",
+                "primary-container": "#0066ff",
+                "on-secondary-container": "#57657a",
+                "surface-container-highest": "#d8e3fb",
+                "secondary-fixed-dim": "#b9c7df",
+                "secondary-container": "#d5e3fc",
+                "surface-container-high": "#dee8ff",
+                "on-tertiary": "#ffffff",
+                "surface": "#f9f9ff",
+                "inverse-surface": "#263143",
+                "outline-variant": "#c2c6d8",
+                "secondary-fixed": "#d5e3fc",
+                "on-primary": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "tertiary-container": "#6f7274",
+                "on-tertiary-container": "#f6f8fa",
+                "primary": "#0050cb",
+                "error": "#ba1a1a",
+                "inverse-primary": "#b3c5ff",
+                "inverse-on-surface": "#ecf1ff",
+                "background": "#f9f9ff",
+                "tertiary-fixed-dim": "#c4c7c9",
+                "on-tertiary-fixed": "#191c1e",
+                "surface-container": "#e7eeff",
+                "outline": "#727687",
+                "tertiary-fixed": "#e0e3e5",
+                "surface-tint": "#0054d6",
+                "primary-fixed": "#dae1ff",
+                "error-container": "#ffdad6",
+                "secondary": "#515f74",
+                "on-primary-fixed": "#001849",
+                "on-tertiary-fixed-variant": "#444749",
+                "on-surface-variant": "#424656",
+                "surface-container-low": "#f0f3ff",
+                "on-surface": "#111c2d",
+                "on-secondary-fixed": "#0d1c2e",
+                "on-background": "#111c2d",
+                "on-primary-container": "#f8f7ff",
+                "surface-variant": "#d8e3fb",
+                "on-secondary-fixed-variant": "#3a485b",
+                "surface-bright": "#f9f9ff",
+                "primary-fixed-dim": "#b3c5ff",
+                "on-primary-fixed-variant": "#003fa4"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "md": "16px",
+                "xl": "48px",
+                "lg": "24px",
+                "base": "4px",
+                "gutter": "24px",
+                "container-max": "1280px",
+                "xs": "4px",
+                "sm": "8px"
+              },
+              "fontFamily": {
+                "label-md": ["Inter"],
+                "mono-sm": ["JetBrains Mono"],
+                "headline-md": ["Inter"],
+                "headline-lg-mobile": ["Inter"],
+                "body-md": ["Inter"],
+                "headline-lg": ["Inter"],
+                "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                "mono-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-full overflow-hidden antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- App Shell Container -->
+<div class="flex h-screen w-full relative">
+<!-- Background Content (Dimmed and Obscured) -->
+<div class="flex flex-1 relative blur-sm opacity-50 pointer-events-none transition-all duration-300">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low h-screen w-64 flex flex-col p-md border-r border-outline-variant/30 flex-shrink-0 z-10">
+<div class="flex items-center gap-3 mb-xl px-2">
+<div class="w-8 h-8 rounded-DEFAULT bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface leading-tight">Technical Gateway</h1>
+<span class="font-label-md text-label-md text-on-surface-variant block mt-0.5">Admin v2.4</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<!-- Navigation Items -->
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 flex items-center gap-3 px-3 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors text-lg" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md font-medium">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 flex items-center gap-3 px-3 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors text-lg" data-icon="router">router</span>
+<span class="font-body-md text-body-md font-medium">Gateways</span>
+</a>
+<a class="bg-secondary-container text-on-secondary-container font-bold flex items-center gap-3 px-3 py-2 rounded-lg scale-[0.98] transition-transform origin-left" href="#">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="analytics" data-weight="fill">analytics</span>
+<span class="font-body-md text-body-md">Screens</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 flex items-center gap-3 px-3 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors text-lg" data-icon="shield">shield</span>
+<span class="font-body-md text-body-md font-medium">Security</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 flex items-center gap-3 px-3 py-2 rounded-lg group mt-auto" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors text-lg" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md font-medium">Settings</span>
+</a>
+</div>
+<div class="mt-md">
+<button class="w-full bg-primary text-on-primary hover:bg-surface-tint font-label-md text-label-md py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Deploy New Node
+                    </button>
+</div>
+</nav>
+<!-- Main Content Area (Background) -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopAppBar -->
+<header class="bg-surface flex justify-between items-center px-lg h-16 w-full border-b border-outline-variant z-10 flex-shrink-0">
+<div class="flex items-center gap-6">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Screens Gallery</h2>
+<div class="h-4 w-px bg-outline-variant/50"></div>
+<nav class="flex gap-4">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">All Screens</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md" href="#">Recent</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative w-64 hidden xl:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-9 pr-3 py-1.5 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/70" placeholder="Search screens..." type="text"/>
+</div>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded-DEFAULT flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+</button>
+<button class="w-8 h-8 rounded-DEFAULT flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">tune</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Mock Background Content -->
+<div class="flex-1 overflow-hidden p-lg flex gap-lg">
+<!-- Tree Sidebar -->
+<div class="w-48 flex-shrink-0 border-r border-outline-variant/30 pr-md">
+<div class="font-label-md text-label-md text-on-surface-variant mb-4 font-semibold uppercase tracking-wider">Directories</div>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-primary font-medium"><span class="material-symbols-outlined text-sm">folder_open</span> Projects</li>
+<li class="flex items-center gap-2 text-on-surface-variant pl-4"><span class="material-symbols-outlined text-sm">folder</span> Auth Flows</li>
+<li class="flex items-center gap-2 text-on-surface-variant pl-4"><span class="material-symbols-outlined text-sm">folder</span> Dashboards</li>
+</ul>
+</div>
+<!-- Gallery Grid -->
+<div class="flex-1">
+<div class="mb-4">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-2">September 2026</h3>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-video bg-surface-container-high rounded-lg border border-outline-variant/30"></div>
+<div class="aspect-video bg-surface-container-high rounded-lg border border-outline-variant/30"></div>
+<div class="aspect-video bg-surface-container-high rounded-lg border border-outline-variant/30"></div>
+<div class="aspect-video bg-surface-container-high rounded-lg border border-outline-variant/30"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Overlay Scrim -->
+<div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm z-40 flex items-center justify-center p-xl">
+<!-- Modal Container (Level 2 Elevation) -->
+<div class="bg-surface-container-lowest w-full max-w-5xl rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-outline-variant flex flex-col overflow-hidden max-h-[870px] animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="flex items-center justify-between px-lg py-md border-b border-outline-variant bg-surface/50">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                            settings-theme-picker.png
+                        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Version History</p>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:ring-2 focus:ring-primary outline-none">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body (Two Column) -->
+<div class="flex flex-1 min-h-0 bg-background">
+<!-- Left Column: Version List -->
+<div class="w-2/5 border-r border-outline-variant bg-surface-container-lowest overflow-y-auto">
+<div class="p-md space-y-2">
+<!-- Version Item 1 -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-transparent hover:border-outline-variant hover:bg-surface transition-all group">
+<div class="flex items-center gap-3">
+<div class="w-12 h-10 rounded bg-surface-container-high border border-outline-variant/50 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A small UI thumbnail showing a dark mode settings panel with various toggle switches and dropdowns, professional minimalist design, sharp lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjsFC5Wc-NqxnYsvhriw8ffMYSZp2-zTCfbMNWG3ise13C9VqwunampzF_oga8OAk2UT33fgU6U7SXhkOWoYbMv-r2vq_UO7fSeYq5FS5FIyczSoBQNB9rzpYY8pqvQ8Ra1WcMZoPyeodTopm9r5PizR-mQR8fjmjOPWT9SyabcoHF4rFOQdJxMOClZMhg3jdDaeqDAqweD3D0nSNtZDAjFCTmbmwyW3Rih4shkaTbdg1M2cJGrZUoFva3cEWY-D9VZHyCrSTztJQ"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-medium text-on-surface">Generated by AI Assistant</p>
+<p class="font-mono-sm text-mono-sm text-on-surface-variant mt-0.5">2026-09-04 09:15</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity font-label-md text-label-md text-primary hover:text-surface-tint font-medium px-2 py-1 rounded focus:ring-2 focus:ring-primary outline-none">
+                                    Restore
+                                </button>
+</div>
+<!-- Version Item 2 (Active) -->
+<div class="flex items-center justify-between p-3 rounded-lg border-2 border-primary bg-primary-fixed/20 group relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-center gap-3 relative z-10">
+<div class="w-12 h-10 rounded bg-surface-container-high border border-primary/30 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A small UI thumbnail showing a light mode settings panel with color picker swatches, clean lines, professional enterprise aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCscOt0vqovR0SYSlugRo351GdFHAfpznSM1gE941LX5NxXbX7hxJaV3fO--3AzraWEunX4w1DXlffm30lxz4lsw7lFAERqYLUHYdhDb-t-4IpU0ZMHrEglUF808lh-ZJ2zalZrUBY6bQRfshSUv_dxM4CNT3ii1WS0YpIVi6931FkxOhUU7vE6_bJEDCPOfqrSkniUSXkCDnptZBXoBCmpG6nJc2lyP_tNsuSZTQPd0Ef1D6y-opX7McGSaGN4_XCvTivKFbm6tvo"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<p class="font-label-md text-label-md font-medium text-on-surface">Generated by AI Assistant</p>
+<span class="px-1.5 py-0.5 rounded-full bg-primary text-on-primary text-[10px] font-bold leading-none uppercase tracking-wider">Current</span>
+</div>
+<p class="font-mono-sm text-mono-sm text-on-surface-variant mt-0.5">2026-09-03 14:32</p>
+</div>
+</div>
+<button class="font-label-md text-label-md text-primary font-medium px-2 py-1 rounded opacity-50 cursor-not-allowed pointer-events-none">
+                                    Active
+                                </button>
+</div>
+<!-- Version Item 3 -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-transparent hover:border-outline-variant hover:bg-surface transition-all group">
+<div class="flex items-center gap-3">
+<div class="w-12 h-10 rounded bg-surface-container-high border border-outline-variant/50 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A small UI thumbnail of a settings screen focused on typography controls, showing font family dropdowns and size sliders, neutral grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYnWeBmeROzavqlj-iVnoJfX3FQTYP07_mchgmc_trHgoyqMZ0tPjzFQ82Ia50kffQIJITZ6j_GWeAGVxPOy0U4I38aT-cURO3sdSVAAA-7RISOWAI0ZebP4zW0qo86JBEmHmUPHjep3vC79qHWDzrJHHuNc7q1MpODGnyGBxvPi2YoNNcz8DjqggwfTPEbzAjq5ks_VEJYq1Eiwqw95jDj4I34kDgMxBcCZWog0KGUki__4wZEZxJIevC6qPEjSXE_0WbYm8Pu6c"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-medium text-on-surface">Generated by AI Assistant</p>
+<p class="font-mono-sm text-mono-sm text-on-surface-variant mt-0.5">2026-09-01 11:05</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity font-label-md text-label-md text-primary hover:text-surface-tint font-medium px-2 py-1 rounded focus:ring-2 focus:ring-primary outline-none">
+                                    Restore
+                                </button>
+</div>
+<!-- Version Item 4 -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-transparent hover:border-outline-variant hover:bg-surface transition-all group">
+<div class="flex items-center gap-3">
+<div class="w-12 h-10 rounded bg-surface-container-high border border-outline-variant/50 overflow-hidden flex-shrink-0">
+<div class="w-full h-full flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-lg">broken_image</span></div>
+</div>
+<div>
+<p class="font-label-md text-label-md font-medium text-on-surface">Generated by AI Assistant</p>
+<p class="font-mono-sm text-mono-sm text-on-surface-variant mt-0.5">2026-08-30 16:45</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity font-label-md text-label-md text-primary hover:text-surface-tint font-medium px-2 py-1 rounded focus:ring-2 focus:ring-primary outline-none">
+                                    Restore
+                                </button>
+</div>
+<!-- Version Item 5 -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-transparent hover:border-outline-variant hover:bg-surface transition-all group">
+<div class="flex items-center gap-3">
+<div class="w-12 h-10 rounded bg-surface-container-high border border-outline-variant/50 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A small UI thumbnail showing an initial wireframe of a theme picker, grayscale, blocky elements, conceptual design stage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAocYjhllFZ2w44ujzWmB11OmrNT44DuQeQYdRRr0BnsVOK_wrbGgH_C4PBWQIX_qXGnfFWsEQpXyKNg9YbPaLD3G7BSS1y4wxZlghtxnCQaudOFjvF5VsWGofDlp135k__0XdBQoJmkNsxg17QRUR0lYPoiuwZXbKz3zGSK3CrUBNTZQhgkMKgnhsqrI6H8BuTK289OAqUxJPCuwRFImBflGulOcIdSFiXA8fLokPWn8cGaxy1TiY3aj2zOXLKxAFzkTASlOZmaN4"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-medium text-on-surface">Initial Generation</p>
+<p class="font-mono-sm text-mono-sm text-on-surface-variant mt-0.5">2026-08-29 10:00</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity font-label-md text-label-md text-primary hover:text-surface-tint font-medium px-2 py-1 rounded focus:ring-2 focus:ring-primary outline-none">
+                                    Restore
+                                </button>
+</div>
+</div>
+</div>
+<!-- Right Column: Preview Area -->
+<div class="w-3/5 bg-surface-container-low flex flex-col">
+<div class="flex-1 p-xl flex items-center justify-center relative overflow-hidden">
+<!-- Subtle grid background pattern for preview area -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, #111c2d 1px, transparent 0); background-size: 16px 16px;"></div>
+<!-- Main Preview Image -->
+<div class="relative z-10 w-full max-w-lg aspect-video rounded-lg shadow-lg border border-outline-variant/50 overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="A large, detailed high-fidelity UI mockup of a theme picker dialog box. It features clean white backgrounds, sharp blue accent colors, precise form fields for typography and color variables, and a modern corporate aesthetic suitable for an enterprise operations console. Soft lighting, pixel-perfect layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb1Z015R0mvVSD0lJ3Owrs8ZelbRlGxdOYBXIZXnxLMS3IRAPsd3SFUFJgmLzv6uSoXVq4jXJW17xbAy40Idl3Hp707BwEedpc8IwRvPt2Mlf5S08WMhmUbD4EX8uQNu_a4ddbCtPT4VOIAjAsK-okKI3dr3jjOogYeYUr6-onMS4c8Xj1BdAsDSKCMZh7xLxfh51CIU56yaKx4uu-A_Bg9Lzamamiw4aCwcG84C_kzK6CeqoscMCR--KBJo9sm4AHLmnohM0YRyQ"/>
+</div>
+</div>
+<!-- Caption -->
+<div class="p-md text-center border-t border-outline-variant/30 bg-surface">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Version 4 of 5, generated <span class="font-mono-sm">2026-09-03 14:32</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Modal Footer Actions -->
+<div class="p-md border-t border-outline-variant bg-surface-container-lowest flex justify-end gap-3 items-center">
+<button class="px-4 py-2 rounded-lg font-label-md text-label-md font-medium text-error border border-error/30 hover:bg-error-container hover:text-on-error-container hover:border-error transition-colors focus:ring-2 focus:ring-error outline-none flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">delete</span>
+                        Delete Version
+                    </button>
+<div class="w-px h-6 bg-outline-variant mx-1"></div>
+<button class="px-4 py-2 rounded-lg font-label-md text-label-md font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container-high transition-colors focus:ring-2 focus:ring-primary outline-none">
+                        Cancel
+                    </button>
+<button class="px-4 py-2 rounded-lg font-label-md text-label-md font-medium bg-primary text-on-primary hover:bg-surface-tint transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 outline-none flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Download
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MCP Configuration - OpsConsole</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-surface": "#191b23",
+                        "primary-container": "#2563eb",
+                        "inverse-surface": "#2e3039",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface": "#faf8ff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#eeefff",
+                        "on-tertiary-container": "#ffede6",
+                        "on-secondary-container": "#54647a",
+                        "surface-tint": "#0053db",
+                        "inverse-primary": "#b4c5ff",
+                        "tertiary": "#943700",
+                        "on-background": "#191b23",
+                        "surface-dim": "#d9d9e5",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-container-low": "#f3f3fe",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#faf8ff",
+                        "surface-variant": "#e1e2ed",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-container": "#d0e1fb",
+                        "surface-container-highest": "#e1e2ed",
+                        "primary": "#004ac6",
+                        "surface-container-high": "#e7e7f3",
+                        "tertiary-fixed": "#ffdbcd",
+                        "secondary": "#505f76",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f0f0fb",
+                        "surface-container": "#ededf9",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-primary-fixed": "#00174b",
+                        "background": "#faf8ff",
+                        "tertiary-container": "#bc4800",
+                        "outline-variant": "#c3c6d7",
+                        "on-surface-variant": "#434655",
+                        "on-secondary-fixed": "#0b1c30",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-primary": "#ffffff",
+                        "outline": "#737686",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "20px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "code-md": ["JetBrains Mono"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "headline-lg-mobile": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "label-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "code-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "code-sm": ["11px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="fixed h-full w-[240px] left-0 top-0 bg-surface border-r border-outline-variant flex flex-col h-full py-xl px-md z-20">
+<div class="mb-xl px-md flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">Admin</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Superuser</div>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Overview</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="vpn_key">vpn_key</span>
+<span class="font-body-md text-body-md">Keys</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="monitor">monitor</span>
+<span class="font-body-md text-body-md">Screens</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-body-md text-body-md">Design</span>
+</a>
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-xl px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="terminal" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-body-md text-body-md font-semibold">MCP</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-body-md text-body-md">Playground</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="database_view">maps_ar</span>
+<span class="font-body-md text-body-md">Logs</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[240px] flex-1 flex flex-col h-full bg-background relative overflow-y-auto">
+<!-- TopAppBar -->
+<header class="sticky top-0 bg-surface border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop py-md z-10 transition-all duration-200">
+<div class="font-headline-md text-headline-md font-bold text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">memory</span>
+                OpsConsole
+            </div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block mr-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-64 pl-[36px] pr-md py-sm bg-surface-container-low border-none rounded-full font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary-container focus:outline-none transition-shadow" placeholder="Search resources..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-low rounded-full p-2 transition-all duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low rounded-full p-2 transition-all duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-sm border border-outline-variant cursor-pointer">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A clean, minimalist headshot of a technical professional wearing glasses against a solid light blue background, high quality, studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbY0k9-SOtRotLypDWLyOD29OPP4ICMrHP5NfjR0-kwZiDPbYiMl7vgXE8Ydii9Zlas5-JVkkVN6dAH7fGlwKXkLNQGBbhfsn9VEYZf6E6VbatGiKbrs6SkVFHcC7R_d4jvILsjQ-DRarHZa6v4FW7KErLawqdRu8prwnMM6jVRtOhi2RSoXWpOTs-pBIHyta7SSQVCjXg4krrwNgOGaKNDxO6dpJGSbsszmgyQNb5v4zbzwIKGvSuipNJp-4w4i4NP7FZ0oDnERU"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-margin-desktop w-full max-w-6xl mx-auto flex-1 flex flex-col gap-lg">
+<div class="flex items-center justify-between mb-sm">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">MCP Configuration</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Manage Model Context Protocol connections and capabilities.</p>
+</div>
+</div>
+<!-- Server Endpoint Wide Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-lg flex flex-col md:flex-row md:items-center justify-between gap-md shadow-sm">
+<div class="flex flex-col gap-sm">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Server Endpoint</span>
+<span class="bg-surface-container-high text-on-surface px-sm py-[2px] rounded font-label-md text-label-md border border-outline-variant/50">SSE</span>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-low px-md py-sm rounded-lg border border-outline-variant/30 w-fit">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">link</span>
+<span class="font-code-md text-code-md text-on-surface">https://gateway.local:8787/mcp</span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm bg-surface-container-lowest px-md py-sm rounded-full border border-outline-variant/50">
+<div class="w-2.5 h-2.5 rounded-full bg-[#10b981] shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+<span class="font-label-md text-label-md text-on-surface">Connected</span>
+</div>
+<button class="bg-surface border border-outline-variant px-md py-sm rounded-lg hover:bg-surface-container-low transition-colors font-label-md text-label-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+                        Test Connection
+                    </button>
+</div>
+</div>
+<!-- Side-by-Side Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg mt-xs">
+<!-- Auth Mode Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-lg flex flex-col gap-md shadow-sm">
+<div class="flex items-center gap-sm border-b border-outline-variant/50 pb-sm">
+<span class="material-symbols-outlined text-primary">key</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Auth Mode</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Bearer token authentication is currently active for this endpoint.</p>
+<div class="mt-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-xs">Active Key</label>
+<div class="flex items-center gap-sm">
+<div class="bg-surface-container-low border border-outline-variant px-md py-sm rounded-lg flex-1 flex items-center justify-between">
+<span class="font-code-md text-code-md text-on-surface tracking-wider">sk-live-92ab••••••••••••</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<button class="mt-auto self-start bg-primary text-on-primary px-lg py-sm rounded-lg hover:bg-primary/90 transition-colors font-label-md text-label-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">autorenew</span>
+                        Rotate Key
+                    </button>
+</div>
+<!-- Capabilities Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-lg flex flex-col gap-md shadow-sm">
+<div class="flex items-center gap-sm border-b border-outline-variant/50 pb-sm">
+<span class="material-symbols-outlined text-tertiary-container">extension</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Capabilities</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">The following protocol features are supported by the connected server.</p>
+<div class="flex flex-wrap gap-sm mt-sm">
+<div class="bg-secondary-container text-on-secondary-container px-md py-sm rounded-full border border-secondary-fixed-dim/50 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">build</span>
+<span class="font-code-sm text-code-sm uppercase font-bold tracking-wider">tools</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-md py-sm rounded-full border border-secondary-fixed-dim/50 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+<span class="font-code-sm text-code-sm uppercase font-bold tracking-wider">resources</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-md py-sm rounded-full border border-secondary-fixed-dim/50 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span class="font-code-sm text-code-sm uppercase font-bold tracking-wider">prompts</span>
+</div>
+</div>
+<div class="mt-auto bg-surface-container border border-outline-variant/50 rounded-lg p-md flex gap-md items-start">
+<span class="material-symbols-outlined text-on-surface-variant mt-xs">info</span>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">To enable logging or workspace capabilities, update the server manifest and restart the gateway.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KeyOps Console - Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "tertiary": "#ffb784",
+                "surface-container-low": "#1d1a24",
+                "on-surface-variant": "#ccc3d8",
+                "on-tertiary-fixed-variant": "#713700",
+                "on-error": "#690005",
+                "surface": "#15121b",
+                "secondary-fixed-dim": "#c8c6c5",
+                "background": "#15121b",
+                "outline": "#958da1",
+                "on-secondary-fixed": "#1b1b1c",
+                "on-secondary-container": "#b7b5b4",
+                "inverse-primary": "#732ee4",
+                "surface-dim": "#15121b",
+                "secondary-fixed": "#e5e2e1",
+                "surface-container-lowest": "#100d16",
+                "on-error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#474746",
+                "on-primary-container": "#ede0ff",
+                "primary-fixed": "#eaddff",
+                "surface-tint": "#d2bbff",
+                "on-background": "#e8dfee",
+                "on-primary": "#3f008e",
+                "tertiary-container": "#a15100",
+                "inverse-on-surface": "#332f39",
+                "tertiary-fixed-dim": "#ffb784",
+                "surface-bright": "#3c3742",
+                "surface-container-high": "#2c2833",
+                "on-tertiary-fixed": "#301400",
+                "outline-variant": "#4a4455",
+                "on-tertiary": "#4f2500",
+                "primary-container": "#7c3aed",
+                "error": "#ffb4ab",
+                "tertiary-fixed": "#ffdcc6",
+                "on-tertiary-container": "#ffe0cd",
+                "surface-container": "#221e28",
+                "secondary-container": "#474746",
+                "error-container": "#93000a",
+                "on-surface": "#e8dfee",
+                "inverse-surface": "#e8dfee",
+                "on-secondary": "#303030",
+                "secondary": "#c8c6c5",
+                "on-primary-fixed": "#25005a",
+                "surface-variant": "#37333e",
+                "surface-container-highest": "#37333e",
+                "primary": "#d2bbff",
+                "primary-fixed-dim": "#d2bbff",
+                "on-primary-fixed-variant": "#5a00c6"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "unit": "4px",
+                "margin": "16px",
+                "gutter": "12px",
+                "container-max": "100%"
+              },
+              "fontFamily": {
+                "data-sm": [
+                  "JetBrains Mono"
+                ],
+                "label-caps": [
+                  "Inter"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "data-lg": [
+                  "JetBrains Mono"
+                ],
+                "body-sm": [
+                  "Inter"
+                ],
+                "headline-md": [
+                  "Inter"
+                ],
+                "headline-lg": [
+                  "Inter"
+                ]
+              },
+              "fontSize": {
+                "data-sm": [
+                  "11px",
+                  {
+                    "lineHeight": "14px",
+                    "letterSpacing": "0.02em",
+                    "fontWeight": "400"
+                  }
+                ],
+                "label-caps": [
+                  "10px",
+                  {
+                    "lineHeight": "12px",
+                    "letterSpacing": "0.08em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "data-lg": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "headline-lg": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { background-color: #0a0a0a; color: #e8dfee; }
+        .meter-ring { transition: stroke-dashoffset 1s ease-out; }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen w-full overflow-hidden flex font-body-md">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col py-gutter space-y-unit bg-surface-container-lowest w-64 h-screen border-r border-outline-variant flex-shrink-0 z-10">
+<div class="px-margin mb-6 mt-2">
+<h1 class="font-headline-sm text-headline-sm font-semibold text-on-surface">KeyOps Console</h1>
+<p class="font-data-sm text-data-sm text-secondary mt-1">V2.4.0</p>
+</div>
+<nav class="flex-1 overflow-y-auto space-y-1 w-full">
+<a class="flex items-center text-secondary pl-4 py-2 hover:bg-surface-container transition-colors duration-150 opacity-80 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Overview</span>
+</a>
+<a class="flex items-center text-secondary pl-4 py-2 hover:bg-surface-container transition-colors duration-150 opacity-80 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Key Pool</span>
+</a>
+<a class="flex items-center text-secondary pl-4 py-2 hover:bg-surface-container transition-colors duration-150 opacity-80 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Logs</span>
+</a>
+<a class="flex items-center text-secondary pl-4 py-2 hover:bg-surface-container transition-colors duration-150 opacity-80 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Rate Limits</span>
+</a>
+<a class="flex items-center text-primary font-semibold border-l-2 border-primary pl-4 py-2 bg-surface-container transition-colors duration-150 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Usage</span>
+</a>
+<a class="flex items-center text-secondary pl-4 py-2 hover:bg-surface-container transition-colors duration-150 opacity-80 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Health</span>
+</a>
+<a class="flex items-center text-secondary pl-4 py-2 hover:bg-surface-container transition-colors duration-150 opacity-80 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Security</span>
+</a>
+<a class="flex items-center text-secondary pl-4 py-2 hover:bg-surface-container transition-colors duration-150 opacity-80 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Webhooks</span>
+</a>
+<a class="flex items-center text-secondary pl-4 py-2 hover:bg-surface-container transition-colors duration-150 opacity-80 cursor-pointer" href="#">
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Settings</span>
+</a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-gutter w-full h-12 border-b border-outline-variant bg-surface-container-lowest z-10 flex-shrink-0">
+<div class="flex items-center space-x-4">
+<div class="font-label-caps text-label-caps font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    System Status: Active
+                </div>
+</div>
+<div class="flex items-center space-x-3">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface border border-outline-variant rounded pl-8 pr-3 py-1 text-data-sm font-data-sm text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors w-48 bg-transparent" placeholder="Search resources..." type="text"/>
+</div>
+<button class="px-3 py-1 bg-transparent border border-outline-variant rounded font-label-caps text-label-caps text-secondary hover:bg-surface-container transition-colors">
+                    Emergency Revoke
+                </button>
+<button class="px-3 py-1 bg-primary text-on-primary rounded font-label-caps text-label-caps font-bold hover:bg-primary-fixed-dim transition-colors border border-transparent">
+                    Create Key
+                </button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-margin md:p-8 relative">
+<div class="max-w-6xl mx-auto space-y-8">
+<section class="border border-outline-variant bg-surface-container-lowest p-6 relative overflow-hidden group">
+<!-- Subtle background texture pattern -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#958da1 1px, transparent 1px); background-size: 20px 20px;"></div>
+<header class="mb-8 border-b border-outline-variant pb-4 relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-surface">RPM headroom — all keys</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Real-time capacity utilization across active connection pools.</p>
+</header>
+<div class="flex flex-wrap gap-8 justify-start items-center mb-8 relative z-10">
+<!-- Gauge 1: prod-key-1 -->
+<div class="flex flex-col items-center group/gauge">
+<div class="relative w-24 h-24 mb-3">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-variant" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="8"></circle>
+<!-- 12/60 = 20% -->
+<circle class="text-primary meter-ring group-hover/gauge:text-primary-fixed transition-colors" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="200.96" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-data-lg text-data-lg text-on-surface">20%</span>
+</div>
+</div>
+<div class="text-center">
+<div class="font-data-sm text-data-sm text-on-surface bg-surface-container px-2 py-0.5 rounded border border-outline-variant/50 inline-block mb-1">prod-key-1</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">12 / 60 RPM</div>
+</div>
+</div>
+<!-- Gauge 2: prod-key-2 -->
+<div class="flex flex-col items-center group/gauge">
+<div class="relative w-24 h-24 mb-3">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-variant" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="8"></circle>
+<!-- 8/60 ≈ 13% -->
+<circle class="text-tertiary-fixed-dim meter-ring group-hover/gauge:text-tertiary transition-colors" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="218.5" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-data-lg text-data-lg text-on-surface">13%</span>
+</div>
+</div>
+<div class="text-center">
+<div class="font-data-sm text-data-sm text-on-surface bg-surface-container px-2 py-0.5 rounded border border-outline-variant/50 inline-block mb-1">prod-key-2</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">8 / 60 RPM</div>
+</div>
+</div>
+<!-- Gauge 3: backup-key -->
+<div class="flex flex-col items-center group/gauge">
+<div class="relative w-24 h-24 mb-3">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-variant" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="8"></circle>
+<!-- 3/30 = 10% -->
+<circle class="text-secondary meter-ring group-hover/gauge:text-secondary-fixed transition-colors" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="226.08" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-data-lg text-data-lg text-on-surface">10%</span>
+</div>
+</div>
+<div class="text-center">
+<div class="font-data-sm text-data-sm text-on-surface bg-surface-container px-2 py-0.5 rounded border border-outline-variant/50 inline-block mb-1">backup-key</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">3 / 30 RPM</div>
+</div>
+</div>
+<!-- Gauge 4: staging-key -->
+<div class="flex flex-col items-center group/gauge">
+<div class="relative w-24 h-24 mb-3">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-variant" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="8"></circle>
+<!-- 0/15 = 0% -->
+<circle class="text-outline meter-ring" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-data-lg text-data-lg text-on-surface-variant">0%</span>
+</div>
+</div>
+<div class="text-center">
+<div class="font-data-sm text-data-sm text-on-surface bg-surface-container px-2 py-0.5 rounded border border-outline-variant/50 inline-block mb-1">staging-key</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">0 / 15 RPM</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant/50 relative z-10 flex items-center">
+<span class="material-symbols-outlined text-primary mr-2 text-sm">check_circle</span>
+<span class="font-data-sm text-data-sm text-on-surface tracking-wide">Pool healthy · lowest headroom 80%</span>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script>
+        // Trigger initial animation for SVG rings
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const rings = document.querySelectorAll('.meter-ring');
+                // The stroke-dashoffset is set inline via classes/attributes above, 
+                // but this script ensures any dynamic loading would trigger a transition if we started them at 251.2
+            }, 100);
+        });
+    </script>
+</body></html>

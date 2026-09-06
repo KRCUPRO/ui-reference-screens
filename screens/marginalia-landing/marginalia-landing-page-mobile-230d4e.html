@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - 흩어진 문서에 질문하면, 근거까지 함께 답합니다.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Literata:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f1f1ef",
+                        "primary-fixed-dim": "#c3c6d0",
+                        "secondary": "#396759",
+                        "primary-fixed": "#dfe2ec",
+                        "background": "#FBFBF9", /* Paper */
+                        "secondary-container": "#b9ead9",
+                        "surface-dim": "#dadad8",
+                        "on-secondary-fixed": "#002019",
+                        "on-background": "#14181F", /* Ink */
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c3c6d0",
+                        "surface-container-highest": "#e2e3e1",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#14181F", /* Ink */
+                        "on-primary-container": "#80848d",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#bceddc",
+                        "tertiary-fixed": "#eee4a7",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#181c23",
+                        "outline": "#DEDFD8", /* Hairline */
+                        "tertiary-fixed-dim": "#d1c88d",
+                        "on-tertiary-fixed": "#201c00",
+                        "on-surface-variant": "#45474b",
+                        "on-tertiary-fixed-variant": "#4d4719",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#3d6b5e",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#43474f",
+                        "surface-container-high": "#e8e8e6",
+                        "on-secondary-fixed-variant": "#204f42",
+                        "tertiary-container": "#b5ad74",
+                        "outline-variant": "#DEDFD8", /* Hairline */
+                        "surface-container": "#F1F2ED",
+                        "on-tertiary-container": "#464013",
+                        "tertiary": "#EDE3A6", /* Highlighter */
+                        "surface-container-low": "#F4F4F2",
+                        "inverse-surface": "#2f3130",
+                        "surface": "#FBFBF9", /* Paper */
+                        "surface-tint": "#5b5e67",
+                        "on-primary-fixed": "#181c23",
+                        "secondary-fixed-dim": "#a0d1c0",
+                        "surface-variant": "#e2e3e1",
+                        "primary": "#2F5D50", /* Evergreen */
+                        "surface-bright": "#f9f9f7"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0rem",
+                        lg: "0rem",
+                        xl: "0rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "margin-main": "20px",
+                        "unit": "4px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Literata", "serif"],
+                        "body-lg": ["IBM Plex Sans", "sans-serif"],
+                        "utility-mono": ["IBM Plex Mono", "monospace"],
+                        "display-lg": ["Literata", "serif"],
+                        "headline-lg": ["Literata", "serif"],
+                        "headline-md": ["Literata", "serif"],
+                        "label-caps": ["IBM Plex Mono", "monospace"],
+                        "body-md": ["IBM Plex Sans", "sans-serif"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "utility-mono": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "500" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "500" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "500" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FBFBF9;
+            color: #14181F;
+            -webkit-font-smoothing: antialiased;
+        }
+        .highlight {
+            background-color: #EDE3A6;
+            display: inline-block;
+            padding: 0 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md text-on-surface bg-background">
+<!-- Top Navigation -->
+<header class="sticky top-0 w-full bg-surface border-b border-outline z-50 flex justify-between items-center h-16 px-margin-main">
+<a class="font-display-lg text-headline-md text-primary font-semibold tracking-tight" href="/">Marginalia</a>
+<button aria-label="Menu" class="text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="px-margin-main py-10 flex flex-col gap-6">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface leading-tight">
+<span class="highlight">흩어진 문서</span>에 질문하면,<br/>
+                근거까지 함께 답합니다.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                파편화된 사내 지식을 하나의 검색창으로 연결하세요. Marginalia가 출처가 명확한 답변을 생성해 드립니다.
+            </p>
+<div class="flex flex-col gap-3 mt-4">
+<button class="bg-primary text-on-primary py-3 px-6 font-utility-mono text-utility-mono w-full text-center">
+                    14일 무료로 시작
+                </button>
+<button class="border border-on-surface text-on-surface py-3 px-6 font-utility-mono text-utility-mono w-full text-center hover:bg-surface-container transition-colors">
+                    제품 둘러보기
+                </button>
+</div>
+<!-- Fake UI Component -->
+<div class="mt-8 border border-outline bg-surface p-4 flex flex-col gap-4">
+<div class="flex items-center gap-2 text-on-surface-variant font-utility-mono text-label-caps">
+<span class="material-symbols-outlined text-[16px]">search</span>
+<span>Q. 2024년 1분기 주요 마케팅 목표는?</span>
+</div>
+<div class="border-t border-outline pt-4">
+<p class="font-body-md text-body-md">
+                        2024년 1분기 주요 마케팅 목표는 신규 서비스 'Marginalia Pro'의 <span class="bg-tertiary px-1">초기 사용자 1만 명 확보</span>와 브랜드 인지도 20% 상승입니다. 이를 위해 콘텐츠 마케팅과 타겟티드 퍼포먼스 광고에 예산의 60%를 집중할 계획입니다. <sup class="border border-on-surface text-label-caps px-1">1</sup>
+</p>
+<div class="mt-4 pt-3 border-t border-outline border-dashed">
+<div class="font-utility-mono text-label-caps text-on-surface-variant mb-2 uppercase">Sources</div>
+<div class="flex items-center gap-2 border border-outline p-2 bg-surface-container-low text-xs font-utility-mono">
+<span class="material-symbols-outlined text-[14px]">description</span>
+<span class="truncate">24_Q1_Marketing_Strategy.pdf</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Strip -->
+<section class="border-t border-b border-outline py-8 px-margin-main bg-surface-container-low flex flex-col items-center gap-6">
+<span class="font-utility-mono text-label-caps text-on-surface-variant tracking-widest uppercase">이런 팀이 씁니다</span>
+<div class="flex flex-wrap justify-center gap-6 opacity-60 grayscale">
+<img class="h-6 object-contain" data-alt="A clean, minimalist logo of a modern tech company, crisp typography, flat design, monochrome, transparent background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIn1tR4HyYcZLyDPNqJdrc_L9Z4Iz8_mmTcGmGJmtCLbTZHC3H2d5sJA9VlYnZU2GQ5QIoxEBb5q9L4DU5RONUOPBacGJhsP0gpLExR35IC58HeKB1tQZVsOCtiQ0hoSxkKp_QYoThXH6GC8eqf4jPwwK_fwt87PudIh5wCH6hA4Kw7Wmml6WtdOkC_NsiFIrJaYeA3EPHGbbl2hG8LCKBTQtHTBghSeFzJYGRNZGmP1ScJnaSSTVbU1iv2dhELJO8HfiF2FNtn239"/>
+<img class="h-6 object-contain" data-alt="A sleek corporate logo for a consulting firm, geometric sans-serif font, black and white, professional aesthetic, transparent background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW0jTd34sazXY-jEqapYCKNbE4g9JpXGLTsWezbqb5KL5tmKgkHylTm5w4j0jMDBtFQq7BtbCqoiK_cx4UzTkhMm3JwmCcber_2rfW0dfKeI-qE4KGAqNT2bUa7ReR2s_rCxd6hq8Ogu4TzShu0vf7g70WYydm016x0J3uJrMheHuJW3VeISzAUdQtSl8HDyVAnkXt-xHLbvh6VbFCRJIm08Y_cA6PGEt2B5BjnHowRUqoMmoIN-fCt3nauCUDGEC1xxJjdzRMgs6R"/>
+<img class="h-6 object-contain" data-alt="An elegant logo for a legal tech startup, sharp serifs, minimalist icon, flat monochrome styling, transparent background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLUvtRjNX_mb20GCehUhIcWiC4dHAMffdVtbRL0h8qq_f8mNKBqoykPAd8F5tChqVTnPToM1IqvM2FFk2qxUncgB3dnEASdbqUhSQRblz2wn9UrMcud_rVuDXvu-O3V21cVsLvYMwjQEt09vfa8XgG-VABw3R-WGwLL5U96fB4lN1WjhRRyGcABB0YtdG-jWnJq9PQZy8Uc-kBUtW1oCtxuNd3Sw6Ko_unPyWr3MlcZtxhsR8zdj6j3X7ZxZKEA45R5d_cpK7H5IUW"/>
+<img class="h-6 object-contain" data-alt="A modern research institute logo, abstract circular emblem, clean typography, dark ink color, transparent background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOa87RmqN9CiFIhvGb8QBV2ib2P3d2PwckqgnYAt2sUL_UzACyZGURAvBfpeFFCPDjRwarqDztzciGSNt3qJiKkuqG4OmWeBB1n35-kHcHl21BLYrQJKs1HyCBxZI9GZE0NWidRuaonlns7EkoQZ8Oyu8lxXuMWZ0O0MpX-HSq8KYE1wlK4nrS4autJvYCfvPKs_McODmr1K2yQfR2QIk_LWBKdmwAyxYV_lVoTyvZrxrcfJTJfL5KYTovIWO16UX_Hqz0GcQ3vLhL"/>
+</div>
+</section>
+<!-- Features -->
+<section class="py-12 flex flex-col">
+<div class="px-margin-main mb-8">
+<span class="font-utility-mono text-label-caps text-on-surface-variant tracking-widest uppercase mb-4 block">WHY MARGINALIA</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile">
+                    신뢰할 수 있는 답변,<br/>
+                    근거 있는 의사결정.
+                </h2>
+</div>
+<div class="flex flex-col border-t border-outline">
+<!-- Feature 1 -->
+<div class="p-margin-main border-b border-outline flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">hub</span>
+<h3 class="font-headline-md text-headline-md text-base font-semibold mt-2">모든 문서를 하나로 연결</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        구글 드라이브, 노션, 슬랙 등 파편화된 업무 툴을 한 곳에 연결하여 사내 지식을 통합합니다.
+                    </p>
+</div>
+<!-- Feature 2 -->
+<div class="p-margin-main border-b border-outline flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">find_in_page</span>
+<h3 class="font-headline-md text-headline-md text-base font-semibold mt-2">출처가 명확한 AI 답변</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        환각(Hallucination) 없이, 오직 연동된 사내 문서만을 기반으로 정확하고 출처가 달린 답변을 제공합니다.
+                    </p>
+</div>
+<!-- Feature 3 -->
+<div class="p-margin-main border-b border-outline flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">lock</span>
+<h3 class="font-headline-md text-headline-md text-base font-semibold mt-2">엔터프라이즈급 보안</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        데이터는 학습에 사용되지 않으며, 사용자 권한에 따라 접근 가능한 문서 내에서만 검색이 이루어집니다.
+                    </p>
+</div>
+<!-- Feature 4 -->
+<div class="p-margin-main border-b border-outline flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">update</span>
+<h3 class="font-headline-md text-headline-md text-base font-semibold mt-2">실시간 동기화</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        원본 문서가 수정되면 Marginalia의 검색 결과에도 즉각 반영되어 항상 최신 정보를 유지합니다.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Pricing -->
+<section class="py-12 bg-surface-container-low border-t border-outline">
+<div class="px-margin-main mb-8 flex flex-col items-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-6">요금제</h2>
+<div class="flex border border-outline bg-surface p-1">
+<button class="px-4 py-2 font-utility-mono text-label-caps bg-on-surface text-on-primary">월 결제</button>
+<button class="px-4 py-2 font-utility-mono text-label-caps text-on-surface-variant">연 결제 (20% 할인)</button>
+</div>
+</div>
+<div class="px-margin-main flex flex-col gap-6">
+<!-- Free -->
+<div class="border border-outline bg-surface p-6 flex flex-col gap-4">
+<h3 class="font-utility-mono text-label-caps text-on-surface-variant uppercase">Starter</h3>
+<div class="font-headline-lg-mobile text-headline-lg-mobile">Free</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm h-12">개인 연구자 및 소규모 프로젝트를 위한 기본 기능</p>
+<button class="border border-on-surface text-on-surface py-2 font-utility-mono text-utility-mono mt-2">시작하기</button>
+<ul class="flex flex-col gap-2 mt-4 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">check</span>문서 연동 100개</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">check</span>기본 AI 검색</li>
+</ul>
+</div>
+<!-- Team -->
+<div class="border-2 border-primary bg-surface p-6 flex flex-col gap-4 relative">
+<div class="absolute -top-3 left-6 bg-primary text-on-primary px-2 py-1 font-utility-mono text-[10px] uppercase">가장 많이 선택</div>
+<h3 class="font-utility-mono text-label-caps text-on-surface-variant uppercase mt-2">Team</h3>
+<div class="font-headline-lg-mobile text-headline-lg-mobile flex items-end gap-1">
+                        ₩29,000 <span class="font-body-md text-sm text-on-surface-variant mb-1">/ user</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm h-12">협업이 필요한 팀을 위한 무제한 검색 및 통합</p>
+<button class="bg-primary text-on-primary py-2 font-utility-mono text-utility-mono mt-2">14일 무료 체험</button>
+<ul class="flex flex-col gap-2 mt-4 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check</span>문서 연동 무제한</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check</span>고급 AI 모델 적용</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check</span>노션, 구글 드라이브 연동</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="py-16 px-margin-main bg-surface-container flex flex-col items-center text-center border-t border-outline">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4">우리 팀 문서부터<br/>연결해 보세요.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                카드 등록 없이 14일 동안 모든 기능을 무료로 사용해 볼 수 있습니다.
+            </p>
+<button class="bg-primary text-on-primary py-3 px-8 font-utility-mono text-utility-mono w-full">
+                무료로 시작하기
+            </button>
+<span class="font-utility-mono text-label-caps text-on-surface-variant mt-4 block">NO CREDIT CARD REQUIRED</span>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-outline bg-surface-container-lowest py-8 px-margin-main w-full flex flex-col gap-8">
+<div class="font-display-lg text-headline-md text-primary font-semibold">Marginalia</div>
+<div class="flex flex-col gap-4 font-utility-mono text-label-caps uppercase text-on-surface-variant">
+<a class="hover:text-on-surface" href="#">Terms</a>
+<a class="hover:text-on-surface" href="#">Privacy</a>
+<a class="hover:text-on-surface" href="#">Twitter</a>
+<a class="hover:text-on-surface" href="#">Changelog</a>
+</div>
+<div class="font-utility-mono text-label-caps uppercase text-on-surface-variant pt-8 border-t border-outline-variant">
+            © 2024 MARGINALIA RESEARCH. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

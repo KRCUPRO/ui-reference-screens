@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Newsletter Subscription Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-container-low": "#f7f3f2",
+                "on-primary-container": "#858383",
+                "primary-fixed": "#e5e2e1",
+                "surface-bright": "#fdf8f8",
+                "on-surface-variant": "#444748",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "on-error": "#ffffff",
+                "secondary-container": "#e4e2e1",
+                "on-background": "#1c1b1b",
+                "inverse-surface": "#313030",
+                "surface-container-highest": "#e5e2e1",
+                "surface": "#fdf8f8",
+                "inverse-primary": "#c8c6c5",
+                "on-secondary-container": "#656464",
+                "inverse-on-surface": "#f4f0ef",
+                "secondary-fixed": "#e4e2e1",
+                "on-primary-fixed": "#1c1b1b",
+                "on-primary": "#ffffff",
+                "surface-dim": "#ddd9d8",
+                "surface-container": "#f1edec",
+                "surface-variant": "#e5e2e1",
+                "secondary-fixed-dim": "#c8c6c6",
+                "primary-fixed-dim": "#c8c6c5",
+                "tertiary-container": "#1c1b1a",
+                "on-error-container": "#93000a",
+                "on-surface": "#1c1b1b",
+                "secondary": "#5f5e5e",
+                "on-tertiary": "#ffffff",
+                "surface-tint": "#5f5e5e",
+                "surface-container-high": "#ebe7e6",
+                "primary-container": "#1c1b1b",
+                "error-container": "#ffdad6",
+                "on-secondary": "#ffffff",
+                "outline-variant": "#c4c7c7",
+                "tertiary": "#000000",
+                "on-primary-fixed-variant": "#474746",
+                "background": "#fdf8f8",
+                "outline": "#747878",
+                "primary": "#000000",
+                "on-tertiary-fixed": "#1c1b1a",
+                "on-secondary-fixed": "#1b1c1c",
+                "tertiary-fixed-dim": "#cac6c4",
+                "on-tertiary-fixed-variant": "#484645",
+                "on-tertiary-container": "#868382",
+                "on-secondary-fixed-variant": "#474747",
+                "tertiary-fixed": "#e6e2df"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "unit": "4px",
+                "margin-page": "16px",
+                "gutter": "8px",
+                "column-gap": "12px",
+                "row-gap": "4px"
+              },
+              "fontFamily": {
+                "label-caps": [
+                  "Archivo Narrow"
+                ],
+                "headline-md": [
+                  "\"Source Serif 4\""
+                ],
+                "body-md": [
+                  "\"Source Serif 4\""
+                ],
+                "body-sm": [
+                  "\"Source Serif 4\""
+                ],
+                "footer-note": [
+                  "Archivo Narrow"
+                ],
+                "headline-lg": [
+                  "\"Source Serif 4\""
+                ]
+              },
+              "fontSize": {
+                "label-caps": [
+                  "11px",
+                  {
+                    "lineHeight": "12px",
+                    "letterSpacing": "0.08em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "headline-md": [
+                  "20px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "footer-note": [
+                  "10px",
+                  {
+                    "lineHeight": "14px",
+                    "letterSpacing": "0.01em",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-lg": [
+                  "30px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "700"
+                  }
+                ]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background min-h-screen relative font-body-md overflow-hidden">
+<!-- Blurred Background (Simulating underlying page) -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center filter blur-md opacity-40 brightness-50" data-alt="A sophisticated, high-density editorial layout reminiscent of a heritage broadsheet newspaper, set in a light mode aesthetic. The background features rigid multi-column grid structures defined by thin, precise vertical rules, filled with densely packed text columns and classical typography. The color palette revolves around stark whites, off-whites like #fdf8f8, deep blacks, and sharp geometric contrast, creating an atmosphere of intellectual rigor and archival permanence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJCFXeb2ACk1jpEuK9M_B8rWshHoSq8Uo5Zg6-1dsZQ49MMyv1DU5i-tU18MoguldCR9rnVbAyjxmQJvvseL17nmz5nEw5_pN-hJpJeVLS3tJ0tng_hW7LYP4Ay8l9sovm5dgpVQaXcYRkvIs-Xf3hWr00uyaeHCbdGqzA7uIB92vMVEaXq7Yf6LuB52xhyujpxkZMrs3jOVO_EUE_rB7gzvx1kGiNzapG8TqgobUy-AIeuusBjppHqy82sOap1rjJRQIt3ekmp8fJ')"></div>
+<!-- Modal Overlay -->
+<div class="absolute inset-0 z-50 flex items-center justify-center p-4 bg-tertiary/20 backdrop-blur-sm">
+<!-- Modal Content -->
+<div class="bg-surface-container-lowest w-full max-w-[520px] rounded-lg border border-outline relative p-8 shadow-2xl flex flex-col gap-6">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-background transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm">
+<span aria-hidden="true" class="material-symbols-outlined text-xl" data-icon="close">close</span>
+</button>
+<!-- Headline -->
+<div class="mt-4">
+<h2 class="font-headline-md text-headline-md text-on-background text-center px-4">Before you go — get our weekly notes</h2>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-6 mt-2" onsubmit="event.preventDefault();">
+<!-- Input Group -->
+<div class="relative w-full">
+<label class="sr-only" for="email_input">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant rounded-none px-0 py-2 focus:ring-0 focus:border-primary text-on-background font-body-md placeholder-on-surface-variant transition-colors" id="email_input" placeholder="Email address" required="" type="email"/>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wider py-4 px-6 rounded-none border border-primary hover:bg-surface-container-high hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" type="submit">
+                    Subscribe
+                </button>
+</form>
+<!-- Footer Text -->
+<div class="text-center mt-2">
+<p class="font-footer-note text-footer-note text-secondary">No spam, unsubscribe anytime.</p>
+</div>
+</div>
+</div>
+</body></html>

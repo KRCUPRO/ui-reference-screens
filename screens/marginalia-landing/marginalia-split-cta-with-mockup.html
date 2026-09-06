@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Mid-page Split CTA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "primary": "#000000",
+                        "secondary-container": "#e4e2e1",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474746",
+                        "tertiary-container": "#1c1b1a",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "secondary-fixed": "#e4e2e1",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "surface-tint": "#5f5e5e",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-surface": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "on-secondary": "#ffffff",
+                        "background": "#fdf8f8",
+                        "on-secondary-fixed-variant": "#474747",
+                        "on-primary-container": "#858383",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe7e6",
+                        "secondary": "#5f5e5e",
+                        "outline": "#747878",
+                        "inverse-on-surface": "#f4f0ef",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-secondary-container": "#656464",
+                        "primary-container": "#1c1b1b",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary-container": "#868382",
+                        "surface": "#fdf8f8",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-bright": "#fdf8f8",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface-container": "#f1edec",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-highest": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "row-gap": "4px",
+                        "margin-page": "16px",
+                        "gutter": "8px",
+                        "unit": "4px",
+                        "column-gap": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["\"Source Serif 4\""],
+                        "body-sm": ["\"Source Serif 4\""],
+                        "body-md": ["\"Source Serif 4\""],
+                        "footer-note": ["Archivo Narrow"],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "label-caps": ["Archivo Narrow"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "footer-note": ["10px", { "lineHeight": "14px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "headline-lg": ["30px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["11px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fdf8f8; /* cream bg */
+            color: #000000;
+        }
+        .border-system {
+            border-color: #333333;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- Top Navigation Placeholder (Hidden for this specific task scope, focusing on CTA section) -->
+<main class="flex-1">
+<!-- CTA Section -->
+<section class="w-full max-w-7xl mx-auto px-margin-page py-16 flex flex-col md:flex-row border-t border-b border-system border-opacity-20">
+<!-- Left Column: Copy & CTA -->
+<div class="w-full md:w-1/2 md:pr-12 lg:pr-24 flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Ask your documents anything</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed max-w-md">
+                    Marginalia's advanced extraction protocol indexes every paragraph, footnote, and citation across your vast archives. 
+                    Pose complex questions and receive direct, cited answers instantly, turning static repositories into dynamic knowledge bases.
+                </p>
+<div>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps uppercase px-6 py-3 border border-primary hover:bg-surface-container-high hover:text-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary focus:ring-offset-1 focus:ring-offset-surface">
+                        Join the waitlist
+                    </button>
+</div>
+</div>
+<!-- Vertical Divider -->
+<div class="hidden md:block w-px bg-[#333333] mx-4 self-stretch opacity-20"></div>
+<!-- Right Column: Mockup -->
+<div class="w-full md:w-1/2 md:pl-12 lg:pl-16 mt-12 md:mt-0 flex flex-col justify-center">
+<div class="w-full bg-surface-container-lowest p-8 border border-system border-opacity-10">
+<!-- Brand Header in Mockup -->
+<div class="mb-6 font-headline-md text-headline-md text-primary">Marginalia</div>
+<!-- Search Bar Mockup -->
+<div class="flex items-center border-b border-system pb-2 mb-8">
+<span class="material-symbols-outlined text-secondary mr-2" style="font-variation-settings: 'FILL' 0;">search</span>
+<span class="font-body-md text-primary truncate">What did the 2019 amendment change?</span>
+</div>
+<!-- Search Results -->
+<div class="space-y-6">
+<!-- Snippet 1 -->
+<div class="border-b border-system border-opacity-20 pb-4">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Source: Article IV, Section 2</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 0;">bookmark_border</span>
+</div>
+<h3 class="font-headline-sm text-lg font-bold text-primary mb-2 leading-tight">Key Provisions Adjusted</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                ...the 2019 amendment specifically altered the timeline for compliance, shifting the mandatory reporting deadline from Q1 to Q3, thereby granting...
+                            </p>
+</div>
+<!-- Snippet 2 -->
+<div class="border-b border-system border-opacity-20 pb-4">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Source: 2019 Amendment Act</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 0;">bookmark_border</span>
+</div>
+<h3 class="font-headline-sm text-lg font-bold text-primary mb-2 leading-tight">Regulatory Scope Expansion</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                ...expanded the regulatory scope to include digital assets previously exempt under the 2015 framework. This inclusion fundamentally changed how...
+                            </p>
+</div>
+<!-- Snippet 3 -->
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Source: Internal Memo 08/19</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 0;">bookmark_border</span>
+</div>
+<h3 class="font-headline-sm text-lg font-bold text-primary mb-2 leading-tight">Impact on Regional Branches</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                ...noting that the amendment requires all regional branches to undergo a bi-annual audit, a significant departure from the previous localized oversight model...
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Placeholder -->
+</body></html>

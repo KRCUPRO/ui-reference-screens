@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design Systems</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#002019",
+                        "surface-container-highest": "#333535",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "background": "#121414",
+                        "on-secondary-fixed-variant": "#474746",
+                        "inverse-primary": "#5f5e5e",
+                        "secondary-container": "#474746",
+                        "tertiary-fixed-dim": "#38debb",
+                        "on-tertiary-container": "#008971",
+                        "secondary": "#c8c6c5",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary": "#313030",
+                        "on-surface": "#e2e2e2",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#444748",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-background": "#e2e2e2",
+                        "primary-container": "#0a0a0a",
+                        "inverse-surface": "#e2e2e2",
+                        "on-error": "#690005",
+                        "surface-bright": "#38393a",
+                        "primary": "#c9c6c5",
+                        "tertiary-container": "#000d09",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-tint": "#c9c6c5",
+                        "on-primary-container": "#7b7979",
+                        "tertiary": "#38debb",
+                        "on-tertiary": "#00382d",
+                        "on-secondary-container": "#b7b5b4",
+                        "outline": "#8e9192",
+                        "inverse-on-surface": "#2f3131",
+                        "surface": "#121414",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-container-low": "#1a1c1c",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#005142",
+                        "surface-container-lowest": "#0d0e0f",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#5ffbd6",
+                        "surface-dim": "#121414",
+                        "surface-variant": "#333535",
+                        "surface-container-high": "#282a2b",
+                        "surface-container": "#1e2020",
+                        "on-secondary": "#313030",
+                        "on-surface-variant": "#c4c7c7"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        "rail-width": "64px",
+                        "margin": "24px",
+                        "touch-target": "44px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-md": ["20px", { lineHeight: "28px", fontWeight: "500" }],
+                        "label-sm": ["13px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+                        "data-mono": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-lg": ["24px", { lineHeight: "32px", fontWeight: "600" }]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen w-screen overflow-hidden flex selection:bg-tertiary/20">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low text-primary dark:text-primary-fixed-dim font-body-md text-body-md w-rail-width h-full fixed left-0 top-0 border-r border-outline-variant dark:border-outline-variant flat no shadows flex flex-col items-center py-margin space-y-4 z-50">
+<!-- Logo Area -->
+<div class="mb-8 font-headline-lg text-headline-lg text-on-surface dark:text-on-surface text-center flex flex-col items-center justify-center">
+<span class="text-xs uppercase tracking-widest text-on-surface-variant mt-2">DS_MGMT</span>
+</div>
+<!-- Navigation Items -->
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center justify-center w-full h-touch-target text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform group" href="#" title="Dashboard">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</a>
+<!-- Assets (Inactive) -->
+<a class="flex items-center justify-center w-full h-touch-target text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform group" href="#" title="Assets">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+</a>
+<!-- Tokens (Inactive) -->
+<a class="flex items-center justify-center w-full h-touch-target text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform group" href="#" title="Tokens">
+<span class="material-symbols-outlined" data-icon="generating_tokens">generating_tokens</span>
+</a>
+<!-- Prototypes (Active based on context of 'Design Systems' although not exact match, it's the closest to the domain) -->
+<a class="flex items-center justify-center w-full h-touch-target border-l-4 border-tertiary text-tertiary bg-secondary-container/10 hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform group" href="#" title="Prototypes">
+<span class="material-symbols-outlined" data-icon="ads_click">ads_click</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="flex items-center justify-center w-full h-touch-target text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform group mt-auto" href="#" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</a>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-rail-width w-[calc(100%-64px)] h-full flex flex-col relative bg-surface dark:bg-surface">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary-fixed-dim font-headline-md text-headline-md fixed top-0 right-0 left-rail-width h-16 border-b border-outline-variant dark:border-outline-variant flat no shadows flex justify-between items-center px-margin z-40">
+<div class="flex items-center">
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">Design Systems</span>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search (Hidden per JSON) -->
+<!-- Icon Actions -->
+<button class="w-10 h-10 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+<!-- Trailing Primary Action -->
+<button class="h-9 px-4 bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase rounded hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80 border border-transparent">
+                    New
+                </button>
+</div>
+</header>
+<!-- Canvas Area -->
+<div class="mt-16 p-margin overflow-y-auto h-[calc(100vh-64px)]">
+<div class="max-w-4xl mx-auto w-full border border-outline-variant rounded-DEFAULT bg-surface-container-low">
+<!-- Data Table Header-like structure for context (optional but helps high-density look) -->
+<div class="flex items-center px-6 py-3 border-b border-outline-variant bg-surface-container-lowest">
+<div class="w-1/2 font-label-sm text-label-sm text-on-surface-variant uppercase">System Name</div>
+<div class="w-1/4 font-label-sm text-label-sm text-on-surface-variant uppercase">Metrics</div>
+<div class="w-1/4 font-label-sm text-label-sm text-on-surface-variant uppercase text-right">Palette</div>
+</div>
+<!-- Row 1 -->
+<div class="flex items-center px-6 h-12 border-b border-outline-variant hover:bg-surface-container-highest cursor-pointer transition-colors group">
+<div class="w-1/2 font-body-md text-body-md text-on-surface font-medium">Field Console Dark</div>
+<div class="w-1/4 font-data-mono text-data-mono text-on-surface-variant">72 tokens</div>
+<div class="w-1/4 flex items-center justify-between">
+<div class="flex gap-1">
+<div class="w-2.5 h-2.5 rounded-full bg-[#1e293b]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#334155]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#38bdf8]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#818cf8]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#f8fafc]"></div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Row 2 (Active) -->
+<div class="flex items-center px-6 h-12 border-b border-outline-variant bg-tertiary/10 border-l-2 border-l-tertiary cursor-pointer group">
+<div class="w-1/2 font-body-md text-body-md text-tertiary font-medium">Slate Console</div>
+<div class="w-1/4 font-data-mono text-data-mono text-on-surface">96 tokens</div>
+<div class="w-1/4 flex items-center justify-between">
+<div class="flex gap-1 opacity-100">
+<div class="w-2.5 h-2.5 rounded-full bg-[#0f172a]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#475569]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#94a3b8]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#cbd5e1]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#f1f5f9]"></div>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center px-6 h-12 border-b border-outline-variant hover:bg-surface-container-highest cursor-pointer transition-colors group">
+<div class="w-1/2 font-body-md text-body-md text-on-surface font-medium">Industrial Grid</div>
+<div class="w-1/4 font-data-mono text-data-mono text-on-surface-variant">48 tokens</div>
+<div class="w-1/4 flex items-center justify-between">
+<div class="flex gap-1 opacity-75 group-hover:opacity-100 transition-opacity">
+<div class="w-2.5 h-2.5 rounded-full bg-[#27272a]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#52525b]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#ef4444]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#fafafa]"></div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="flex items-center px-6 h-12 hover:bg-surface-container-highest cursor-pointer transition-colors group">
+<div class="w-1/2 font-body-md text-body-md text-on-surface font-medium">Atomic Lab</div>
+<div class="w-1/4 font-data-mono text-data-mono text-on-surface-variant">104 tokens</div>
+<div class="w-1/4 flex items-center justify-between">
+<div class="flex gap-1 opacity-75 group-hover:opacity-100 transition-opacity">
+<div class="w-2.5 h-2.5 rounded-full bg-[#171717]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#404040]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#22c55e]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#10b981]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#f8fafc]"></div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

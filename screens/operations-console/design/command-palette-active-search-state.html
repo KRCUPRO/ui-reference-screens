@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Command Palette</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-secondary-fixed": "#0d1c2d",
+                "inverse-on-surface": "#283044",
+                "secondary-fixed": "#d4e4fa",
+                "tertiary-container": "#df7412",
+                "on-error-container": "#ffdad6",
+                "on-secondary-container": "#a7b6cc",
+                "background": "#0b1326",
+                "surface-container": "#171f33",
+                "on-tertiary-container": "#461f00",
+                "inverse-surface": "#dae2fd",
+                "on-surface-variant": "#c2c6d6",
+                "surface": "#0b1326",
+                "secondary-fixed-dim": "#b9c8de",
+                "primary-fixed": "#d8e2ff",
+                "on-primary": "#002e6a",
+                "secondary-container": "#39485a",
+                "inverse-primary": "#005ac2",
+                "error-container": "#93000a",
+                "surface-container-high": "#222a3d",
+                "surface-container-low": "#131b2e",
+                "on-tertiary-fixed": "#311400",
+                "surface-variant": "#2d3449",
+                "surface-container-highest": "#2d3449",
+                "on-primary-container": "#00285d",
+                "outline-variant": "#424754",
+                "on-tertiary": "#502400",
+                "on-error": "#690005",
+                "primary-fixed-dim": "#adc6ff",
+                "outline": "#8c909f",
+                "on-primary-fixed-variant": "#004395",
+                "surface-bright": "#31394d",
+                "secondary": "#b9c8de",
+                "tertiary-fixed": "#ffdcc6",
+                "on-tertiary-fixed-variant": "#723600",
+                "on-background": "#dae2fd",
+                "on-surface": "#dae2fd",
+                "tertiary-fixed-dim": "#ffb786",
+                "primary": "#adc6ff",
+                "on-primary-fixed": "#001a42",
+                "on-secondary": "#233143",
+                "surface-container-lowest": "#060e20",
+                "primary-container": "#4d8eff",
+                "surface-tint": "#adc6ff",
+                "error": "#ffb4ab",
+                "tertiary": "#ffb786",
+                "surface-dim": "#0b1326",
+                "on-secondary-fixed-variant": "#39485a"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "base": "4px",
+                "xs": "4px",
+                "md": "16px",
+                "xl": "32px",
+                "gutter": "16px",
+                "lg": "24px",
+                "sm": "8px",
+                "margin": "24px"
+              },
+              "fontFamily": {
+                "body-md": ["Inter"],
+                "mono-md": ["JetBrains Mono"],
+                "body-sm": ["Inter"],
+                "headline-lg": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Inter"],
+                "display": ["Inter"],
+                "label-md": ["Inter"]
+              },
+              "fontSize": {
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "mono-md": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+                "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "display": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex items-center justify-center relative overflow-hidden">
+<!-- Dimmed Background Overlay -->
+<div class="absolute inset-0 bg-background/80 backdrop-blur-sm z-0"></div>
+<!-- Command Palette Container -->
+<div class="relative z-10 w-full max-w-2xl bg-surface-container rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.5)] border border-outline-variant overflow-hidden flex flex-col">
+<!-- Search Input Area -->
+<div class="flex items-center px-md py-md border-b border-outline-variant bg-surface-container-high">
+<span class="material-symbols-outlined text-outline mr-sm">search</span>
+<div class="flex-1 flex items-center bg-transparent border-none outline-none font-body-lg text-on-surface w-full h-full placeholder-on-surface-variant focus:ring-0">
+<span>cool</span>
+<span class="w-[2px] h-5 bg-primary-container ml-[1px] cursor-blink"></span>
+</div>
+</div>
+<!-- Suggestions List -->
+<div class="flex flex-col p-sm max-h-[400px] overflow-y-auto">
+<!-- Suggestion Item 1 (Selected) -->
+<button class="w-full text-left flex items-center px-md py-sm rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright transition-colors duration-150 mb-xs">
+<span class="material-symbols-outlined text-outline mr-md text-[18px]">palette</span>
+<span class="font-body-md">Set theme to <span class="border-b-[2px] border-primary-container text-primary-container font-semibold">cool</span> Slate</span>
+</button>
+<!-- Suggestion Item 2 -->
+<button class="w-full text-left flex items-center px-md py-sm rounded-lg bg-transparent text-on-surface-variant hover:bg-surface-bright hover:text-on-surface transition-colors duration-150 mb-xs">
+<span class="material-symbols-outlined text-outline mr-md text-[18px]">key</span>
+<span class="font-body-md">Filter keys by <span class="border-b-[2px] border-primary-container text-primary-container font-semibold">cool</span>down status</span>
+</button>
+<!-- Suggestion Item 3 -->
+<button class="w-full text-left flex items-center px-md py-sm rounded-lg bg-transparent text-on-surface-variant hover:bg-surface-bright hover:text-on-surface transition-colors duration-150">
+<span class="material-symbols-outlined text-outline mr-md text-[18px]">bar_chart</span>
+<span class="font-body-md">View <span class="border-b-[2px] border-primary-container text-primary-container font-semibold">cool</span>down analytics chart</span>
+</button>
+</div>
+<!-- Footer -->
+<div class="bg-surface-container-lowest border-t border-outline-variant px-md py-sm flex items-center justify-between">
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-xs text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+<span>to navigate</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-[14px]">keyboard_return</span>
+<span>to select</span>
+</div>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant font-label-md">
+<span class="bg-surface-variant px-[6px] py-[2px] rounded border border-outline-variant text-[10px]">ESC</span>
+<span>to close</span>
+</div>
+</div>
+</div>
+</body></html>

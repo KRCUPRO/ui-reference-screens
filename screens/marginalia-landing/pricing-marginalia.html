@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing - Marginalia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "inverse-surface": "#313030",
+              "inverse-on-surface": "#f4f0ef",
+              "on-primary-fixed": "#1c1b1b",
+              "secondary-fixed": "#e4e2e2",
+              "surface-container-high": "#ebe7e6",
+              "primary-fixed-dim": "#c8c6c5",
+              "surface": "#fdf8f8",
+              "secondary-fixed-dim": "#c8c6c6",
+              "surface-container-low": "#f7f3f2",
+              "tertiary-fixed": "#e6e2df",
+              "on-tertiary-fixed": "#1c1b1a",
+              "tertiary-fixed-dim": "#cac6c4",
+              "on-tertiary-container": "#868382",
+              "surface-tint": "#5f5e5e",
+              "on-error": "#ffffff",
+              "inverse-primary": "#c8c6c5",
+              "tertiary-container": "#1c1b1a",
+              "surface-container-highest": "#e5e2e1",
+              "on-surface-variant": "#444748",
+              "on-surface": "#1c1b1b",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-background": "#1c1b1b",
+              "error": "#ba1a1a",
+              "secondary-container": "#e4e2e2",
+              "primary-container": "#1c1b1b",
+              "surface-variant": "#e5e2e1",
+              "on-tertiary": "#ffffff",
+              "background": "#fdf8f8",
+              "on-primary-container": "#858383",
+              "on-primary": "#ffffff",
+              "error-container": "#ffdad6",
+              "primary": "#000000",
+              "surface-container": "#f1edec",
+              "secondary": "#5e5e5e",
+              "tertiary": "#000000",
+              "primary-fixed": "#e5e2e1",
+              "on-secondary-container": "#646464",
+              "outline": "#747878",
+              "surface-dim": "#ddd9d8",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed-variant": "#484645",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#464747",
+              "surface-bright": "#fdf8f8",
+              "outline-variant": "#c4c7c7",
+              "on-primary-fixed-variant": "#474746"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "unit": "4px",
+              "gutter": "24px",
+              "stack-lg": "32px",
+              "margin-safe": "40px",
+              "stack-md": "16px",
+              "stack-sm": "8px",
+              "section-gap": "80px"
+            },
+            "fontFamily": {
+              "caption": ["Public Sans"],
+              "display-lg-mobile": ["EB Garamond"],
+              "body-lg": ["EB Garamond"],
+              "label-bold": ["Public Sans"],
+              "headline-md": ["EB Garamond"],
+              "display-lg": ["EB Garamond"],
+              "ui-medium": ["Public Sans"],
+              "body-md": ["EB Garamond"]
+            },
+            "fontSize": {
+              "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+              "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+              "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+              "label-bold": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+              "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+              "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+              "ui-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+              "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .collapsible-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .collapsible-content.open {
+        max-height: 500px;
+      }
+      .rotate-icon {
+        transition: transform 0.3s ease;
+      }
+      .rotate-icon.open {
+        transform: rotate(180deg);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low text-on-surface antialiased flex flex-col min-h-screen md:hidden max-w-[480px] mx-auto relative">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim text-primary dark:text-inverse-primary w-full top-0 sticky border-b border-surface-variant dark:border-outline-variant flex items-center justify-between px-gutter h-16 z-50">
+<button class="text-primary hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-70 p-2 -ml-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight">Pricing</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col px-gutter pt-stack-lg pb-[120px] relative">
+<!-- Billing Toggle -->
+<div class="flex justify-center mb-stack-lg">
+<div class="inline-flex items-center bg-surface-container-highest rounded-full p-1 border border-outline-variant">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-ui-medium text-ui-medium transition-colors">Monthly</button>
+<button class="px-6 py-2 rounded-full text-on-surface-variant font-ui-medium text-ui-medium hover:text-on-surface transition-colors">Annual</button>
+</div>
+</div>
+<!-- Pricing Cards Stack -->
+<div class="flex flex-col gap-3">
+<!-- Starter Card -->
+<article class="bg-surface border border-outline-variant rounded-lg overflow-hidden">
+<div class="p-5 flex flex-col gap-unit cursor-pointer" onclick="toggleCard('starter-features', 'starter-icon')">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest">Starter</h2>
+<div class="font-display-lg-mobile text-display-lg-mobile mt-1">$0<span class="font-body-md text-body-md text-on-surface-variant">/mo</span></div>
+<p class="font-caption text-caption text-on-surface-variant mt-2">1 seat</p>
+</div>
+<div class="flex items-center text-on-surface-variant">
+<span class="font-caption text-caption mr-2">See features</span>
+<span class="material-symbols-outlined rotate-icon" data-icon="expand_more" id="starter-icon">expand_more</span>
+</div>
+</div>
+</div>
+<div class="collapsible-content bg-surface-container-low border-t border-outline-variant" id="starter-features">
+<ul class="p-5 flex flex-col gap-2 font-caption text-caption text-on-surface">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Basic annotation tools</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Up to 50 documents</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Standard text search</li>
+</ul>
+</div>
+</article>
+<!-- Team Card (Most Popular) -->
+<article class="bg-surface-dim border border-primary-container rounded-lg overflow-hidden relative">
+<div class="absolute top-0 right-0 bg-primary-container text-on-primary-container font-caption text-caption px-3 py-1 rounded-bl-lg font-medium">Most popular</div>
+<div class="p-5 flex flex-col gap-unit cursor-pointer mt-2" onclick="toggleCard('team-features', 'team-icon')">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest">Team</h2>
+<div class="font-display-lg-mobile text-display-lg-mobile mt-1">$15<span class="font-body-md text-body-md text-on-surface-variant">/mo</span></div>
+<p class="font-caption text-caption text-on-surface-variant mt-2">Up to 5 seats</p>
+</div>
+<div class="flex items-center text-on-surface">
+<span class="font-caption text-caption mr-2">See features</span>
+<span class="material-symbols-outlined rotate-icon" data-icon="expand_more" id="team-icon">expand_more</span>
+</div>
+</div>
+</div>
+<div class="collapsible-content bg-surface-container-high border-t border-primary-container" id="team-features">
+<ul class="p-5 flex flex-col gap-2 font-caption text-caption text-on-surface">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Everything in Starter</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Collaborative margins</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Unlimited documents</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> AI-assisted indexing</li>
+</ul>
+<div class="px-5 pb-5">
+<button class="w-full py-2 bg-primary text-on-primary font-ui-medium text-ui-medium rounded-lg">Get Started</button>
+</div>
+</div>
+</article>
+<!-- Enterprise Card -->
+<article class="bg-surface border border-outline-variant rounded-lg overflow-hidden">
+<div class="p-5 flex flex-col gap-unit cursor-pointer" onclick="toggleCard('enterprise-features', 'enterprise-icon')">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest">Enterprise</h2>
+<div class="font-display-lg-mobile text-display-lg-mobile mt-1">Custom</div>
+<p class="font-caption text-caption text-on-surface-variant mt-2">Unlimited seats</p>
+</div>
+<div class="flex items-center text-on-surface-variant">
+<span class="font-caption text-caption mr-2">See features</span>
+<span class="material-symbols-outlined rotate-icon" data-icon="expand_more" id="enterprise-icon">expand_more</span>
+</div>
+</div>
+</div>
+<div class="collapsible-content bg-surface-container-low border-t border-outline-variant" id="enterprise-features">
+<ul class="p-5 flex flex-col gap-2 font-caption text-caption text-on-surface">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Everything in Team</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Dedicated account manager</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Custom integrations API</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> Advanced security protocols</li>
+</ul>
+</div>
+</article>
+</div>
+</main>
+<!-- Sticky Footer Button -->
+<div class="fixed bottom-0 w-full z-50 bg-surface-container-low/90 backdrop-blur-md border-t border-surface-variant dark:border-outline-variant px-gutter py-4 pb-8 max-w-[480px]">
+<button class="w-full py-3 bg-surface text-on-surface border border-outline-variant font-ui-medium text-ui-medium rounded-lg hover:bg-surface-container-high transition-colors">Compare all features</button>
+</div>
+<script>
+        function toggleCard(contentId, iconId) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+            
+            content.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
+    </script>
+</body></html>

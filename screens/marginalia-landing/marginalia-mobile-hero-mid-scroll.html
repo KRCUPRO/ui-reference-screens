@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Mid-Scroll Hero</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e8e8e8",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadada",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-tint": "#5f5e5e",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#1a1c1c",
+                        "surface-container-low": "#f4f3f3",
+                        "inverse-surface": "#2f3131",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "secondary": "#5e5e5e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "outline": "#747878",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-container": "#646464",
+                        "secondary-fixed": "#e3e2e2",
+                        "primary": "#000000",
+                        "primary-container": "#1c1b1b",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-surface-variant": "#444748",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-container": "#858383",
+                        "on-secondary-fixed-variant": "#464747",
+                        "secondary-container": "#e3e2e2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f1f1f1",
+                        "background": "#f9f9f9",
+                        "on-tertiary-container": "#838484",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-container": "#eeeeee",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1120px",
+                        "unit": "8px",
+                        "section-padding": "120px",
+                        "margin-mobile": "24px",
+                        "gutter": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "caption": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-[1060px] relative pt-16 pb-32">
+<!-- TopAppBar Component (from JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant flex justify-between items-center px-margin-mobile h-16">
+<button aria-label="Menu" class="text-primary dark:text-primary active:opacity-70 transition-opacity duration-300 flex items-center justify-center p-2 -ml-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-light tracking-[0.2em] text-primary dark:text-primary uppercase absolute left-1/2 -translate-x-1/2">
+            MARGINALIA
+        </h1>
+<button aria-label="Search" class="text-primary dark:text-primary active:opacity-70 transition-opacity duration-300 flex items-center justify-center p-2 -mr-2">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- Main Content Area (Simulating Mid-Scroll) -->
+<main class="px-margin-mobile mt-[-40px]">
+<!-- Negative margin pulls the headline up under the sticky header to simulate scroll state as requested -->
+<section class="mb-section-padding pt-12">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-8 opacity-40">
+                Every answer, cited
+            </h2>
+<div class="border border-outline-variant p-8 bg-surface-container-lowest">
+<p class="font-label-sm text-label-sm tracking-widest text-secondary mb-4 uppercase">Integrations</p>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Works with Slack, Notion, Drive</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                    Connect your knowledge bases seamlessly. Marginalia indexes your team's documents instantly without manual tagging.
+                </p>
+<div class="h-48 w-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-4" data-alt="Abstract UI representation showing interconnected nodes representing Slack, Notion, and Google Drive logos in a minimalist grayscale vector style, clean lines, white background.">
+<span class="material-symbols-outlined text-secondary" data-icon="hub" style="font-size: 48px;">hub</span>
+</div>
+</div>
+</section>
+<!-- Dummy content to allow for actual scrolling if needed -->
+<section class="border-t border-outline-variant pt-section-padding">
+<div class="border border-outline-variant p-8 bg-surface-container-lowest">
+<p class="font-label-sm text-label-sm tracking-widest text-secondary mb-4 uppercase">Architecture</p>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Built for clarity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                    A semantic search engine designed to cut through noise and deliver verifiable facts.
+                </p>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-md border-t border-outline-variant p-margin-mobile flex flex-col gap-4 z-40">
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm tracking-widest uppercase h-14 border border-primary hover:bg-primary-container transition-colors rounded-none">
+            Ask a question
+        </button>
+<button class="w-full bg-transparent text-primary font-label-sm text-label-sm tracking-widest uppercase h-14 border border-outline-variant hover:bg-surface-container-low transition-colors rounded-none">
+            See pricing
+        </button>
+</div>
+</body></html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-width=1.0" name="viewport"/>
+<title>Comparative Metrics Section</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-tertiary-fixed": "#1c1b1a",
+                "outline-variant": "#c4c7c7",
+                "tertiary-fixed": "#e6e2df",
+                "primary-fixed": "#e5e2e1",
+                "surface": "#fdf8f8",
+                "surface-dim": "#ddd9d8",
+                "surface-container": "#f1edec",
+                "on-tertiary-container": "#868382",
+                "primary": "#000000",
+                "on-primary-fixed": "#1c1b1b",
+                "surface-variant": "#e5e2e1",
+                "surface-bright": "#fdf8f8",
+                "tertiary-container": "#1c1b1a",
+                "tertiary": "#000000",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-background": "#1c1b1b",
+                "surface-tint": "#5f5e5e",
+                "on-error": "#ffffff",
+                "on-secondary-container": "#656464",
+                "on-primary": "#ffffff",
+                "background": "#fdf8f8",
+                "surface-container-low": "#f7f3f2",
+                "on-surface": "#1c1b1b",
+                "on-secondary-fixed": "#1b1c1c",
+                "on-secondary-fixed-variant": "#474747",
+                "inverse-surface": "#313030",
+                "primary-container": "#1c1b1b",
+                "on-error-container": "#93000a",
+                "on-tertiary": "#ffffff",
+                "outline": "#747878",
+                "inverse-on-surface": "#f4f0ef",
+                "on-primary-container": "#858383",
+                "secondary": "#5f5e5e",
+                "on-primary-fixed-variant": "#474746",
+                "surface-container-high": "#ebe7e6",
+                "inverse-primary": "#c8c6c5",
+                "error-container": "#ffdad6",
+                "primary-fixed-dim": "#c8c6c5",
+                "on-tertiary-fixed-variant": "#484645",
+                "on-surface-variant": "#444748",
+                "tertiary-fixed-dim": "#cac6c4",
+                "surface-container-highest": "#e5e2e1",
+                "secondary-container": "#e4e2e1",
+                "secondary-fixed-dim": "#c8c6c6",
+                "secondary-fixed": "#e4e2e1",
+                "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "unit": "4px",
+                "row-gap": "4px",
+                "column-gap": "12px",
+                "margin-page": "16px",
+                "gutter": "8px"
+              },
+              "fontFamily": {
+                "label-caps": [
+                  "Archivo Narrow"
+                ],
+                "body-md": [
+                  "\"Source Serif 4\""
+                ],
+                "footer-note": [
+                  "Archivo Narrow"
+                ],
+                "body-sm": [
+                  "\"Source Serif 4\""
+                ],
+                "headline-md": [
+                  "\"Source Serif 4\""
+                ],
+                "headline-lg": [
+                  "\"Source Serif 4\""
+                ]
+              },
+              "fontSize": {
+                "label-caps": [
+                  "11px",
+                  {
+                    "lineHeight": "12px",
+                    "letterSpacing": "0.08em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "footer-note": [
+                  "10px",
+                  {
+                    "lineHeight": "14px",
+                    "letterSpacing": "0.01em",
+                    "fontWeight": "400"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "20px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "700"
+                  }
+                ],
+                "headline-lg": [
+                  "30px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "700"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface min-h-screen flex items-center justify-center p-8 text-on-surface">
+<div class="w-full max-w-[800px] border border-outline bg-surface p-8 relative flex flex-col items-center">
+<!-- Headline -->
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12 text-center w-full border-b border-outline pb-4">
+            What changes.
+        </h2>
+<!-- Comparative Area -->
+<div class="flex w-full relative">
+<!-- Left Column: Before -->
+<div class="flex-1 pr-8 flex flex-col items-end text-right border-r border-outline relative">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Before</span>
+<p class="font-headline-md text-headline-md text-on-surface-variant font-normal">
+                    Average review time:<br/>
+<span class="font-body-md text-body-md text-outline">6.4 hours</span>
+</p>
+</div>
+<!-- Arrow Icon Overlay -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface p-2 border border-outline rounded-full text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="south_east">south_east</span>
+</div>
+<!-- Right Column: After -->
+<div class="flex-1 pl-8 flex flex-col items-start text-left">
+<span class="font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest">After</span>
+<p class="font-headline-md text-headline-md text-primary font-bold">
+                    Average review time:<br/>
+<span class="font-body-md text-body-md">42 minutes</span>
+</p>
+</div>
+</div>
+<hr class="w-full border-t border-outline mt-12"/>
+</div>
+</body></html>

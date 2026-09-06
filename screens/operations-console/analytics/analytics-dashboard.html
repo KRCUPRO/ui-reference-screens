@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KeyOps Console - Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "tertiary": "#7e3000",
+                "secondary-fixed": "#e5e2e1",
+                "surface-bright": "#f7f9fd",
+                "secondary-container": "#e2dfde",
+                "on-secondary-fixed-variant": "#474746",
+                "secondary-fixed-dim": "#c8c6c5",
+                "background": "#f7f9fd",
+                "on-error": "#ffffff",
+                "inverse-primary": "#c3c0ff",
+                "error": "#ba1a1a",
+                "surface-container-low": "#f2f4f8",
+                "surface-container-high": "#e6e8ec",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed-variant": "#3323cc",
+                "on-error-container": "#93000a",
+                "surface-container-lowest": "#ffffff",
+                "primary": "#3525cd",
+                "on-primary-container": "#dad7ff",
+                "on-primary": "#ffffff",
+                "surface-variant": "#e0e2e6",
+                "on-surface": "#191c1f",
+                "surface-container": "#eceef2",
+                "primary-fixed-dim": "#c3c0ff",
+                "on-surface-variant": "#464555",
+                "surface-container-highest": "#e0e2e6",
+                "surface": "#f7f9fd",
+                "on-tertiary-fixed-variant": "#7b2f00",
+                "surface-dim": "#d8dade",
+                "secondary": "#5f5e5e",
+                "on-secondary-container": "#636262",
+                "primary-container": "#4f46e5",
+                "outline": "#777587",
+                "inverse-surface": "#2d3134",
+                "outline-variant": "#c7c4d8",
+                "on-secondary": "#ffffff",
+                "tertiary-container": "#a44100",
+                "primary-fixed": "#e2dfff",
+                "on-primary-fixed": "#0f0069",
+                "on-background": "#191c1f",
+                "error-container": "#ffdad6",
+                "on-tertiary-container": "#ffd2be",
+                "tertiary-fixed-dim": "#ffb695",
+                "on-tertiary-fixed": "#351000",
+                "inverse-on-surface": "#eff1f5",
+                "on-secondary-fixed": "#1c1b1b",
+                "tertiary-fixed": "#ffdbcc",
+                "surface-tint": "#4d44e3"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "gutter": "16px",
+                "container-margin": "32px",
+                "component-padding-x": "12px",
+                "unit": "4px",
+                "component-padding-y": "8px"
+              },
+              "fontFamily": {
+                "label-caps": [
+                  "Inter"
+                ],
+                "data-mono-bold": [
+                  "JetBrains Mono"
+                ],
+                "data-mono": [
+                  "JetBrains Mono"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "headline-sm-mobile": [
+                  "Inter"
+                ],
+                "display-metric": [
+                  "Inter"
+                ],
+                "headline-sm": [
+                  "Inter"
+                ]
+              },
+              "fontSize": {
+                "label-caps": [
+                  "11px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-mono-bold": [
+                  "13px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-mono": [
+                  "13px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-sm-mobile": [
+                  "16px",
+                  {
+                    "lineHeight": "22px",
+                    "fontWeight": "600"
+                  }
+                ],
+                "display-metric": [
+                  "48px",
+                  {
+                    "lineHeight": "1.1",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "headline-sm": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "600"
+                  }
+                ]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background h-full text-on-surface antialiased flex flex-col">
+<!-- TopAppBar Nav -->
+<header class="bg-surface-container-lowest border-b border-outline-variant w-full h-12 flex justify-between items-center px-gutter flex-shrink-0">
+<div class="flex items-center space-x-container-margin">
+<span class="font-label-caps text-label-caps font-bold text-primary">System Status: Active</span>
+<nav class="hidden md:flex h-full">
+<ul class="flex space-x-gutter h-full">
+<li class="h-full flex items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 px-unit h-full flex items-center" href="#">Overview</a>
+</li>
+<li class="h-full flex items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 px-unit h-full flex items-center" href="#">Key Pool</a>
+</li>
+<li class="h-full flex items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 px-unit h-full flex items-center" href="#">Logs</a>
+</li>
+<li class="h-full flex items-center border-b-2 border-primary-container">
+<a class="font-label-caps text-label-caps text-primary px-unit h-full flex items-center" href="#">Analytics</a>
+</li>
+<li class="h-full flex items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 px-unit h-full flex items-center" href="#">Rate Limits</a>
+</li>
+<li class="h-full flex items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 px-unit h-full flex items-center" href="#">Usage</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="flex items-center space-x-gutter">
+<button class="font-label-caps text-label-caps border border-outline-variant text-secondary px-component-padding-x py-unit hover:bg-surface-container-low transition-colors">Emergency Revoke</button>
+<button class="font-label-caps text-label-caps border border-primary text-primary bg-surface-container-lowest px-component-padding-x py-unit hover:bg-surface-container-low transition-colors">Create Key</button>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 overflow-auto p-container-margin flex justify-center">
+<!-- Main Panel -->
+<div class="bg-surface-container-lowest w-full max-w-7xl border border-outline-variant flex flex-col h-full">
+<!-- Panel Header -->
+<div class="border-b border-outline-variant p-container-margin flex justify-between items-end shrink-0">
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface mb-unit">API Usage Analytics</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Daily call volumes and peak activity tracing.</p>
+</div>
+<!-- Segmented Control -->
+<div class="flex border border-outline-variant">
+<button class="font-label-caps text-label-caps px-component-padding-x py-component-padding-y text-on-surface-variant hover:bg-surface-container-low border-r border-outline-variant transition-colors">Hour</button>
+<button class="font-label-caps text-label-caps px-component-padding-x py-component-padding-y bg-surface-container-low text-on-surface border-r border-outline-variant">Day</button>
+<button class="font-label-caps text-label-caps px-component-padding-x py-component-padding-y text-on-surface-variant hover:bg-surface-container-low transition-colors">Week</button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="p-container-margin flex-1 flex flex-col md:flex-row gap-container-margin overflow-hidden">
+<!-- Chart Section -->
+<div class="flex-1 flex flex-col border border-outline-variant">
+<div class="p-gutter border-b border-outline-variant flex justify-between items-baseline">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Total Calls (30 Days)</span>
+<span class="font-data-mono-bold text-data-mono-bold text-primary">24,910</span>
+</div>
+<div class="flex-1 p-gutter flex items-end justify-between space-x-unit min-h-[200px]">
+<!-- Bar Chart Mockup -->
+<div class="w-full bg-surface-container-high h-[20%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">402</div>
+</div>
+<div class="w-full bg-surface-container-high h-[35%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">610</div>
+</div>
+<div class="w-full bg-surface-container-high h-[25%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">450</div>
+</div>
+<div class="w-full bg-surface-container-high h-[50%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">801</div>
+</div>
+<div class="w-full bg-surface-container-high h-[40%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">720</div>
+</div>
+<!-- Peak Day -->
+<div class="w-full bg-outline-variant h-[100%] relative group border-l-2 border-primary-container">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">1,102</div>
+</div>
+<div class="w-full bg-surface-container-high h-[80%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">950</div>
+</div>
+<div class="w-full bg-surface-container-high h-[60%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">810</div>
+</div>
+<div class="w-full bg-surface-container-high h-[30%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">480</div>
+</div>
+<div class="w-full bg-surface-container-high h-[15%] relative group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-1 py-0.5 whitespace-nowrap z-10">210</div>
+</div>
+</div>
+<div class="px-gutter pb-gutter flex justify-between">
+<span class="font-data-mono text-data-mono text-on-surface-variant text-[10px]">Feb 15</span>
+<span class="font-data-mono text-data-mono text-primary text-[10px] font-bold">Mar 3 (Peak)</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant text-[10px]">Mar 15</span>
+</div>
+</div>
+<!-- Table Section -->
+<div class="md:w-96 flex flex-col border border-outline-variant overflow-hidden">
+<div class="p-gutter border-b border-outline-variant bg-surface-container-lowest">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Top 5 Busiest Days</span>
+</div>
+<div class="flex-1 overflow-auto bg-surface-container-lowest">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr>
+<th class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant py-component-padding-y px-gutter w-24">Date</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant py-component-padding-y px-gutter text-right">Calls</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant py-component-padding-y px-gutter text-right">Errors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="hover:bg-surface-container-lowest transition-colors border-b border-outline-variant group">
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface border-l-2 border-primary">Mar 03</td>
+<td class="font-data-mono-bold text-data-mono-bold py-component-padding-y px-gutter text-primary text-right">1,102</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-error text-right">12</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors border-b border-outline-variant">
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface">Mar 04</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-right">950</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface-variant text-right">4</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors border-b border-outline-variant">
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface">Mar 05</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-right">810</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface-variant text-right">2</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors border-b border-outline-variant">
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface">Feb 28</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-right">801</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface-variant text-right">7</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface">Mar 01</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-right">720</td>
+<td class="font-data-mono text-data-mono py-component-padding-y px-gutter text-on-surface-variant text-right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

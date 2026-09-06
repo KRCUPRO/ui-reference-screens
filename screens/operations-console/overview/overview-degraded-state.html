@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>API Console - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-primary": "#00354a",
+                "inverse-on-surface": "#283044",
+                "background": "#0b1326",
+                "surface-variant": "#2d3449",
+                "tertiary-fixed": "#ffddb8",
+                "surface-dim": "#0b1326",
+                "on-background": "#dae2fd",
+                "secondary-container": "#2f3aa3",
+                "on-secondary-fixed-variant": "#2f3aa3",
+                "surface": "#0b1326",
+                "outline": "#87929a",
+                "on-tertiary-fixed-variant": "#653e00",
+                "on-error": "#690005",
+                "on-secondary-container": "#a8afff",
+                "surface-bright": "#31394d",
+                "secondary-fixed": "#e0e0ff",
+                "on-secondary": "#131e8c",
+                "surface-container-low": "#131b2e",
+                "primary-container": "#38bdf8",
+                "on-surface": "#dae2fd",
+                "on-tertiary-container": "#613b00",
+                "tertiary": "#ffc176",
+                "surface-tint": "#7bd0ff",
+                "primary-fixed": "#c4e7ff",
+                "tertiary-container": "#f1a02b",
+                "on-primary-fixed": "#001e2c",
+                "error": "#ffb4ab",
+                "primary-fixed-dim": "#7bd0ff",
+                "on-tertiary": "#472a00",
+                "tertiary-fixed-dim": "#ffb960",
+                "secondary": "#bdc2ff",
+                "on-surface-variant": "#bdc8d1",
+                "error-container": "#93000a",
+                "on-tertiary-fixed": "#2a1700",
+                "on-secondary-fixed": "#000767",
+                "on-primary-fixed-variant": "#004c69",
+                "surface-container": "#171f33",
+                "inverse-surface": "#dae2fd",
+                "surface-container-lowest": "#060e20",
+                "on-primary-container": "#004965",
+                "primary": "#8ed5ff",
+                "on-error-container": "#ffdad6",
+                "outline-variant": "#3e484f",
+                "surface-container-highest": "#2d3449",
+                "secondary-fixed-dim": "#bdc2ff",
+                "surface-container-high": "#222a3d",
+                "inverse-primary": "#00668a"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "stack-md": "1rem",
+                "stack-xs": "0.25rem",
+                "stack-sm": "0.5rem",
+                "container-padding": "12px",
+                "pane-margin": "1rem",
+                "gutter": "1px"
+              },
+              "fontFamily": {
+                "data-value": [
+                  "JetBrains Mono"
+                ],
+                "headline-md": [
+                  "Inter"
+                ],
+                "code-sm": [
+                  "JetBrains Mono"
+                ],
+                "data-label": [
+                  "JetBrains Mono"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "headline-lg": [
+                  "Inter"
+                ],
+                "body-sm": [
+                  "Inter"
+                ]
+              },
+              "fontSize": {
+                "data-value": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "600"
+                  }
+                ],
+                "headline-md": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "code-sm": [
+                  "11px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "data-label": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.02em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "body-md": [
+                  "13px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-lg": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "400"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        /* Base styles to enforce high-density minimalist look */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pt-14 pb-16 selection:bg-primary-container selection:text-on-primary-container flex flex-col">
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 flex justify-between items-center px-container-padding h-14 w-full bg-background border-b border-surface-variant z-50">
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-all duration-150 active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-fixed-dim">
+            API_CONSOLE_V1.0
+        </div>
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-all duration-150 active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col px-container-padding py-stack-md gap-stack-md overflow-y-auto">
+<!-- Page Title -->
+<header>
+<h1 class="font-headline-lg text-headline-lg text-on-background">Overview</h1>
+</header>
+<!-- Status Banner (Caution) -->
+<div class="flex items-center gap-3 p-3 bg-surface-container border border-surface-variant border-l-4 border-l-tertiary rounded-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">warning</span>
+<span class="font-body-md text-body-md text-on-surface">1 key in cooldown, 1 key errored</span>
+</div>
+<!-- Service Status -->
+<div class="flex items-center justify-between p-3 bg-surface-container-low border border-surface-variant rounded-sm">
+<div class="flex items-center gap-2">
+<span class="font-data-label text-data-label text-outline uppercase tracking-wider">Service Status</span>
+<div class="w-2 h-2 bg-tertiary rounded-none"></div> <!-- Square badge for technical feel -->
+</div>
+<div class="flex items-center gap-3">
+<span class="font-data-value text-data-value text-primary">RUNNING</span>
+<!-- Custom Toggle -->
+<div class="w-8 h-4 bg-primary-container rounded-sm relative flex items-center p-[2px] cursor-pointer">
+<div class="w-3.5 h-3.5 bg-on-primary-container rounded-sm absolute right-[2px]"></div>
+</div>
+</div>
+</div>
+<!-- Key Pool Grid (Bento Style, High Density) -->
+<section class="flex flex-col gap-stack-xs">
+<header class="flex justify-between items-center mb-1">
+<h2 class="font-data-label text-data-label text-outline uppercase tracking-wider">Key Pool</h2>
+<span class="font-code-sm text-code-sm text-surface-tint">4 ACTIVE NODES</span>
+</header>
+<div class="grid grid-cols-2 gap-px bg-surface-variant border border-surface-variant rounded-sm overflow-hidden">
+<!-- k1: Active (Green/Primary) -->
+<div class="bg-surface-container-low p-3 flex flex-col gap-2 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline">k1</span>
+<div class="w-2 h-2 bg-primary rounded-none"></div>
+</div>
+<div>
+<span class="font-data-value text-data-value text-on-surface">Active</span>
+</div>
+</div>
+<!-- k2: Cooldown (Amber/Tertiary) -->
+<div class="bg-surface-container-low p-3 flex flex-col gap-2 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline">k2</span>
+<div class="w-2 h-2 bg-tertiary rounded-none animate-pulse"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-data-value text-data-value text-tertiary">Cooldown</span>
+<span class="font-code-sm text-code-sm text-outline">3m left</span>
+</div>
+</div>
+<!-- k3: Error (Red/Error) -->
+<div class="bg-surface-container-low p-3 flex flex-col gap-2 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline">k3</span>
+<div class="w-2 h-2 bg-error rounded-none"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-data-value text-data-value text-error">Error</span>
+<span class="font-code-sm text-code-sm text-error/70 truncate">auth error</span>
+</div>
+</div>
+<!-- k4: Active (Green/Primary) -->
+<div class="bg-surface-container-low p-3 flex flex-col gap-2 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline">k4</span>
+<div class="w-2 h-2 bg-primary rounded-none"></div>
+</div>
+<div>
+<span class="font-data-value text-data-value text-on-surface">Active</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Metrics Strip -->
+<div class="py-3 border-y border-surface-variant flex justify-between items-center mt-2">
+<span class="font-data-label text-data-label text-outline uppercase tracking-wider">Today's Stats</span>
+<span class="font-data-value text-data-value text-primary-fixed-dim">
+                640 calls <span class="text-surface-variant mx-1">·</span> 88.0% success
+            </span>
+</div>
+<!-- Secondary Content Toggle -->
+<button class="w-full py-3 mt-2 flex items-center justify-center gap-2 border border-surface-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors rounded-sm text-primary-fixed-dim active:scale-[0.98]">
+<span class="font-data-label text-data-label uppercase tracking-wider">Show more actions</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-background border-t border-surface-variant">
+<!-- Active: Dashboard (Mapping to Overview) -->
+<button class="flex flex-col items-center justify-center text-primary-container shadow-[0_0_8px_rgba(0,245,255,0.2)] active:bg-surface-container-high transition-colors w-full h-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</button>
+<!-- Inactive: Keys -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim active:bg-surface-container-high transition-colors w-full h-full">
+<span class="material-symbols-outlined">vpn_key</span>
+</button>
+<!-- Inactive: Analytics -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim active:bg-surface-container-high transition-colors w-full h-full">
+<span class="material-symbols-outlined">analytics</span>
+</button>
+<!-- Inactive: Settings -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim active:bg-surface-container-high transition-colors w-full h-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ops Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "surface-container": "#efeeea",
+              "on-secondary-fixed": "#001847",
+              "primary-container": "#1f1f1f",
+              "error": "#ba1a1a",
+              "primary-fixed": "#e5e2e1",
+              "primary": "#060607",
+              "selection-blue": "#C2E7FF",
+              "on-surface": "#1b1c1a",
+              "surface-variant": "#e3e2df",
+              "on-background": "#1b1c1a",
+              "on-surface-variant": "#444748",
+              "inverse-surface": "#2f312e",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#c8c6c5",
+              "tertiary-fixed": "#6bff8f",
+              "ui-border": "#C4C7C5",
+              "outline-variant": "#c4c7c7",
+              "surface-bright": "#faf9f5",
+              "secondary-fixed-dim": "#b2c5ff",
+              "on-error": "#ffffff",
+              "on-secondary-fixed-variant": "#0040a1",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#dae2ff",
+              "tertiary-fixed-dim": "#4ae176",
+              "outline": "#747878",
+              "surface": "#faf9f5",
+              "surface-container-highest": "#e3e2df",
+              "on-primary-container": "#888686",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#5f5e5e",
+              "on-tertiary-fixed-variant": "#005321",
+              "secondary-container": "#336ee7",
+              "on-tertiary-fixed": "#002109",
+              "status-active": "#22C55E",
+              "on-tertiary-container": "#009b45",
+              "inverse-on-surface": "#f2f1ed",
+              "on-primary-fixed-variant": "#474746",
+              "tertiary-container": "#00250b",
+              "on-secondary-container": "#fefcff",
+              "surface-dim": "#dbdad6",
+              "secondary": "#0054cd",
+              "on-error-container": "#93000a",
+              "paper-bg": "#FDFCF8",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f4f4f0",
+              "ink-black": "#1F1F1F",
+              "tertiary": "#000801",
+              "on-primary-fixed": "#1b1b1c",
+              "inverse-primary": "#c8c6c5",
+              "on-tertiary": "#ffffff",
+              "background": "#faf9f5",
+              "surface-container-high": "#e9e8e4"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "base": "4px",
+              "gutter-mobile": "16px",
+              "margin-mobile": "20px",
+              "stack-sm": "8px",
+              "stack-lg": "32px",
+              "stack-md": "16px"
+            },
+            "fontFamily": {
+              "data-lg": ["JetBrains Mono"],
+              "title-md": ["Geist"],
+              "body-lg": ["Geist"],
+              "display": ["Geist"],
+              "headline": ["Geist"],
+              "body-md": ["Geist"],
+              "label-caps": ["JetBrains Mono"],
+              "title-lg": ["Geist"],
+              "data-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+              "data-lg": ["15px", {"lineHeight": "22px", "fontWeight": "500"}],
+              "title-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+              "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+              "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "headline": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+              "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+              "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+              "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+              "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      body {
+        background-color: #FDFCF8; /* paper-bg fallback */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-paper-bg text-on-background font-body-md min-h-screen flex flex-col md:max-w-md md:mx-auto md:border-x md:border-ui-border">
+<!-- TopAppBar from JSON -->
+<header class="flex justify-between items-center w-full px-margin-mobile h-14 sticky top-0 z-50 bg-paper-bg border-b border-ui-border transition-colors duration-150 ease-in-out">
+<button class="text-on-surface-variant hover:bg-surface-container rounded-DEFAULT p-2 transition-colors duration-150 ease-in-out flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<h1 class="font-label-caps text-label-caps text-ink-black tracking-widest uppercase">OPS CONSOLE</h1>
+<button class="text-on-surface-variant hover:bg-surface-container rounded-DEFAULT p-2 transition-colors duration-150 ease-in-out flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow p-margin-mobile flex flex-col gap-stack-lg pb-24">
+<!-- Service Toggle Card -->
+<section class="bg-surface-container-lowest border border-ui-border rounded-none shadow-[0px_2px_8px_rgba(0,0,0,0.05)] p-stack-md flex justify-between items-center">
+<div class="flex flex-col gap-base">
+<span class="font-label-caps text-label-caps text-on-surface-variant">STATUS</span>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-status-active"></div>
+<span class="font-title-md text-title-md text-ink-black">Service Running</span>
+</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-status-active appearance-none cursor-pointer transition-transform duration-200 ease-in-out translate-x-6 z-10" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-status-active cursor-pointer" for="toggle1"></label>
+</div>
+<style>
+                .toggle-checkbox:checked {
+                    right: 0;
+                    border-color: #22C55E;
+                }
+                .toggle-checkbox:checked + .toggle-label {
+                    background-color: #22C55E;
+                }
+                .toggle-checkbox {
+                    border-color: #e3e2df;
+                }
+                .toggle-label {
+                    background-color: #e3e2df;
+                }
+            </style>
+</section>
+<!-- Key Grid -->
+<section>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-stack-sm">API KEYS</h2>
+<div class="grid grid-cols-2 gap-stack-sm">
+<!-- Key Card 1 -->
+<div class="bg-surface-container-lowest border border-ui-border p-stack-sm flex flex-col gap-base rounded-none">
+<div class="flex justify-between items-center w-full">
+<span class="font-data-sm text-data-sm text-ink-black">prod-1</span>
+<div class="w-2 h-2 bg-status-active rounded-full"></div>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface-variant">99.9% up</span>
+</div>
+<!-- Key Card 2 -->
+<div class="bg-surface-container-lowest border border-ui-border p-stack-sm flex flex-col gap-base rounded-none">
+<div class="flex justify-between items-center w-full">
+<span class="font-data-sm text-data-sm text-ink-black">prod-2</span>
+<div class="w-2 h-2 bg-status-active rounded-full"></div>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface-variant">99.8% up</span>
+</div>
+<!-- Key Card 3 -->
+<div class="bg-surface-container-lowest border border-ui-border p-stack-sm flex flex-col gap-base rounded-none">
+<div class="flex justify-between items-center w-full">
+<span class="font-data-sm text-data-sm text-ink-black">backup</span>
+<div class="w-2 h-2 bg-status-active rounded-full"></div>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface-variant">100% up</span>
+</div>
+<!-- Key Card 4 -->
+<div class="bg-surface-container-lowest border border-ui-border p-stack-sm flex flex-col gap-base rounded-none">
+<div class="flex justify-between items-center w-full">
+<span class="font-data-sm text-data-sm text-ink-black">staging</span>
+<div class="w-2 h-2 bg-surface-variant rounded-full"></div>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface-variant">idle</span>
+</div>
+</div>
+</section>
+<!-- Today Stat -->
+<section class="bg-surface-container-lowest border border-ui-border rounded-none shadow-[0px_2px_8px_rgba(0,0,0,0.05)] p-stack-md flex flex-col gap-stack-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant">TODAY'S VOLUME</span>
+<div class="font-data-lg text-data-lg text-ink-black flex flex-col">
+<span class="text-[32px] leading-[40px] font-bold">1,102 calls</span>
+<span class="text-status-active">95.4% success</span>
+</div>
+</section>
+<!-- Recent Screens Carousel -->
+<section class="flex flex-col gap-stack-sm">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant">RECENT VIEWS</h2>
+<div class="flex overflow-x-auto hide-scrollbar gap-stack-sm pb-2 -mx-margin-mobile px-margin-mobile">
+<div class="min-w-[140px] h-24 bg-surface-container border border-ui-border flex items-center justify-center rounded-none relative group overflow-hidden cursor-pointer" data-alt="A detailed digital interface mockup of a data dashboard on a modern minimalist tablet. The screen displays complex line graphs and bar charts in a stark monochrome palette with sudden accents of bright green. The lighting is even and flat, typical of a professional light-mode software application environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMiU6M4ALZowFkgQ9ZrwelZIB-GgEcaE2JmrR1sXoe5_zIbZCwTESRen3bNFFEPlUAL86uHDhLaIXH84XcC3YE07N0fLPD0BPqheXVdAdhqus2CDjH4RoONsOVfxL4kcVp092XVfXr-3nozofY1WM_UegAk-lxBy1NUKSiJbmd1DFp-S3SBrNyGwLukwyRLyrWvTdipsweDR68JrUGR2G6k0OU18M1qViCXrm9b0sTWajbh-X0fOgtIBSCIJWEMCBELf_bAPP8tKIR')">
+<div class="absolute inset-0 bg-ink-black/10 group-hover:bg-transparent transition-colors"></div>
+<span class="bg-surface-container-lowest border border-ui-border px-2 py-1 font-label-caps text-label-caps absolute bottom-2 left-2 shadow-[0px_2px_8px_rgba(0,0,0,0.05)]">LATENCY</span>
+</div>
+<div class="min-w-[140px] h-24 bg-surface-container border border-ui-border flex items-center justify-center rounded-none relative group overflow-hidden cursor-pointer" data-alt="A stark, minimalist view of a server error log interface. Rows of terminal-like monospaced text fill a stark white screen, punctuated by rare red error highlights. The aesthetic is purely functional, reflecting a professional technical developer environment with crisp typography and high contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsH7cDwR8W8mZGREusTSlfAyi42Oa6CkXLNd1dHZdSYvtlwWMYwl1GZXg9X0Ipm5Oz8GAMN5TMvVHvWosaC54IHRypss4wQzKHSsV91Dl5Tw0VewcReM0TcIOVoNAx9KBJhk3Brk1qvWp3cm5mUIUZCQ0tXvhbnOoUsdvuZCA_hJg-E_hwLQbZqfYaRMMJxfxOjjVFmJKttoIH0R24h1jIglme0SYbX4ymbq-5Q0ZIYWvl9jtfNTb6mh3xoWcWbJCW52ovpQByN2y8')">
+<div class="absolute inset-0 bg-ink-black/10 group-hover:bg-transparent transition-colors"></div>
+<span class="bg-surface-container-lowest border border-ui-border px-2 py-1 font-label-caps text-label-caps absolute bottom-2 left-2 shadow-[0px_2px_8px_rgba(0,0,0,0.05)]">ERRORS</span>
+</div>
+<div class="min-w-[140px] h-24 bg-surface-container border border-ui-border flex items-center justify-center rounded-none relative group overflow-hidden cursor-pointer" data-alt="A clean, grid-based layout showing active user sessions on a world map wireframe. The aesthetic is light, airy, and professional, using a paper-white background with delicate grey grid lines and sharp geometric shapes representing data points." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0g5ub-27InV_U6-LdGy1o9k0EdfF5dK5mdhlWhjuxRG73NiL4Tdvm8ZsuwAOnJGsAFE6g9hIIIyPF8EPFAF_uN0VbTCIM8WPEqLZJhw84TqF25byrQ2Lq64k_dZyfGeXeWmr1McEuMJCN5llFJrlKD1-9iE88K8dVnaIv7YbD_4b-gADFo8HvZMAi4SMezCdJcWqp88x4WNO9pmMxSUcitfoQVZ0KzF6gdwrq-KdY_h2FDk88t9hXeFlHxNexHL2yDHOAY4wyzRqV')">
+<div class="absolute inset-0 bg-ink-black/10 group-hover:bg-transparent transition-colors"></div>
+<span class="bg-surface-container-lowest border border-ui-border px-2 py-1 font-label-caps text-label-caps absolute bottom-2 left-2 shadow-[0px_2px_8px_rgba(0,0,0,0.05)]">USERS</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar / Quick Actions Override (Contextual specific to this intent) -->
+<!-- Suppressing JSON BottomNavBar as per logic ("Automatic Suppression: Task-Focused... linear/transactional") and using the requested Quick Actions fixed bottom row -->
+<div class="fixed bottom-0 left-0 w-full z-50 bg-paper-bg border-t border-ui-border h-16 flex justify-around items-center px-gutter-mobile md:max-w-md md:left-1/2 md:-translate-x-1/2 md:border-x">
+<button class="w-10 h-10 flex items-center justify-center rounded-none border border-ui-border text-ink-black hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="pause">pause</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-none bg-ink-black text-on-primary hover:bg-inverse-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-none border border-ui-border text-ink-black hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-none border border-ui-border text-ink-black hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+</div>
+</body></html>

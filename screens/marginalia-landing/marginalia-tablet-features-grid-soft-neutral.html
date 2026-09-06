@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Features</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "outline-variant": "#c4c7c7",
+              "inverse-surface": "#313030",
+              "on-error": "#ffffff",
+              "surface-bright": "#fdf8f8",
+              "tertiary-container": "#1c1b1a",
+              "tertiary": "#000000",
+              "on-background": "#1c1b1b",
+              "primary-fixed": "#e5e2e1",
+              "on-secondary-fixed": "#1b1c1c",
+              "tertiary-fixed-dim": "#cac6c4",
+              "inverse-on-surface": "#f4f0ef",
+              "secondary": "#5f5e5e",
+              "outline": "#747878",
+              "on-surface-variant": "#444748",
+              "surface-dim": "#ddd9d8",
+              "on-primary-fixed-variant": "#474746",
+              "error-container": "#ffdad6",
+              "on-tertiary-container": "#868382",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#ebe7e6",
+              "surface": "#fdf8f8",
+              "on-surface": "#1c1b1b",
+              "on-primary": "#ffffff",
+              "surface-tint": "#5f5e5e",
+              "primary": "#000000",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#1c1b1b",
+              "on-tertiary-fixed": "#1c1b1a",
+              "inverse-primary": "#c8c6c5",
+              "secondary-fixed-dim": "#c8c6c6",
+              "secondary-container": "#e4e2e1",
+              "secondary-fixed": "#e4e2e1",
+              "surface-container-low": "#f7f3f2",
+              "on-tertiary": "#ffffff",
+              "primary-container": "#1c1b1b",
+              "on-secondary-fixed-variant": "#474747",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#e5e2e1",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#e5e2e1",
+              "background": "#fdf8f8",
+              "tertiary-fixed": "#e6e2df",
+              "on-primary-container": "#858383",
+              "on-tertiary-fixed-variant": "#484645",
+              "on-secondary-container": "#656464",
+              "primary-fixed-dim": "#c8c6c5",
+              "surface-container": "#f1edec"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "column-gap": "12px",
+              "unit": "4px",
+              "row-gap": "4px",
+              "margin-page": "16px",
+              "gutter": "8px"
+            },
+            "fontFamily": {
+              "footer-note": [
+                "Archivo Narrow"
+              ],
+              "body-sm": [
+                "\"Source Serif 4\""
+              ],
+              "label-caps": [
+                "Archivo Narrow"
+              ],
+              "headline-md": [
+                "\"Source Serif 4\""
+              ],
+              "headline-lg": [
+                "\"Source Serif 4\""
+              ],
+              "body-md": [
+                "\"Source Serif 4\""
+              ]
+            },
+            "fontSize": {
+              "footer-note": [
+                "10px",
+                {
+                  "lineHeight": "14px",
+                  "letterSpacing": "0.01em",
+                  "fontWeight": "400"
+                }
+              ],
+              "body-sm": [
+                "12px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "400"
+                }
+              ],
+              "label-caps": [
+                "11px",
+                {
+                  "lineHeight": "12px",
+                  "letterSpacing": "0.08em",
+                  "fontWeight": "700"
+                }
+              ],
+              "headline-md": [
+                "20px",
+                {
+                  "lineHeight": "24px",
+                  "fontWeight": "700"
+                }
+              ],
+              "headline-lg": [
+                "30px",
+                {
+                  "lineHeight": "32px",
+                  "letterSpacing": "-0.02em",
+                  "fontWeight": "700"
+                }
+              ],
+              "body-md": [
+                "14px",
+                {
+                  "lineHeight": "18px",
+                  "fontWeight": "400"
+                }
+              ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        
+        /* Custom Warm Oatmeal Background requested by user, overridden from design system for this specific container */
+        .bg-oatmeal {
+            background-color: #F5F0E1;
+        }
+        .text-terracotta {
+            color: #C17F59;
+        }
+        .border-sand {
+            border-color: #E6DBC4;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col items-center justify-center p-8">
+<!-- Main Tablet Container -->
+<main class="w-full max-w-4xl bg-oatmeal rounded-3xl p-12 md:p-16 relative overflow-hidden shadow-2xl">
+<!-- Decorative Header -->
+<div class="mb-16 text-center">
+<span class="font-label-caps text-label-caps text-terracotta uppercase tracking-widest">Features</span>
+<div class="h-[1px] w-12 bg-terracotta/30 mx-auto mt-4"></div>
+</div>
+<!-- 2x2 Grid with Overlap Effect -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-sand shadow-sm hover:shadow-md transition-shadow md:transform md:translate-y-4">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search" data-weight="fill">search</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Search 9,844 documents at once</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed font-sans">
+                    A unified indexing system that brings all your fragmented knowledge bases into a single, cohesive, instantly searchable repository.
+                </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-sand shadow-sm hover:shadow-md transition-shadow md:-translate-x-4 md:-translate-y-2 relative z-20">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="format_quote" data-weight="fill">format_quote</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Every answer cited to the line</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed font-sans">
+                    Archival precision ensures that every generated insight is inextricably linked to its original source material, preventing hallucination.
+                </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-sand shadow-sm hover:shadow-md transition-shadow md:translate-x-4 md:translate-y-2 relative z-20">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="integration_instructions" data-weight="fill">integration_instructions</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Works across Slack, Notion, Drive</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed font-sans">
+                    Native connectors effortlessly synchronize data streams from your most critical productivity platforms in near real-time.
+                </p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-sand shadow-sm hover:shadow-md transition-shadow md:-translate-y-4">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="security" data-weight="fill">security</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Permissions stay intact</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed font-sans">
+                    Strict adherence to Access Control Lists guarantees that users only surface information they are explicitly authorized to view.
+                </p>
+</div>
+</div>
+</main>
+</body></html>

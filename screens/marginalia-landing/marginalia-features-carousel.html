@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>What it does - Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "tertiary": "#000000",
+              "surface-dim": "#dadada",
+              "outline": "#747878",
+              "inverse-on-surface": "#f1f1f1",
+              "primary-container": "#1c1b1b",
+              "tertiary-fixed": "#e2e2e2",
+              "inverse-surface": "#2f3131",
+              "inverse-primary": "#c8c6c5",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-background": "#1a1c1c",
+              "surface": "#f9f9f9",
+              "secondary-fixed": "#e3e2e2",
+              "surface-container-high": "#e8e8e8",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "surface-tint": "#5f5e5e",
+              "on-surface-variant": "#444748",
+              "on-tertiary-fixed-variant": "#454747",
+              "on-secondary-fixed": "#1b1c1c",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#c7c6c6",
+              "surface-variant": "#e2e2e2",
+              "on-secondary-fixed-variant": "#464747",
+              "background": "#f9f9f9",
+              "primary": "#000000",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#e2e2e2",
+              "secondary": "#5e5e5e",
+              "secondary-container": "#e3e2e2",
+              "primary-fixed-dim": "#c8c6c5",
+              "on-tertiary-fixed": "#1a1c1c",
+              "on-surface": "#1a1c1c",
+              "surface-container-low": "#f4f3f3",
+              "surface-bright": "#f9f9f9",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#1a1c1c",
+              "primary-fixed": "#e5e2e1",
+              "on-tertiary-container": "#838484",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#858383",
+              "on-secondary-container": "#646464",
+              "surface-container": "#eeeeee",
+              "on-primary-fixed-variant": "#474746",
+              "on-primary-fixed": "#1c1b1b",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c4c7c7"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "margin-mobile": "24px",
+              "gutter": "32px",
+              "section-padding": "120px",
+              "container-max": "1120px",
+              "unit": "8px"
+            },
+            "fontFamily": {
+              "headline-lg": ["Inter"],
+              "headline-md": ["Inter"],
+              "caption": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "body-lg": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"]
+            },
+            "fontSize": {
+              "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+              "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400" }],
+              "caption": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }],
+              "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+              "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+              "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+              "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .snap-x-mandatory {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-center {
+            scroll-snap-align: center;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden selection:bg-surface-dim selection:text-primary">
+<!-- Top Navigation -->
+<header class="bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant flex justify-between items-center w-full px-margin-mobile h-16 sticky top-0 z-50">
+<button aria-label="Menu" class="text-primary dark:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container-low transition-colors p-2 active:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-light tracking-[0.2em] text-primary dark:text-primary uppercase absolute left-1/2 -translate-x-1/2">
+            MARGINALIA
+        </div>
+<button aria-label="Search" class="text-primary dark:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container-low transition-colors p-2 active:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center py-section-padding md:py-16">
+<section class="w-full max-w-container-max mx-auto px-margin-mobile flex flex-col items-center">
+<!-- Section Label -->
+<div class="mb-12 text-center w-full">
+<h2 class="font-headline-md text-headline-md text-primary">What it does</h2>
+</div>
+<!-- Carousel Container -->
+<div class="w-full relative overflow-hidden pb-8">
+<!-- Swipeable Row -->
+<div class="flex overflow-x-auto snap-x-mandatory no-scrollbar space-x-gutter px-[10vw] md:px-0 md:justify-center" id="features-carousel">
+<!-- Card 1 (Partially visible) -->
+<div class="snap-center shrink-0 w-[75vw] md:w-72 bg-surface-container-lowest border border-outline-variant p-8 flex flex-col items-center text-center opacity-40 transition-opacity duration-300 relative card-item" data-index="0">
+<span class="material-symbols-outlined text-3xl mb-6 text-on-surface-variant" data-icon="search_insights" style="font-variation-settings: 'FILL' 0;">search_insights</span>
+<h3 class="font-body-lg text-body-lg text-primary mb-2">Deep Search</h3>
+<p class="font-caption text-caption text-secondary">Find context, not just keywords.</p>
+<!-- Ghost Layer border -->
+<div class="absolute inset-0 border border-outline-variant opacity-0 pointer-events-none"></div>
+</div>
+<!-- Card 2 (Active) -->
+<div class="snap-center shrink-0 w-[75vw] md:w-72 bg-surface-container-lowest border border-outline-variant p-8 flex flex-col items-center text-center opacity-100 transition-opacity duration-300 relative card-item" data-index="1">
+<span class="material-symbols-outlined text-3xl mb-6 text-primary" data-icon="description" style="font-variation-settings: 'FILL' 1;">description</span>
+<h3 class="font-body-lg text-body-lg text-primary mb-2">Cited to the line</h3>
+<p class="font-caption text-caption text-secondary">contract_2024.pdf, page 3</p>
+</div>
+<!-- Card 3 (Partially visible) -->
+<div class="snap-center shrink-0 w-[75vw] md:w-72 bg-surface-container-lowest border border-outline-variant p-8 flex flex-col items-center text-center opacity-40 transition-opacity duration-300 relative card-item" data-index="2">
+<span class="material-symbols-outlined text-3xl mb-6 text-on-surface-variant" data-icon="summarize" style="font-variation-settings: 'FILL' 0;">summarize</span>
+<h3 class="font-body-lg text-body-lg text-primary mb-2">Auto-Summaries</h3>
+<p class="font-caption text-caption text-secondary">Get the gist in seconds.</p>
+</div>
+<!-- Card 4 (Hidden mostly on mobile initially) -->
+<div class="snap-center shrink-0 w-[75vw] md:w-72 bg-surface-container-lowest border border-outline-variant p-8 flex flex-col items-center text-center opacity-40 transition-opacity duration-300 relative card-item" data-index="3">
+<span class="material-symbols-outlined text-3xl mb-6 text-on-surface-variant" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 0;">auto_awesome</span>
+<h3 class="font-body-lg text-body-lg text-primary mb-2">AI Insights</h3>
+<p class="font-caption text-caption text-secondary">Discover hidden patterns.</p>
+</div>
+</div>
+</div>
+<!-- Pagination Dots -->
+<div class="flex justify-center space-x-3 mt-6" id="pagination-dots">
+<button aria-label="Go to slide 1" class="w-2 h-2 rounded-none bg-surface-dim border border-outline-variant transition-colors dot-indicator"></button>
+<button aria-label="Go to slide 2" class="w-2 h-2 rounded-none bg-primary transition-colors dot-indicator active"></button>
+<button aria-label="Go to slide 3" class="w-2 h-2 rounded-none bg-surface-dim border border-outline-variant transition-colors dot-indicator"></button>
+<button aria-label="Go to slide 4" class="w-2 h-2 rounded-none bg-surface-dim border border-outline-variant transition-colors dot-indicator"></button>
+</div>
+</section>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.getElementById('features-carousel');
+            const cards = document.querySelectorAll('.card-item');
+            const dots = document.querySelectorAll('.dot-indicator');
+            
+            // Set initial state to card 2 (index 1) for mobile preview purposes, 
+            // though actual scroll position relies on initial CSS layout
+            let currentIndex = 1;
+
+            // Optional: Simple scroll listener to update opacity and dots if user swipes
+            carousel.addEventListener('scroll', () => {
+                const scrollPosition = carousel.scrollLeft;
+                const cardWidth = cards[0].offsetWidth;
+                const gap = 32; // gutter
+                
+                // Very basic calculation for index based on scroll
+                let newIndex = Math.round(scrollPosition / (cardWidth + gap));
+                
+                // Clamp index
+                newIndex = Math.max(0, Math.min(newIndex, cards.length - 1));
+
+                if (newIndex !== currentIndex) {
+                    currentIndex = newIndex;
+                    updateActiveState();
+                }
+            });
+
+            function updateActiveState() {
+                cards.forEach((card, index) => {
+                    if (index === currentIndex) {
+                        card.classList.remove('opacity-40');
+                        card.classList.add('opacity-100');
+                        
+                        // Update icon style slightly for active
+                        const icon = card.querySelector('.material-symbols-outlined');
+                        icon.classList.remove('text-on-surface-variant');
+                        icon.classList.add('text-primary');
+                        icon.style.fontVariationSettings = "'FILL' 1";
+
+                    } else {
+                        card.classList.remove('opacity-100');
+                        card.classList.add('opacity-40');
+
+                        // Revert icon style
+                        const icon = card.querySelector('.material-symbols-outlined');
+                        icon.classList.remove('text-primary');
+                        icon.classList.add('text-on-surface-variant');
+                        icon.style.fontVariationSettings = "'FILL' 0";
+                    }
+                });
+
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.remove('bg-surface-dim', 'border', 'border-outline-variant');
+                        dot.classList.add('bg-primary');
+                    } else {
+                        dot.classList.remove('bg-primary');
+                        dot.classList.add('bg-surface-dim', 'border', 'border-outline-variant');
+                    }
+                });
+            }
+
+            // Initialization logic to align on load if needed, but flex layout with padding handles it mostly.
+            // On desktop, we might want to just show them all in a grid, but prompt specifies mobile-first swipeable row.
+        });
+    </script>
+</body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design Gallery - Drag Interaction</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#2f3131",
+                        "inverse-surface": "#e3e2e2",
+                        "on-tertiary-container": "#696360",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-secondary": "#303030",
+                        "surface-container": "#1e2020",
+                        "on-primary-container": "#636565",
+                        "on-tertiary-fixed": "#1f1b19",
+                        "surface-container-high": "#292a2a",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "secondary-container": "#474746",
+                        "on-surface": "#e3e2e2",
+                        "inverse-primary": "#5d5f5f",
+                        "surface-tint": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-error": "#690005",
+                        "outline": "#8e9192",
+                        "on-tertiary-fixed-variant": "#4b4643",
+                        "on-secondary-container": "#b7b5b4",
+                        "tertiary-fixed-dim": "#cec5c1",
+                        "outline-variant": "#444748",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-container-low": "#1a1c1c",
+                        "inverse-on-surface": "#2f3131",
+                        "background": "#121414",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0d0e0f",
+                        "tertiary-container": "#eae1dd",
+                        "primary": "#ffffff",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#343535",
+                        "on-primary-fixed-variant": "#454747",
+                        "secondary-fixed": "#e4e2e1",
+                        "on-surface-variant": "#c4c7c8",
+                        "tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed": "#eae1dd",
+                        "primary-fixed": "#e2e2e2",
+                        "error-container": "#93000a",
+                        "surface-dim": "#121414",
+                        "surface-bright": "#38393a",
+                        "secondary": "#c8c6c5",
+                        "primary-container": "#e2e2e2",
+                        "on-tertiary": "#342f2d",
+                        "on-background": "#e3e2e2",
+                        "surface-container-highest": "#343535",
+                        "surface": "#121414",
+                        
+                        "danger-soft": "#450a0a",
+                        "danger-ink": "#ef4444",
+                        "ink-faint": "#262626",
+                        "ink": "#f5f5f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "lg": "24px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "xl": "48px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px",
+                        "sidebar_width": "260px",
+                        "padding_base": "16px",
+                        "padding_wide": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "caption-mono": ["JetBrains Mono"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-md": ["Geist"],
+                        "headline-sm": ["Geist"],
+                        "body-md": ["Geist"],
+                        "body-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "caption-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-mono": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #000000; color: #f5f5f5; }
+        .rule-strong { border-color: #262626; }
+        .ghost-card { pointer-events: none; }
+        
+        /* Custom dragging cursor simulation */
+        .dragging-simulation { cursor: not-allowed; }
+    </style>
+</head>
+<body class="font-body-md text-body-md dragging-simulation overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-12 flex justify-between items-center px-padding_wide bg-background border-b border-outline-variant z-10 transition-opacity duration-300 opacity-50 blur-sm">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface">Design Gallery</h1>
+<nav class="flex gap-sm ml-lg">
+<a class="text-on-surface-variant font-data-label text-data-label hover:text-on-surface transition-colors" href="#">Screens</a>
+<a class="text-primary border-b-2 border-primary font-data-label text-data-label px-unit pb-[11px] pt-[13px]" href="#">Assets</a>
+<a class="text-on-surface-variant font-data-label text-data-label hover:text-on-surface transition-colors" href="#">Versions</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-unit text-on-surface-variant hover:text-on-surface transition-colors scale-95 transition-transform"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="p-unit text-on-surface-variant hover:text-on-surface transition-colors scale-95 transition-transform"><span class="material-symbols-outlined" data-icon="search">search</span></button>
+<button class="p-unit text-on-surface-variant hover:text-on-surface transition-colors scale-95 transition-transform"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed h-full w-sidebar_width left-0 top-0 flex flex-col border-r border-outline-variant bg-surface-dim overflow-y-auto z-20">
+<div class="p-padding_base border-b border-outline-variant mb-sm">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Design Archive</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-unit">Technical Repository</p>
+</div>
+<nav class="flex-1 px-unit">
+<div class="space-y-[2px]">
+<a class="flex items-center gap-2 text-ink-faint font-body-md w-full px-padding_base py-unit cursor-not-allowed" href="#">
+<span class="material-symbols-outlined" data-icon="folder">folder</span>
+                    Marginalia landing
+                </a>
+<a class="flex items-center gap-2 text-ink-faint font-body-md w-full px-padding_base py-unit cursor-not-allowed" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+                    Console v2
+                </a>
+<a class="flex items-center gap-2 text-ink-faint font-body-md w-full px-padding_base py-unit cursor-not-allowed" href="#">
+<span class="material-symbols-outlined" data-icon="folder">folder</span>
+                    Client — Northwind Retail
+                </a>
+<!-- Active/Locked Drop Target -->
+<div class="relative group mt-md">
+<a class="flex items-center gap-2 bg-danger-soft text-danger-ink border border-danger-ink font-headline-md w-full px-padding_base py-unit relative z-10" href="#">
+<span class="material-symbols-outlined" data-icon="archive">archive</span>
+                        Archive
+                        <span class="material-symbols-outlined ml-auto text-sm" data-icon="lock">lock</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="p-padding_base border-t border-outline-variant mt-auto space-y-[2px]">
+<a class="flex items-center gap-2 text-on-surface-variant font-body-md w-full px-padding_base py-unit hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-2 text-on-surface-variant font-body-md w-full px-padding_base py-unit hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Area (Dimmed for focus) -->
+<main class="ml-sidebar_width mt-12 p-margin-desktop h-[calc(100vh-48px)] transition-opacity duration-300 opacity-30 blur-[2px] pointer-events-none">
+<div class="grid grid-cols-12 gap-gutter h-full grid-rows-[auto_1fr]">
+<div class="col-span-12 flex justify-between items-end border-b border-outline-variant pb-md mb-md">
+<h2 class="font-headline-lg text-headline-lg font-bold">Assets</h2>
+<button class="bg-primary text-on-primary px-lg py-sm font-label-mono text-label-mono uppercase tracking-widest hover:opacity-90">Upload Assets</button>
+</div>
+<div class="col-span-12 grid grid-cols-4 gap-gutter content-start">
+<!-- Mock grid items to show context -->
+<div class="border border-outline-variant p-md flex flex-col gap-sm">
+<div class="h-32 bg-surface-container-high border-b border-outline-variant"></div>
+<span class="font-caption-mono text-caption-mono">pricing-table-v2.png</span>
+</div>
+<div class="border border-outline-variant p-md flex flex-col gap-sm">
+<div class="h-32 bg-surface-container-high border-b border-outline-variant"></div>
+<span class="font-caption-mono text-caption-mono">hero-concept.fig</span>
+</div>
+<div class="border border-outline-variant p-md flex flex-col gap-sm">
+<div class="h-32 bg-surface-container-high border-b border-outline-variant"></div>
+<span class="font-caption-mono text-caption-mono">logo-mark-final.svg</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Interaction Overlay Elements -->
+<!-- Ghost Card being dragged -->
+<div class="fixed top-[280px] left-[150px] z-50 w-64 bg-surface-container-high/80 border border-outline-variant p-sm flex items-center gap-md backdrop-blur-sm shadow-2xl rotate-3 ghost-card">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="drag_indicator">drag_indicator</span>
+<div class="w-10 h-10 bg-background border border-outline-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="image">image</span>
+</div>
+<span class="font-caption-mono text-caption-mono text-on-surface truncate">Pricing table</span>
+</div>
+<!-- Tooltip indicating error/lock -->
+<div class="fixed top-[250px] left-[320px] z-50 bg-surface-container-highest border border-outline-variant px-sm py-xs flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-danger-ink text-[16px]" data-icon="block">block</span>
+<span class="font-label-mono text-label-mono text-danger-ink">Archive is read-only</span>
+</div>
+</body></html>

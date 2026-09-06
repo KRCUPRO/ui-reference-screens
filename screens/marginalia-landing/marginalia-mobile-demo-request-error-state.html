@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Request Demo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#474746",
+                        "on-tertiary-container": "#838484",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "tertiary-container": "#1a1c1c",
+                        "primary": "#000000",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary-container": "#646464",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface": "#f9f9f9",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-container": "#1c1b1b",
+                        "surface-container-low": "#f4f3f3",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c4c7c7",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "outline": "#747878",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "secondary-fixed": "#e3e2e2",
+                        "secondary-container": "#e3e2e2",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary": "#ffffff",
+                        "background": "#ffffff", /* Using crisp white to fit ultra-minimalist style */
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-surface-variant": "#444748",
+                        "on-primary-container": "#858383",
+                        "tertiary-fixed": "#e2e2e2",
+                        "inverse-primary": "#c8c6c5",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5e5e5e",
+                        "surface-tint": "#5f5e5e",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-background": "#1a1c1c"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    spacing: {
+                        "gutter": "32px",
+                        "section-padding": "120px",
+                        "margin-mobile": "24px",
+                        "container-max": "1120px",
+                        "unit": "8px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["'Source Serif 4'", "serif"],
+                        "headline-md": ["'Source Serif 4'", "serif"],
+                        "headline-lg": ["'Source Serif 4'", "serif"],
+                        "headline-lg-mobile": ["'Source Serif 4'", "serif"],
+                        "body-md": ["'Source Serif 4'", "serif"],
+                        "body-lg": ["'Source Serif 4'", "serif"],
+                        "caption": ["'Source Serif 4'", "serif"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "caption": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Minimalist form resets */
+        input:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        ::placeholder {
+            color: #747878;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased md:hidden selection:bg-surface-container-high">
+<!-- Top Navigation Container (Manual implementation to match specific prompt requirements) -->
+<header class="flex justify-between items-center w-full px-margin-mobile pt-12 pb-6 bg-surface dark:bg-surface text-primary dark:text-primary font-label-sm text-label-sm tracking-widest border-b border-outline-variant dark:border-outline-variant flat no shadows relative z-10">
+<button aria-label="Go back" class="flex items-center justify-center p-2 -ml-2 text-primary hover:bg-surface-container-low transition-colors rounded-none active:opacity-70 transition-opacity duration-300" type="button">
+<span class="material-symbols-outlined font-light" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="font-headline-md text-headline-md font-light tracking-[0.2em] text-primary dark:text-primary uppercase">MARGINALIA</h1>
+</div>
+<!-- Empty div for flex balance -->
+<div class="w-10"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile pt-8 pb-12 flex flex-col justify-between">
+<div class="space-y-8 mt-4 w-full max-w-sm mx-auto">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">Request a demo</h2>
+<p class="font-body-md text-body-md text-secondary">Join the waiting list for early access.</p>
+</div>
+<!-- Form Fields -->
+<form class="space-y-6 flex flex-col">
+<!-- Name Field -->
+<div class="flex flex-col space-y-2 relative">
+<label class="font-label-sm text-label-sm text-primary uppercase absolute -top-2.5 left-4 bg-background px-1" for="name">Name</label>
+<input class="w-full bg-transparent border border-surface-container-high text-primary font-body-md text-body-md px-4 py-4 rounded-none focus:border-primary transition-colors duration-200" id="name" name="name" placeholder="Jane Doe" type="text"/>
+</div>
+<!-- Work Email Field (Error State) -->
+<div class="flex flex-col space-y-2 relative">
+<label class="font-label-sm text-label-sm text-error uppercase absolute -top-2.5 left-4 bg-background px-1" for="email">Work email</label>
+<input aria-describedby="email-error" aria-invalid="true" class="w-full bg-transparent border border-error text-primary font-body-md text-body-md px-4 py-4 rounded-none focus:border-error transition-colors duration-200" id="email" name="email" type="email" value="reyes.n@"/>
+<p class="font-caption text-caption text-error pt-1" id="email-error">Enter a valid work email.</p>
+</div>
+<!-- Company Field -->
+<div class="flex flex-col space-y-2 relative pt-2">
+<label class="font-label-sm text-label-sm text-primary uppercase absolute -top-0.5 left-4 bg-background px-1" for="company">Company</label>
+<input class="w-full bg-transparent border border-surface-container-high text-primary font-body-md text-body-md px-4 py-4 rounded-none focus:border-primary transition-colors duration-200" id="company" name="company" placeholder="Acme Corp" type="text"/>
+</div>
+</form>
+</div>
+<!-- Sticky Bottom Action -->
+<div class="mt-12 mb-4 w-full max-w-sm mx-auto">
+<button class="w-full py-4 px-6 bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest border border-outline-variant cursor-not-allowed opacity-70 transition-opacity" disabled="" type="button">
+                Request a demo
+            </button>
+</div>
+</main>
+</body></html>

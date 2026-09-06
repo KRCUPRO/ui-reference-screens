@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Marginalia Daily - Desktop Hero</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#5f5e5e",
+                        "on-tertiary-container": "#868382",
+                        "background": "#fdf8f8",
+                        "inverse-on-surface": "#f4f0ef",
+                        "surface-dim": "#ddd9d8",
+                        "secondary-container": "#e4e2e1",
+                        "on-secondary-fixed-variant": "#474747",
+                        "on-secondary-container": "#656464",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary": "#5f5e5e",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed": "#e4e2e1",
+                        "on-surface-variant": "#444748",
+                        "on-surface": "#1c1b1b",
+                        "tertiary-container": "#1c1b1a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "on-background": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "tertiary": "#000000",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-high": "#ebe7e6",
+                        "outline-variant": "#c4c7c7",
+                        "primary": "#000000",
+                        "primary-container": "#1c1b1b",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-bright": "#fdf8f8",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "surface-container-low": "#f7f3f2",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fdf8f8",
+                        "surface-container-highest": "#e5e2e1",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f1edec",
+                        "outline": "#747878",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "8px",
+                        "unit": "4px",
+                        "row-gap": "4px",
+                        "margin-page": "16px",
+                        "column-gap": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "footer-note": ["Archivo Narrow"],
+                        "body-md": ["\"Source Serif 4\""],
+                        "label-caps": ["Archivo Narrow"],
+                        "body-sm": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["30px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "footer-note": ["10px", { "lineHeight": "14px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "24px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom Newspaper Styles */
+        .double-rule-top { border-top: 3px double theme('colors.primary'); }
+        .double-rule-bottom { border-bottom: 3px double theme('colors.primary'); }
+        .single-rule-top { border-top: 1px solid theme('colors.primary'); }
+        .single-rule-bottom { border-bottom: 1px solid theme('colors.primary'); }
+        .single-rule-right { border-right: 1px solid theme('colors.primary'); }
+        .single-rule-left { border-left: 1px solid theme('colors.primary'); }
+        
+        /* Drop Cap */
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 3.5em;
+            line-height: 0.8;
+            padding-right: 0.1em;
+            font-weight: 700;
+            color: theme('colors.primary');
+        }
+
+        /* Ticker Animation */
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-4">
+<!-- TopAppBar -->
+<header class="w-full top-0 bg-background dark:bg-surface-container-low flex flex-col items-center px-margin-page py-gutter gap-row-gap border-b-2 border-primary dark:border-outline pb-1 mb-px border-double">
+<div class="w-full flex justify-between items-center mb-2">
+<div class="flex gap-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant font-medium">VOL. I. NO. 1.</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-medium">WEDNESDAY, OCTOBER 25, 2024</span>
+</div>
+<button class="font-label-caps text-label-caps border border-primary px-3 py-1 hover:bg-secondary-container transition-colors font-bold cursor-pointer active:invert">SUBSCRIBE</button>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter uppercase text-primary dark:text-on-background text-center w-full" style="font-size: 5vw; line-height: 1;">THE MARGINALIA DAILY</h1>
+<nav class="w-full flex justify-center gap-8 mt-2 double-rule-top pt-2">
+<a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:bg-secondary-container transition-colors px-2 py-1 cursor-pointer" href="#">ARCHIVE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:bg-secondary-container transition-colors px-2 py-1 cursor-pointer" href="#">INDEX</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:bg-secondary-container transition-colors px-2 py-1 cursor-pointer" href="#">REPORTS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:bg-secondary-container transition-colors px-2 py-1 cursor-pointer" href="#">DISPATCHES</a>
+<a class="font-label-caps text-label-caps text-primary font-bold border-b border-primary hover:bg-secondary-container transition-colors px-2 py-1 cursor-pointer" href="#">QUERY</a>
+</nav>
+</header>
+<!-- Main Content Grid -->
+<main class="flex-grow w-full px-margin-page py-4">
+<!-- Search Bar (Integrated as part of Query tab functionality) -->
+<div class="w-full max-w-2xl mx-auto mb-8 border border-primary flex">
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-sm px-4 py-2 text-on-background placeholder:text-on-surface-variant uppercase font-bold" placeholder="ENTER QUERY PARAMETERS..." type="text"/>
+<button class="bg-primary text-on-primary px-4 py-2 font-label-caps text-label-caps flex items-center gap-2 hover:bg-inverse-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+                EXECUTE
+            </button>
+</div>
+<!-- 5-Column Broadsheet Grid -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-column-gap h-full single-rule-top pt-4">
+<!-- Lead Column (Spans 2 on smaller desktop, 1 on full) -->
+<article class="md:col-span-1 flex flex-col gap-4">
+<header>
+<h2 class="font-headline-md text-headline-md font-bold leading-tight mb-2">Every Answer, Sourced.</h2>
+<p class="font-body-sm text-on-surface-variant italic border-b border-primary pb-2 mb-2">By The Archival Staff</p>
+</header>
+<div class="font-body-md text-justify text-sm leading-snug space-y-3">
+<p class="drop-cap">
+                        The proliferation of undocumented data has reached a critical juncture. In the vast, untamed expanse of the digital record, truth is frequently obscured by an accumulation of unverified detritus. We endeavor to establish a new rigorous standard for information retrieval.
+                    </p>
+<p>
+                        Our methodology is uncompromising. Every datum extracted must be traceable to its original genesis. We reject the contemporary preference for synthetic summaries, insisting instead upon the unvarnished primacy of the source document itself.
+                    </p>
+<p>
+                        The systemic indexing process implemented by the Marginalia Archival Corp. prioritizes structural integrity over algorithmic convenience. By treating the corpus as an interconnected lattice of references, rather than a flat field of keywords, we unlock profound contextual understandings previously obscured.
+                    </p>
+<p>
+                        It is required of the modern researcher not merely to find, but to authenticate. This interface provides the tools necessary for such rigorous academic and professional inquiry.
+                    </p>
+</div>
+</article>
+<!-- Vertical Rule (CSS managed via borders on adjacent columns in this specific layout for density) -->
+<!-- Column 2 & 3: Main Image and Feature -->
+<article class="md:col-span-2 single-rule-left pl-column-gap flex flex-col gap-4">
+<div class="w-full h-64 border border-primary relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="A vintage, sepia-toned black and white photograph of a colossal, imposing library interior. Towering stacks of dense, uniform books stretch towards a distant, vaulted ceiling. Soft, natural light streams down from high clerestory windows, illuminating dust motes in the air. In the foreground, solitary scholars sit at heavy wooden desks illuminated by green-glass banker's lamps, intensely focused on reading thick ledgers. The mood is solemn, archival, and intellectually rigorous. The aesthetic mimics early 20th-century photojournalism." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcy_HqfRU8le4vGkcpEveieB90YWbwAd8ArQxf58yZKw3pWlkoX1KrbPygjxTyYOh5QgQYBY-aVyyhNiVvxhwCW_UMuY424rbzx8VtNSw0vML7-tO3Nfh4DRnYkxn2dg6BwxAZHd_iN6rGyXjkVCluLrZAbOvWzB0nVxpBTzNYvLBXXv5puHCqU8CEYYbIi8QpKvlOPbLSEjMFZ3UpwUIH1Ci1wjcBQv-DTbfIoI8gYQR0aH3IkTn-oc6KhjRdI7yp4gPtxCTCAyRK')"></div>
+<div class="absolute bottom-0 left-0 bg-background border-t border-r border-primary px-2 py-1 font-footer-note text-footer-note">
+                        FIG. 1: THE CENTRAL REPOSITORY.
+                    </div>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold leading-tight mt-2">THE ARCHITECTURE OF RETRIEVAL</h3>
+<div class="font-body-md text-justify text-sm leading-snug space-y-3 columns-2 gap-column-gap">
+<p>
+                        An examination of the foundational infrastructure supporting the modern index reveals a startling reliance on precarious scaffolding. The prevailing models, prioritizing speed over accuracy, often return truncated fragments devoid of context.
+                    </p>
+<p>
+                        Our approach necessitates a fundamental re-architecture. The underlying database schemas have been refactored to support deep relational traversals. When a query is initiated, it does not merely skim the surface; it excavates.
+                    </p>
+<p>
+                        Consider the implications for legal discovery. The ability to guarantee the provenance of a specific clause within a labyrinthine contract is not a luxury, but a necessity. The Marginalia system guarantees this level of granular certainty.
+                    </p>
+<p>
+                        The development of proprietary indexing algorithms, focused on semantic fidelity rather than simple probabilistic matching, marks a significant departure from industry norms. We prioritize the exacting demands of the specialist over the casual browsing habits of the general public.
+                    </p>
+</div>
+</article>
+<!-- Column 4: Boxed Sidebar (Searches) -->
+<aside class="md:col-span-1 single-rule-left pl-column-gap">
+<div class="border-2 border-primary p-3 h-full flex flex-col bg-surface-container-low">
+<h3 class="font-label-caps text-label-caps font-bold border-b-2 border-primary pb-1 mb-3">TODAY'S SEARCHES</h3>
+<ul class="space-y-3 font-body-sm text-sm">
+<li class="pb-2 border-b border-outline-variant">
+<span class="block font-bold mb-1">Query: "Epistemological frameworks in post-war European treaties"</span>
+<span class="text-on-surface-variant block text-xs">Returned: 42 documents, 18 primary sources.</span>
+<a class="inline-flex items-center gap-1 font-label-caps text-[9px] mt-1 hover:underline text-primary" href="#">
+                                VIEW RESULTS <span class="material-symbols-outlined text-[10px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</li>
+<li class="pb-2 border-b border-outline-variant">
+<span class="block font-bold mb-1">Query: "Supply chain disruptions vs. maritime law 1918-1920"</span>
+<span class="text-on-surface-variant block text-xs">Returned: 156 documents, 93 maritime logs.</span>
+<a class="inline-flex items-center gap-1 font-label-caps text-[9px] mt-1 hover:underline text-primary" href="#">
+                                VIEW RESULTS <span class="material-symbols-outlined text-[10px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</li>
+<li class="pb-2">
+<span class="block font-bold mb-1">Query: "Corrosion rates of untreated steel in sub-arctic climates"</span>
+<span class="text-on-surface-variant block text-xs">Returned: 12 technical reports, 4 datasets.</span>
+<a class="inline-flex items-center gap-1 font-label-caps text-[9px] mt-1 hover:underline text-primary" href="#">
+                                VIEW RESULTS <span class="material-symbols-outlined text-[10px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto pt-4 text-center">
+<button class="w-full border border-primary py-1 font-label-caps text-[10px] font-bold hover:bg-secondary-container transition-colors">SUBMIT NEW QUERY</button>
+</div>
+</div>
+</aside>
+<!-- Column 5: Rightmost Column -->
+<article class="md:col-span-1 single-rule-left pl-column-gap flex flex-col">
+<h3 class="font-headline-md text-headline-md font-bold leading-tight mb-2">INDEXING STATUS</h3>
+<div class="font-body-sm text-sm leading-snug mb-4">
+<p class="mb-2"><span class="font-bold">STATUS:</span> OPERATIONAL</p>
+<p class="mb-2"><span class="font-bold">LAST UPDATE:</span> 04:00 GMT</p>
+<p><span class="font-bold">ERROR RATE:</span> &lt; 0.001%</p>
+</div>
+<hr class="border-t border-primary my-4"/>
+<h4 class="font-label-caps text-label-caps font-bold mb-2">RECENT ADDITIONS TO CORPUS</h4>
+<ul class="font-body-sm text-sm space-y-2">
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-sm pt-1" data-icon="description">description</span>
+<span>Transcripts of the 1974 International Energy Agency colloquium.</span>
+</li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-sm pt-1" data-icon="description">description</span>
+<span>Declassified meteorological data, North Atlantic (1950-1965).</span>
+</li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-sm pt-1" data-icon="description">description</span>
+<span>Complete index of the 'Journal of Applied Thaumaturgy' Vol 1-12.</span>
+</li>
+</ul>
+</article>
+</div>
+</main>
+<!-- Ticker -->
+<div class="w-full border-t border-b border-primary bg-surface-container-high py-1 overflow-hidden whitespace-nowrap font-label-caps text-[10px] tracking-widest font-bold text-on-surface">
+<div class="ticker-content">
+<span class="mx-4">12,406 DOCS INDEXED</span> · 
+            <span class="mx-4">48,120 FILES VERIFIED</span> · 
+            <span class="mx-4">3.2M PAGES SEARCHED</span> ·
+            <span class="mx-4">SYSTEM NOMINAL</span> ·
+            <span class="mx-4">12,406 DOCS INDEXED</span> · 
+            <span class="mx-4">48,120 FILES VERIFIED</span> · 
+            <span class="mx-4">3.2M PAGES SEARCHED</span> ·
+            <span class="mx-4">SYSTEM NOMINAL</span>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-tertiary-container text-on-primary dark:text-on-tertiary flex justify-between items-center w-full px-margin-page py-unit border-t-2 border-primary dark:border-outline mt-gutter">
+<div class="font-label-caps text-label-caps font-bold text-on-primary">
+            MARGINALIA ARCHIVAL CORP.
+        </div>
+<div class="flex gap-4 font-footer-note text-footer-note">
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">TERMS OF SERVICE</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">PRIVACY POLICY</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">INDEXING STATUS</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">REPRINTS</a>
+</div>
+<div class="font-footer-note text-footer-note text-on-primary-container">
+            © 2024 MARGINALIA ARCHIVAL CORP. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

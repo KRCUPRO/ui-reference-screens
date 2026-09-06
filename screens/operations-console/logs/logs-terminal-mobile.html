@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>High-Density Mobile Logs Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#ffffff",
+            "primary-fixed-dim": "#00dddd",
+            "primary-fixed": "#00ffff",
+            "on-primary-fixed-variant": "#008888",
+            "surface-container-lowest": "#f5f5f5",
+            "surface-container-low": "#eeeeee",
+            "surface-container": "#e0e0e0",
+            "surface-container-high": "#d4d4d4",
+            "surface-container-highest": "#c8c8c8",
+            "on-surface": "#121212",
+            "on-surface-variant": "#555555",
+            "outline-variant": "#cccccc",
+            "terminal": "#1e1e1e",
+            "terminal-ink": "#a9b7c6",
+            "terminal-error": "#ff5252",
+            "terminal-warn": "#ffd740",
+            "terminal-info": "#64ffda"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "unit": "0.5rem",
+            "margin-sm": "1rem",
+            "margin-md": "1.5rem"
+          },
+          "fontFamily": {
+            "headline": ["Public Sans"],
+            "display": ["Public Sans"],
+            "body": ["Public Sans"],
+            "label": ["Public Sans"],
+            "code": ["JetBrains Mono", "monospace"]
+          },
+          "fontSize": {
+            "label-caps": ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.05em", fontWeight: "600" }],
+            "headline-md": ["1.25rem", { lineHeight: "1.75rem", fontWeight: "700" }],
+            "code-sm": ["0.8125rem", { lineHeight: "1.25rem" }],
+            "code-xs": ["0.75rem", { lineHeight: "1.125rem" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #1e1e1e; /* terminal dark bg */
+      color: #a9b7c6;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body antialiased flex flex-col h-screen overflow-hidden">
+<!-- Sticky Top Bar -->
+<header class="w-full top-0 sticky bg-terminal border-b border-gray-800 z-10 flex flex-col">
+<!-- Main Top Bar -->
+<div class="flex justify-between items-center px-4 h-14 w-full">
+<div class="flex items-center space-x-2 text-primary-fixed-dim">
+<span class="material-symbols-outlined text-xl">terminal</span>
+<h1 class="font-headline font-bold text-sm tracking-widest text-primary-fixed-dim">SYS_OP_CONSOLE_v1.0</h1>
+</div>
+<div class="flex items-center space-x-3 text-on-surface-variant">
+<button aria-label="Pause Stream" class="hover:text-primary-fixed transition-all duration-150 active:scale-95 text-primary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pause_circle</span>
+</button>
+<button aria-label="Search" class="hover:text-primary-fixed transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button aria-label="Settings" class="hover:text-primary-fixed transition-all duration-150 active:scale-95 md:hidden">
+<span class="material-symbols-outlined">settings_input_component</span>
+</button>
+</div>
+</div>
+<!-- Secondary Bar: Segmented Control -->
+<div class="flex items-center px-4 py-2 border-t border-gray-800 bg-[#252526] w-full overflow-x-auto scrollbar-hide">
+<div class="flex space-x-1 rounded-md bg-[#1e1e1e] p-1 border border-gray-700">
+<button class="px-3 py-1 rounded text-xs font-code text-gray-400 hover:text-white transition-colors">Info</button>
+<button class="px-3 py-1 rounded text-xs font-code text-gray-400 hover:text-white transition-colors">Warn</button>
+<button class="px-3 py-1 rounded text-xs font-code text-gray-400 hover:text-white transition-colors">Error</button>
+<button class="px-3 py-1 rounded bg-[#333333] text-xs font-code text-white shadow-sm transition-colors">All</button>
+</div>
+</div>
+</header>
+<!-- Log Content Area -->
+<main class="flex-1 overflow-y-auto pb-24 p-4 space-y-3 font-code text-code-xs md:text-code-sm">
+<!-- Log Item: Info -->
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-info pl-2 opacity-90 hover:opacity-100 transition-opacity">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:02</div>
+<div class="text-terminal-ink flex-1">
+<span class="text-terminal-info font-bold mr-2">[INFO]</span>
+            System initialization sequence completed successfully. All core services running.
+        </div>
+</div>
+<!-- Log Item: Warn -->
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-warn pl-2 opacity-90 hover:opacity-100 transition-opacity">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:05</div>
+<div class="text-terminal-ink flex-1">
+<span class="text-terminal-warn font-bold mr-2">[WARN]</span>
+            High memory consumption detected in container <span class="text-gray-400">auth_service_v2</span>. Approaching threshold.
+        </div>
+</div>
+<!-- Log Item: Error -->
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-error pl-2 opacity-90 hover:opacity-100 transition-opacity bg-red-900/10">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:12</div>
+<div class="text-terminal-error flex-1 font-medium">
+<span class="font-bold mr-2">[ERROR]</span>
+            Failed to connect to primary database cluster. Connection timed out after 3000ms. Retrying...
+        </div>
+</div>
+<!-- Log Item: Info -->
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-info pl-2 opacity-90 hover:opacity-100 transition-opacity">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:15</div>
+<div class="text-terminal-ink flex-1">
+<span class="text-terminal-info font-bold mr-2">[INFO]</span>
+            Failover triggered successfully. Switched to secondary replica node <span class="text-gray-400">db-replica-02</span>.
+        </div>
+</div>
+<!-- Log Item: Info -->
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-info pl-2 opacity-90 hover:opacity-100 transition-opacity">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:18</div>
+<div class="text-terminal-ink flex-1">
+<span class="text-terminal-info font-bold mr-2">[INFO]</span>
+            User session verified for ID 849201. Access granted to restricted partition.
+        </div>
+</div>
+<!-- Log Item: Warn -->
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-warn pl-2 opacity-90 hover:opacity-100 transition-opacity">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:22</div>
+<div class="text-terminal-ink flex-1">
+<span class="text-terminal-warn font-bold mr-2">[WARN]</span>
+            Deprecation warning: Endpoint /api/v1/metrics will be removed in next cycle.
+        </div>
+</div>
+<!-- Log Item: Error -->
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-error pl-2 opacity-90 hover:opacity-100 transition-opacity bg-red-900/10">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:28</div>
+<div class="text-terminal-error flex-1 font-medium">
+<span class="font-bold mr-2">[ERROR]</span>
+            Uncaught Exception in worker thread. Segmentation fault at memory address 0x000000.
+        </div>
+</div>
+<!-- More Logs to force scrolling -->
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-info pl-2 opacity-90 hover:opacity-100 transition-opacity">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:30</div>
+<div class="text-terminal-ink flex-1">
+<span class="text-terminal-info font-bold mr-2">[INFO]</span>
+            Worker thread restarted successfully. Resuming queue processing.
+        </div>
+</div>
+<div class="flex items-start space-x-3 break-words border-l-2 border-terminal-info pl-2 opacity-90 hover:opacity-100 transition-opacity">
+<div class="text-gray-500 whitespace-nowrap shrink-0">09:14:35</div>
+<div class="text-terminal-ink flex-1">
+<span class="text-terminal-info font-bold mr-2">[INFO]</span>
+            Garbage collection completed. Freed 2.4GB of memory.
+        </div>
+</div>
+</main>
+<!-- Floating Badge -->
+<div class="fixed bottom-20 right-4 z-40">
+<button class="bg-[#333333] hover:bg-[#444444] text-white border border-gray-600 rounded-full px-3 py-1 flex items-center space-x-1 shadow-lg transition-colors font-code text-xs">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+<span>+ 12</span>
+</button>
+</div>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-sm py-2 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant z-50 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit hover:text-primary-fixed hover:bg-surface-container-high transition-transform duration-200 active:scale-90">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-label-caps text-label-caps uppercase">DASHBOARD</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit hover:text-primary-fixed hover:bg-surface-container-high transition-transform duration-200 active:scale-90">
+<span class="material-symbols-outlined mb-1">vpn_key</span>
+<span class="font-label-caps text-label-caps uppercase">KEYS</span>
+</button>
+<!-- Active State -->
+<button class="flex flex-col items-center justify-center text-primary-fixed-dim bg-on-primary-fixed-variant/20 rounded-lg p-unit shadow-[0_0_8px_rgba(0,221,221,0.3)] transition-transform duration-200 active:scale-90">
+<span class="material-symbols-outlined mb-1 text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-label-caps text-label-caps uppercase text-primary-fixed-dim">LOGS</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit hover:text-primary-fixed hover:bg-surface-container-high transition-transform duration-200 active:scale-90">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="font-label-caps text-label-caps uppercase">SETTINGS</span>
+</button>
+</nav>
+</body></html>

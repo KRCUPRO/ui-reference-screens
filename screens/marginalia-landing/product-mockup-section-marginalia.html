@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia Library Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "tertiary-fixed": "#e6e2df",
+                        "surface-variant": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "surface-bright": "#fdf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f7f3f2",
+                        "tertiary-container": "#1c1b1a",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container": "#f1edec",
+                        "on-primary-container": "#858383",
+                        "inverse-on-surface": "#f4f0ef",
+                        "surface-tint": "#5f5e5e",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5e5e5e",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "secondary-container": "#e4e2e2",
+                        "outline": "#747878",
+                        "surface-container-high": "#ebe7e6",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-secondary-fixed-variant": "#464747",
+                        "secondary-fixed": "#e4e2e2",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "inverse-primary": "#c8c6c5",
+                        "tertiary": "#000000",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "on-surface-variant": "#444748",
+                        "primary-fixed": "#e5e2e1",
+                        "surface": "#fdf8f8",
+                        "on-secondary-container": "#646464",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "background": "#fdf8f8",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-container": "#868382",
+                        "on-surface": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "80px",
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "margin-safe": "40px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["EB Garamond"],
+                        "body-md": ["EB Garamond"],
+                        "ui-medium": ["Public Sans"],
+                        "display-lg": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "body-lg": ["EB Garamond"],
+                        "caption": ["Public Sans"],
+                        "label-bold": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "ui-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "label-bold": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-tertiary-fixed selection:text-on-tertiary-fixed min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="w-full top-0 sticky bg-background border-b border-surface-variant z-50">
+<div class="max-w-[1200px] mx-auto px-margin-safe h-20 flex items-center justify-between">
+<div class="flex items-center gap-gutter">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary hover:opacity-80 transition-opacity" href="#">
+                    Marginalia
+                </a>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-bold text-label-bold text-secondary hover:text-primary transition-colors duration-200 uppercase" href="#">Archive</a>
+<a class="font-label-bold text-label-bold text-secondary hover:text-primary transition-colors duration-200 uppercase" href="#">Indices</a>
+<a class="font-label-bold text-label-bold text-secondary hover:text-primary transition-colors duration-200 uppercase" href="#">Journal</a>
+<a class="font-label-bold text-label-bold text-secondary hover:text-primary transition-colors duration-200 uppercase" href="#">About</a>
+</nav>
+<div class="flex items-center gap-stack-md">
+<button class="font-label-bold text-label-bold bg-primary text-on-primary px-stack-md py-stack-sm rounded hover:bg-tertiary-container transition-colors cursor-pointer active:opacity-70 uppercase tracking-widest border border-primary">
+                    Subscribe
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-center py-section-gap px-margin-safe">
+<!-- Browser Mockup -->
+<div class="w-full max-w-[1024px] mx-auto rounded-lg overflow-hidden bg-surface-container-lowest border border-surface-variant shadow-2xl flex flex-col">
+<!-- Browser Chrome -->
+<div class="h-12 bg-surface-container border-b border-surface-variant flex items-center px-4 relative">
+<!-- Window Controls -->
+<div class="flex items-center gap-2 absolute left-4">
+<div class="w-3 h-3 rounded-full bg-outline-variant border border-surface-variant/50"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant border border-surface-variant/50"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant border border-surface-variant/50"></div>
+</div>
+<!-- Address Bar -->
+<div class="mx-auto w-1/2 max-w-sm h-7 bg-surface-container-lowest border border-surface-variant rounded flex items-center justify-center font-caption text-caption text-on-surface-variant shadow-sm px-2">
+<span class="material-symbols-outlined text-[14px] mr-2 text-outline">lock</span>
+                    app.marginalia.example/library
+                </div>
+</div>
+<!-- Screenshot Area -->
+<div class="relative w-full aspect-[1.79] bg-surface-container-lowest">
+<img alt="Marginalia Library Interface showing contracts, board decks, and research" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1Wwnhutulm5gPcnkLb3qtZF4b0rnUAFzUIRkkGpVgUSfYzJCkq1IR_4Va-k0G-vX_eFP5s0GSOCaQuyflGJHTHptIhvHbULoD6bwdryCACTY3ORIWASYe5lrLnknQ17YqbF5Ql1y5J1xyjPpsJpZcdNvm1B0lmoZmubbKOWCbN7EoRjI8QwGtHa9MAQoPOvAOIdyxs_3QjOps2nfWtTCZyF5gvifBOcT0VWb8K_ELchkaqmkbE10TDjWg"/>
+</div>
+</div>
+<!-- Caption -->
+<div class="mt-stack-lg text-center">
+<p class="font-headline-md text-headline-md text-on-surface">Your entire library, one search box.</p>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-section-gap bg-surface-container-low border-t border-surface-variant">
+<div class="max-w-[1200px] mx-auto px-margin-safe py-stack-lg flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="font-label-bold text-label-bold uppercase tracking-widest text-primary">
+                Marginalia
+            </div>
+<nav class="flex flex-wrap items-center justify-center gap-stack-md font-caption text-caption">
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#">Colophon</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#">RSS</a>
+</nav>
+<div class="font-caption text-caption text-on-surface">
+                © 2024 Marginalia Press. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

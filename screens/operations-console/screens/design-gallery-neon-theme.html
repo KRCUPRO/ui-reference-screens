@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neon Console - Designs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "tertiary-container": "#ffd892",
+                "on-primary-fixed": "#002107",
+                "on-secondary-fixed": "#002022",
+                "primary-container": "#00ff66",
+                "primary": "#edffe8",
+                "accent-glow": "rgba(0, 255, 102, 0.15)",
+                "surface-container-highest": "#2d372c",
+                "on-secondary-container": "#00686f",
+                "inverse-primary": "#006e27",
+                "surface-container": "#182218",
+                "error": "#ffb4ab",
+                "on-tertiary": "#412d00",
+                "text-dim": "#b9ccb5",
+                "surface-container-lowest": "#071007",
+                "on-primary": "#003911",
+                "tertiary": "#fff9f4",
+                "outline": "#849581",
+                "on-error": "#690005",
+                "outline-variant": "#3b4b3a",
+                "surface-container-high": "#222d22",
+                "tertiary-fixed": "#ffdea5",
+                "surface": "#0c160c",
+                "on-tertiary-fixed-variant": "#5c4209",
+                "secondary": "#d3fbff",
+                "on-primary-container": "#007128",
+                "on-secondary": "#00363a",
+                "secondary-fixed-dim": "#00dbe9",
+                "primary-fixed": "#6bff83",
+                "on-surface-variant": "#b9ccb5",
+                "tertiary-fixed-dim": "#e7c17d",
+                "surface-variant": "#2d372c",
+                "surface-dim": "#0c160c",
+                "surface-tint": "#00e55b",
+                "on-background": "#dae6d5",
+                "surface-border": "#1a1c1c",
+                "inverse-on-surface": "#293328",
+                "background": "#0c160c",
+                "surface-bright": "#313c30",
+                "on-primary-fixed-variant": "#00531b",
+                "on-tertiary-fixed": "#271900",
+                "secondary-fixed": "#7df4ff",
+                "inverse-surface": "#dae6d5",
+                "primary-fixed-dim": "#00e55b",
+                "on-secondary-fixed-variant": "#004f54",
+                "on-tertiary-container": "#795d23",
+                "on-error-container": "#ffdad6",
+                "on-surface": "#dae6d5",
+                "secondary-container": "#00eefc",
+                "error-container": "#93000a",
+                "surface-container-low": "#141e14",
+                "surface-bg": "#0c0f0f"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "lg": "24px",
+                "margin-desktop": "32px",
+                "xl": "48px",
+                "gutter": "16px",
+                "margin-mobile": "16px",
+                "base": "4px",
+                "xs": "4px",
+                "sm": "8px",
+                "md": "16px"
+              },
+              "fontFamily": {
+                "code-md": [
+                  "JetBrains Mono"
+                ],
+                "label-caps": [
+                  "JetBrains Mono"
+                ],
+                "body-lg": [
+                  "Inter"
+                ],
+                "code-sm": [
+                  "JetBrains Mono"
+                ],
+                "headline-lg-mobile": [
+                  "Public Sans"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "headline-md": [
+                  "Public Sans"
+                ],
+                "body-sm": [
+                  "Inter"
+                ],
+                "headline-lg": [
+                  "Public Sans"
+                ]
+              },
+              "fontSize": {
+                "code-md": [
+                  "13px",
+                  {
+                    "lineHeight": "1.5",
+                    "fontWeight": "400"
+                  }
+                ],
+                "label-caps": [
+                  "10px",
+                  {
+                    "lineHeight": "1",
+                    "letterSpacing": "0.08em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-lg": [
+                  "16px",
+                  {
+                    "lineHeight": "1.6",
+                    "fontWeight": "400"
+                  }
+                ],
+                "code-sm": [
+                  "11px",
+                  {
+                    "lineHeight": "1.4",
+                    "fontWeight": "500"
+                  }
+                ],
+                "headline-lg-mobile": [
+                  "24px",
+                  {
+                    "lineHeight": "1.2",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "1.6",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "20px",
+                  {
+                    "lineHeight": "1.3",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "1.5",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-lg": [
+                  "32px",
+                  {
+                    "lineHeight": "1.2",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "700"
+                  }
+                ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #0c0f0f;
+            color: #dae6d5;
+        }
+        
+        .design-card:focus-within {
+            outline: none;
+            border-color: #00ff66;
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.3);
+        }
+        
+        .design-card {
+            border: 1px solid rgba(0, 255, 102, 0.1);
+            background-color: #121414;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .design-card:hover {
+            border-color: rgba(0, 255, 102, 0.4);
+        }
+      </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-md h-screen w-64 border-r border-outline-variant bg-surface-container border-r border-outline-variant bg-surface-container dark:bg-surface-container text-primary dark:text-primary font-label-caps text-label-caps">
+<div class="px-md pb-lg">
+<h1 class="font-headline-md text-headline-md text-primary">WORKSPACE_01</h1>
+<p class="text-on-surface-variant font-code-sm text-code-sm mt-xs">Technical Division</p>
+</div>
+<button class="mx-md mb-lg py-sm px-md bg-primary-container text-on-primary-fixed border border-primary-container font-label-caps text-label-caps flex items-center justify-center gap-sm hover:shadow-[0_0_8px_rgba(0,255,102,0.6)] transition-all">
+<span class="material-symbols-outlined text-[16px]">add</span>
+            NEW PROJECT
+        </button>
+<ul class="flex-1 flex flex-col gap-base">
+<li class="group cursor-pointer">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li class="group cursor-pointer">
+<a class="flex items-center gap-md px-md py-sm text-primary border-l-2 border-primary bg-accent-glow hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+                    Designs
+                </a>
+</li>
+<li class="group cursor-pointer">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+                    Components
+                </a>
+</li>
+</ul>
+<div class="mt-auto">
+<ul class="flex flex-col gap-base pt-md border-t border-outline-variant mx-md">
+<li class="group cursor-pointer">
+<a class="flex items-center gap-md py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                        Documentation
+                    </a>
+</li>
+<li class="group cursor-pointer">
+<a class="flex items-center gap-md py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+                        Support
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-full overflow-hidden bg-surface-bg">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-margin-desktop w-full w-full h-16 border-b border-outline-variant bg-surface-container-lowest border-b border-outline-variant bg-surface dark:bg-surface text-primary dark:text-primary font-body-md text-body-md">
+<div class="flex items-center gap-md">
+<div class="font-label-caps text-label-caps tracking-widest text-primary dark:text-primary">NEON_CONSOLE</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-highest transition-colors duration-200 p-sm rounded-DEFAULT text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-highest transition-colors duration-200 p-sm rounded-DEFAULT text-on-surface-variant" data-icon="settings">settings</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-highest transition-colors duration-200 p-sm rounded-DEFAULT text-on-surface-variant" data-icon="help">help</span>
+</div>
+<div class="h-8 w-8 rounded-full bg-surface-container-high border border-outline flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A highly detailed avatar of a futuristic cyberpunk character. The character is set against a dark tech background illuminated by subtle neon green lights. The visual style is gritty yet sophisticated, reflecting a high-end technical environment. The mood is serious and focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu_c3UsBcs4Reg7jBN_awmyrtVEXm6lQP1ogZzeGfAZ_XejTl_9RJWDEmbI6QF8jAqEHO_5blWWbK8o8ZxSEY9hIVHBUKYznTN71t-eAH_hkBNtQy0QdkjRIX20TmiNVVp-SzG9omPHdRZgPCGfXj2hzE_hzrIUdSoy1wD9OIqsorrUb8abHyM9VM_agA8nfwNG3N5f6LMeKzneZLxlF0t0uXJI0Gn9SfuG-KUMFeim3UnWuBo1qUgBdnGUANPp6g1rAPqdTfxkYo"/>
+</div>
+</div>
+</header>
+<!-- Gallery Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-desktop">
+<div class="max-w-7xl mx-auto">
+<!-- This Week Section -->
+<section class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-lg">This week</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-margin-desktop">
+<!-- Card 1 (Focused State Example) -->
+<div class="design-card rounded-lg overflow-hidden group" tabindex="0">
+<div class="h-48 w-full bg-surface-container relative">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A highly detailed UI design mockup showing a dark mode landing page hero section. The design features a bold, high-contrast layout with bright neon green typography against deep black and dark grey backgrounds. Abstract glowing geometric shapes serve as a subtle background element. The overall aesthetic is cyberpunk industrial and deeply technical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc3mBF_5K2fImhDeyPgFTnl0lGXN5FfY8_-NLIzfA30wBiYEhp2R0-G7qR21uS3mjzmQ5y4SEZj6MXaJYsHCXCaM1sYNCFAusE25u0gJ27K4jh2rGml-bUXSorZIwKQnVRqCwPPBNtZuElZ4YtE6WtIyh5tLC0nWmEti6jOB1OsGLj5_Z0muaKruSIeGAEWjWPH-tcu5-Rm-u1yyhs9jgXLYEJVUxc-S-KoTKYZpXZ68jxl3Fzj6nVdgx0WuwTLUfFOxBdNCsSyNo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-bg to-transparent opacity-60"></div>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Landing hero — dark</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Sep 3 · 14:22</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="design-card rounded-lg overflow-hidden group" tabindex="0">
+<div class="h-48 w-full bg-surface-container relative">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A highly detailed UI design mockup displaying an analytics dashboard focused on cost rollups. The interface is high-density, featuring complex data tables and small neon-accented charts on a very dark, near-black surface. Crisp, bright white and primary green text ensures readability. The style is strictly technical minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwSDJRHJxxmIyGlWHTJ6gt_5KVyNJIlrpXP2-E00BabLtCxbIrRAASk0jespMHUKR9uQqpNHK0nuYnP3VmQNJfPhNxjNQZbHlmtK-DlSCPTNHOgsMcllBHPOcf7IWZNSGTw9Uy1sywZb7PwrZuSWK-2R7lZgC8ykOcMNgYXRDQP6mDcAOC9el3eQhW8k7rK6kDpECbyckDt2XeQzngfaTwf_JO1tiBx25qfK7k5jtki0oWi3iJZpZzMzrY9PZwam7PJMEQ2wq3ZFU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-bg to-transparent opacity-60"></div>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Analytics — cost rollup</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Sep 2 · 09:15</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="design-card rounded-lg overflow-hidden group" tabindex="0">
+<div class="h-48 w-full bg-surface-container relative">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A highly detailed UI design mockup showing a system settings panel. The layout uses a strict 4px grid system with clear, crisp dividing lines in faint green. Toggles and inputs are styled with neon green active states against a dark, textured charcoal background. The mood is precise and functional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvDfzMYrRiE_aucLS7-ZEdG7WhiF5SYWCDqxeJmJTpgZ_J-Zke3Sqf8BzbqGwBIQwwKcikdGwtzg2tEjAYZjsW3aJnwrwjL0Z_q658xbEvOwVx4aU_1ftSxOlgsOGLYw7EfcB_-uBUKLoXS7lbluF6DbPq8mYiyVqkI3nQ8nroti6iohryaeZnar-VR80c-CREl65GsPCQduiQ-0r5Wh1hmhXVjT203NtalMEp0wPfbeRKVzaAnoy_I4e6K9cWUzq2ElJYt_q3E7s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-bg to-transparent opacity-60"></div>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">System config panel</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Sep 1 · 18:40</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Older Section -->
+<section>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-lg">Older</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-margin-desktop">
+<!-- Card 4 -->
+<div class="design-card rounded-lg overflow-hidden group" tabindex="0">
+<div class="h-48 w-full bg-surface-container relative">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A detailed digital artwork serving as a background for a login screen. It features a sprawling, abstract circuit board design in dark greys and deep blacks, with occasional bright neon green data streams pulsing through the pathways. The lighting is low and moody, conveying a secure, high-tech environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAydlfLn6HNJFDE6_g15IpDm0uyk2jcQzHD6w4OPvwSuDwh-wS5uhRdbdLViHmXo2Rmg8cM9YtxL4SySfTOf0bbxasI3HGSAafbx8OyjzeDQvJCr8m2yZsaS92b1iFhZvdyGwH-2szgH0OMNm2iV2R0vLgkU28NEg6sfcdx7cZSPmquCa1P2BgowrQD_4TwOeinwK6tXc4D_LUhQ5KZo8fZDble78A9NRYZVyNjDgX7pEQz6FDFfeic_U7v1jFEc6xRPI1WKjNXf_0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-bg to-transparent opacity-60"></div>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Auth gate illustration</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Aug 28 · 11:05</p>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="design-card rounded-lg overflow-hidden group" tabindex="0">
+<div class="h-48 w-full bg-surface-container relative">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A high-density data table UI component shown in isolation. The table rows have a zebra stripe pattern using very dark grey and pure black. Hover states are indicated by sharp, 1px bright green borders. The typography is monospaced and highly legible, optimized for technical reading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATC8JO_OluzG2Ps0m50FGAy--45peOAPjo19U8dcN3sa457xGCKebg0j-MvEqzaNXlvwyPDBpQ10WqzDX24cPbQTOt5Qubg9MZQRXfeZ7XDPOKeEV5feAW-c5nk-47RlTl3yhAaccsoxkSsIar09T3l-bzlBo9w2c7a8JcfoAx7HW0enutUjLOYJIhZJbQlGDlgH9jpfw8ExxjhzCQK88P4hsLZ-TemgzgdaVy5XhO-RijB8sz9qf9sQDnaegYTpdOCX_vxhzhHEQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-bg to-transparent opacity-60"></div>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Data table refactor</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Aug 20 · 16:30</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script>
+        // Simple script to auto-focus the first card for demonstration
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstCard = document.querySelector('.design-card');
+            if(firstCard) {
+                firstCard.focus();
+            }
+        });
+    </script>
+</body></html>

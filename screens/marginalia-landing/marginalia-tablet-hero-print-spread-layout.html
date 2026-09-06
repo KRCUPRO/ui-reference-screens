@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Search That Reads The Margins</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fdf8f8",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary-container": "#656464",
+                        "tertiary-fixed": "#e6e2df",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-low": "#f7f3f2",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f1edec",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#1c1b1a",
+                        "surface-bright": "#fdf8f8",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "outline": "#747878",
+                        "surface-dim": "#ddd9d8",
+                        "on-background": "#1c1b1b",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-surface-variant": "#444748",
+                        "on-surface": "#1c1b1b",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-fixed": "#e4e2e1",
+                        "secondary-container": "#e4e2e1",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "background": "#fdf8f8",
+                        "secondary": "#5f5e5e",
+                        "on-primary-fixed": "#1c1b1b",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-container": "#868382",
+                        "surface-tint": "#5f5e5e",
+                        "surface-container-high": "#ebe7e6",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-primary-container": "#858383",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#474747",
+                        "inverse-surface": "#313030",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "row-gap": "4px",
+                        "unit": "4px",
+                        "margin-page": "16px",
+                        "column-gap": "12px",
+                        "gutter": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": [
+                            "\"Source Serif 4\""
+                        ],
+                        "label-caps": [
+                            "Archivo Narrow"
+                        ],
+                        "headline-md": [
+                            "\"Source Serif 4\""
+                        ],
+                        "headline-lg": [
+                            "\"Source Serif 4\""
+                        ],
+                        "footer-note": [
+                            "Archivo Narrow"
+                        ],
+                        "body-md": [
+                            "\"Source Serif 4\""
+                        ]
+                    },
+                    "fontSize": {
+                        "body-sm": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "label-caps": [
+                            "11px",
+                            {
+                                "lineHeight": "12px",
+                                "letterSpacing": "0.08em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "headline-md": [
+                            "20px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "headline-lg": [
+                            "30px",
+                            {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "footer-note": [
+                            "10px",
+                            {
+                                "lineHeight": "14px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "body-md": [
+                            "14px",
+                            {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- TopAppBar -->
+<nav class="bg-background dark:bg-surface-container-low w-full top-0 border-b-2 border-primary dark:border-outline pb-1 mb-px border-double flex flex-col items-center w-full px-margin-page py-gutter gap-row-gap">
+<div class="w-full flex justify-between items-center max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter uppercase text-primary dark:text-on-background">
+                THE MARGINALIA DAILY
+            </div>
+<div class="flex gap-column-gap">
+<!-- Navigation links from JSON, 'QUERY' is active based on context -->
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors cursor-pointer active:invert px-2 py-1" href="#">ARCHIVE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors cursor-pointer active:invert px-2 py-1" href="#">INDEX</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors cursor-pointer active:invert px-2 py-1" href="#">REPORTS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors cursor-pointer active:invert px-2 py-1" href="#">DISPATCHES</a>
+<a class="font-label-caps text-label-caps text-primary dark:text-on-background font-bold border-b border-primary dark:border-on-background hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors cursor-pointer active:invert px-2 py-1" href="#">QUERY</a>
+<button class="font-label-caps text-label-caps border border-primary dark:border-on-background px-4 py-1 hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors cursor-pointer active:invert ml-4">
+                    SUBSCRIBE
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Area - Print Grid Register -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-page py-8">
+<!-- Tablet Hero Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-b border-primary relative min-h-[614px]">
+<!-- Vertical Center Gutter Rule -->
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-primary -ml-px"></div>
+<!-- Left Column: Headline -->
+<div class="p-8 md:pr-12 flex items-center">
+<h1 class="font-headline-lg text-[48px] leading-[56px] md:text-[64px] md:leading-[72px] font-bold tracking-tighter text-primary">
+                    Search That Reads<br/>The Margins
+                </h1>
+</div>
+<!-- Right Column: Citation Index & Marker -->
+<div class="p-8 md:pl-12 flex flex-col justify-between border-t border-primary md:border-t-0">
+<!-- Folio Marker -->
+<div class="w-full flex justify-end mb-8 md:mb-0">
+<span class="font-label-caps text-label-caps border border-primary px-2 py-1">NO. 04</span>
+</div>
+<!-- Boxed Citation Index -->
+<div class="border border-primary mt-auto">
+<div class="border-b border-primary bg-surface-container-low p-3">
+<h2 class="font-label-caps text-label-caps text-primary tracking-widest">CITED SOURCES</h2>
+</div>
+<ul class="flex flex-col">
+<li class="p-4 border-b border-primary last:border-b-0 flex items-center justify-between hover:bg-surface-container-low cursor-pointer transition-colors">
+<span class="font-body-md text-body-md text-primary">Board Deck.pdf, p.12</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+</li>
+<li class="p-4 border-b border-primary last:border-b-0 flex items-center justify-between hover:bg-surface-container-low cursor-pointer transition-colors">
+<span class="font-body-md text-body-md text-primary">Slack #finance, Mar 14</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+</li>
+<li class="p-4 border-b border-primary last:border-b-0 flex items-center justify-between hover:bg-surface-container-low cursor-pointer transition-colors">
+<span class="font-body-md text-body-md text-primary">Runbook.pdf, sec.4</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-tertiary-container w-full bottom-0 border-t border-primary dark:border-outline flex justify-between items-center w-full px-margin-page py-unit border-t-2 border-primary dark:border-outline mt-gutter">
+<div class="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center py-4">
+<div class="font-label-caps text-label-caps font-bold text-on-primary mb-4 md:mb-0">
+                © 2024 MARGINALIA ARCHIVAL CORP. ALL RIGHTS RESERVED.
+            </div>
+<div class="flex gap-column-gap flex-wrap justify-center">
+<a class="font-footer-note text-footer-note font-label-caps text-label-caps text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">TERMS OF SERVICE</a>
+<a class="font-footer-note text-footer-note font-label-caps text-label-caps text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">PRIVACY POLICY</a>
+<a class="font-footer-note text-footer-note font-label-caps text-label-caps text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">INDEXING STATUS</a>
+<a class="font-footer-note text-footer-note font-label-caps text-label-caps text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">REPRINTS</a>
+</div>
+</div>
+</footer>
+</body></html>

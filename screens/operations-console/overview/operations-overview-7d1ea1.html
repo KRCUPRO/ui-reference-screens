@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN_OPS - RPM Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-primary-container": "#006c71",
+                "primary-fixed": "#63f7ff",
+                "tertiary-fixed": "#e5e1e4",
+                "on-primary-fixed-variant": "#004f53",
+                "tertiary": "#fcf9fb",
+                "surface-variant": "#273647",
+                "outline": "#849495",
+                "on-tertiary": "#313032",
+                "secondary-fixed": "#e9ddff",
+                "on-secondary-fixed": "#23005c",
+                "surface-container": "#122131",
+                "error-container": "#93000a",
+                "tertiary-container": "#dfdcdf",
+                "surface-dim": "#051424",
+                "surface": "#051424",
+                "on-background": "#d4e4fa",
+                "on-surface": "#d4e4fa",
+                "surface-bright": "#2c3a4c",
+                "surface-tint": "#00dce5",
+                "background": "#051424",
+                "on-primary-fixed": "#002021",
+                "secondary-container": "#571bc1",
+                "outline-variant": "#3a494a",
+                "on-primary": "#003739",
+                "surface-container-lowest": "#010f1f",
+                "on-surface-variant": "#b9caca",
+                "tertiary-fixed-dim": "#c8c6c8",
+                "inverse-on-surface": "#233143",
+                "on-secondary-container": "#c4abff",
+                "on-error": "#690005",
+                "secondary-fixed-dim": "#d0bcff",
+                "on-secondary-fixed-variant": "#5516be",
+                "surface-container-highest": "#273647",
+                "inverse-primary": "#00696e",
+                "primary-container": "#00f5ff",
+                "on-tertiary-fixed-variant": "#474649",
+                "error": "#ffb4ab",
+                "on-error-container": "#ffdad6",
+                "surface-container-high": "#1c2b3c",
+                "surface-container-low": "#0d1c2d",
+                "on-tertiary-container": "#626163",
+                "primary": "#e9feff",
+                "on-tertiary-fixed": "#1b1b1d",
+                "inverse-surface": "#d4e4fa",
+                "secondary": "#d0bcff",
+                "primary-fixed-dim": "#00dce5",
+                "on-secondary": "#3c0091"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "gutter": "16px",
+                "container-max": "1440px",
+                "unit": "4px",
+                "margin-mobile": "16px",
+                "margin-desktop": "32px"
+              },
+              "fontFamily": {
+                "headline-md": [
+                  "Sora"
+                ],
+                "data-mono-sm": [
+                  "JetBrains Mono"
+                ],
+                "display-lg": [
+                  "Sora"
+                ],
+                "headline-lg": [
+                  "Sora"
+                ],
+                "data-primary": [
+                  "JetBrains Mono"
+                ],
+                "ui-label-bold": [
+                  "Sora"
+                ],
+                "body-md": [
+                  "JetBrains Mono"
+                ],
+                "headline-lg-mobile": [
+                  "Sora"
+                ]
+              },
+              "fontSize": {
+                "headline-md": [
+                  "24px",
+                  {
+                    "lineHeight": "1.3",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-mono-sm": [
+                  "13px",
+                  {
+                    "lineHeight": "1.6",
+                    "fontWeight": "400"
+                  }
+                ],
+                "display-lg": [
+                  "48px",
+                  {
+                    "lineHeight": "1.1",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "800"
+                  }
+                ],
+                "headline-lg": [
+                  "32px",
+                  {
+                    "lineHeight": "1.2",
+                    "fontWeight": "700"
+                  }
+                ],
+                "data-primary": [
+                  "18px",
+                  {
+                    "lineHeight": "1.4",
+                    "fontWeight": "500"
+                  }
+                ],
+                "ui-label-bold": [
+                  "14px",
+                  {
+                    "lineHeight": "1.5",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-md": [
+                  "15px",
+                  {
+                    "lineHeight": "1.6",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-lg-mobile": [
+                  "28px",
+                  {
+                    "lineHeight": "1.2",
+                    "fontWeight": "700"
+                  }
+                ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #051424; /* surface */
+            color: #d4e4fa; /* on-surface */
+        }
+        .glow-cyan {
+            box-shadow: 0 0 12px rgba(0, 245, 255, 0.4);
+        }
+        .glow-cyan-intense {
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.8);
+        }
+        .glow-violet {
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+        }
+        .border-glow-cyan {
+            border-color: #63f7ff;
+            box-shadow: inset 0 0 8px rgba(0, 245, 255, 0.2), 0 0 8px rgba(0, 245, 255, 0.2);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #010f1f; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #273647; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a494a; 
+        }
+
+        .meter-arc {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            animation: fillArc 1.5s ease-out forwards;
+        }
+
+        @keyframes fillArc {
+            to {
+                stroke-dashoffset: 51; /* ~82% of 283 */
+            }
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 left-0 bg-surface-container-lowest/80 backdrop-blur-xl border-r border-outline-variant/30 py-8 shrink-0 z-50 fixed">
+<div class="px-margin-desktop mb-8">
+<div class="flex items-center gap-4 mb-2">
+<div class="w-10 h-10 rounded-full border border-primary-fixed/50 overflow-hidden shrink-0">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A highly detailed, hyper-realistic portrait of a cyberpunk system operator wearing a specialized AR headset. The lighting is dark and moody, punctuated by neon cyan and violet reflections on the headset visor. The style is cinematic, futuristic, and high-contrast, fitting a high-stakes tech command center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBddoFrx9MKbgb8UXbeDmZx3YT9KqUaDvu6y64O5jikJhs8pv3N_5hsNDq_DavIFd8T0lq_nLqfweFhzwX1EeaKyD5jOf_0_uvckL_eTlSZokbv9iX9z9kgKtDUKiLdm_ceAhZcZVcdoktaZLcMem8GZNcL3RC5G16hGmCMpmcprIzcuM4J8N4_vU8jyfP38yunhNmKDAAIc20qXRyGMbuCOmuzIYLcf-5eCj0_nxQQjFiV4mLwqAeE9PaNLgS6aA8GHzmBYEFoYJLU"/>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary-fixed truncate">OPERATOR_01</h1>
+<p class="font-data-mono-sm text-data-mono-sm text-on-surface-variant truncate">Level 4 Access</p>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto overflow-x-hidden">
+<ul class="space-y-2">
+<li>
+<a class="flex items-center gap-3 px-margin-desktop py-3 text-primary-fixed bg-primary-container/10 border-r-4 border-primary-fixed-dim hover:bg-surface-variant/40 hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-ui-label-bold text-ui-label-bold">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-margin-desktop py-3 text-on-surface-variant hover:bg-surface-variant/40 hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-ui-label-bold text-ui-label-bold">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-margin-desktop py-3 text-on-surface-variant hover:bg-surface-variant/40 hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">vpn_key</span>
+<span class="font-ui-label-bold text-ui-label-bold">Keys</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-margin-desktop py-3 text-on-surface-variant hover:bg-surface-variant/40 hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-ui-label-bold text-ui-label-bold">Logs</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-margin-desktop py-3 text-on-surface-variant hover:bg-surface-variant/40 hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-ui-label-bold text-ui-label-bold">Settings</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="px-margin-desktop mt-auto pt-6">
+<button class="w-full py-3 border border-primary-fixed text-primary-fixed font-ui-label-bold text-ui-label-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors rounded-DEFAULT glow-cyan">
+                SYSTEM_SYNC
+            </button>
+</div>
+</nav>
+<!-- Main Wrapper -->
+<div class="flex-1 flex flex-col md:ml-64 relative min-w-0">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_0_8px_rgba(0,245,255,0.2)] sticky top-0 z-40 shrink-0">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-fixed-dim">OBSIDIAN_OPS_V1</span>
+<div class="hidden lg:flex items-center bg-surface-container-highest border border-outline-variant rounded-full px-4 py-1.5 focus-within:border-primary-fixed focus-within:shadow-[0_0_8px_rgba(0,245,255,0.4)] transition-all">
+<span class="material-symbols-outlined text-outline mr-2 text-sm">search</span>
+<input class="bg-transparent border-none text-on-surface font-data-mono-sm text-data-mono-sm focus:ring-0 w-48 placeholder:text-outline/70" placeholder="Search logs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary-fixed hover:bg-surface-variant/50 transition-all p-2 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary-fixed hover:bg-surface-variant/50 transition-all p-2 rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 overflow-y-auto p-4 md:p-gutter lg:p-margin-desktop pb-32">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter max-w-container-max mx-auto">
+<!-- Center/Main Canvas -->
+<div class="xl:col-span-8 flex flex-col gap-gutter">
+<!-- Section Header -->
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">RPM Headroom</h2>
+<span class="font-data-mono-sm text-data-mono-sm text-outline px-3 py-1 border border-outline-variant rounded-full bg-surface-container-highest/50">LIVE</span>
+</div>
+<!-- Meter Widget Card -->
+<div class="bg-surface-container-low/70 backdrop-blur-md border border-outline-variant/50 rounded-lg p-6 lg:p-10 relative overflow-hidden group">
+<!-- Abstract ambient glow behind meter -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary-fixed/5 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="flex flex-col items-center justify-center">
+<!-- Circular Meter (SVG) -->
+<div class="relative w-64 h-64 mb-8">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background track -->
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#1c2b3c" stroke-width="6"></circle>
+<!-- Cyan arc -->
+<circle class="meter-arc" cx="50" cy="50" fill="transparent" filter="drop-shadow(0 0 4px rgba(0,245,255,0.6))" r="45" stroke="#00f5ff" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<!-- Readout in center -->
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<div class="font-display-lg text-display-lg text-primary-fixed tracking-tight">410</div>
+<div class="font-data-mono-sm text-data-mono-sm text-on-surface-variant mt-2 border-t border-outline-variant/50 pt-2 w-1/2 text-center">/ 500 RPM</div>
+</div>
+</div>
+<!-- Per-key sub bars -->
+<div class="w-full max-w-md space-y-4">
+<!-- alpha-1 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed glow-cyan inline-block"></span>
+                                            alpha-1
+                                        </span>
+<span class="font-data-mono-sm text-data-mono-sm text-primary-fixed">180 rpm</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed" style="width: 44%; box-shadow: 0 0 8px rgba(0,245,255,0.5);"></div>
+</div>
+</div>
+<!-- bravo-2 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed glow-violet inline-block"></span>
+                                            bravo-2
+                                        </span>
+<span class="font-data-mono-sm text-data-mono-sm text-secondary-fixed">140 rpm</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed" style="width: 34%; box-shadow: 0 0 8px rgba(233,221,255,0.5);"></div>
+</div>
+</div>
+<!-- charlie-3 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#10b981] inline-block" style="box-shadow: 0 0 8px rgba(16,185,129,0.5);"></span>
+                                            charlie-3
+                                        </span>
+<span class="font-data-mono-sm text-data-mono-sm text-[#10b981]">90 rpm</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-[#10b981]" style="width: 22%; box-shadow: 0 0 8px rgba(16,185,129,0.5);"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Rail -->
+<div class="xl:col-span-4 flex flex-col gap-gutter">
+<!-- Service Status Card -->
+<div class="bg-surface-container-low/70 backdrop-blur-md border border-outline-variant/50 rounded-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-ui-label-bold text-ui-label-bold text-on-surface">System Status</h3>
+<!-- Toggle -->
+<div class="flex items-center gap-3">
+<span class="font-data-mono-sm text-data-mono-sm text-[#10b981]">RUNNING</span>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative cursor-pointer border border-outline-variant/30">
+<div class="absolute right-1 top-0.5 w-4 h-4 bg-[#10b981] rounded-full transition-all" style="box-shadow: 0 0 8px rgba(16,185,129,0.8);"></div>
+</div>
+</div>
+</div>
+<!-- Status Squares -->
+<div class="grid grid-cols-4 gap-2 mb-6">
+<div class="aspect-square bg-surface-container-highest border border-primary-fixed/30 rounded flex items-center justify-center glow-cyan relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary-fixed/10 group-hover:bg-primary-fixed/20 transition-colors"></div>
+<span class="material-symbols-outlined text-primary-fixed text-sm">api</span>
+</div>
+<div class="aspect-square bg-surface-container-highest border border-primary-fixed/30 rounded flex items-center justify-center glow-cyan relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary-fixed/10 group-hover:bg-primary-fixed/20 transition-colors"></div>
+<span class="material-symbols-outlined text-primary-fixed text-sm">database</span>
+</div>
+<div class="aspect-square bg-surface-container-highest border border-[#10b981]/30 rounded flex items-center justify-center relative overflow-hidden group" style="box-shadow: 0 0 8px rgba(16,185,129,0.2);">
+<div class="absolute inset-0 bg-[#10b981]/10 group-hover:bg-[#10b981]/20 transition-colors"></div>
+<span class="material-symbols-outlined text-[#10b981] text-sm">lock</span>
+</div>
+<div class="aspect-square bg-surface-container-highest border border-outline-variant rounded flex items-center justify-center relative overflow-hidden group opacity-50">
+<span class="material-symbols-outlined text-outline text-sm">dns</span>
+</div>
+</div>
+<!-- Stat Line -->
+<div class="bg-surface-container-highest/50 p-4 rounded border border-outline-variant/30">
+<div class="font-data-mono-sm text-data-mono-sm text-on-surface-variant flex justify-between">
+<span>Calls (24h)</span>
+<span>Success Rate</span>
+</div>
+<div class="font-data-primary text-data-primary text-on-surface flex justify-between mt-1">
+<span>1,940</span>
+<span class="text-primary-fixed">93.1%</span>
+</div>
+</div>
+</div>
+<!-- Mini Terminal Log Placeholder -->
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-4 flex-1 min-h-[200px] flex flex-col font-data-mono-sm text-data-mono-sm">
+<div class="flex items-center gap-2 mb-3 text-outline border-b border-outline-variant/30 pb-2">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span>Live Stream</span>
+</div>
+<div class="space-y-1 text-on-surface-variant/70 overflow-hidden flex-1">
+<div class="flex gap-2"><span class="text-outline">14:02:11</span><span class="text-primary-fixed">AUTH</span><span>Key alpha-1 verified</span></div>
+<div class="flex gap-2"><span class="text-outline">14:02:12</span><span class="text-secondary-fixed">SYNC</span><span>Worker thread 0x4A spawned</span></div>
+<div class="flex gap-2"><span class="text-outline">14:02:14</span><span class="text-primary-fixed">AUTH</span><span>Key charlie-3 verified</span></div>
+<div class="flex gap-2"><span class="text-outline">14:02:15</span><span class="text-error">WARN</span><span>Latency spike node-us-east</span></div>
+<div class="flex gap-2"><span class="text-outline">14:02:18</span><span class="text-primary-fixed">AUTH</span><span>Key bravo-2 verified</span></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 left-0 md:left-64 bg-surface-container/90 backdrop-blur-md border-t border-primary-fixed/20 shadow-[0_-4px_12px_rgba(0,220,229,0.1)] z-40 px-4 md:px-margin-desktop py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Recent Screens Gallery -->
+<div class="flex gap-3 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide shrink-0">
+<div class="w-24 h-16 bg-surface-container-highest border border-outline-variant/50 rounded overflow-hidden relative group cursor-pointer">
+<img alt="Recent 1" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" data-alt="A macro shot of a complex circuit board illuminated by striking cyan and magenta neon lights. The focus is on a central microchip, implying high-speed processing and data routing. The overall aesthetic is gritty cyberpunk technical realism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl9AV_GVi_RQoYZcMHBwktiu9n2ltz8zN8I87gCpMpArumppAaOkvyTOSZrva9HT-v4WWHSb_XoWUQ0otrRP0_0DBSQVC_y-DpqjlEcF2qpYuLrIC0bgngU9APktv5ApmohoVxWIjhK-Qa092HFGchFrf4Pvk3aCkH_-TmIZipPWV-xFKRseDIIlNupQwqtQh7XYEAG6_DEjiQVTCvqyoFOmIdmHHOocC453so-_j1HGEMj9sOvwo431EAzr_-gQaGysSBXOb90RGd"/>
+<div class="absolute inset-x-0 bottom-0 bg-surface/80 text-[10px] font-data-mono-sm text-center text-on-surface py-0.5">Node Map</div>
+</div>
+<div class="w-24 h-16 bg-surface-container-highest border border-outline-variant/50 rounded overflow-hidden relative group cursor-pointer">
+<img alt="Recent 2" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" data-alt="Abstract data visualization showing glowing green and cyan nodes connected by thin laser-like lines on a pitch black background. The image represents network topology in a secure, high-tech command interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8AC1Aj8UcHwNkv4-BQcTzXsFcmRMxDISWUzKgt2UAzziKCIuKGtna-vN7IsguV9jLOyk3t0VOyge-jaYSlV9NKFu_A7XrFNYmyjHMl4zBGOtziW3bQpi17pbhcd-F9o6ewZsCZeNI4e6p0BOYYx-uOkmXZpqZvIyMMoi37Vdtxf9uzJotmzs5dWVOgM67W3lw7ylzxt87VlZUfnQRasX6SN2YblJNPSpJCm6araghmam7JIxoWIZq1cm1MYJdIyHBUVGZcfSlwwlC"/>
+<div class="absolute inset-x-0 bottom-0 bg-surface/80 text-[10px] font-data-mono-sm text-center text-on-surface py-0.5">Topology</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<button class="px-4 py-2 bg-transparent border border-outline-variant text-on-surface-variant font-ui-label-bold text-ui-label-bold rounded hover:border-primary-fixed hover:text-primary-fixed transition-all text-xs md:text-sm">
+                    NEW_KEY
+                </button>
+<button class="px-4 py-2 bg-transparent border border-primary-fixed/50 text-primary-fixed font-ui-label-bold text-ui-label-bold rounded hover:bg-primary-fixed/10 hover:border-primary-fixed transition-all text-xs md:text-sm glow-cyan">
+                    SYSTEM_SYNC
+                </button>
+<button class="px-4 py-2 bg-error-container/20 border border-error/50 text-error font-ui-label-bold text-ui-label-bold rounded hover:bg-error-container/40 hover:text-error-container hover:shadow-[0_0_8px_rgba(147,0,10,0.6)] transition-all text-xs md:text-sm">
+                    EMERGENCY_REVOKE
+                </button>
+</div>
+<!-- Hidden on mobile, shows copyright -->
+<div class="hidden xl:block absolute left-1/2 -translate-x-1/2 font-data-mono-sm text-data-mono-sm text-outline/50 pointer-events-none">
+                © 2024 OBSIDIAN_OPS - SYSTEM_V1
+            </div>
+</footer>
+</div>
+</body></html>

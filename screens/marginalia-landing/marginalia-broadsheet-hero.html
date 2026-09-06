@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Ask Your Documents Anything</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#434748",
+                        "on-primary-container": "#858383",
+                        "paper-dark": "#f1edec",
+                        "on-secondary-container": "#636262",
+                        "hairline": "#c4c7c7",
+                        "on-tertiary-fixed": "#181c1d",
+                        "surface-container": "#f1eded",
+                        "on-primary-fixed-variant": "#474746",
+                        "tertiary": "#000000",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-low": "#f7f2f2",
+                        "inverse-on-surface": "#f4f0f0",
+                        "surface-container-highest": "#e6e1e1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c7",
+                        "on-secondary-fixed": "#1c1b1c",
+                        "on-tertiary": "#ffffff",
+                        "ink": "#1a1a1a",
+                        "on-background": "#1c1b1c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1c1b1c",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf8f8",
+                        "paper-dim": "#f7f3f2",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-container": "#818584",
+                        "on-surface-variant": "#444748",
+                        "surface-dim": "#ddd9d9",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "tertiary-container": "#181c1d",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-fixed-variant": "#474647",
+                        "error-ink": "#ba1a1a",
+                        "paper": "#fdf8f8",
+                        "outline-variant": "#c4c7c7",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#5f5e5e",
+                        "inverse-primary": "#c8c6c5",
+                        "surface": "#fdf8f8",
+                        "surface-variant": "#e6e1e1",
+                        "tertiary-fixed": "#e0e3e3",
+                        "secondary-container": "#e2dfdf",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "surface-container-high": "#ece7e7",
+                        "primary-fixed": "#e5e2e1",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary-container": "#1c1b1b",
+                        "background": "#fdf8f8",
+                        "primary": "#000000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "rule-thin": "0.5px",
+                        "margin-page": "24px",
+                        "column-gap": "16px",
+                        "rule-thick": "1.5px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["\"Source Serif 4\""],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "label-caps": ["Archivo Narrow"],
+                        "body-md": ["\"Source Serif 4\""],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "footer-note": ["Archivo Narrow"],
+                        "body-sm": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "footer-note": ["10px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-md": ["28px", { "lineHeight": "34px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-paper dark:bg-ink border-b-[0.5px] border-hairline dark:border-outline-variant w-full top-0 flat no shadows">
+<div class="flex flex-col items-center w-full px-margin-page py-unit max-w-screen-xl mx-auto">
+<div class="w-full flex justify-between items-center py-4">
+<span class="font-headline-lg text-[24px] tracking-tighter text-primary dark:text-paper">Marginalia</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-body-md text-body-md text-secondary dark:text-outline-variant font-normal pb-1 hover:text-primary dark:hover:text-paper transition-colors duration-200 cursor-pointer" href="#">Essays</a>
+<a class="font-body-md text-body-md text-secondary dark:text-outline-variant font-normal pb-1 hover:text-primary dark:hover:text-paper transition-colors duration-200 cursor-pointer" href="#">Archives</a>
+<a class="font-body-md text-body-md text-secondary dark:text-outline-variant font-normal pb-1 hover:text-primary dark:hover:text-paper transition-colors duration-200 cursor-pointer" href="#">Manifesto</a>
+<a class="font-body-md text-body-md text-secondary dark:text-outline-variant font-normal pb-1 hover:text-primary dark:hover:text-paper transition-colors duration-200 cursor-pointer" href="#">Submissions</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Content -->
+<main class="flex-grow flex items-center justify-center px-margin-page py-20 border-l-[0.5px] border-r-[0.5px] border-hairline mx-auto w-full max-w-4xl mt-12 mb-12">
+<div class="text-center flex flex-col items-center max-w-2xl">
+<h1 class="font-headline-lg text-headline-lg text-ink mb-6">
+                Ask your documents anything, and see exactly where the answer lives.
+            </h1>
+<p class="font-body-lg text-body-lg text-secondary mb-12 italic">
+                12,406 files indexed
+            </p>
+<button class="bg-ink text-paper font-label-caps text-label-caps uppercase tracking-widest px-8 py-4 rounded-none border border-ink hover:bg-paper hover:text-ink transition-colors duration-300 mb-16 cursor-pointer">
+                Start reading
+            </button>
+<div class="w-64 border-t-[0.5px] border-hairline pt-4 mt-8 flex flex-col items-center">
+<p class="font-footer-note text-footer-note text-secondary italic">
+                    Contract_Renewal_2024.pdf, page 3
+                </p>
+<span class="material-symbols-outlined text-outline mt-2 text-[16px]">article</span>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-paper-dim dark:bg-tertiary-container w-full bottom-0 border-t-[1.5px] border-double border-hairline dark:border-outline-variant flat no shadows mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-8 mt-12 max-w-screen-xl mx-auto">
+<span class="font-label-caps text-label-caps text-primary dark:text-paper mb-4 md:mb-0">MARGINALIA</span>
+<span class="font-footer-note text-footer-note uppercase tracking-widest text-secondary dark:text-on-tertiary-container text-center mb-4 md:mb-0">
+                © 2024 MARGINALIA PRESS. ALL RIGHTS RESERVED. ARCHIVAL SERIES NO. 12.
+            </span>
+<div class="flex gap-4">
+<a class="font-footer-note text-footer-note uppercase tracking-widest text-secondary dark:text-on-tertiary-container hover:text-primary dark:hover:text-paper transition-opacity duration-300 cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-footer-note text-footer-note uppercase tracking-widest text-secondary dark:text-on-tertiary-container hover:text-primary dark:hover:text-paper transition-opacity duration-300 cursor-pointer" href="#">Terms of Service</a>
+<a class="font-footer-note text-footer-note uppercase tracking-widest text-secondary dark:text-on-tertiary-container hover:text-primary dark:hover:text-paper transition-opacity duration-300 cursor-pointer" href="#">Colophon</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MCP Console - MCP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-primary-fixed-variant": "#004395",
+                "inverse-on-surface": "#283044",
+                "tertiary-fixed": "#ffddb8",
+                "error-container": "#93000a",
+                "surface": "#0b1326",
+                "tertiary-container": "#ca8100",
+                "on-error-container": "#ffdad6",
+                "surface-container-highest": "#2d3449",
+                "on-primary-container": "#00285d",
+                "secondary": "#4edea3",
+                "on-surface": "#dae2fd",
+                "on-secondary-container": "#00311f",
+                "primary": "#adc6ff",
+                "surface-bright": "#31394d",
+                "primary-container": "#4d8eff",
+                "surface-variant": "#2d3449",
+                "on-tertiary-container": "#3e2400",
+                "surface-tint": "#adc6ff",
+                "on-secondary-fixed-variant": "#005236",
+                "surface-container-high": "#222a3d",
+                "surface-dim": "#0b1326",
+                "outline-variant": "#424754",
+                "inverse-surface": "#dae2fd",
+                "error": "#ffb4ab",
+                "secondary-container": "#00a572",
+                "secondary-fixed-dim": "#4edea3",
+                "on-secondary-fixed": "#002113",
+                "on-background": "#dae2fd",
+                "on-error": "#690005",
+                "primary-fixed-dim": "#adc6ff",
+                "on-surface-variant": "#c2c6d6",
+                "outline": "#8c909f",
+                "on-tertiary": "#472a00",
+                "surface-container": "#171f33",
+                "on-tertiary-fixed": "#2a1700",
+                "on-primary-fixed": "#001a42",
+                "inverse-primary": "#005ac2",
+                "on-primary": "#002e6a",
+                "surface-container-low": "#131b2e",
+                "primary-fixed": "#d8e2ff",
+                "background": "#0b1326",
+                "surface-container-lowest": "#060e20",
+                "on-secondary": "#003824",
+                "tertiary-fixed-dim": "#ffb95f",
+                "on-tertiary-fixed-variant": "#653e00",
+                "secondary-fixed": "#6ffbbe",
+                "tertiary": "#ffb95f"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "md": "16px",
+                "gutter": "20px",
+                "base": "4px",
+                "lg": "24px",
+                "xl": "48px",
+                "container-max": "1440px",
+                "sm": "8px",
+                "xs": "4px"
+              },
+              "fontFamily": {
+                "code-md": [
+                  "JetBrains Mono"
+                ],
+                "headline-lg": [
+                  "Geist"
+                ],
+                "code-sm": [
+                  "JetBrains Mono"
+                ],
+                "headline-md": [
+                  "Geist"
+                ],
+                "body-sm": [
+                  "Geist"
+                ],
+                "display": [
+                  "Geist"
+                ],
+                "body-lg": [
+                  "Geist"
+                ],
+                "label-caps": [
+                  "JetBrains Mono"
+                ]
+              },
+              "fontSize": {
+                "code-md": [
+                  "14px",
+                  {
+                    "lineHeight": "1.6",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-lg": [
+                  "24px",
+                  {
+                    "lineHeight": "1.3",
+                    "fontWeight": "600"
+                  }
+                ],
+                "code-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "1.4",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "20px",
+                  {
+                    "lineHeight": "1.4",
+                    "fontWeight": "500"
+                  }
+                ],
+                "body-sm": [
+                  "14px",
+                  {
+                    "lineHeight": "1.5",
+                    "fontWeight": "400"
+                  }
+                ],
+                "display": [
+                  "32px",
+                  {
+                    "lineHeight": "1.2",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-lg": [
+                  "16px",
+                  {
+                    "lineHeight": "1.6",
+                    "fontWeight": "400"
+                  }
+                ],
+                "label-caps": [
+                  "11px",
+                  {
+                    "lineHeight": "1",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "600"
+                  }
+                ]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-sm antialiased overflow-hidden flex h-screen">
+<!-- SideNavBar (JSON Blueprint) -->
+<nav class="fixed left-0 top-0 h-full w-[240px] bg-surface border-r border-outline-variant flex flex-col p-md gap-sm z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">MCP Console</h1>
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-base">v2.4.0-stable</p>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-secondary-container text-on-secondary-container hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dns">dns</span>
+<span class="font-body-sm text-body-sm font-medium">MCP</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="terminal">terminal</span>
+<span class="font-body-sm text-body-sm font-medium">Logs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-body-sm text-body-sm font-medium">Settings</span>
+</a>
+</div>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary-container px-md py-sm rounded-lg font-body-sm text-body-sm font-medium hover:bg-primary hover:text-on-primary transition-colors active:scale-[0.98]">
+                Deploy Server
+            </button>
+<div class="mt-md flex items-center gap-sm px-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden flex-shrink-0">
+<img alt="System Administrator Profile" class="w-full h-full object-cover" data-alt="A macro shot of a sleek, dark metallic server chassis featuring a subtle, glowing blue LED indicator light, signifying a high-tech system administrator profile. The image relies on deep blacks and sophisticated greys, with sharp contrast and shallow depth of field to emphasize the metallic texture and precise engineering. The mood is highly technical and professional, completely avoiding organic elements or bright, colorful distractions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfvsDNg3jA4EgVTTVgRTMH4QXnCyd6_1zrl7A3c45aPkvKzjJ2x-VOMlOSV9WIaawxVqP75C9SxDOJM3rbTZFbG8jHVlyPLpJ0o_OKXx6NMrw3oBEXIE15YN39bi7I1iLoVyztgyNo9fKv3IY2fOhZiPjmqvgwWDz0OMOEAOND7Cw0JFsiaIK19ODvSvsoXbOXJkpDjqy-bDkf88273gRPI29EOs2erAx1gbMtCxpWTwekIrMqNgpzRlrKCqfsR6Nb8gYzYqDRwp8"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface truncate">Admin</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- TopNavBar (JSON Blueprint) -->
+<header class="fixed top-0 right-0 w-[calc(100%-240px)] h-16 bg-surface-container border-b border-outline-variant flex items-center justify-between px-lg z-40">
+<div class="flex items-center">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Project: Neural-Orchestrator-Alpha</h2>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm text-error">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-code-sm text-code-sm uppercase tracking-wider font-semibold">System: Offline</span>
+</div>
+<div class="h-6 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] mt-16 p-lg w-full max-w-container-max mx-auto h-[calc(100vh-64px)] overflow-y-auto">
+<div class="grid grid-cols-12 gap-gutter max-w-[1024px]">
+<!-- 1. Top Status Card -->
+<section class="col-span-12 bg-surface-container rounded-xl border border-error/20 p-md flex flex-col md:flex-row items-start md:items-center justify-between gap-md relative overflow-hidden">
+<div class="absolute inset-0 bg-error/5 pointer-events-none"></div>
+<div class="flex items-center gap-md z-10">
+<div class="flex flex-col items-center justify-center w-12 h-12 bg-error-container/20 rounded-lg border border-error/30">
+<span class="material-symbols-outlined text-error text-[24px]" data-icon="warning">warning</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-error font-semibold">Server offline</h3>
+<p class="font-code-sm text-code-sm text-error/70 mt-base">— last seen 13:58:41</p>
+</div>
+</div>
+<div class="flex items-center gap-sm w-full md:w-auto z-10">
+<div class="relative flex-1 md:w-64">
+<input class="w-full bg-surface-container-highest border border-outline-variant/50 rounded-lg py-sm px-md font-code-sm text-code-sm text-on-surface-variant/50 cursor-not-allowed focus:outline-none" disabled="" type="text" value="http://localhost:4173/mcp"/>
+</div>
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container-highest border border-outline-variant/50 rounded-lg text-on-surface-variant/50 font-body-sm text-body-sm font-medium cursor-not-allowed transition-opacity" disabled="">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+                        Copy
+                    </button>
+</div>
+</section>
+<!-- 2. Auth Section -->
+<section class="col-span-12 bg-surface-container rounded-xl border border-outline-variant p-lg flex flex-col gap-md opacity-75">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="key">key</span>
+<h3 class="font-headline-md text-headline-md font-medium text-on-surface">Authentication Token</h3>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex-1 relative">
+<input class="w-full bg-surface border border-outline-variant/50 rounded-lg py-sm px-md font-code-md text-code-md tracking-widest text-on-surface-variant/50 cursor-not-allowed focus:outline-none" disabled="" type="text" value="********************************"/>
+</div>
+<button class="flex items-center gap-xs px-md py-sm bg-surface border border-outline-variant/50 rounded-lg text-on-surface-variant/50 font-body-sm text-body-sm font-medium cursor-not-allowed transition-opacity" disabled="">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+                        Regenerate
+                    </button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant/60">Token operations are disabled while the server is unreachable.</p>
+</section>
+<!-- 3. Tool List Panel & 4. Client Snippet Block (Bento Layout) -->
+<div class="col-span-12 grid grid-cols-12 gap-gutter">
+<!-- Tool List Panel -->
+<section class="col-span-12 lg:col-span-7 bg-surface-container rounded-xl border border-outline-variant flex flex-col h-[400px]">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="build">build</span>
+<h3 class="font-headline-md text-headline-md font-medium text-on-surface">Registered Tools</h3>
+</div>
+<span class="font-code-sm text-code-sm px-sm py-xs bg-surface-container-highest rounded text-on-surface-variant/50">0 active</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center p-xl text-center opacity-60">
+<span class="material-symbols-outlined text-[48px] text-outline-variant mb-md" data-icon="cloud_off">cloud_off</span>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic max-w-[250px]">Tool list unavailable while the server is offline.</p>
+</div>
+</section>
+<!-- Client Snippet Block -->
+<section class="col-span-12 lg:col-span-5 bg-surface-container rounded-xl border border-outline-variant flex flex-col h-[400px]">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="code">code</span>
+<h3 class="font-headline-md text-headline-md font-medium text-on-surface">Client Connection</h3>
+</div>
+</div>
+<div class="flex-1 bg-[#020617] p-md overflow-x-auto m-sm rounded-lg border border-outline-variant/30 opacity-50 relative group">
+<pre class="font-code-sm text-code-sm text-on-surface-variant/60"><code><span class="text-on-surface-variant/40">// Example JS Client implementation</span>
+<span class="text-tertiary-container/60">import</span> { Client } <span class="text-tertiary-container/60">from</span> <span class="text-secondary-container/60">'@mcp/client'</span>;
+
+<span class="text-tertiary-container/60">const</span> client = <span class="text-tertiary-container/60">new</span> Client({
+  endpoint: <span class="text-secondary-container/60">'http://localhost:4173/mcp'</span>,
+  token: <span class="text-secondary-container/60">'YOUR_AUTH_TOKEN'</span>
+});
+
+<span class="text-tertiary-container/60">async function</span> <span class="text-primary-container/60">connect</span>() {
+  <span class="text-tertiary-container/60">try</span> {
+    <span class="text-tertiary-container/60">await</span> client.<span class="text-primary-container/60">connect</span>();
+    <span class="text-on-surface-variant/40">console</span>.<span class="text-primary-container/60">log</span>(<span class="text-secondary-container/60">'Connected!'</span>);
+  } <span class="text-tertiary-container/60">catch</span> (err) {
+    <span class="text-on-surface-variant/40">console</span>.<span class="text-primary-container/60">error</span>(<span class="text-secondary-container/60">'Failed:'</span>, err);
+  }
+}</code></pre>
+<div class="absolute inset-0 bg-[#020617]/50 flex items-center justify-center backdrop-blur-[1px]">
+<p class="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase border border-outline-variant/50 px-sm py-xs rounded bg-surface-container-highest/80">Connection Unavailable</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

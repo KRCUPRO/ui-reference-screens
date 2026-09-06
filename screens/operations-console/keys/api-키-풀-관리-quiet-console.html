@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>API Key Pool Management</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Noto+Sans+KR:wght@400;600&amp;family=Public+Sans:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#636262",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-surface-variant": "#414844",
+                        "surface-tint": "#3f6653",
+                        "surface": "#faf9f7",
+                        "on-tertiary-fixed": "#331111",
+                        "secondary-fixed": "#e5e2e1",
+                        "outline-variant": "#c1c8c2",
+                        "on-tertiary-container": "#d29895",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "tertiary-container": "#5a302f",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-container": "#efeeec",
+                        "secondary-container": "#e2dfde",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e9e8e6",
+                        "surface-container-low": "#f4f3f1",
+                        "outline": "#717973",
+                        "background": "#faf9f7",
+                        "tertiary-fixed": "#ffdad8",
+                        "primary": "#012d1d",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "primary-container": "#1b4332",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#401b1b",
+                        "surface-container-highest": "#e3e2e0",
+                        "tertiary-fixed-dim": "#f5b7b4",
+                        "on-primary-container": "#86af99",
+                        "secondary": "#5f5e5e",
+                        "inverse-on-surface": "#f1f1ef",
+                        "surface-variant": "#e3e2e0",
+                        "primary-fixed": "#c1ecd4",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadad8",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#faf9f7",
+                        "on-primary-fixed": "#002114",
+                        "on-tertiary-fixed-variant": "#673a39",
+                        "inverse-primary": "#a5d0b9",
+                        "inverse-surface": "#2f3130",
+                        "on-surface": "#1a1c1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "edge_margin": "32px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "unit": "4px",
+                        "sidebar_width": "240px",
+                        "gutter": "1px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Public Sans", "Noto Sans KR", "sans-serif"],
+                        "code-sm": ["JetBrains Mono", "monospace"],
+                        "body-base": ["Noto Sans KR", "sans-serif"],
+                        "label-caps": ["Public Sans", "sans-serif"],
+                        "display-metrics": ["Public Sans", "sans-serif"],
+                        "headline-lg": ["Public Sans", "Noto Sans KR", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "code-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-base": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "display-metrics": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .square-toggle {
+            appearance: none;
+            width: 32px;
+            height: 16px;
+            background-color: transparent;
+            border: 1px solid #1A1A1A;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.2s;
+        }
+        .square-toggle::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 12px;
+            height: 12px;
+            background-color: #1A1A1A;
+            transition: left 0.2s;
+        }
+        .square-toggle:checked {
+            background-color: #1B4332;
+            border-color: #1B4332;
+        }
+        .square-toggle:checked::after {
+            background-color: #ffffff;
+            left: 17px;
+        }
+        .square-toggle:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .custom-checkbox {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #1A1A1A;
+            background-color: transparent;
+            cursor: pointer;
+            position: relative;
+        }
+        .custom-checkbox:checked {
+            background-color: #1B4332;
+            border-color: #1B4332;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-base text-on-surface flex h-screen overflow-hidden break-keep selection:bg-primary-container selection:text-on-primary">
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-surface border-r border-outline-variant flex flex-col py-stack-lg z-10">
+<div class="px-4 mb-8">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Console Root</h1>
+<p class="font-code-sm text-code-sm text-secondary mt-1">ops-admin-01</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-secondary pl-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 text-secondary pl-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">storage</span>
+                Infrastructure
+            </a>
+<a class="flex items-center gap-3 text-secondary pl-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">rocket_launch</span>
+                Deployments
+            </a>
+<a class="flex items-center gap-3 text-secondary pl-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
+                Monitoring
+            </a>
+<a class="flex items-center gap-3 border-l-2 border-primary text-primary font-semibold pl-4 py-2 bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 text-secondary pl-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+                Logs
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 text-secondary pl-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+                Documentation
+            </a>
+<a class="flex items-center gap-3 text-secondary pl-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">contact_support</span>
+                Support
+            </a>
+</div>
+</aside>
+<main class="ml-[240px] flex-1 flex flex-col h-full overflow-y-auto">
+<div class="p-edge_margin max-w-[1200px] w-full mx-auto">
+<header class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">API 키 풀 관리</h2>
+<p class="text-on-surface-variant mt-2">활성 API 키의 글로벌 할당량 및 상태 모니터링</p>
+</header>
+<div class="flex items-center justify-between border-b border-outline-variant pb-stack-md mb-stack-md">
+<div class="flex items-center gap-6">
+<button class="bg-primary-container text-on-primary px-6 py-2 font-semibold hover:bg-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        키 추가
+                    </button>
+<div class="flex items-center gap-4 border-l border-outline-variant pl-6">
+<button class="text-on-surface hover:text-primary-container font-semibold transition-colors">새로고침</button>
+<button class="text-on-surface hover:text-primary-container font-semibold transition-colors">전체 검사</button>
+<button class="text-on-surface hover:text-primary-container font-semibold transition-colors">중복 정리</button>
+</div>
+</div>
+<button class="text-error hover:text-on-error-container font-semibold transition-colors">전체 비우기</button>
+</div>
+<div class="flex items-center gap-6 mb-stack-lg">
+<button class="flex items-center gap-2 text-on-surface font-semibold">
+<div class="w-2 h-2 bg-primary-container"></div>
+                    전체 키
+                </button>
+<button class="text-secondary hover:text-on-surface transition-colors">Production</button>
+<button class="text-secondary hover:text-on-surface transition-colors">Staging</button>
+<button class="text-secondary hover:text-on-surface transition-colors">Development</button>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-3 flex items-center justify-between mb-4">
+<span class="font-semibold text-primary">3개 선택됨</span>
+<div class="flex gap-4">
+<button class="text-on-surface hover:text-primary-container font-semibold">태그 변경</button>
+<button class="text-error hover:text-on-error-container font-semibold">일괄 삭제</button>
+</div>
+</div>
+<table class="w-full border-collapse">
+<thead>
+<tr>
+<th class="border-b border-outline-variant py-3 px-4 text-left w-12">
+<input checked="" class="custom-checkbox" type="checkbox"/>
+</th>
+<th class="font-label-caps text-label-caps text-secondary border-b border-outline-variant py-3 px-4 text-left uppercase w-32">상태</th>
+<th class="font-label-caps text-label-caps text-secondary border-b border-outline-variant py-3 px-4 text-left uppercase">이름</th>
+<th class="font-label-caps text-label-caps text-secondary border-b border-outline-variant py-3 px-4 text-left uppercase w-64">일일 쿼터</th>
+<th class="font-label-caps text-label-caps text-secondary border-b border-outline-variant py-3 px-4 text-right uppercase w-48">작업</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4">
+<input checked="" class="custom-checkbox" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-primary-container"></div>
+<span>정상</span>
+</div>
+</td>
+<td class="py-4 px-4 font-semibold">Production Primary</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="font-code-sm text-code-sm flex justify-between">
+<span>240 / 400회</span>
+<span class="text-outline">160 남음</span>
+</div>
+<div class="h-[2px] w-full bg-outline-variant relative">
+<div class="absolute top-0 left-0 h-full bg-on-surface" style="width: 60%;"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center justify-end gap-4">
+<button class="text-on-surface hover:text-primary-container font-semibold text-sm">Ping</button>
+<button class="text-on-surface hover:text-primary-container font-semibold text-sm">AI 생성</button>
+<input checked="" class="square-toggle" type="checkbox"/>
+</div>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4">
+<input checked="" class="custom-checkbox" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-[#d97706]"></div>
+<span>쿨다운 12초</span>
+</div>
+</td>
+<td class="py-4 px-4 font-semibold">Staging Analytics</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="font-code-sm text-code-sm flex justify-between">
+<span>950 / 1000회</span>
+<span class="text-outline">50 남음</span>
+</div>
+<div class="h-[2px] w-full bg-outline-variant relative">
+<div class="absolute top-0 left-0 h-full bg-[#d97706]" style="width: 95%;"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center justify-end gap-4">
+<button class="text-on-surface hover:text-primary-container font-semibold text-sm">Ping</button>
+<button class="text-on-surface hover:text-primary-container font-semibold text-sm">AI 생성</button>
+<input checked="" class="square-toggle" type="checkbox"/>
+</div>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4">
+<input checked="" class="custom-checkbox" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-error"></div>
+<span>소진됨</span>
+</div>
+</td>
+<td class="py-4 px-4 font-semibold">Legacy Integration</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="font-code-sm text-code-sm flex justify-between text-error">
+<span>500 / 500회</span>
+<span class="text-outline">0 남음</span>
+</div>
+<div class="h-[2px] w-full bg-outline-variant relative">
+<div class="absolute top-0 left-0 h-full bg-error" style="width: 100%;"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center justify-end gap-4">
+<button class="text-on-surface hover:text-primary-container font-semibold text-sm">Ping</button>
+<button class="text-on-surface hover:text-primary-container font-semibold text-sm">AI 생성</button>
+<input checked="" class="square-toggle" type="checkbox"/>
+</div>
+</td>
+</tr>
+<tr class="border-b border-outline-variant opacity-50 pointer-events-none bg-surface-container">
+<td class="py-4 px-4">
+<input class="custom-checkbox" disabled="" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-outline"></div>
+<span>비활성</span>
+</div>
+</td>
+<td class="py-4 px-4 font-semibold text-secondary">Dev Local Testing</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="font-code-sm text-code-sm flex justify-between text-secondary">
+<span>0 / 100회</span>
+<span class="text-outline">100 남음</span>
+</div>
+<div class="h-[2px] w-full bg-outline-variant relative">
+<div class="absolute top-0 left-0 h-full bg-outline" style="width: 0%;"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center justify-end gap-4">
+<button class="text-secondary font-semibold text-sm">Ping</button>
+<button class="text-secondary font-semibold text-sm">AI 생성</button>
+<input class="square-toggle" disabled="" type="checkbox"/>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+</body></html>

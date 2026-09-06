@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marginalia Mobile Navigation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .font-serif-italic {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'wght' 300, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-[#fdf8f8] flex flex-col items-center justify-start min-h-screen">
+    <!-- Mobile Navigation Bar -->
+    <nav class="w-[390px] h-[56px] bg-[#fdf8f8] border-b border-black/10 flex items-center justify-between px-4 relative">
+        <!-- Left Edge (Empty for balance) -->
+        <div class="w-10"></div>
+
+        <!-- Centered Wordmark -->
+        <h1 class="font-serif-italic text-xl text-[#1a1a1a] tracking-tight">Marginalia</h1>
+
+        <!-- Right Edge Menu -->
+        <div class="flex flex-col items-center justify-center w-10">
+            <button class="flex flex-col items-center gap-0.5 group">
+                <span class="material-symbols-outlined text-[#1a1a1a] text-2xl">menu</span>
+                <!-- Faint downward chevron hint -->
+                <span class="material-symbols-outlined text-[#1a1a1a]/30 text-[10px] -mt-1">keyboard_arrow_down</span>
+            </button>
+        </div>
+    </nav>
+</body>
+</html>

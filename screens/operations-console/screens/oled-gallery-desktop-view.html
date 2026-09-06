@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OLED Dark Gallery View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+@font-face {
+    font-family: 'Geist';
+    src: url('https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Geist';
+    src: url('https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-600-normal.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline-variant": "#444748",
+          "on-tertiary-fixed-variant": "#4b4643",
+          "on-surface-variant": "#c4c7c8",
+          "surface-container-lowest": "#0d0e0f",
+          "on-background": "#e3e2e2",
+          "error-container": "#93000a",
+          "surface-variant": "#343535",
+          "surface-dim": "#121414",
+          "on-tertiary-fixed": "#1f1b19",
+          "primary-fixed": "#e2e2e2",
+          "surface-container-high": "#292a2a",
+          "tertiary-fixed-dim": "#cec5c1",
+          "surface-bright": "#38393a",
+          "inverse-surface": "#e3e2e2",
+          "surface-tint": "#c6c6c7",
+          "surface-container": "#1e2020",
+          "on-error": "#690005",
+          "background": "#121414",
+          "inverse-primary": "#5d5f5f",
+          "tertiary-container": "#eae1dd",
+          "secondary-container": "#474746",
+          "on-primary-fixed": "#1a1c1c",
+          "primary-container": "#e2e2e2",
+          "secondary-fixed-dim": "#c8c6c5",
+          "tertiary": "#ffffff",
+          "on-surface": "#e3e2e2",
+          "on-error-container": "#ffdad6",
+          "on-primary-fixed-variant": "#454747",
+          "primary": "#ffffff",
+          "on-primary": "#2f3131",
+          "on-secondary-fixed-variant": "#474746",
+          "on-tertiary": "#342f2d",
+          "surface-container-highest": "#343535",
+          "surface-container-low": "#1a1c1c",
+          "tertiary-fixed": "#eae1dd",
+          "inverse-on-surface": "#2f3131",
+          "error": "#ffb4ab",
+          "secondary": "#c8c6c5",
+          "secondary-fixed": "#e4e2e1",
+          "on-primary-container": "#636565",
+          "on-secondary-fixed": "#1b1c1c",
+          "surface": "#121414",
+          "on-secondary-container": "#b7b5b4",
+          "outline": "#8e9192",
+          "on-secondary": "#303030",
+          "on-tertiary-container": "#696360",
+          "primary-fixed-dim": "#c6c6c7",
+          "ink-faint": "#262626",
+          "ink": "#f5f5f5"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "sm": "8px",
+          "xs": "4px",
+          "unit": "4px",
+          "md": "16px",
+          "lg": "24px",
+          "margin-desktop": "32px",
+          "xl": "48px",
+          "margin-mobile": "16px",
+          "gutter": "16px"
+        },
+        "fontFamily": {
+          "headline-lg": [
+            "Geist"
+          ],
+          "caption-mono": [
+            "JetBrains Mono"
+          ],
+          "body-lg": [
+            "Geist"
+          ],
+          "body-md": [
+            "Geist"
+          ],
+          "headline-sm": [
+            "Geist"
+          ],
+          "headline-md": [
+            "Geist"
+          ],
+          "label-mono": [
+            "JetBrains Mono"
+          ],
+          "headline-lg-mobile": [
+            "Geist"
+          ]
+        },
+        "fontSize": {
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "caption-mono": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "letterSpacing": "0",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "18px",
+            {
+              "lineHeight": "24px",
+              "letterSpacing": "0",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-mono": [
+            "11px",
+            {
+              "lineHeight": "14px",
+              "letterSpacing": "0.05em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg-mobile": [
+            "26px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+<style>
+    body { background-color: #000000; }
+    .thumbnail-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 96px);
+        gap: 4px;
+    }
+    .thumbnail-card {
+        width: 96px;
+        height: 96px;
+        border: 1px solid #262626;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .status-dot {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        width: 6px;
+        height: 6px;
+        background-color: #f5f5f5;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body class="text-on-background font-body-md bg-black min-h-screen overflow-x-hidden">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 border-r border-outline-variant bg-background dark:bg-background z-20 hidden md:flex flex-col py-lg">
+<div class="px-md mb-xl flex items-center gap-md cursor-pointer hover:bg-surface-container-low transition-all duration-150">
+<div class="w-8 h-8 bg-surface-container-highest rounded-sm flex items-center justify-center overflow-hidden">
+<img alt="System Status" class="object-cover w-full h-full" data-alt="Minimalist abstract geometric icon representing a root user system status terminal in pure white on a dark grey background. High contrast, sharp edges, modern developer aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEc8mIiK7nGXwLcc5S1Igm9viSVtP0v-OWB3PRo9u2jciCyCycuJTofmuSuRo-fMpMghRrofjCFDygUWniLtGo7V35LHWTCy5eg3Hi0UkREwpxZBCjhghMogauInIK4vTkkl1Q3viRGQHsLa-N0O-GXGmHa6fYlztcuRpDXkAs4uEXpdHGfNnlhgh8V0ViqtnY4YpHzVk_QdHmDU3Qa3FKebnzfBnL6mjGLH3YjWfVDYNW60DLd6f5L0tPGI-1DnMNnvGfCUDY8j8"/>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-primary">ROOT_USER</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant">Terminal Active</div>
+</div>
+</div>
+<div class="px-md mb-lg">
+<button class="w-full bg-ink text-black font-body-md font-bold py-2 rounded-sm text-center">New Project</button>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex items-center gap-md cursor-pointer text-on-surface-variant pl-4 py-3 hover:text-on-surface hover:bg-surface-container-low transition-all duration-150 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-sm" data-icon="folder_open">folder_open</span>
+                Assets
+            </div>
+<div class="flex items-center gap-md cursor-pointer text-primary border-l-2 border-primary bg-surface-container-low pl-4 py-3 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-sm" data-icon="grid_view" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+                Workspaces
+            </div>
+<div class="flex items-center gap-md cursor-pointer text-on-surface-variant pl-4 py-3 hover:text-on-surface hover:bg-surface-container-low transition-all duration-150 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+                Library
+            </div>
+<div class="flex items-center gap-md cursor-pointer text-on-surface-variant pl-4 py-3 hover:text-on-surface hover:bg-surface-container-low transition-all duration-150 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-sm" data-icon="bar_chart">bar_chart</span>
+                Analytics
+            </div>
+<div class="flex items-center gap-md cursor-pointer text-on-surface-variant pl-4 py-3 hover:text-on-surface hover:bg-surface-container-low transition-all duration-150 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-sm" data-icon="rocket_launch">rocket_launch</span>
+                Deploy
+            </div>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-md flex flex-col gap-1">
+<div class="flex items-center gap-md cursor-pointer text-on-surface-variant pl-4 py-3 hover:text-on-surface hover:bg-surface-container-low transition-all duration-150 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                Docs
+            </div>
+<div class="flex items-center gap-md cursor-pointer text-on-surface-variant pl-4 py-3 hover:text-on-surface hover:bg-surface-container-low transition-all duration-150 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span>
+                Support
+            </div>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="w-full h-16 border-b border-outline-variant bg-background dark:bg-background flex justify-between items-center px-margin-desktop ml-64 z-10 fixed top-0" style="width: calc(100% - 16rem);">
+<div class="flex items-center gap-lg">
+<div class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary">DESIGN_CONSOLE</div>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border border-outline-variant text-on-background font-label-mono text-label-mono pl-8 pr-4 py-1.5 focus:border-ink focus:outline-none focus:ring-0 w-64 rounded-sm" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-sm active:opacity-80" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-sm active:opacity-80" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-sm active:opacity-80" data-icon="terminal">terminal</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant ml-2">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A small circular avatar image of a developer in a dark environment with moody blue lighting. Minimalist professional headshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeScEsHyFQ1g5IwC-TcraQQ4wcnIUJAdhj6OtAl9hZGk5BNm9VHfAjC_uKhbmOy4EM66c6KwMA8c9IM0-ZT1OrTXuVyx4nbsDkxxCizrS4bjLvH5NdYXoc-XfKo9Tri2YS8jPlCQwGs5MXNJg1kHUHFyqqKSmAt55u1ut_yo37LhtbMvR1l0H9D9-L_TGf6GY6YpdWZkyU9VxFE1LHurnCB27HUeihc9eKrps_akeRmL0YO376luuxeVn_VNniv2SGlGRGvqUabtg"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-0 md:ml-64 mt-16 p-margin-desktop">
+<div class="mb-xl">
+<div class="flex justify-between items-end mb-xs pb-xs border-b border-ink-faint">
+<h2 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">TODAY</h2>
+</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Pricing table thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A minimalist UI wireframe representing a modern pricing table design, featuring stark white lines on a pure black background. Utilitarian, developer-centric aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmWAc_IGttFAR9_dwwyrTSQ8extkvS01O-s2CDxuNUAcjMY8diJ0gr6_r4R2PJx1sjAWFnK26X_NtK7lAi61ecu53zUHt7N35jlJfCC7kLX84fSe8H40NdcjfVqQRYzjQcXnDl5rIZwyoB2se47cVsTl674hzt-PrVNyOrayJNAI0yj2EDrXy6e4OqLfqIpp4NEuGCDEroGutov3v-UflIzOvQr-d23XX80fFJHLxbHBBL0vIu2LxkqSYYKbwO3DGNLR5UdY9H2Ys"/>
+<div class="status-dot"></div>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Pricing table</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Login SSO thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A sparse wireframe of a login screen specifically highlighting a Single Sign-On (SSO) configuration, rendered in high contrast white lines on true black. Clean, structural design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBij5T7y94zYJPEB9CT3mDEyuGcgJMotwuXHbfhmJQPEWtyvOlo5_pSE1_1sbebT_61Bod3HurO-fID19ov8F_yiT5DSWvhYYGCzh-ZV6aZeGyjbUmTxPyMbLC2CN9BpdwrVFfGyNBap9hzAXEad1t6Q6vTvLAnTO8aiQ9S2l8wfS3mPdNZD1MgpOAtWZx_G5adXMDF8KaFp7ZKm1q4wIKpZmty3i3WCg-at9MdYFISJersnhcpGBzn204SWRXapWrg_jQTIPIbPL0"/>
+<div class="status-dot"></div>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Login — SSO var</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Settings danger zone thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A high contrast UI design mockup showing a 'danger zone' settings panel. Sharp geometric lines in white and a faint red accent on a black void background. Professional UI blueprint style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ6j1j1r9ckKZ13MIIaoGBf1xdsqGWrxg3RSnr8ENtkH3xRdmbr9rhADURRsnLZBtgXoJ4dyAW7NZvvi2pFj7nX_W34OBz543Kwy4p_okR3IAX_TKbkrIfTejQeppMuIZY07zPPDEBxd4ON7FQKb_XVkEExJyX6NRfaTagmVU446raecI9Rm5Qihazr1iikN3mMG0i5QkSEYk9I2KKrDfazjrBMdHxB4R1hO7lydJpxWvReQ00smPijzoWL6GR7fGh4OnCiSYKg04"/>
+<div class="status-dot"></div>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Settings — dang</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Data table thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="Abstract structural lines forming a geometric data table layout on a black background. High contrast white thin borders, minimalist and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjYkKe7BdK04f6mTiqggAAVEqFu7TuOh2VQt8mMIO8AtAUe7tyBOdsji9Yii_rb-g_Tpf6ll3m4_EF5mHl4I_O3Px34eMLYZPtVCK4fgiQPswfuR1LirheGvJFu_mY8VSOZ3eXBv7WGjdpKcIzcCFGfSeq4t754v5R0Z66rNU1fZa8A5WGzyVlVOyl3ZF2nG_qsLZhGbZGtkiK4Gn2ezmhQ-MQZPBLlHz6-uH5bHsj6MTU_YgRd7L-TwnB4GoPKwR1dXWtHf1JUrM"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Data table — dense</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Sidebar navigation thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A stark wireframe of a complex navigation sidebar component, white on black. Technical blueprint aesthetic, emphasizing structural grids and typography placement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2f7RUSNu3IWbUncii7eL8InxK34MH7KcrPleIxVScmSy5u5kMzSTYRvPurnit1-5W-FCCqP_8xEN29tfGfAyZNJdLWWUnQSFvratRii3atUW9RWnjqmSYZNIlyTw4nSpk20kacWDgvJzKXsvu929FHg53EAPUtqXumb3X3N-4R821Etxh0R10lvtlAQpe90cZNhSTKZ8fXDz1mef5EnC_2mfb24BejssLJyVuZuT8PDRqeeUuwjjaEsJXsk2_XrROWi9fRqsb-WU"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">SideNav — config</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-xl">
+<div class="flex justify-between items-end mb-xs pb-xs border-b border-ink-faint">
+<h2 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">YESTERDAY</h2>
+</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Mobile onboarding thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A minimalist line drawing of a mobile application onboarding flow, white vectors on a deep black background. Focus on layout and typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp64LlNaoom3UqwFY-MBAKVpKPuLCRmSGbRAxsoitdUGxSpLcvV5kX59p-yoPUrKehXo4ev13VnbV3hyymUmhaPzLMTBvG5iNbMQV0aw_ITYBTxqVxSGqMl-PZEGHOreoFrtGOmdznh-OYHyq7EYnur0hG1pbcSyQiCYM5KT1f1MajOnOoF0eHf_gJIc2a6SDk1-IdNQH4ht3_riaGhcHVozM5fxKgsLGzKwwaR_jvKLvmsa8PhoYBfUIJpj7J0I_lG3Z40CW2gTU"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Mobile — onboar</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Analytics dashboard thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="Blueprint style rendering of an analytics dashboard with bar charts and data graphs. Stark white lines against a zero-elevation black background. Technical and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvwp0yhA5DHld0BXOeUoE4OXrhitmzHECzUpqhoXA_Q50cH7PhXkCrpxsAIhg5KqC2rW0K2YntfE5X_cFy1H0XsaoE_LgrmMk2WfPk10SsmPiyjtVFtJ9ZhudDmgXk2708gHvNCIj30JZaOsI1UsRjotFgs1bIjorN4EoP1r7hWtn9yNv33CVVrLhhj3Fc5-fuNZLSMUMY4D1f0wJ0aHEb1M5ANO5y15tl2M2acntDRInUl0wcKLE5caQJNHhw7_dcvub_QXwQDog"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Dashboard — v2</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Profile screen thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="Wireframe of a user profile screen, featuring a circular avatar placeholder and list items separated by thin rule-strong dividers. White on black minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBomlghDbd2np8pWS7qFwzmy2eiJ3kb_NzUZXaRgBAOfzuyvKQKtZGcrQYK6tUmtO6wC4kM6CgZpZnqYtbNNP-AVhQcibQbrSWyXJRVNPpPJg_OuqdVZ3vn7MvGNbE2YxGjl5SnuTzg281sQKrHk5N8jlklZRcFyWttED3VKxoAKXaR-yYoXOlAD_hyHn4s8dqmBfk_iv2yUa8dmq6ACyGCIGyv2RI3cWR0xYqorN6WpJhqu_cywhFRpi6do-Rc6z4eUu9fzLF0acE"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Profile — layout</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-xl">
+<div class="flex justify-between items-end mb-xs pb-xs border-b border-ink-faint">
+<h2 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">SEP 1</h2>
+</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Checkout flow thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="High contrast rendering of a checkout flow UI, showing payment input fields and order summary in a strict 4px grid system. Pure black and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyUyRv0kwTc8VhArcfTBE3Mw-iO6NiYx_0ounPmsaTgal0YmKl1TF8h1yhrRHEJsg2sgCXhMxK2mPxjF2CYR8JTWHDJCjNG0KDFLu3srB9-L491WmOl7w-XfsF7oNOPWl5cVnljwz0ZYAT37eDxRRX7C2SQDuQ8oPScabPsDKBWNAgGiIEMXYzZjngyZcps8mBoEaD6U3_mkV-ecu-xczdSnbw0Nx9wWfGZBAfPt4bmjI1b4FERnMzdESh1OQXFBt6OmJ1l7R83vc"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Checkout — flow</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Data viz component thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A detailed design spec for a complex data visualization component, using stark geometric shapes and thin white borders on a black OLED canvas." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYb4DGtaKeGNw-k2bwldX8DxiH3dyabR2rRONZ6k8jLu--W7XJss6sSoG5bXXYE2LardeMoe4wzCzcQ5VKERbbXBsL4k8xGsBEIbJxAv9tZereS8g3E6O6KIozdQocW-Q84l9k7kxfDsgrfO6wFLk0WJB_akbQXQZADSq938Pltuz0J7b_1gvm6BcdtpI8qjMHqRaom92jOU0G1TnKFW2uBuOhx04dNimsNa2T3EgiUwnuv0Ug0YE2eJT5aB-wZDurM20XlMrlbWk"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Chart — config</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Email template thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="Minimalist email template wireframe, showcasing text hierarchy and primary button placement. White technical lines on a solid black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-wenbA4J5JTefWhfXaJ-PLbqonZVEGBfN8CKp5dqYiduodUCAZ01WaBbijKdpLXt7dst302e9G3hKPAgndTHzcQdXDVvlsByxwvfyh90bU3Kz2XPpswfHmbAi2Rj-oqWpnP2DWdYLcmStzBFR518djLp8Bg3MDudOqwYDqRNDjRrmLupAZ_FXvmNNOYvpwkriiZwHDiOpelQjIqyxAU_nJpQ-FBggUvucECcDDqU8H3oaeIr4bPdjfU6a1zMOB5w8JA1apQjih80"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Email — receipts</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Modal dialog thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="UI blueprint of a modal dialog overlay, featuring a title, descriptive text, and primary/secondary button actions. Strict flat design, white on black." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAraThx6QWW4uZc4kS9v-XYTbSOuSwTiudiI9wxon3gdu0LxE-oRhVNjpdlfJPU7p0qW_TvCxOxEFo-YE7QVf1XuuZIVq8RinRbNpOCyJEKCU6VrWmcSi3KLYkUCnCZ6YzbhggMeSXccXYHXK_WNp9zddhdsKy6yJZ7-4IPNymxmPaz8V8fDu7eYhQ4vS9ZLUHyhiqizMdozIk2X5wyYHG4MBGT0mjPVIXNPTPRQIsN8t9ihhX2GsCNlPLaOTe02XTtVZqQGykN-pM"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Modal — confirm</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-xl">
+<div class="flex justify-between items-end mb-xs pb-xs border-b border-ink-faint">
+<h2 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">AUG 29</h2>
+</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Landing page hero thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="Early structural wireframe of a landing page hero section, focusing on grid alignment and heavy typography placeholders. High contrast black and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIFfWuVGPkYSEI3Nwb9aQkvTXZ5IW9bbVtQhUwwpoYGkPwB7YZGLgEEdsGM_uVg5_yRLscAMIv0rkvwYQN9jVgrnjuyr29pnr5S1hKl7-NLXdpsQjGIn8uY7meLmJowasz00vAMNhmap-i8SZH4JswtFpWbFgGrJ29YDdQSoQVRAB7izfKH7axPg7OA57dxspLYY_t5RkIjFujxBhPSXRBUVmRrdkjyncmc6u2ppO8CbEFyx9Y3Foi_kQ97VPjtBJhc2EsmEiMOjw"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Marketing — hero</span>
+</div>
+</div>
+<div class="thumbnail-card bg-surface-dim">
+<img alt="Component sheet thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="Design system component sheet showing various button states and input field variations in a flat, zero-depth black and white style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2G8L0i0SNLVzul6F216O1GRsos8YxI55MsXE9jq9HKos4BRtkNYod9GYoupaBLvq17qO9yXgO0N3BGiV2MaPGKz1Md9tFVIrSyx9dZI6qHDf5aV01Q0-TQokl-Q7kDFJipIAHzslsP9_wf--2aj95rwYwdBVVUEzqhAFTvmGR2SSZ45JhoUvGxf3FDw0t4cf8qS8lVGo8u88cdIc80Ek1CJ6rqbor69s3Nkxv9IeMyML5k-Uj48K0FL5B0p5I-2CpyJssF3UU2HI"/>
+<div class="relative z-10 bg-black/80 p-1 border-t border-ink-faint">
+<span class="font-caption-mono text-caption-mono text-ink truncate block">Design — tokens</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

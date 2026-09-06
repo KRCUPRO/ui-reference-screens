@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KeyOps Console - Analytics Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-primary-fixed-variant": "#3323cc",
+                "on-primary-container": "#dad7ff",
+                "on-error": "#ffffff",
+                "surface-tint": "#4d44e3",
+                "inverse-on-surface": "#eff1f5",
+                "tertiary-container": "#a44100",
+                "outline": "#777587",
+                "tertiary": "#7e3000",
+                "surface-variant": "#e0e2e6",
+                "surface": "#f7f9fd",
+                "on-error-container": "#93000a",
+                "primary-fixed-dim": "#c3c0ff",
+                "inverse-surface": "#2d3134",
+                "on-tertiary": "#ffffff",
+                "surface-container-highest": "#e0e2e6",
+                "primary-fixed": "#e2dfff",
+                "on-surface": "#191c1f",
+                "on-secondary-fixed": "#1c1b1b",
+                "surface-container-low": "#f2f4f8",
+                "error-container": "#ffdad6",
+                "error": "#ba1a1a",
+                "surface-container-high": "#e6e8ec",
+                "on-tertiary-fixed": "#351000",
+                "surface-container": "#eceef2",
+                "on-surface-variant": "#464555",
+                "secondary-container": "#e2dfde",
+                "outline-variant": "#c7c4d8",
+                "on-background": "#191c1f",
+                "primary-container": "#4f46e5",
+                "on-tertiary-fixed-variant": "#7b2f00",
+                "surface-dim": "#d8dade",
+                "background": "#f7f9fd",
+                "tertiary-fixed": "#ffdbcc",
+                "on-secondary": "#ffffff",
+                "surface-bright": "#f7f9fd",
+                "secondary": "#5f5e5e",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#e5e2e1",
+                "on-primary-fixed": "#0f0069",
+                "secondary-fixed-dim": "#c8c6c5",
+                "inverse-primary": "#c3c0ff",
+                "on-secondary-fixed-variant": "#474746",
+                "primary": "#3525cd",
+                "on-primary": "#ffffff",
+                "tertiary-fixed-dim": "#ffb695",
+                "on-secondary-container": "#636262",
+                "on-tertiary-container": "#ffd2be"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "container-margin": "32px",
+                "gutter": "16px",
+                "component-padding-y": "8px",
+                "component-padding-x": "12px",
+                "unit": "4px"
+              },
+              "fontFamily": {
+                "headline-sm-mobile": [
+                  "Inter"
+                ],
+                "data-mono": [
+                  "JetBrains Mono"
+                ],
+                "label-caps": [
+                  "Inter"
+                ],
+                "headline-sm": [
+                  "Inter"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "display-metric": [
+                  "Inter"
+                ],
+                "data-mono-bold": [
+                  "JetBrains Mono"
+                ]
+              },
+              "fontSize": {
+                "headline-sm-mobile": [
+                  "16px",
+                  {
+                    "lineHeight": "22px",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-mono": [
+                  "13px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "label-caps": [
+                  "11px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "headline-sm": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "display-metric": [
+                  "48px",
+                  {
+                    "lineHeight": "1.1",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-mono-bold": [
+                  "13px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "600"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="w-64 h-screen border-r border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest flex flex-col py-gutter space-y-unit hidden md:flex shrink-0">
+<div class="px-gutter mb-6">
+<h1 class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface">KeyOps Console</h1>
+<p class="font-data-mono text-data-mono text-secondary mt-1">V2.4.0</p>
+</div>
+<div class="flex-1 overflow-y-auto space-y-2 px-2">
+<a class="block py-2 font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim pl-4 opacity-80 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Overview</a>
+<a class="block py-2 font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim pl-4 opacity-80 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Key Pool</a>
+<a class="block py-2 font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim pl-4 opacity-80 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Logs</a>
+<a class="block py-2 font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim pl-4 opacity-80 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Rate Limits</a>
+<a class="block py-2 font-label-caps text-label-caps text-primary dark:text-primary-fixed font-semibold border-l-2 border-primary dark:border-primary-fixed pl-4 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Usage</a>
+<a class="block py-2 font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim pl-4 opacity-80 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Health</a>
+<a class="block py-2 font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim pl-4 opacity-80 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Security</a>
+<a class="block py-2 font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim pl-4 opacity-80 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Webhooks</a>
+<a class="block py-2 font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim pl-4 opacity-80 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors cursor-pointer transition-all duration-150" href="#">Settings</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 relative">
+<!-- TopAppBar -->
+<header class="w-full h-12 border-b border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest flex justify-between items-center px-gutter shrink-0">
+<div class="font-label-caps text-label-caps font-bold text-primary dark:text-primary-fixed">System Status: Active</div>
+<div class="flex items-center space-x-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-2 top-1/2 transform -translate-y-1/2 text-secondary text-sm" data-icon="search">search</span>
+<input class="pl-8 pr-3 py-1 border border-outline-variant bg-surface font-data-mono text-data-mono text-on-surface focus:outline-none focus:border-primary w-48 transition-colors" placeholder="Search..." type="text"/>
+</div>
+<button class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 hover:bg-surface-container-low transition-colors duration-200">Emergency Revoke</button>
+<button class="font-label-caps text-label-caps text-primary border border-primary px-3 py-1 hover:bg-primary-fixed transition-colors duration-200">Create Key</button>
+</div>
+</header>
+<!-- Blurred Background Analytics -->
+<main aria-hidden="true" class="flex-1 p-container-margin overflow-auto relative select-none">
+<div class="opacity-30 blur-sm pointer-events-none grid grid-cols-12 gap-6 h-full">
+<!-- Mock Dashboard Content -->
+<div class="col-span-12 lg:col-span-8 border border-outline-variant bg-surface p-6 flex flex-col">
+<div class="font-label-caps text-label-caps text-secondary border-b border-outline-variant pb-2 mb-4">Usage Volume (Last 30 Days)</div>
+<div class="flex-1 border-b border-l border-outline-variant relative">
+<div class="absolute bottom-0 left-0 w-full h-3/4 border-t border-dashed border-outline-variant"></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 border-t border-dashed border-outline-variant"></div>
+<div class="absolute bottom-0 left-0 w-full h-1/4 border-t border-dashed border-outline-variant"></div>
+<!-- Mock Line -->
+<svg class="absolute inset-0 h-full w-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path class="text-outline" d="M0 80 Q 20 20, 40 50 T 80 10 L 100 30" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-2 font-data-mono text-data-mono text-secondary">
+<span>Oct 01</span>
+<span>Oct 15</span>
+<span>Oct 31</span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 border border-outline-variant bg-surface p-6 flex flex-col">
+<div class="font-label-caps text-label-caps text-secondary border-b border-outline-variant pb-2 mb-4">Key Distribution</div>
+<div class="flex-1 flex items-end justify-around pb-4">
+<div class="w-8 bg-outline h-3/4"></div>
+<div class="w-8 bg-outline-variant h-1/2"></div>
+<div class="w-8 bg-secondary h-1/4"></div>
+<div class="w-8 bg-outline h-5/6"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Scrim -->
+<div class="absolute inset-0 bg-surface/60 backdrop-blur-sm z-40 flex items-center justify-center p-4">
+<!-- Modal Popover -->
+<div aria-modal="true" class="bg-surface-container-lowest border border-outline-variant flex flex-col w-full max-w-4xl max-h-full shadow-none" role="dialog">
+<!-- Modal Header -->
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Select date range</h2>
+<button class="text-secondary hover:text-on-surface p-1 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="close">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="flex flex-col md:flex-row flex-1 min-h-0">
+<!-- Presets Sidebar -->
+<div class="w-full md:w-48 border-b md:border-b-0 md:border-r border-outline-variant bg-surface-container flex flex-col shrink-0 overflow-y-auto">
+<div class="p-2 space-y-1">
+<button class="w-full text-left px-3 py-2 font-body-md text-on-surface hover:bg-surface-container-highest transition-colors">Today</button>
+<button class="w-full text-left px-3 py-2 font-body-md text-on-surface hover:bg-surface-container-highest transition-colors">Last 7 days</button>
+<button class="w-full text-left px-3 py-2 font-body-md text-primary bg-primary-fixed border-l-2 border-primary font-semibold transition-colors">Last 30 days</button>
+<button class="w-full text-left px-3 py-2 font-body-md text-on-surface hover:bg-surface-container-highest transition-colors">Custom range</button>
+</div>
+</div>
+<!-- Calendars Area -->
+<div class="flex-1 p-6 overflow-y-auto flex flex-col md:flex-row gap-8">
+<!-- Month 1: October -->
+<div class="flex-1 min-w-[250px]">
+<div class="flex justify-between items-center mb-4">
+<button class="text-secondary hover:text-on-surface"><span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span></button>
+<span class="font-label-caps text-label-caps text-on-surface">October 2023</span>
+<div></div> <!-- Spacer for alignment -->
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-data-mono text-data-mono text-secondary mb-2">
+<div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-data-mono text-data-mono">
+<!-- Empty days before start -->
+<div class="py-1 opacity-0"></div><div class="py-1 opacity-0"></div><div class="py-1 opacity-0"></div><div class="py-1 opacity-0"></div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">1</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">2</div>
+<div class="py-1 text-primary bg-primary-fixed border border-primary cursor-pointer">3</div> <!-- Selected Start -->
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">4</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">5</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">6</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">7</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">8</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">9</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">10</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">11</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">12</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">13</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">14</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">15</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">16</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">17</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">18</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">19</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">20</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">21</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">22</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">23</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">24</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">25</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">26</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">27</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">28</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">29</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">30</div>
+<div class="py-1 text-on-surface bg-surface-container-low cursor-pointer">31</div>
+</div>
+</div>
+<!-- Month 2: November -->
+<div class="flex-1 min-w-[250px]">
+<div class="flex justify-between items-center mb-4">
+<div></div> <!-- Spacer -->
+<span class="font-label-caps text-label-caps text-on-surface">November 2023</span>
+<button class="text-secondary hover:text-on-surface"><span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-data-mono text-data-mono text-secondary mb-2">
+<div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-data-mono text-data-mono">
+<!-- Nov 1 is selected End -->
+<div class="py-1 text-primary bg-primary-fixed border border-primary cursor-pointer">1</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">2</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">3</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">4</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">5</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">6</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">7</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">8</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">9</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">10</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">11</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">12</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">13</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">14</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">15</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">16</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">17</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">18</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">19</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">20</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">21</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">22</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">23</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">24</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">25</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">26</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">27</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">28</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">29</div>
+<div class="py-1 text-on-surface-variant hover:bg-surface-container cursor-pointer">30</div>
+<!-- Empty days after end -->
+<div class="py-1 opacity-0"></div><div class="py-1 opacity-0"></div><div class="py-1 opacity-0"></div><div class="py-1 opacity-0"></div><div class="py-1 opacity-0"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 border-t border-outline-variant flex justify-between items-center bg-surface-container-lowest">
+<div class="font-data-mono text-data-mono text-secondary">
+                        Oct 3, 2023 - Nov 1, 2023
+                    </div>
+<div class="flex space-x-3">
+<button class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-4 py-2 hover:bg-surface-container-low transition-colors">Cancel</button>
+<button class="font-label-caps text-label-caps text-primary border border-primary bg-surface-container-lowest px-4 py-2 hover:bg-primary-fixed transition-colors">Apply</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

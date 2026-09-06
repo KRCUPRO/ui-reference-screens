@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia Enterprise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&amp;family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "inverse-surface": "#313030",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f7f3f2",
+              "on-background": "#1c1b1b",
+              "surface-tint": "#5f5e5e",
+              "on-tertiary-container": "#868382",
+              "surface-container": "#f1edec",
+              "tertiary-container": "#1c1b1a",
+              "primary": "#000000",
+              "surface-bright": "#fdf8f8",
+              "on-secondary-fixed-variant": "#464747",
+              "tertiary-fixed": "#e6e2df",
+              "on-primary-container": "#858383",
+              "inverse-primary": "#c8c6c5",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-primary-fixed-variant": "#474746",
+              "surface-container-highest": "#e5e2e1",
+              "primary-fixed": "#e5e2e1",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#c8c6c6",
+              "on-tertiary-fixed-variant": "#484645",
+              "outline-variant": "#c4c7c7",
+              "surface-container-high": "#ebe7e6",
+              "background": "#fdf8f8",
+              "surface-dim": "#ddd9d8",
+              "on-surface": "#1c1b1b",
+              "surface": "#fdf8f8",
+              "tertiary": "#000000",
+              "secondary-container": "#e4e2e2",
+              "on-error-container": "#93000a",
+              "primary-container": "#1c1b1b",
+              "on-secondary": "#ffffff",
+              "secondary": "#5e5e5e",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#e4e2e2",
+              "on-secondary-container": "#646464",
+              "error": "#ba1a1a",
+              "surface-variant": "#e5e2e1",
+              "on-primary-fixed": "#1c1b1b",
+              "tertiary-fixed-dim": "#cac6c4",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#444748",
+              "primary-fixed-dim": "#c8c6c5",
+              "outline": "#747878",
+              "on-tertiary-fixed": "#1c1b1a",
+              "inverse-on-surface": "#f4f0ef"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "stack-md": "16px",
+              "section-gap": "80px",
+              "gutter": "24px",
+              "unit": "4px",
+              "stack-sm": "8px",
+              "margin-safe": "40px",
+              "stack-lg": "32px"
+            },
+            "fontFamily": {
+              "body-lg": [
+                "EB Garamond"
+              ],
+              "display-lg": [
+                "EB Garamond"
+              ],
+              "display-lg-mobile": [
+                "EB Garamond"
+              ],
+              "label-bold": [
+                "Public Sans"
+              ],
+              "caption": [
+                "Public Sans"
+              ],
+              "body-md": [
+                "EB Garamond"
+              ],
+              "ui-medium": [
+                "Public Sans"
+              ],
+              "headline-md": [
+                "EB Garamond"
+              ]
+            },
+            "fontSize": {
+              "body-lg": [
+                "18px",
+                {
+                  "lineHeight": "28px",
+                  "fontWeight": "400"
+                }
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  "lineHeight": "56px",
+                  "letterSpacing": "-0.02em",
+                  "fontWeight": "500"
+                }
+              ],
+              "display-lg-mobile": [
+                "32px",
+                {
+                  "lineHeight": "40px",
+                  "letterSpacing": "-0.01em",
+                  "fontWeight": "500"
+                }
+              ],
+              "label-bold": [
+                "13px",
+                {
+                  "lineHeight": "16px",
+                  "letterSpacing": "0.05em",
+                  "fontWeight": "700"
+                }
+              ],
+              "caption": [
+                "12px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "400"
+                }
+              ],
+              "body-md": [
+                "16px",
+                {
+                  "lineHeight": "24px",
+                  "fontWeight": "400"
+                }
+              ],
+              "ui-medium": [
+                "14px",
+                {
+                  "lineHeight": "20px",
+                  "fontWeight": "500"
+                }
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  "lineHeight": "32px",
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<header class="w-full top-0 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant z-50 transition-all duration-200">
+<div class="flex justify-between items-center h-16 px-gutter max-w-[1200px] mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">
+                Marginalia Enterprise
+            </div>
+<nav class="hidden md:flex items-center space-x-gutter">
+<a class="text-primary dark:text-primary border-b border-primary hover:text-primary dark:hover:text-primary transition-colors py-2" href="#">
+                        Capabilities
+                    </a>
+<a class="text-secondary dark:text-secondary hover:text-primary dark:hover:text-primary transition-colors py-2" href="#">
+                        Compliance
+                    </a>
+<a class="text-secondary dark:text-secondary hover:text-primary dark:hover:text-primary transition-colors py-2" href="#">
+                        Security
+                    </a>
+<a class="text-secondary dark:text-secondary hover:text-primary dark:hover:text-primary transition-colors py-2" href="#">
+                        Pricing
+                    </a>
+</nav>
+<button class="hidden md:inline-flex items-center justify-center px-4 py-2 border border-primary bg-primary text-on-primary font-ui-medium text-ui-medium rounded-DEFAULT hover:bg-inverse-surface transition-colors">
+                Request Quote
+            </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-margin-safe py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter md:gap-x-20">
+<!-- Left Column: Capabilities & Content -->
+<div class="md:col-span-7 flex flex-col space-y-stack-lg">
+<header class="mb-stack-md">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-stack-md">
+                        Built for regulated teams
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-prose">
+                        Marginalia Enterprise provides the administrative controls, security posture, and dedicated infrastructure required for academic and corporate research at scale.
+                    </p>
+</header>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md">
+<div class="flex items-start space-x-stack-sm">
+<span class="material-symbols-outlined text-primary mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-ui-medium text-ui-medium text-on-surface">SSO/SAML</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Integrate with Okta, Azure AD, or Google Workspace.</p>
+</div>
+</div>
+<div class="flex items-start space-x-stack-sm">
+<span class="material-symbols-outlined text-primary mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-ui-medium text-ui-medium text-on-surface">Custom data retention</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Configure automated deletion policies to meet compliance.</p>
+</div>
+</div>
+<div class="flex items-start space-x-stack-sm">
+<span class="material-symbols-outlined text-primary mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-ui-medium text-ui-medium text-on-surface">Dedicated support SLA</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Guaranteed response times and priority routing.</p>
+</div>
+</div>
+<div class="flex items-start space-x-stack-sm">
+<span class="material-symbols-outlined text-primary mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-ui-medium text-ui-medium text-on-surface">On-prem ingest connectors</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Securely index data behind your firewall.</p>
+</div>
+</div>
+<div class="flex items-start space-x-stack-sm">
+<span class="material-symbols-outlined text-primary mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-ui-medium text-ui-medium text-on-surface">Unlimited documents</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">No caps on library size or annotation volume.</p>
+</div>
+</div>
+<div class="flex items-start space-x-stack-sm">
+<span class="material-symbols-outlined text-primary mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-ui-medium text-ui-medium text-on-surface">Audit logging</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Comprehensive exportable logs of all user activity.</p>
+</div>
+</div>
+<div class="flex items-start space-x-stack-sm">
+<span class="material-symbols-outlined text-primary mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-ui-medium text-ui-medium text-on-surface">Advanced role-based access</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Granular permissions for workspaces and folders.</p>
+</div>
+</div>
+<div class="flex items-start space-x-stack-sm">
+<span class="material-symbols-outlined text-primary mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-ui-medium text-ui-medium text-on-surface">Dedicated infrastructure</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Single-tenant deployment options available.</p>
+</div>
+</div>
+</div>
+<div class="pt-stack-lg border-t border-outline-variant flex flex-wrap gap-stack-md mt-auto">
+<div class="flex items-center space-x-2 bg-surface-container-low border border-outline-variant px-3 py-1 rounded-sm">
+<span class="material-symbols-outlined text-on-surface text-sm">verified_user</span>
+<span class="font-label-bold text-label-bold text-on-surface uppercase">SOC 2 Type II</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container-low border border-outline-variant px-3 py-1 rounded-sm">
+<span class="material-symbols-outlined text-on-surface text-sm">policy</span>
+<span class="font-label-bold text-label-bold text-on-surface uppercase">GDPR Compliant</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container-low border border-outline-variant px-3 py-1 rounded-sm">
+<span class="material-symbols-outlined text-on-surface text-sm">health_and_safety</span>
+<span class="font-label-bold text-label-bold text-on-surface uppercase">HIPAA-ready</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Form -->
+<div class="md:col-span-5 mt-section-gap md:mt-0">
+<div class="bg-surface-bright border border-outline-variant rounded-DEFAULT p-margin-safe h-full flex flex-col justify-center">
+<div class="mb-stack-lg text-center md:text-left">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Request a Quote</h2>
+<p class="font-caption text-caption text-on-surface-variant">Our team will respond within one business day.</p>
+</div>
+<form class="space-y-stack-md">
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-2" for="name">Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-sm px-4 py-2 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-ui-medium text-ui-medium transition-colors" id="name" name="name" type="text"/>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-2" for="email">Work Email</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-sm px-4 py-2 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-ui-medium text-ui-medium transition-colors" id="email" name="email" type="email"/>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-2" for="company_size">Company Size</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-sm px-4 py-2 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-ui-medium text-ui-medium transition-colors appearance-none" id="company_size" name="company_size">
+<option disabled="" selected="" value="">Select size...</option>
+<option value="1-50">1 - 50 employees</option>
+<option value="51-200">51 - 200 employees</option>
+<option value="201-500">201 - 500 employees</option>
+<option value="500+">500+ employees</option>
+</select>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-2" for="message">Message (Optional)</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-sm px-4 py-2 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-ui-medium text-ui-medium transition-colors resize-none" id="message" name="message" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary border border-primary py-3 rounded-DEFAULT font-ui-medium text-ui-medium hover:bg-inverse-surface hover:border-inverse-surface transition-colors mt-stack-md" type="button">
+                            Request a quote
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 bg-surface-container dark:bg-surface-container border-t border-outline-variant dark:border-outline-variant mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg py-stack-lg px-gutter max-w-[1200px] mx-auto font-caption text-caption">
+<div class="flex flex-col space-y-stack-sm md:items-start items-center">
+<span class="font-label-bold text-label-bold uppercase tracking-wider text-on-surface dark:text-on-surface">
+                    Marginalia Enterprise
+                </span>
+<span class="text-on-surface-variant dark:text-on-surface-variant">
+                    © 2024 Marginalia Research. All rights reserved. Professional Edition.
+                </span>
+</div>
+<div class="flex flex-wrap justify-center md:justify-end gap-x-gutter gap-y-stack-sm">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">
+                    Privacy Policy
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">
+                    Terms of Service
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">
+                    Security Whitepaper
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">
+                    Contact Support
+                </a>
+</div>
+</div>
+</footer>
+</body></html>

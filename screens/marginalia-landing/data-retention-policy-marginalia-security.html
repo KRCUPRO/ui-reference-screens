@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia Security Documentation - Data Retention</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-primary-container": "#868383",
+                "container-low": "#f7f3f2",
+                "surface": "#fdf8f8",
+                "secondary": "#5e5e5e",
+                "on-error": "#ffffff",
+                "on-secondary": "#ffffff",
+                "secondary-fixed-dim": "#c7c6c6",
+                "surface-container-low": "#f7f2f2",
+                "surface-container-lowest": "#ffffff",
+                "inverse-primary": "#c9c6c5",
+                "primary-fixed": "#e6e1e1",
+                "primary": "#000000",
+                "on-primary-fixed-variant": "#484646",
+                "on-tertiary-fixed": "#261a00",
+                "secondary-fixed": "#e4e2e2",
+                "on-secondary-fixed-variant": "#464747",
+                "surface-container-high": "#ece7e7",
+                "surface-tint": "#605e5e",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed-variant": "#554422",
+                "outline": "#7d7577",
+                "secondary-container": "#e1dfdf",
+                "on-secondary-fixed": "#1b1c1c",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#c9c6c5",
+                "on-error-container": "#93000a",
+                "surface-variant": "#e6e1e1",
+                "error-container": "#ffdad6",
+                "inverse-on-surface": "#f4f0f0",
+                "tertiary-fixed": "#f9dfb1",
+                "on-secondary-container": "#636262",
+                "on-surface-variant": "#4c4547",
+                "on-surface": "#1c1b1c",
+                "surface-bright": "#fdf8f8",
+                "background": "#fdf8f8",
+                "outline-variant": "#cfc4c6",
+                "surface-dim": "#ddd9d9",
+                "primary-container": "#1c1b1b",
+                "inverse-surface": "#313030",
+                "surface-container-highest": "#e6e1e1",
+                "divider": "#e5e2e1",
+                "surface-container": "#f1eded",
+                "on-background": "#1c1b1c",
+                "on-tertiary-container": "#968159",
+                "on-primary": "#ffffff",
+                "tertiary-fixed-dim": "#dcc497",
+                "on-primary-fixed": "#1c1b1b",
+                "tertiary": "#000000",
+                "tertiary-container": "#261a00"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "gutter": "24px",
+                "section-gap": "80px",
+                "unit": "4px",
+                "margin-safe": "40px",
+                "stack-lg": "32px",
+                "stack-sm": "8px",
+                "stack-md": "16px"
+              },
+              "fontFamily": {
+                "display-lg-mobile": [
+                  "EB Garamond"
+                ],
+                "caption": [
+                  "Public Sans"
+                ],
+                "headline-md": [
+                  "EB Garamond"
+                ],
+                "display-lg": [
+                  "EB Garamond"
+                ],
+                "label-bold": [
+                  "Public Sans"
+                ],
+                "body-md": [
+                  "EB Garamond"
+                ],
+                "body-lg": [
+                  "EB Garamond"
+                ],
+                "ui-medium": [
+                  "Public Sans"
+                ]
+              },
+              "fontSize": {
+                "display-lg-mobile": [
+                  "32px",
+                  {
+                    "lineHeight": "40px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "caption": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "display-lg": [
+                  "48px",
+                  {
+                    "lineHeight": "56px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "label-bold": [
+                  "13px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-md": [
+                  "16px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "body-lg": [
+                  "18px",
+                  {
+                    "lineHeight": "28px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "ui-medium": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "500"
+                  }
+                ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar component -->
+<header class="w-full top-0 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flat no shadows">
+<div class="flex justify-between items-center h-16 px-margin-safe max-w-[1200px] mx-auto">
+<div class="flex items-center gap-stack-lg">
+<div class="text-headline-md font-headline-md text-primary dark:text-on-surface">Marginalia</div>
+<nav class="hidden md:flex gap-stack-lg">
+<a class="font-ui-medium text-ui-medium text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Platform</a>
+<a class="font-ui-medium text-ui-medium text-primary dark:text-on-surface border-b border-primary dark:border-on-surface pb-1 hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Resources</a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Pricing</a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="font-ui-medium text-ui-medium text-primary dark:text-on-surface hover:text-primary dark:hover:text-on-surface transition-colors duration-200 cursor-pointer active:opacity-70 hidden md:block">Sign In</button>
+<button class="font-ui-medium text-ui-medium bg-primary text-on-primary px-4 py-2 hover:opacity-90 transition-opacity duration-200 cursor-pointer active:opacity-70 border border-primary">Request Demo</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-margin-safe py-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Rail Table of Contents -->
+<aside class="md:col-span-3 border-r-0 md:border-r border-divider pr-stack-lg hidden md:block">
+<div class="sticky top-stack-lg">
+<h2 class="font-label-bold text-label-bold text-secondary uppercase tracking-widest mb-stack-lg">Security Documentation</h2>
+<nav class="flex flex-col gap-stack-sm">
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors py-2 px-3 -ml-3 rounded-DEFAULT hover:bg-container-low" href="#">Data encryption</a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors py-2 px-3 -ml-3 rounded-DEFAULT hover:bg-container-low" href="#">Access controls</a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors py-2 px-3 -ml-3 rounded-DEFAULT hover:bg-container-low" href="#">Sub-processors</a>
+<a class="font-ui-medium text-ui-medium text-primary bg-container-low py-2 px-3 -ml-3 rounded-DEFAULT border-l-2 border-primary relative" href="#">
+                        Data retention
+                    </a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors py-2 px-3 -ml-3 rounded-DEFAULT hover:bg-container-low" href="#">Incident response</a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors py-2 px-3 -ml-3 rounded-DEFAULT hover:bg-container-low" href="#">Compliance certifications</a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors py-2 px-3 -ml-3 rounded-DEFAULT hover:bg-container-low" href="#">Vulnerability disclosure</a>
+</nav>
+</div>
+</aside>
+<!-- Main Column -->
+<article class="md:col-span-9 md:pl-stack-lg">
+<div class="max-w-prose">
+<div class="mb-stack-lg">
+<span class="font-label-bold text-label-bold text-secondary uppercase tracking-widest block mb-unit">Policy</span>
+<h1 class="font-display-lg text-display-lg text-primary">Data retention</h1>
+</div>
+<div class="space-y-stack-md font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>
+                        Marginalia enforces strict data retention schedules to ensure research materials are preserved only as long as necessary for academic utility and compliance. Our retention architecture is designed to balance the persistent needs of scholarly archives with fundamental data minimization principles.
+                    </p>
+<p>
+                        Upon the termination of an academic subscription or individual researcher account, an automated cryptographic erasure process is initiated. This process ensures that all primary source documents, annotations, and generated bibliographies are permanently purged from active storage tiers within a defined grace period, preventing residual data exposure.
+                    </p>
+<p>
+                        Certain telemetry and audit logs necessary for security forensics and systemic integrity monitoring are retained on a segregated, immutable ledger. These logs undergo aggressive data masking to obfuscate personally identifiable information (PII) before entering the long-term archiving phase, aligning with international privacy frameworks.
+                    </p>
+</div>
+<div class="mt-section-gap">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-md">Retention Schedule Matrix</h3>
+<div class="border border-divider rounded-DEFAULT overflow-hidden bg-surface-container-lowest">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-divider bg-container-low">
+<th class="py-4 px-6 font-label-bold text-label-bold text-secondary uppercase tracking-widest w-1/2">Data Category</th>
+<th class="py-4 px-6 font-label-bold text-label-bold text-secondary uppercase tracking-widest w-1/2">Retention Period</th>
+</tr>
+</thead>
+<tbody class="font-ui-medium text-ui-medium">
+<tr class="border-b border-divider hover:bg-container-low transition-colors">
+<td class="py-4 px-6 text-primary">Query logs</td>
+<td class="py-4 px-6 text-on-surface-variant font-mono text-sm bg-surface-variant/30 rounded inline-block m-4">30 days</td>
+</tr>
+<tr class="border-b border-divider hover:bg-container-low transition-colors">
+<td class="py-4 px-6 text-primary">Uploaded documents</td>
+<td class="py-4 px-6 text-on-surface-variant font-mono text-sm bg-surface-variant/30 rounded inline-block m-4">until deleted by user</td>
+</tr>
+<tr class="hover:bg-container-low transition-colors">
+<td class="py-4 px-6 text-primary">Audit logs</td>
+<td class="py-4 px-6 text-on-surface-variant font-mono text-sm bg-surface-variant/30 rounded inline-block m-4">1 year</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+</main>
+<!-- Footer component -->
+<footer class="w-full bottom-0 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flat no shadows mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-safe max-w-[1200px] mx-auto gap-stack-md">
+<div class="font-label-bold text-label-bold text-primary dark:text-on-surface opacity-100 hover:opacity-80">
+                Marginalia
+            </div>
+<nav class="flex flex-wrap justify-center gap-x-stack-lg gap-y-stack-sm">
+<a class="font-caption text-caption text-on-surface-variant dark:text-on-surface-variant underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-on-surface-variant dark:text-on-surface-variant underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant dark:text-on-surface-variant underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80" href="#">Institutional Access</a>
+<a class="font-caption text-caption text-on-surface-variant dark:text-on-surface-variant underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80" href="#">API Documentation</a>
+</nav>
+<div class="font-caption text-caption text-on-surface-variant dark:text-on-surface-variant">
+                © 2024 Marginalia Research. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

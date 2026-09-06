@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Case Studies</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-background": "#1a1c1c",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "on-error": "#ffffff",
+                "on-primary": "#ffffff",
+                "surface-container-low": "#f4f3f3",
+                "on-tertiary-fixed": "#1a1c1c",
+                "inverse-on-surface": "#f1f1f1",
+                "surface-container": "#eeeeee",
+                "surface-variant": "#e2e2e2",
+                "surface-container-lowest": "#ffffff",
+                "background": "#f9f9f9",
+                "tertiary-fixed": "#e2e2e2",
+                "secondary-fixed-dim": "#c7c6c6",
+                "error-container": "#ffdad6",
+                "outline-variant": "#c4c7c7",
+                "outline": "#747878",
+                "primary-fixed-dim": "#c8c6c5",
+                "secondary": "#5e5e5e",
+                "inverse-surface": "#2f3131",
+                "on-surface-variant": "#444748",
+                "on-secondary-container": "#646464",
+                "on-error-container": "#93000a",
+                "on-surface": "#1a1c1c",
+                "primary-fixed": "#e5e2e1",
+                "inverse-primary": "#c8c6c5",
+                "secondary-fixed": "#e3e2e2",
+                "surface-container-highest": "#e2e2e2",
+                "surface-tint": "#5f5e5e",
+                "on-secondary-fixed": "#1b1c1c",
+                "on-tertiary-fixed-variant": "#454747",
+                "on-primary-fixed-variant": "#474746",
+                "surface-dim": "#dadada",
+                "surface-bright": "#f9f9f9",
+                "primary-container": "#1c1b1b",
+                "on-primary-fixed": "#1c1b1b",
+                "tertiary-container": "#1a1c1c",
+                "surface": "#f9f9f9",
+                "tertiary": "#000000",
+                "on-tertiary": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-container-high": "#e8e8e8",
+                "on-tertiary-container": "#838484",
+                "on-primary-container": "#858383",
+                "secondary-container": "#e3e2e2",
+                "on-secondary-fixed-variant": "#464747",
+                "primary": "#000000",
+                "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "unit": "8px",
+                "section-padding": "120px",
+                "container-max": "1120px",
+                "gutter": "32px",
+                "margin-mobile": "24px",
+                "margin-page": "32px"
+              },
+              "fontFamily": {
+                "headline-lg-mobile": ["Inter"],
+                "caption": ["Inter"],
+                "headline-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-lg": ["Inter"],
+                "body-md": ["Inter"],
+                "label-caps": ["Inter"],
+                "footer-note": ["Inter"]
+              },
+              "fontSize": {
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                "caption": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                "footer-note": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .font-headline-sm {
+                font-family: 'Inter', sans-serif;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 1.4;
+                letter-spacing: 0.01em;
+            }
+            .text-headline-sm {
+                font-size: 20px;
+                line-height: 1.4;
+                letter-spacing: 0.01em;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col font-sans">
+<!-- TopNavBar -->
+<nav class="bg-surface-container-lowest flex justify-between items-center w-full px-margin-page h-12 max-w-full mx-auto border-b border-primary">
+<div class="font-headline-md text-headline-md font-bold text-primary">
+            Marginalia
+        </div>
+<div class="hidden md:flex space-x-8 items-center h-full">
+<a class="font-body-md text-body-md text-secondary hover:bg-surface-container transition-colors px-2 py-1 flex items-center h-full" href="#">Search</a>
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary hover:bg-surface-container transition-colors px-2 py-1 flex items-center h-full opacity-80" href="#">Archive</a>
+<a class="font-body-md text-body-md text-secondary hover:bg-surface-container transition-colors px-2 py-1 flex items-center h-full" href="#">Sources</a>
+<a class="font-body-md text-body-md text-secondary hover:bg-surface-container transition-colors px-2 py-1 flex items-center h-full" href="#">Integration</a>
+<a class="font-body-md text-body-md text-on-primary bg-primary px-4 py-1 ml-4 hover:bg-surface-container transition-colors" href="#">Sign In</a>
+</div>
+<!-- Mobile Menu Icon (Simplified for structure) -->
+<div class="md:hidden flex items-center">
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1120px] mx-auto px-margin-mobile md:px-gutter py-section-padding">
+<header class="mb-24">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Case Studies</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">Examining the impact of structural knowledge management across disciplines.</p>
+</header>
+<!-- 3-Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+<!-- Card 1 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="h-16 mb-6 flex items-center justify-start opacity-70 group-hover:opacity-100 transition-opacity">
+<!-- Placeholder for Solvay Wordmark -->
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary">SOLVAY BioSciences</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">68% faster literature review</h2>
+<p class="font-body-md text-body-md text-secondary mb-8 flex-grow">Automating citation tracing for complex biological research, reducing manual verification cycles by weeks.</p>
+<div class="flex items-center text-primary font-body-md text-body-md mt-auto">
+<span class="mr-2 group-hover:underline">Read the case study</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="h-16 mb-6 flex items-center justify-start opacity-70 group-hover:opacity-100 transition-opacity">
+<span class="font-headline-sm text-headline-sm font-bold tracking-wide text-primary uppercase">Cormorant Analytics</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Unified intelligence feeds</h2>
+<p class="font-body-md text-body-md text-secondary mb-8 flex-grow">Synthesizing disparate data streams into a single, cohesive timeline for geopolitical risk assessment.</p>
+<div class="flex items-center text-primary font-body-md text-body-md mt-auto">
+<span class="mr-2 group-hover:underline">Read the case study</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="h-16 mb-6 flex items-center justify-start opacity-70 group-hover:opacity-100 transition-opacity">
+<span class="font-headline-sm text-headline-sm font-serif italic text-primary">Fenwick Historical Society</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Preserving primary context</h2>
+<p class="font-body-md text-body-md text-secondary mb-8 flex-grow">Digitizing thousands of fragile manuscripts while maintaining precise spatial relationships between marginalia and text.</p>
+<div class="flex items-center text-primary font-body-md text-body-md mt-auto">
+<span class="mr-2 group-hover:underline">Read the case study</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="h-16 mb-6 flex items-center justify-start opacity-70 group-hover:opacity-100 transition-opacity">
+<span class="font-headline-sm text-headline-sm font-mono tracking-widest text-primary">APEX LEGAL</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Precedent discovery scaled</h2>
+<p class="font-body-md text-body-md text-secondary mb-8 flex-grow">Mapping jurisprudential shifts across decades of case law to identify emerging legal arguments.</p>
+<div class="flex items-center text-primary font-body-md text-body-md mt-auto">
+<span class="mr-2 group-hover:underline">Read the case study</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="h-16 mb-6 flex items-center justify-start opacity-70 group-hover:opacity-100 transition-opacity">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Ostrom Institute</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Mapping policy outcomes</h2>
+<p class="font-body-md text-body-md text-secondary mb-8 flex-grow">Connecting theoretical frameworks to real-world environmental policy results via structured annotation.</p>
+<div class="flex items-center text-primary font-body-md text-body-md mt-auto">
+<span class="mr-2 group-hover:underline">Read the case study</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="h-16 mb-6 flex items-center justify-start opacity-70 group-hover:opacity-100 transition-opacity">
+<span class="font-headline-sm text-headline-sm font-light tracking-widest text-primary uppercase">Lumina Publishing</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Dynamic peer review</h2>
+<p class="font-body-md text-body-md text-secondary mb-8 flex-grow">Transforming static PDF workflows into collaborative, verifiable knowledge graphs for academic journals.</p>
+<div class="flex items-center text-primary font-body-md text-body-md mt-auto">
+<span class="mr-2 group-hover:underline">Read the case study</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full px-margin-page py-4 flex justify-between items-center border-t border-primary mt-auto">
+<div class="font-label-caps text-label-caps font-bold text-primary">
+            MARGINALIA
+        </div>
+<div class="flex space-x-6">
+<a class="font-footer-note text-footer-note text-secondary hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-footer-note text-footer-note text-secondary hover:text-primary transition-colors" href="#">Terms</a>
+<a class="font-footer-note text-footer-note text-secondary hover:text-primary transition-colors" href="#">API</a>
+<a class="font-footer-note text-footer-note text-secondary hover:text-primary transition-colors" href="#">Changelog</a>
+</div>
+<div class="font-footer-note text-footer-note text-secondary hidden md:block">
+            © 2024 Marginalia Systems. All citations verified.
+        </div>
+</footer>
+</body></html>

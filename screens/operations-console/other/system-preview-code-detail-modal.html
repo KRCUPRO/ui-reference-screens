@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Code Editor Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "inverse-on-surface": "#313030",
+                "on-tertiary": "#393000",
+                "on-tertiary-fixed-variant": "#534600",
+                "on-surface": "#e5e2e1",
+                "surface-dim": "#131313",
+                "on-tertiary-fixed": "#211b00",
+                "error": "#ffb4ab",
+                "background": "#131313",
+                "on-surface-variant": "#b9cbc1",
+                "secondary": "#c8c6c5",
+                "secondary-container": "#474746",
+                "outline": "#83958c",
+                "tertiary-fixed-dim": "#e2c62e",
+                "surface-container-high": "#2a2a2a",
+                "on-primary-fixed": "#002116",
+                "primary-fixed": "#36ffc4",
+                "surface-container-lowest": "#0e0e0e",
+                "on-secondary-fixed": "#1c1b1b",
+                "tertiary-container": "#ffe149",
+                "primary-fixed-dim": "#00e1ab",
+                "surface-tint": "#00e1ab",
+                "on-secondary": "#313030",
+                "primary": "#fbfffa",
+                "secondary-fixed": "#e5e2e1",
+                "error-container": "#93000a",
+                "on-primary-fixed-variant": "#00513c",
+                "tertiary": "#fffeff",
+                "inverse-primary": "#006c50",
+                "surface": "#131313",
+                "surface-container-highest": "#353534",
+                "inverse-surface": "#e5e2e1",
+                "on-secondary-fixed-variant": "#474746",
+                "outline-variant": "#3a4a43",
+                "secondary-fixed-dim": "#c8c6c5",
+                "tertiary-fixed": "#ffe253",
+                "primary-container": "#00ffc2",
+                "on-background": "#e5e2e1",
+                "on-tertiary-container": "#746300",
+                "on-secondary-container": "#b7b5b4",
+                "on-primary-container": "#007255",
+                "surface-container-low": "#1c1b1b",
+                "on-error-container": "#ffdad6",
+                "on-error": "#690005",
+                "surface-container": "#201f1f",
+                "surface-bright": "#3a3939",
+                "surface-variant": "#353534",
+                "on-primary": "#003828"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "margin-md": "24px",
+                "margin-sm": "12px",
+                "gutter": "1px",
+                "unit": "4px",
+                "panel-width": "320px"
+              },
+              "fontFamily": {
+                "headline-md": [
+                  "Inter"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "label-mono-xs": [
+                  "JetBrains Mono"
+                ],
+                "headline-lg": [
+                  "Inter"
+                ],
+                "label-mono-sm": [
+                  "JetBrains Mono"
+                ],
+                "data-display": [
+                  "JetBrains Mono"
+                ]
+              },
+              "fontSize": {
+                "headline-md": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "label-mono-xs": [
+                  "10px",
+                  {
+                    "lineHeight": "12px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-lg": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "label-mono-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.02em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "data-display": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "500"
+                  }
+                ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .syntax-keyword { color: #ffb4ab; }
+        .syntax-string { color: #ffe149; }
+        .syntax-tag { color: #00ffc2; }
+        .syntax-attr { color: #b9cbc1; }
+        .syntax-comment { color: #83958c; }
+        .line-number { color: #262626; user-select: none; }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #353534;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen w-screen flex items-center justify-center p-4">
+<!-- Modal Container -->
+<div class="w-full max-w-4xl bg-[#000000] border border-[#262626] rounded-DEFAULT shadow-2xl flex flex-col overflow-hidden">
+<!-- Header / Tabs -->
+<div class="flex items-center justify-between border-b border-[#3a3939] bg-surface-container-lowest px-4 h-12">
+<div class="flex items-center h-full gap-6">
+<!-- Active Tab -->
+<button class="h-full flex items-center border-b-2 border-primary-container text-primary-container font-label-mono-sm text-label-mono-sm px-2">
+                    index.html
+                </button>
+<!-- Inactive Tab -->
+<button class="h-full flex items-center border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-mono-sm text-label-mono-sm px-2 transition-colors">
+                    styles.css
+                </button>
+</div>
+<!-- Toolbar Actions -->
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-DEFAULT text-on-surface-variant hover:text-primary-container hover:bg-[#00ffc21a] transition-all border border-transparent hover:border-[#262626] font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span>
+                    Copy
+                </button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-DEFAULT text-on-surface-variant hover:text-primary-container hover:bg-[#00ffc21a] transition-all border border-transparent hover:border-[#262626] font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+                    Download
+                </button>
+</div>
+</div>
+<!-- Code Editor Body -->
+<div class="flex-1 overflow-auto bg-[#000000] p-4 flex">
+<!-- Gutter (Line Numbers) -->
+<div class="flex flex-col text-right pr-4 border-r border-[#3a3939] font-data-display text-data-display select-none">
+<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+</div>
+<!-- Code Content -->
+<div class="flex-1 pl-4 font-data-display text-data-display whitespace-pre overflow-x-auto">
+<span class="syntax-comment">&lt;!-- Main Application Shell --&gt;</span>
+<span class="syntax-keyword">&lt;div</span> <span class="syntax-attr">class=</span><span class="syntax-string">"app-container"</span><span class="syntax-keyword">&gt;</span>
+<span class="syntax-keyword">&lt;header</span> <span class="syntax-attr">class=</span><span class="syntax-string">"top-bar"</span><span class="syntax-keyword">&gt;</span>
+<span class="syntax-keyword">&lt;h1</span> <span class="syntax-attr">class=</span><span class="syntax-string">"title"</span><span class="syntax-keyword">&gt;</span>CONSOLE_ROOT<span class="syntax-keyword">&lt;/h1&gt;</span>
+<span class="syntax-keyword">&lt;/header&gt;</span>
+<span class="syntax-keyword">&lt;main</span> <span class="syntax-attr">class=</span><span class="syntax-string">"canvas"</span><span class="syntax-keyword">&gt;</span>
+<span class="syntax-comment">/* Style applied from styles.css */</span>
+<span class="syntax-attr">style</span>: {
+            <span class="syntax-tag">background</span>: <span class="syntax-string">var(--surface-strong)</span>; <span class="text-primary-container">&lt;-- accent-ink applied</span>
+        }
+    <span class="syntax-keyword">&lt;/main&gt;</span>
+<span class="syntax-keyword">&lt;/div&gt;</span></div>
+</div>
+<!-- Footer / Status Bar -->
+<div class="flex items-center justify-between border-t border-[#3a3939] bg-surface-container-lowest px-4 py-2 font-label-mono-xs text-label-mono-xs text-on-surface-variant">
+<div class="flex items-center gap-4">
+<span>UTF-8</span>
+<span>HTML</span>
+<span>Ln 9, Col 21</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                Saved
+            </div>
+</div>
+</div>
+</body></html>

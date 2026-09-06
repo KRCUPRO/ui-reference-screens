@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Capabilities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c8c6c5",
+                        "surface-tint": "#5f5e5e",
+                        "surface-container-low": "#f7f2f2",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c4c7c7",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#ddd9d9",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container-high": "#ece7e7",
+                        "inverse-on-surface": "#f4f0f0",
+                        "surface-bright": "#fdf8f8",
+                        "primary": "#000000",
+                        "on-background": "#1c1b1c",
+                        "paper-bright": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary-fixed": "#e4e2e2",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#313030",
+                        "on-surface": "#1c1b1c",
+                        "divider": "#ddd9d8",
+                        "secondary": "#5e5e5e",
+                        "tertiary-fixed": "#e6e2df",
+                        "surface": "#fdf8f8",
+                        "surface-variant": "#e6e1e1",
+                        "outline": "#747878",
+                        "surface-container-highest": "#e6e1e1",
+                        "secondary-container": "#e4e2e2",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "ink-subtle": "#858383",
+                        "on-primary-fixed-variant": "#474746",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "primary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-container": "#868382",
+                        "on-secondary-container": "#646464",
+                        "on-secondary": "#ffffff",
+                        "background": "#fdf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-container": "#f1eded",
+                        "tertiary-container": "#1c1b1a",
+                        "on-primary-container": "#858383",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "column-width": "80px",
+                        "margin-main": "64px",
+                        "margin-sidebar": "32px",
+                        "baseline": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["EB Garamond"],
+                        "ui-label": ["Geist"],
+                        "headline-md": ["EB Garamond"],
+                        "citation-mono": ["JetBrains Mono"],
+                        "display-lg-mobile": ["EB Garamond"],
+                        "body-lg": ["Geist"],
+                        "tag-mono": ["JetBrains Mono"],
+                        "body-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "ui-label": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                        "citation-mono": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }],
+                        "tag-mono": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fdf8f8; /* background */
+            color: #1c1b1c; /* on-background */
+        }
+        .highlight {
+            background-color: #e6e1e1; /* surface-variant */
+            padding: 0 4px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-surface z-50 border-b border-divider flex justify-between items-center px-margin-main h-16 max-w-screen-2xl mx-auto">
+<div class="font-display-lg text-display-lg text-primary">Marginalia</div>
+<div class="hidden md:flex gap-8">
+<a class="text-ink-subtle hover:text-primary transition-colors duration-200 pb-1 font-ui-label text-ui-label" href="#">Archives</a>
+<a class="text-ink-subtle hover:text-primary transition-colors duration-200 pb-1 font-ui-label text-ui-label" href="#">Essays</a>
+<a class="text-ink-subtle hover:text-primary transition-colors duration-200 pb-1 font-ui-label text-ui-label" href="#">Library</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">search</span>
+<button class="font-ui-label text-ui-label bg-primary text-on-primary px-4 py-2 hover:opacity-80 transition-opacity">Sign In</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-24 max-w-screen-xl mx-auto w-full px-margin-main md:px-margin-sidebar">
+<!-- Hero Section -->
+<section class="py-32 flex justify-center items-center text-center border-b border-divider">
+<h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[72px] text-primary max-w-4xl mx-auto tracking-tight">The Architecture of Inquiry</h1>
+</section>
+<!-- Feature Rows Grid System -->
+<div class="flex flex-col">
+<!-- Row 1: Mockup Left, Text Right -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 py-24 border-b border-divider items-center">
+<div class="order-2 md:order-1 bg-surface-container border border-divider p-8 h-96 relative flex flex-col">
+<div class="flex items-center justify-between border-b border-divider pb-4 mb-4">
+<span class="font-ui-label text-ui-label text-secondary">Thematic Nodes</span>
+<span class="material-symbols-outlined text-secondary">account_tree</span>
+</div>
+<div class="space-y-4 flex-grow">
+<div class="p-4 bg-surface border border-divider">
+<p class="font-body-md text-body-md text-primary mb-2">"...a recurring motif of structural integrity..."</p>
+<span class="font-tag-mono text-tag-mono text-ink-subtle border border-divider px-2 py-1 rounded">Node: Alpha</span>
+</div>
+<div class="p-4 bg-surface border border-divider">
+<p class="font-body-md text-body-md text-primary mb-2">"The foundation remains brittle when..."</p>
+<span class="font-tag-mono text-tag-mono text-ink-subtle border border-divider px-2 py-1 rounded">Node: Beta</span>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-6">
+<h2 class="font-headline-md text-headline-md text-primary">Contextual Synthesis</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Aggregate findings across disparate sources with automated thematic grouping and cross-reference mapping.</p>
+<a class="inline-flex items-center gap-2 font-ui-label text-ui-label text-primary hover:text-ink-subtle transition-colors group pb-1 border-b border-primary" href="#">
+                        Learn more
+                        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Row 2: Text Left, Mockup Right -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 py-24 border-b border-divider items-center">
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md text-primary">Granular Citation</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Trace every insight back to its origin with pixel-perfect precision, embedding scholarly proofs directly into your active workspace.</p>
+<a class="inline-flex items-center gap-2 font-ui-label text-ui-label text-primary hover:text-ink-subtle transition-colors group pb-1 border-b border-primary" href="#">
+                        Learn more
+                        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface-container border border-divider p-8 h-96 relative flex flex-col font-body-md text-body-md text-primary leading-relaxed">
+<div class="mb-6 relative">
+<p>The core assertion rests on the premise that historical frameworks are intrinsically tied to linguistic constraints <span class="font-citation-mono text-citation-mono text-ink-subtle ml-1">[p.12]</span>.</p>
+<div class="absolute -right-4 top-0 w-64 bg-surface border border-divider p-3 shadow-sm text-sm translate-x-full hidden lg:block">
+<span class="font-tag-mono text-tag-mono text-secondary block mb-1">Source: Meditations, Book IV</span>
+                            "Our understanding is bounded by the lexicon available..."
+                        </div>
+</div>
+<p>Furthermore, subsequent analysis reveals a pattern of recursive dependencies <span class="highlight">where the observer defines the observation</span> <span class="font-citation-mono text-citation-mono text-ink-subtle ml-1">[cf. 4]</span>.</p>
+</div>
+</section>
+<!-- Row 3: Mockup Left, Text Right -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 py-24 border-b border-divider items-center">
+<div class="order-2 md:order-1 bg-surface-container border border-divider p-8 h-96 relative flex flex-col">
+<div class="border-l-2 border-primary pl-6 py-2 mb-8 relative">
+<span class="absolute -left-3 top-2 w-2 h-2 bg-primary rounded-full"></span>
+<p class="font-body-md text-body-md text-primary">Initial Hypothesis</p>
+<span class="font-tag-mono text-tag-mono text-ink-subtle">Oct 12, 14:30</span>
+</div>
+<div class="border-l-2 border-primary pl-6 py-2 mb-8 relative opacity-80">
+<span class="absolute -left-3 top-2 w-2 h-2 bg-primary rounded-full"></span>
+<p class="font-body-md text-body-md text-primary">Revised Argument</p>
+<span class="font-tag-mono text-tag-mono text-ink-subtle">Oct 14, 09:15</span>
+</div>
+<div class="border-l-2 border-primary pl-6 py-2 relative opacity-60">
+<span class="absolute -left-3 top-2 w-2 h-2 bg-primary rounded-full"></span>
+<p class="font-body-md text-body-md text-primary">Final Thesis</p>
+<span class="font-tag-mono text-tag-mono text-ink-subtle">Oct 15, 11:00</span>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-6">
+<h2 class="font-headline-md text-headline-md text-primary">Recursive Analysis</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Build layered arguments that evolve alongside your research, utilizing non-destructive marginalia to preserve every stage of thought.</p>
+<a class="inline-flex items-center gap-2 font-ui-label text-ui-label text-primary hover:text-ink-subtle transition-colors group pb-1 border-b border-primary" href="#">
+                        Learn more
+                        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Row 4: Text Left, Mockup Right -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 py-24 items-center">
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md text-primary">Archive Intelligence</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Query your entire library through a semantic lens, surfacing connections that standard keyword searches overlook.</p>
+<a class="inline-flex items-center gap-2 font-ui-label text-ui-label text-primary hover:text-ink-subtle transition-colors group pb-1 border-b border-primary" href="#">
+                        Learn more
+                        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface-container border border-divider p-8 h-96 relative flex flex-col">
+<div class="border-b border-primary pb-2 mb-6 flex items-center">
+<span class="material-symbols-outlined text-secondary mr-2">search</span>
+<span class="font-citation-mono text-citation-mono text-primary">query: "structural determinism"</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center py-2 border-b border-divider border-dashed">
+<span class="font-body-md text-body-md text-on-surface-variant">Document A</span>
+<span class="font-tag-mono text-tag-mono text-ink-subtle bg-surface px-2 py-1 rounded">98% match</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-divider border-dashed">
+<span class="font-body-md text-body-md text-on-surface-variant">Document F</span>
+<span class="font-tag-mono text-tag-mono text-ink-subtle bg-surface px-2 py-1 rounded">84% match</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-divider border-dashed">
+<span class="font-body-md text-body-md text-on-surface-variant">Document C</span>
+<span class="font-tag-mono text-tag-mono text-ink-subtle bg-surface px-2 py-1 rounded">76% match</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container border-t border-divider flex flex-col md:flex-row justify-between items-center px-margin-main gap-baseline transition-opacity duration-200">
+<div class="font-display-lg text-display-lg text-primary">Marginalia</div>
+<div class="flex gap-8 items-center font-citation-mono text-citation-mono">
+<span class="text-primary">© 2024 Marginalia Research. All rights reserved.</span>
+<div class="flex gap-4">
+<a class="no-underline text-ink-subtle hover:text-primary transition-colors" href="#">Terms of Inquiry</a>
+<a class="no-underline text-ink-subtle hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="no-underline text-ink-subtle hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

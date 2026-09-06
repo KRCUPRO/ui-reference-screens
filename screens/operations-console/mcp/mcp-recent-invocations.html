@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Console - MCP Invocations</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-secondary-container": "#656464",
+                "on-secondary": "#ffffff",
+                "surface-container-highest": "#e2e2e3",
+                "on-tertiary-fixed": "#360f00",
+                "tertiary-fixed": "#ffdbcd",
+                "inverse-surface": "#2f3132",
+                "background": "#f9f9fa",
+                "secondary-fixed": "#e5e2e1",
+                "on-background": "#1a1c1d",
+                "tertiary-container": "#bc4800",
+                "on-error": "#ffffff",
+                "secondary-container": "#e5e2e1",
+                "surface-container": "#eeeeef",
+                "on-surface-variant": "#434655",
+                "tertiary": "#943700",
+                "on-surface": "#1a1c1d",
+                "on-error-container": "#93000a",
+                "surface-bright": "#f9f9fa",
+                "primary-fixed": "#dbe1ff",
+                "primary-container": "#2563eb",
+                "secondary": "#5f5e5e",
+                "inverse-on-surface": "#f0f1f2",
+                "on-tertiary-fixed-variant": "#7d2d00",
+                "surface-container-low": "#f3f3f4",
+                "error": "#ba1a1a",
+                "outline": "#737686",
+                "on-tertiary": "#ffffff",
+                "error-container": "#ffdad6",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-primary": "#ffffff",
+                "tertiary-fixed-dim": "#ffb596",
+                "primary-fixed-dim": "#b4c5ff",
+                "on-primary-fixed": "#00174b",
+                "surface": "#f9f9fa",
+                "on-primary-container": "#eeefff",
+                "on-tertiary-container": "#ffede6",
+                "surface-dim": "#dadadb",
+                "on-secondary-fixed-variant": "#474646",
+                "surface-container-lowest": "#ffffff",
+                "outline-variant": "#c3c6d7",
+                "on-primary-fixed-variant": "#003ea8",
+                "primary": "#004ac6",
+                "on-secondary-fixed": "#1c1b1b",
+                "inverse-primary": "#b4c5ff",
+                "surface-tint": "#0053db",
+                "surface-variant": "#e2e2e3",
+                "surface-container-high": "#e8e8e9",
+                
+                "status-success": "#166534",
+                "status-success-bg": "#dcfce7",
+                "status-running": "#854d0e",
+                "status-running-bg": "#fef08a",
+                "status-failed": "#991b1b",
+                "status-failed-bg": "#fee2e2",
+                "status-queued": "#374151",
+                "status-queued-bg": "#f3f4f6"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "stack-md": "16px",
+                "inset-squish": "8px 12px",
+                "stack-sm": "8px",
+                "stack-lg": "32px",
+                "gutter": "32px",
+                "margin-page": "48px",
+                "inset-stretch": "16px 12px"
+              },
+              "fontFamily": {
+                "label-sm": ["Public Sans"],
+                "headline-lg": ["Public Sans"],
+                "body-md": ["Public Sans"],
+                "headline-lg-mobile": ["Public Sans"],
+                "body-lg": ["Public Sans"],
+                "title-md": ["Public Sans"],
+                "display": ["Public Sans"],
+                "code-md": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "code-md": ["13px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-8 px-4 z-20 hidden md:flex">
+<div class="mb-8 px-2 flex items-center gap-3">
+<img alt="System Console" class="w-8 h-8 rounded object-cover" data-alt="A sleek, minimalist geometric logo representing a system console, featuring overlapping squares in deep blue and white, set against a pristine white background. The design is precise and architectural." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPY6T813gvCYePYRT9-tmmxZkLit5eULUXEU3UhCfeZ2mjLxuPPzvA9cEUaC3MFriTxADAdPHBKhcCU1nujRaV8ToSGaZA54vKF2--r5c0HtlAUMoqnuszrYhrU63ExDhaNx1Hg-sV3UXewva4k4nA4ceJtIH2n5f6ERbx8ql4_-e-ya64LTQvvz-5G-xS2mbB1RyrTKnrpxC03tN-QVNYWpbKALSl3Lsm4Gy0gJM-g939-CpZgjRSSGwA4UZ1uE9r3tJ4VjAdl3Q"/>
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface text-[20px] leading-tight">System Console</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">v2.4.0</p>
+</div>
+</div>
+<ul class="flex-1 flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+                    Overview
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="vpn_key">vpn_key</span>
+                    Keys
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="monitor">monitor</span>
+                    Screens
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="palette">palette</span>
+                    Design
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-primary font-bold border-r-2 border-primary bg-primary-fixed-dim bg-opacity-20 hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="terminal">terminal</span>
+                    MCP
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="science">science</span>
+                    Playground
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="list_alt">list_alt</span>
+                    Logs
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:bg-surface-container-high transition-colors duration-150 ease-in-out font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-16 bg-surface border-b border-outline-variant flex items-center justify-between px-gutter w-full z-10 transition-opacity duration-200">
+<div class="flex items-center md:hidden">
+<span class="font-title-md text-title-md text-primary font-bold">System Console</span>
+</div>
+<div class="hidden md:flex flex-1 justify-end items-center max-w-md ml-auto mr-4">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg pl-10 pr-4 py-1.5 font-body-md text-body-md focus:outline-none focus:border-on-surface focus:ring-1 focus:ring-on-surface transition-colors placeholder:text-on-surface-variant" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity p-1">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity p-1">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<img alt="Administrator" class="w-8 h-8 rounded-full border border-outline-variant object-cover ml-2" data-alt="A professional headshot of a system administrator in a brightly lit, modern office environment. The lighting is crisp and even, contributing to a high-contrast, clean light-mode aesthetic. The individual is looking forward confidently." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgHDcxlvmy4A1iX_bxottDgEISUMtG4WfBJz-KM0i2nyKD7h-kYX5kJ1nystrCvyi9krPN22H2tftgt8XG_5pVd3-pmC1AebCgtU6nfqoBOAMRRHHKD_Z7FXwbBsfnxF9kv8hppl9orpiWdfcTmAuE9-xjyC06yQEofWT98HoL4MvOu_je77rZsvOh4dLV5_T5cA2hdiD-p-wPawBeQc57-ln-JqcQuD3Vy668xBPOWYFtL-tshx6im7FfjgALYPRUpfNfZgjh32Q"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 ml-0 md:ml-64 mt-16 p-margin-page overflow-auto">
+<div class="max-w-6xl mx-auto">
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Recent Invocations</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Real-time monitoring of MCP tool executions.</p>
+</div>
+<button class="px-4 py-2 border border-on-surface rounded-DEFAULT font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low transition-colors">
+                    Export Logs
+                </button>
+</div>
+<!-- Table Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low">
+<th class="py-3 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tool Name</th>
+<th class="py-3 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Timestamp</th>
+<th class="py-3 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="py-3 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Duration</th>
+<th class="py-3 px-4 w-8"></th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="py-3 px-4 font-code-md text-code-md text-on-surface">generate_screen_from_text</td>
+<td class="py-3 px-4 text-on-surface-variant">2026-09-04 09:12</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-DEFAULT bg-status-success-bg text-status-success font-label-sm text-[11px] border border-status-success/20">
+                                    Succeeded
+                                </span>
+</td>
+<td class="py-3 px-4 text-right font-code-md text-code-md text-on-surface">1.2s</td>
+<td class="py-3 px-4 text-right text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group cursor-pointer bg-surface-bright">
+<td class="py-3 px-4 font-code-md text-code-md text-on-surface">edit_screen</td>
+<td class="py-3 px-4 text-on-surface-variant">2026-09-04 09:10</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-DEFAULT bg-status-running-bg text-status-running font-label-sm text-[11px] border border-status-running/20">
+<span class="w-1.5 h-1.5 rounded-full bg-status-running pulse-dot block"></span>
+                                    Running
+                                </span>
+</td>
+<td class="py-3 px-4 text-right font-code-md text-code-md text-on-surface">450ms</td>
+<td class="py-3 px-4 text-right text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="py-3 px-4 font-code-md text-code-md text-on-surface">fetch_logs</td>
+<td class="py-3 px-4 text-on-surface-variant">2026-09-04 09:08</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-DEFAULT bg-status-success-bg text-status-success font-label-sm text-[11px] border border-status-success/20">
+                                    Succeeded
+                                </span>
+</td>
+<td class="py-3 px-4 text-right font-code-md text-code-md text-on-surface">890ms</td>
+<td class="py-3 px-4 text-right text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group cursor-pointer bg-surface-bright">
+<td class="py-3 px-4 font-code-md text-code-md text-on-surface">analyze_metrics</td>
+<td class="py-3 px-4 text-on-surface-variant">2026-09-04 09:05</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-DEFAULT bg-status-failed-bg text-status-failed font-label-sm text-[11px] border border-status-failed/20">
+                                    Failed
+                                </span>
+</td>
+<td class="py-3 px-4 text-right font-code-md text-code-md text-on-surface">2.1s</td>
+<td class="py-3 px-4 text-right text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="py-3 px-4 font-code-md text-code-md text-on-surface">sync_nodes</td>
+<td class="py-3 px-4 text-on-surface-variant">2026-09-04 09:02</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-DEFAULT bg-status-success-bg text-status-success font-label-sm text-[11px] border border-status-success/20">
+                                    Succeeded
+                                </span>
+</td>
+<td class="py-3 px-4 text-right font-code-md text-code-md text-on-surface">340ms</td>
+<td class="py-3 px-4 text-right text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer bg-surface-bright">
+<td class="py-3 px-4 font-code-md text-code-md text-on-surface">provision_env</td>
+<td class="py-3 px-4 text-on-surface-variant">2026-09-04 09:00</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-DEFAULT bg-status-queued-bg text-status-queued font-label-sm text-[11px] border border-status-queued/20">
+                                    Queued
+                                </span>
+</td>
+<td class="py-3 px-4 text-right font-code-md text-code-md text-on-surface-variant">--</td>
+<td class="py-3 px-4 text-right text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination/Footer -->
+<div class="mt-4 flex items-center justify-between text-on-surface-variant font-body-md text-body-md">
+<span>Showing 1 to 6 of 24 entries</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface-container-low transition-colors text-on-surface">Next</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Console - Live Logs Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-container-low": "#1a1c1c",
+                "secondary-fixed": "#00fbfb",
+                "on-tertiary": "#313030",
+                "surface-variant": "#343535",
+                "tertiary-fixed-dim": "#c8c6c5",
+                "primary": "#ffabf3",
+                "on-error": "#690005",
+                "on-tertiary-fixed-variant": "#474646",
+                "surface-bright": "#383939",
+                "on-secondary": "#003737",
+                "on-primary-fixed": "#380038",
+                "inverse-primary": "#a900a9",
+                "tertiary": "#c8c6c5",
+                "on-secondary-fixed": "#002020",
+                "surface-container-high": "#292a2a",
+                "tertiary-container": "#939191",
+                "on-secondary-container": "#007070",
+                "surface-container-highest": "#343535",
+                "primary-container": "#ff00ff",
+                "surface": "#121414",
+                "on-primary-container": "#510051",
+                "on-surface-variant": "#dcbed4",
+                "on-secondary-fixed-variant": "#004f4f",
+                "tertiary-fixed": "#e5e2e1",
+                "primary-fixed-dim": "#ffabf3",
+                "secondary-fixed-dim": "#00dddd",
+                "inverse-on-surface": "#2f3131",
+                "surface-tint": "#ffabf3",
+                "surface-dim": "#121414",
+                "inverse-surface": "#e3e2e2",
+                "surface-container": "#1e2020",
+                "outline": "#a4899d",
+                "on-tertiary-fixed": "#1c1b1b",
+                "on-surface": "#e3e2e2",
+                "on-error-container": "#ffdad6",
+                "surface-container-lowest": "#0d0e0f",
+                "on-primary": "#5b005b",
+                "secondary-container": "#00fbfb",
+                "primary-fixed": "#ffd7f5",
+                "on-tertiary-container": "#2b2a2a",
+                "outline-variant": "#564052",
+                "secondary": "#ffffff",
+                "error-container": "#93000a",
+                "on-primary-fixed-variant": "#810081",
+                "background": "#121414",
+                "on-background": "#e3e2e2",
+                "error": "#ffb4ab"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "gutter": "32px",
+                "margin-mobile": "20px",
+                "stack-unit": "8px",
+                "margin-desktop": "64px",
+                "container-max": "1440px"
+              },
+              "fontFamily": {
+                "headline-lg-mobile": [
+                  "Geist"
+                ],
+                "label-mono": [
+                  "JetBrains Mono"
+                ],
+                "headline-lg": [
+                  "Geist"
+                ],
+                "headline-xl": [
+                  "Geist"
+                ],
+                "body-sm": [
+                  "Geist"
+                ],
+                "body-md": [
+                  "Geist"
+                ]
+              },
+              "fontSize": {
+                "headline-lg-mobile": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "fontWeight": "600"
+                  }
+                ],
+                "label-mono": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "headline-lg": [
+                  "32px",
+                  {
+                    "lineHeight": "40px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "headline-xl": [
+                  "48px",
+                  {
+                    "lineHeight": "56px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-sm": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "body-md": [
+                  "16px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "400"
+                  }
+                ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        /* Base styles */
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+
+        /* Tonal Layering & Ghost Outlines */
+        .card-level-1 {
+            background-color: theme('colors.surface-container-low');
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .active-element {
+            border: 1px solid theme('colors.primary');
+        }
+        
+        .active-gradient {
+            background: linear-gradient(to right, theme('colors.primary'), theme('colors.secondary-fixed'));
+        }
+        
+        .glass-panel {
+            background: rgba(18, 20, 20, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Neon Glow Effect */
+        .neon-glow {
+            box-shadow: 0 0 10px rgba(0, 251, 251, 0.4), 0 0 20px rgba(0, 251, 251, 0.2);
+        }
+        .neon-glow-primary {
+             box-shadow: 0 0 10px rgba(255, 171, 243, 0.4), 0 0 20px rgba(255, 171, 243, 0.2);
+        }
+
+        /* Custom Scrollbar for Terminal */
+        .terminal-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .terminal-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .terminal-scroll::-webkit-scrollbar-thumb {
+            background-color: theme('colors.surface-variant');
+            border-radius: theme('borderRadius.full');
+        }
+
+        /* Draggable Window */
+        #draggable-window {
+            cursor: default;
+        }
+        .drag-handle {
+            cursor: grab;
+        }
+        .drag-handle:active {
+            cursor: grabbing;
+        }
+        
+        /* Slider styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: theme('colors.secondary-fixed');
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 8px rgba(0, 251, 251, 0.6);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: theme('colors.surface-variant');
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-hidden flex font-body-md text-body-md bg-background text-on-background">
+<!-- JSON: SideNavBar -->
+<nav class="w-80 h-screen fixed left-0 top-0 border-r border-white/10 flat no shadows bg-surface-container flex flex-col py-10 px-0 gap-8 z-50">
+<div class="px-8 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/10 shrink-0">
+<img class="w-full h-full object-cover" data-alt="A highly detailed close-up of a futuristic cybernetic system operator avatar. The avatar is wearing high-tech sleek dark grey gear with glowing cyan neon accents. The lighting is cinematic, high-key, creating a moody, hyper-modern, and technically precise aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuIF0cnG45syv-oalm1yawmt3K5Vfb12mkP6kpDM-XQIauL89AlctA3qWyH1ZUui_Cn83gNifMfKZ7EoKzI1r0NSbo1Qobf1_T9eEy3WasZZaK8KnUE5z6LVvLIrAviWZendHIxzjjegTtRcGqbUn0fqIDh9qh83AAjoSYjU9e-SfvffI3HXEanmTE3pSzi2Gv0vTCTT5YtV5wLYaIRxLhDh3DBEWlEqkGG3D9G7b3o_M3uJFiFg_Gq9HmpXNEu0W87-gHq30-AwI"/>
+</div>
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-secondary-fixed">System Console</h1>
+<p class="font-label-mono text-label-mono text-on-surface-variant">V-2.4 Active</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4 flex-grow">
+<!-- Active Navigation Logic: The user is looking at "Core Metrics" (overview) -->
+<a class="text-primary font-bold border-l-2 border-primary pl-6 bg-gradient-to-r from-primary/10 to-transparent flex items-center gap-3 py-3 scale-95 duration-150 ease-in-out hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+                Core Metrics
+            </a>
+<a class="text-on-surface-variant font-medium pl-8 transition-colors duration-200 flex items-center gap-3 py-3 scale-95 duration-150 ease-in-out hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">hub</span>
+                Network Grid
+            </a>
+<a class="text-on-surface-variant font-medium pl-8 transition-colors duration-200 flex items-center gap-3 py-3 scale-95 duration-150 ease-in-out hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">security</span>
+                Security Logs
+            </a>
+<a class="text-on-surface-variant font-medium pl-8 transition-colors duration-200 flex items-center gap-3 py-3 scale-95 duration-150 ease-in-out hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">memory</span>
+                Hardware Status
+            </a>
+<a class="text-on-surface-variant font-medium pl-8 transition-colors duration-200 flex items-center gap-3 py-3 scale-95 duration-150 ease-in-out hover:text-primary hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Admin Tools
+            </a>
+</div>
+<div class="px-8 mt-auto">
+<button class="w-full active-gradient text-on-secondary-fixed font-bold py-3 rounded uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">Deploy Update</button>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<a class="text-on-surface-variant font-medium pl-8 transition-colors duration-200 flex items-center gap-3 py-2 text-sm hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+                Documentation
+            </a>
+<a class="text-on-surface-variant font-medium pl-8 transition-colors duration-200 flex items-center gap-3 py-2 text-sm hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">terminal</span>
+                Terminal
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-80 flex-1 relative w-full h-screen overflow-hidden">
+<!-- JSON: TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-320px)] z-40 bg-surface/80 backdrop-blur-xl border-b border-white/5 flat no shadows flex justify-between items-center h-20 px-16">
+<!-- Navigation Links -->
+<div class="flex gap-8 items-center h-full">
+<a class="text-on-surface-variant font-medium hover:text-secondary-fixed transition-colors h-full flex items-center" href="#">Cluster-A</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary-fixed transition-colors h-full flex items-center" href="#">Node-Alpha</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 h-full flex items-center opacity-80 scale-98 transition-all" href="#">Live Feed</a>
+</div>
+<!-- Trailing Actions & Search -->
+<div class="flex items-center gap-6">
+<!-- Search -->
+<div class="relative group">
+<input class="bg-surface-container-low border-0 border-b border-white/20 focus:ring-0 focus:border-secondary-fixed text-on-surface w-64 py-2 pl-10 pr-4 transition-colors font-label-mono text-label-mono placeholder-on-surface-variant" placeholder="Search parameters..." type="text"/>
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary-fixed transition-colors">search</span>
+</div>
+<button class="text-on-surface-variant hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined">settings_input_component</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">power_settings_new</span>
+</button>
+</div>
+</header>
+<!-- Canvas Area / Background -->
+<div class="pt-20 w-full h-full p-gutter flex flex-col relative" data-alt="A highly detailed, ultra-wide view of a complex digital data dashboard interface hovering in a dark cyberspace environment. The background features deep charcoal and obsidian tones, intersected by glowing cyan and magenta data streams, geometric wireframes, and subtle holographic light leaks. The aesthetic is hyper-modern, technical minimalism infused with cyberpunk elements, conveying extreme precision and high-speed data processing." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4OEpeLiBZ0QJv8GY5ObA69lTYEtlsNmQIsOlADCpTiRiXTvIgfQ21VJjKZ3_WqICiol8RiGNMpc0wlZ2Rr4D8sKuED2nr8bVaAg9c4cIkru_w8Jz7xPujwgGZxRB2O8ZjgxWZwa1X5lYLBi_EQ7dOWhtaVUjVj7i13PvuMKatepb7AHGg7eb11L7b5FsVEJRI6ib6x4Pcyd7MD57Cl6MS0SrPRu3iW_-IUDGcb09BTScbDia3OOhYQToGCuUwmrdkmOAfdBSaYOQ'); background-size: cover; background-position: center;">
+<!-- Underlay Dashboard Content (Simplified for context) -->
+<div class="grid grid-cols-12 gap-gutter w-full max-w-container-max mx-auto mt-margin-desktop opacity-50 pointer-events-none">
+<div class="col-span-4 card-level-1 h-64 rounded flex flex-col p-6 gap-4">
+<h3 class="font-label-mono text-label-mono text-on-surface-variant uppercase">CPU Load</h3>
+<div class="text-headline-xl font-headline-xl text-primary font-bold mt-auto">84%</div>
+</div>
+<div class="col-span-8 card-level-1 h-64 rounded flex flex-col p-6 gap-4">
+<h3 class="font-label-mono text-label-mono text-on-surface-variant uppercase">Network Traffic</h3>
+<!-- Abstract visualization placeholder -->
+<div class="flex-1 w-full flex items-end gap-2 overflow-hidden pb-4">
+<div class="w-8 bg-secondary-fixed h-1/3 opacity-40"></div>
+<div class="w-8 bg-secondary-fixed h-2/3 opacity-60"></div>
+<div class="w-8 bg-secondary-fixed h-1/2 opacity-80"></div>
+<div class="w-8 bg-primary h-full neon-glow-primary"></div>
+<div class="w-8 bg-secondary-fixed h-3/4 opacity-60"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Draggable Floating Window: Live Logs -->
+<div class="absolute bottom-12 right-12 w-[480px] glass-panel rounded-lg shadow-2xl flex flex-col z-50 overflow-visible transition-opacity duration-200" id="draggable-window" style="opacity: 0.85;">
+<!-- Window Header (Title Bar) -->
+<div class="flex items-center justify-between p-3 border-b border-white/10 bg-surface-container-high/50 rounded-t-lg select-none drag-handle">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">drag_indicator</span>
+<span class="font-label-mono text-label-mono font-bold text-secondary-fixed tracking-wider">LIVE LOGS</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Opacity Toggle (Trigger for Popover) -->
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1 relative group" id="opacity-toggle">
+<span class="material-symbols-outlined text-sm">opacity</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary-fixed transition-colors p-1">
+<span class="material-symbols-outlined text-sm">push_pin</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+<!-- Opacity Popover (Open state) -->
+<div class="absolute top-12 right-12 w-48 card-level-1 rounded p-4 z-50 border border-primary/30 neon-glow-primary flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-label-mono text-on-surface-variant">Opacity</span>
+<span class="font-label-mono text-label-mono text-secondary-fixed">85%</span>
+</div>
+<input class="w-full" max="100" min="10" type="range" value="85"/>
+</div>
+<!-- Terminal Content Area -->
+<div class="bg-[#0a0b0b] p-4 h-64 overflow-y-auto terminal-scroll font-label-mono text-label-mono leading-relaxed flex flex-col gap-1">
+<div class="text-on-surface-variant opacity-50 mb-2">Initialize log stream... connected.</div>
+<div class="flex gap-4">
+<span class="text-surface-variant shrink-0">14:32:04</span>
+<span class="text-on-surface">System diagnostic sequence initiated.</span>
+</div>
+<div class="flex gap-4">
+<span class="text-surface-variant shrink-0">14:32:05</span>
+<span class="text-on-surface">Establishing secure handshake... OK.</span>
+</div>
+<!-- Target Log Lines -->
+<div class="flex gap-4 mt-1">
+<span class="text-surface-variant shrink-0">14:32:07</span>
+<span class="text-secondary-fixed font-bold bg-secondary-fixed/10 px-1 rounded">INFO</span>
+<span class="text-on-surface">key-beta-02 rpm <span class="text-secondary-fixed">42 of 60</span></span>
+</div>
+<div class="flex gap-4 mt-1">
+<span class="text-surface-variant shrink-0">14:32:09</span>
+<span class="text-[#ffb4ab] font-bold bg-[#ffb4ab]/10 px-1 rounded">WARN</span>
+<span class="text-on-surface">key-gamma-03 cooldown <span class="text-[#ffb4ab]">12s</span></span>
+</div>
+<div class="flex gap-4">
+<span class="text-surface-variant shrink-0">14:32:11</span>
+<span class="text-on-surface">Awaiting further instructions...</span>
+</div>
+<!-- Cursor -->
+<div class="w-2 h-4 bg-primary animate-pulse mt-2 neon-glow-primary"></div>
+</div>
+<!-- Mini Toolbar (Bottom) -->
+<div class="border-t border-white/10 bg-surface-container-low/80 p-2 flex justify-between items-center rounded-b-lg">
+<div class="flex gap-2">
+<button class="p-1.5 rounded hover:bg-surface-variant transition-colors text-on-surface-variant" title="Clear">
+<span class="material-symbols-outlined text-sm">delete_sweep</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-variant transition-colors text-on-surface-variant" title="Filter">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+</div>
+<div class="flex gap-2">
+<!-- Paused active state -->
+<button class="p-1.5 rounded bg-primary/20 border border-primary text-primary transition-colors flex items-center gap-1 px-2" title="Stream Paused">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">pause</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Paused</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple drag functionality for demonstration
+        const dragItem = document.querySelector("#draggable-window");
+        const dragHandle = document.querySelector(".drag-handle");
+        
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        dragHandle.addEventListener("mousedown", dragStart);
+        document.addEventListener("mouseup", dragEnd);
+        document.addEventListener("mousemove", drag);
+
+        function dragStart(e) {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+            if (e.target.closest('.drag-handle') && !e.target.closest('button')) {
+                isDragging = true;
+            }
+        }
+
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                xOffset = currentX;
+                yOffset = currentY;
+                setTranslate(currentX, currentY, dragItem);
+            }
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+        }
+    </script>
+</body></html>

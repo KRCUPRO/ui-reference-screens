@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Keyboard Shortcuts - Technical Gateway</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration (Directly from provided JSON/Instructions) -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "surface-variant": "#d8e3fb",
+              "surface-tint": "#0054d6",
+              "on-secondary-fixed": "#0d1c2e",
+              "inverse-primary": "#b3c5ff",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#dee8ff",
+              "outline-variant": "#c2c6d8",
+              "tertiary": "#565a5b",
+              "secondary-container": "#d5e3fc",
+              "surface-container-highest": "#d8e3fb",
+              "on-tertiary-fixed-variant": "#444749",
+              "primary-fixed-dim": "#b3c5ff",
+              "secondary": "#515f74",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f0f3ff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#c4c7c9",
+              "inverse-on-surface": "#ecf1ff",
+              "on-primary-fixed": "#001849",
+              "background": "#f9f9ff",
+              "surface": "#f9f9ff",
+              "secondary-fixed-dim": "#b9c7df",
+              "primary-container": "#0066ff",
+              "surface-bright": "#f9f9ff",
+              "outline": "#727687",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#3a485b",
+              "on-background": "#111c2d",
+              "on-tertiary-container": "#f6f8fa",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#003fa4",
+              "tertiary-container": "#6f7274",
+              "on-tertiary-fixed": "#191c1e",
+              "on-surface": "#111c2d",
+              "on-primary-container": "#f8f7ff",
+              "on-surface-variant": "#424656",
+              "on-secondary-container": "#57657a",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#d5e3fc",
+              "inverse-surface": "#263143",
+              "error": "#ba1a1a",
+              "tertiary-fixed": "#e0e3e5",
+              "surface-dim": "#cfdaf2",
+              "surface-container": "#e7eeff",
+              "primary": "#0050cb",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#dae1ff"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            "spacing": {
+              "xs": "4px",
+              "gutter": "24px",
+              "lg": "24px",
+              "xl": "48px",
+              "container-max": "1280px",
+              "sm": "8px",
+              "md": "16px",
+              "base": "4px"
+            },
+            "fontFamily": {
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-lg": ["Inter"],
+              "mono-sm": ["JetBrains Mono"],
+              "headline-lg-mobile": ["Inter"],
+              "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+              "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+              "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+              "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+              "mono-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+              "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .filled-icon {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      
+      /* Keyboard Key Styling */
+      .kbd-key {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 24px;
+        height: 24px;
+        padding: 0 6px;
+        border-radius: 4px;
+        background-color: #f1f5f9; /* Fallback if not using config vars directly */
+        border: 1px solid #e2e8f0;
+        border-bottom-width: 2px;
+        color: #424656;
+      }
+      
+      /* Dimming overlay */
+      .modal-overlay {
+        background-color: rgba(17, 28, 45, 0.4);
+        backdrop-filter: blur(4px);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen w-screen overflow-hidden flex font-body-md">
+<!-- Mock Background App (Dimmed) -->
+<div class="fixed inset-0 z-0 flex pointer-events-none filter blur-[2px] opacity-70">
+<!-- SideNav Mock -->
+<aside class="bg-surface-container-low docked h-screen w-64 left-0 flex flex-col h-full p-md border-r border-outline-variant">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface">Gateway Console</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Admin v2.4</p>
+</div>
+<!-- Mock items -->
+<div class="space-y-sm">
+<div class="h-10 bg-secondary-container rounded-lg"></div>
+<div class="h-10 bg-surface-container-highest rounded-lg opacity-50"></div>
+<div class="h-10 bg-surface-container-highest rounded-lg opacity-50"></div>
+</div>
+</aside>
+<!-- Main Content Area Mock -->
+<main class="flex-1 flex flex-col">
+<!-- TopAppBar Mock -->
+<header class="bg-surface docked full-width top-0 border-b border-outline-variant flex justify-between items-center px-lg h-16 w-full">
+<div class="flex items-center gap-md">
+<span class="font-headline-md text-headline-md text-primary font-bold">Technical Gateway</span>
+</div>
+</header>
+<div class="flex-1 p-xl">
+<!-- Mock Dashboard Content -->
+<div class="grid grid-cols-3 gap-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg h-48"></div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg h-48 col-span-2"></div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg h-96 col-span-3"></div>
+</div>
+</div>
+</main>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center modal-overlay p-lg md:p-xl transition-opacity duration-300">
+<!-- Modal Container -->
+<div class="bg-surface-container-lowest w-full max-w-5xl rounded-xl shadow-[0px_8px_32px_rgba(0,0,0,0.12)] border border-outline-variant flex flex-col max-h-full overflow-hidden transform transition-transform duration-300 scale-100">
+<!-- Modal Header -->
+<div class="flex items-center justify-between p-lg border-b border-outline-variant shrink-0">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span aria-hidden="true" class="material-symbols-outlined">keyboard</span>
+                    Keyboard Shortcuts
+                </h2>
+<button aria-label="Close shortcuts" class="p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors focus:ring-2 focus:ring-primary outline-none" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="px-lg pt-lg pb-md shrink-0 border-b border-surface-container-high">
+<div class="relative w-full max-w-md">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="block w-full pl-xl pr-md py-sm bg-surface text-on-surface border border-outline-variant rounded-lg font-body-md text-body-md placeholder-outline focus:border-primary focus:ring-1 focus:ring-primary transition-colors focus:outline-none" placeholder="Search shortcuts..." type="text"/>
+</div>
+</div>
+<!-- Modal Content (Grid) -->
+<div class="p-lg overflow-y-auto flex-1">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<!-- Navigation Column -->
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-md pb-xs border-b border-outline-variant/50">Navigation</h3>
+<ul class="space-y-sm">
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Go to Dashboard</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">G</kbd>
+<span class="text-on-surface-variant text-xs">then</span>
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">D</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Go to Gateways</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">G</kbd>
+<span class="text-on-surface-variant text-xs">then</span>
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">G</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Go to Analytics</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">G</kbd>
+<span class="text-on-surface-variant text-xs">then</span>
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">A</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Go to Logs</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">G</kbd>
+<span class="text-on-surface-variant text-xs">then</span>
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">L</kbd>
+</div>
+</li>
+</ul>
+</div>
+<!-- Actions Column -->
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-md pb-xs border-b border-outline-variant/50">Actions</h3>
+<ul class="space-y-sm">
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Open command palette</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">⌘</kbd>
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">K</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Toggle service pause</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">P</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Create new gateway</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">N</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Export configuration</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">⌘</kbd>
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">E</kbd>
+</div>
+</li>
+</ul>
+</div>
+<!-- Logs Column -->
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-md pb-xs border-b border-outline-variant/50">Logs</h3>
+<ul class="space-y-sm">
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Clear console</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">⌘</kbd>
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">L</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Toggle auto-scroll</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">S</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Filter errors</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">F</kbd>
+</div>
+</li>
+<li class="flex items-center justify-between py-xs group hover:bg-surface-container-low px-xs -mx-xs rounded transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Download logs</span>
+<div class="flex items-center gap-xs font-mono-sm text-mono-sm">
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">⌘</kbd>
+<kbd class="kbd-key bg-surface-container-high border-outline-variant">D</kbd>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="bg-surface-container-low p-md flex items-center justify-center border-t border-outline-variant shrink-0">
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+                    Press <kbd class="kbd-key bg-surface-container-highest border-outline-variant text-xs h-5 min-w-[20px] px-1">?</kbd> to reopen this sheet anytime
+                </p>
+</div>
+</div>
+</div>
+</body></html>

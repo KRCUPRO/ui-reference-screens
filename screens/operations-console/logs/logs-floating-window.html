@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OpsConsole - Floating Logs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#131313",
+                        "secondary-container": "#00a572",
+                        "tertiary-container": "#ff5451",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#002113",
+                        "surface-bright": "#393939",
+                        "on-tertiary": "#68000a",
+                        "on-surface": "#e5e2e1",
+                        "secondary-fixed": "#6ffbbe",
+                        "error": "#ffb4ab",
+                        "surface": "#131313",
+                        "surface-tint": "#adc6ff",
+                        "on-tertiary-container": "#5c0008",
+                        "on-surface-variant": "#c2c6d6",
+                        "background": "#131313",
+                        "outline-variant": "#424754",
+                        "secondary": "#4edea3",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "inverse-primary": "#005ac2",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#adc6ff",
+                        "primary": "#adc6ff",
+                        "on-primary-container": "#00285d",
+                        "on-secondary-container": "#00311f",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-on-surface": "#313030",
+                        "primary-container": "#4d8eff",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "error-container": "#93000a",
+                        "surface-container": "#201f1f",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary-fixed": "#001a42",
+                        "outline": "#8c909f",
+                        "on-tertiary-fixed": "#410004",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#ffb3ad",
+                        "on-primary": "#002e6a",
+                        "surface-variant": "#353534",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-secondary": "#003824"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-tablet": "32px",
+                        "base": "8px",
+                        "log-padding-y": "4px",
+                        "log-padding-x": "16px",
+                        "gutter": "24px",
+                        "touch-target": "44px"
+                    },
+                    "fontFamily": {
+                        "timestamp": ["JetBrains Mono"],
+                        "log-bold": ["JetBrains Mono"],
+                        "log-entry": ["JetBrains Mono"],
+                        "ui-sm": ["Inter"],
+                        "ui-main": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "timestamp": ["11px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "log-bold": ["13px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "log-entry": ["13px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "ui-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "ui-main": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .drag-handle { cursor: grab; }
+        .drag-handle:active { cursor: grabbing; }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #adc6ff;
+            cursor: pointer;
+            border: 2px solid #131313;
+        }
+        .custom-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #adc6ff;
+            cursor: pointer;
+            border: 2px solid #131313;
+        }
+        /* Dimmed overlay style */
+        .overlay-dim {
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(2px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen w-screen overflow-hidden font-ui-main flex antialiased">
+<!-- SideNavBar -->
+<nav class="docked h-full w-[260px] left-0 top-0 border-r border-outline-variant bg-surface-container-low fixed flex flex-col py-gutter z-10">
+<div class="px-gutter mb-8">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface">Console</h1>
+<p class="font-ui-sm text-ui-sm text-on-surface-variant mt-1">v1.0.4</p>
+</div>
+<ul class="flex flex-col gap-1 px-4 flex-grow">
+<!-- Active: Overview -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-primary bg-secondary-container border-l-4 border-primary transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-secondary hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-secondary hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">vpn_key</span>
+<span>Keys</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-secondary hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">monitor</span>
+<span>Screens</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-secondary hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">palette</span>
+<span>Design</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-secondary hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span>MCP</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-secondary hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">science</span>
+<span>Playground</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-secondary hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">database</span>
+<span>Logs</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-secondary hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<div class="ml-[260px] flex-grow flex flex-col relative w-full h-full">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-tablet h-16 border-b border-outline-variant bg-surface z-10 shrink-0">
+<div class="flex items-center gap-8">
+<div class="font-headline-md text-headline-md font-extrabold text-on-surface">Console Dashboard</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-ui-main text-ui-main" href="#">Docs</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-ui-main text-ui-main" href="#">Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-ui-main text-ui-main" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-high border border-outline-variant text-on-surface font-timestamp text-timestamp px-3 py-1.5 rounded focus:outline-none focus:border-primary w-48 transition-colors" placeholder="Search..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-1.5 text-on-surface-variant" style="font-size: 18px;">search</span>
+</div>
+<button class="bg-primary text-on-primary font-ui-main text-ui-main px-4 py-1.5 rounded scale-95 active:scale-90 transition-transform">Deploy</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Background Content (Overview Tab) -->
+<main class="flex-grow p-gutter overflow-auto relative">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+<!-- Stat Cards -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-6">
+<div class="text-on-surface-variant font-ui-sm text-ui-sm mb-2">Total Requests</div>
+<div class="font-headline-md text-headline-md text-on-surface">1,245,892</div>
+<div class="text-secondary font-ui-sm text-ui-sm mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span> +12.5%
+                    </div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-6">
+<div class="text-on-surface-variant font-ui-sm text-ui-sm mb-2">Error Rate</div>
+<div class="font-headline-md text-headline-md text-error">0.04%</div>
+<div class="text-error font-ui-sm text-ui-sm mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 14px;">warning</span> Threshold breached
+                    </div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-6">
+<div class="text-on-surface-variant font-ui-sm text-ui-sm mb-2">Avg Latency</div>
+<div class="font-headline-md text-headline-md text-on-surface">42ms</div>
+<div class="text-on-surface-variant font-ui-sm text-ui-sm mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 14px;">schedule</span> Stable
+                    </div>
+</div>
+</div>
+<!-- Chart Area Placeholder -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 h-64 flex items-center justify-center">
+<span class="text-outline-variant font-ui-main text-ui-main">Traffic Visualization</span>
+</div>
+<!-- Dimming Overlay -->
+<div class="absolute inset-0 overlay-dim z-20 pointer-events-none"></div>
+</main>
+<!-- Floating Window (Logs) -->
+<div class="absolute top-24 right-8 w-[600px] bg-surface-container-low border border-outline-variant rounded-lg shadow-2xl flex flex-col z-30" style="opacity: 0.72;">
+<!-- Window Header -->
+<div class="flex items-center justify-between px-4 py-2 border-b border-outline-variant bg-surface-container-high rounded-t-lg drag-handle">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline-variant">drag_indicator</span>
+<h2 class="font-ui-main text-ui-main text-on-surface font-semibold">Logs — floating</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+</button>
+</div>
+</div>
+<!-- Toolbar & Popover -->
+<div class="px-4 py-2 border-b border-outline-variant bg-surface-container flex items-center justify-between relative">
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-on-surface px-2 py-1 rounded text-ui-sm font-ui-sm hover:bg-surface-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">filter_alt</span> Filter
+                    </button>
+<button class="text-primary bg-primary-container/10 px-2 py-1 rounded text-ui-sm font-ui-sm flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">opacity</span> Opacity
+                    </button>
+</div>
+<!-- Opacity Popover -->
+<div class="absolute top-full left-16 mt-1 bg-surface-container-highest border border-outline-variant rounded shadow-lg p-4 w-64 z-40">
+<div class="flex justify-between items-center mb-4">
+<span class="font-ui-sm text-ui-sm text-on-surface">Opacity</span>
+<span class="font-timestamp text-timestamp text-primary">72%</span>
+</div>
+<div class="relative pt-1">
+<input class="w-full h-1 bg-outline-variant rounded-lg appearance-none cursor-pointer custom-slider" max="100" min="0" type="range" value="72"/>
+<!-- Tick marks -->
+<div class="flex justify-between text-outline-variant font-timestamp text-[9px] mt-2 px-1">
+<span>0</span>
+<span>25</span>
+<span>50</span>
+<span>75</span>
+<span>100</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Terminal Content -->
+<div class="p-4 bg-surface-dim h-80 overflow-y-auto font-log-entry text-log-entry">
+<div class="flex gap-4 mb-1 hover:bg-surface-container-high px-2 py-log-padding-y rounded transition-colors group">
+<span class="text-on-surface-variant font-timestamp text-timestamp whitespace-nowrap">2023-10-27 14:32:01</span>
+<span class="text-primary font-log-bold w-12">INFO</span>
+<span class="text-on-surface break-all">System boot sequence initiated. Loading core modules...</span>
+</div>
+<div class="flex gap-4 mb-1 hover:bg-surface-container-high px-2 py-log-padding-y rounded transition-colors group">
+<span class="text-on-surface-variant font-timestamp text-timestamp whitespace-nowrap">2023-10-27 14:32:05</span>
+<span class="text-secondary font-log-bold w-12">INFO</span>
+<span class="text-on-surface break-all">Database connection established successfully. Pool size: 20.</span>
+</div>
+<div class="flex gap-4 mb-1 hover:bg-surface-container-high px-2 py-log-padding-y rounded transition-colors group">
+<span class="text-on-surface-variant font-timestamp text-timestamp whitespace-nowrap">2023-10-27 14:32:18</span>
+<span class="text-tertiary-container font-log-bold w-12">WARN</span>
+<span class="text-on-surface break-all">High memory usage detected in cache subsystem (85%). Consider increasing cache limit or flushing old entries.</span>
+</div>
+<div class="flex gap-4 mb-1 hover:bg-surface-container-high px-2 py-log-padding-y rounded transition-colors group">
+<span class="text-on-surface-variant font-timestamp text-timestamp whitespace-nowrap">2023-10-27 14:33:02</span>
+<span class="text-error font-log-bold w-12">ERROR</span>
+<span class="text-error break-all">Failed to fetch external API resource: Timeout after 3000ms. Retrying... (Attempt 1/3)</span>
+</div>
+<div class="flex gap-4 mb-1 hover:bg-surface-container-high px-2 py-log-padding-y rounded transition-colors group">
+<span class="text-on-surface-variant font-timestamp text-timestamp whitespace-nowrap">2023-10-27 14:33:05</span>
+<span class="text-error font-log-bold w-12">ERROR</span>
+<span class="text-error break-all">Failed to fetch external API resource: Connection Refused. Endpoint unrachable.</span>
+</div>
+<div class="flex gap-4 mb-1 hover:bg-surface-container-high px-2 py-log-padding-y rounded transition-colors group">
+<span class="text-on-surface-variant font-timestamp text-timestamp whitespace-nowrap">2023-10-27 14:33:10</span>
+<span class="text-primary font-log-bold w-12">INFO</span>
+<span class="text-on-surface break-all">Fallback mechanism engaged. Serving stale data for endpoint /api/v1/metrics.</span>
+</div>
+</div>
+</div>
+</div>
+</body></html>

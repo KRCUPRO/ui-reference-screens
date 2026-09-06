@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KeyOps Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1b1a29",
+                        "surface-container": "#efebff",
+                        "primary-fixed": "#e2dfff",
+                        "inverse-primary": "#c3c0ff",
+                        "background": "#fcf8ff",
+                        "on-secondary-fixed-variant": "#474647",
+                        "on-surface-variant": "#464555",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1b1a29",
+                        "peak-indicator": "#4f46e5",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#4d44e3",
+                        "tertiary-fixed-dim": "#ffb694",
+                        "surface": "#fcf8ff",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-card": "#ffffff",
+                        "surface-dim": "#dbd8ec",
+                        "tertiary-container": "#7d3000",
+                        "secondary": "#5f5e5e",
+                        "surface-container-high": "#e9e6fa",
+                        "on-tertiary-fixed": "#351000",
+                        "on-secondary-container": "#636262",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#1e00a9",
+                        "on-primary-fixed": "#0f0069",
+                        "surface-bright": "#fcf8ff",
+                        "on-secondary-fixed": "#1c1b1c",
+                        "surface-container-highest": "#e4e0f5",
+                        "outline-variant": "#c7c4d8",
+                        "primary-container": "#3525cd",
+                        "secondary-container": "#e2dfdf",
+                        "on-primary-container": "#b1afff",
+                        "tertiary": "#592000",
+                        "outline": "#777587",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "surface-container-low": "#f6f2ff",
+                        "inverse-on-surface": "#f2efff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "border-subtle": "#c7c4d8",
+                        "inverse-surface": "#302f3e",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "surface-variant": "#e4e0f5",
+                        "error-alert": "#ba1a1a",
+                        "error": "#ba1a1a",
+                        "surface-bg": "#f7f9fd",
+                        "on-tertiary-container": "#ff9f72",
+                        // Force dark technical aesthetic overrides per prompt requirement
+                        "surface": "#0c0e10",
+                        "surface-card": "#1a1c1e",
+                        "background": "#000000",
+                        "outline-variant": "#3f4347",
+                        "on-surface": "#ffffff",
+                        "on-surface-variant": "#a0a4a8",
+                        "primary": "#38bdf8",
+                        "inverse-primary": "#38bdf8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "32px",
+                        "unit": "4px",
+                        "component-padding-x": "12px",
+                        "gutter": "16px",
+                        "component-padding-y": "8px"
+                    },
+                    "fontFamily": {
+                        "display-metric": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "data-tooltip": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "data-mono-bold": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-metric": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "data-tooltip": ["10px", { "lineHeight": "12px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "data-mono-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .material-symbols-outlined {
+                font-family: 'Material Symbols Outlined';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 24px;
+                line-height: 1;
+                letter-spacing: normal;
+                text-transform: none;
+                display: inline-block;
+                white-space: nowrap;
+                word-wrap: normal;
+                direction: ltr;
+                -webkit-font-feature-settings: 'liga';
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen">
+<!-- TopNavBar Component -->
+<header class="bg-surface dark:bg-surface font-headline-sm text-headline-sm font-data-mono text-data-mono full-width top-0 border-b border-outline-variant dark:border-outline-variant flat no shadows flex justify-between items-center w-full px-container-margin py-component-padding-y max-w-7xl mx-auto z-50 sticky">
+<div class="flex items-center gap-gutter">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface">KeyOps Analytics</span>
+<!-- Segmented Date Range Control -->
+<nav class="hidden md:flex ml-4 border border-outline-variant rounded bg-surface-card overflow-hidden h-8">
+<a class="px-3 py-1 font-data-mono text-data-mono text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-80 border-r border-outline-variant flex items-center" href="#">Day</a>
+<a class="px-3 py-1 font-data-mono-bold text-data-mono-bold text-primary bg-primary/10 hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-80 border-r border-outline-variant flex items-center" href="#">Week</a>
+<a class="px-3 py-1 font-data-mono text-data-mono text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-80 border-r border-outline-variant flex items-center" href="#">Month</a>
+<a class="px-3 py-1 font-data-mono text-data-mono text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-80 flex items-center" href="#">Custom</a>
+</nav>
+<span class="ml-2 font-data-mono text-data-mono text-on-surface-variant">Feb 10 – Feb 16</span>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="notifications" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80 p-1">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="settings" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80 p-1">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="w-full max-w-7xl mx-auto flex flex-col h-[calc(100vh-60px)]">
+<!-- Condensed Chart Strip -->
+<section class="w-full h-48 bg-surface-card border-b border-outline-variant flex flex-col justify-end relative overflow-hidden group">
+<div class="absolute top-2 left-4 font-label-caps text-label-caps text-on-surface-variant uppercase">Calls-over-time</div>
+<div class="absolute top-2 right-4 font-data-mono-bold text-data-mono-bold text-primary">Peak: 12,450/s</div>
+<!-- Abstract Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pt-8 pb-4 pointer-events-none opacity-20">
+<div class="w-full border-t border-outline-variant border-dashed"></div>
+<div class="w-full border-t border-outline-variant border-dashed"></div>
+<div class="w-full border-t border-outline-variant border-dashed"></div>
+<div class="w-full border-t border-outline-variant"></div>
+</div>
+<!-- Chart Bars -->
+<div class="flex items-end h-32 w-full px-4 gap-[2px] z-10 pb-4">
+<script>
+                    for(let i=0; i<80; i++) {
+                        let height = Math.random() * 100;
+                        let isPeak = height > 90;
+                        let colorClass = isPeak ? 'bg-primary' : 'bg-outline-variant hover:bg-primary/50';
+                        document.write(`<div class="flex-1 ${colorClass} rounded-t-sm transition-all duration-300" style="height: ${height}%" title="Value: ${Math.floor(height*100)}"></div>`);
+                    }
+                </script>
+</div>
+<!-- X-Axis Labels -->
+<div class="absolute bottom-0 w-full flex justify-between px-4 pb-1 font-data-tooltip text-data-tooltip text-on-surface-variant/50">
+<span>00:00</span>
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+<span>23:59</span>
+</div>
+</section>
+<!-- Bento Grid Data Area -->
+<section class="p-4 grid grid-cols-1 md:grid-cols-3 gap-unit h-full overflow-y-auto">
+<!-- Key Metrics Block -->
+<div class="bg-surface border border-outline-variant p-4 flex flex-col justify-between">
+<div>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-2">Total Requests</h2>
+<div class="font-display-metric text-display-metric text-on-surface tracking-tighter">4.2M</div>
+</div>
+<div class="flex items-center gap-2 mt-4">
+<span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+<span class="font-data-mono text-data-mono text-primary">+12.4% vs last week</span>
+</div>
+</div>
+<!-- Error Rates Block -->
+<div class="bg-surface border border-outline-variant p-4 flex flex-col justify-between">
+<div>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-2">Error Rate (5xx)</h2>
+<div class="font-display-metric text-display-metric text-error tracking-tighter">0.08%</div>
+</div>
+<div class="w-full bg-surface-card h-1 mt-4 rounded overflow-hidden">
+<div class="bg-error h-full w-[8%]"></div>
+</div>
+</div>
+<!-- Latency Block -->
+<div class="bg-surface border border-outline-variant p-4 flex flex-col justify-between">
+<div>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-2">P99 Latency</h2>
+<div class="font-display-metric text-display-metric text-on-surface tracking-tighter">142ms</div>
+</div>
+<div class="flex gap-1 mt-4 h-6 items-end">
+<div class="w-2 bg-outline-variant h-[20%]"></div>
+<div class="w-2 bg-outline-variant h-[40%]"></div>
+<div class="w-2 bg-outline-variant h-[30%]"></div>
+<div class="w-2 bg-outline-variant h-[60%]"></div>
+<div class="w-2 bg-primary h-[100%]"></div>
+</div>
+</div>
+<!-- Detailed Table Span -->
+<div class="col-span-1 md:col-span-3 bg-surface border border-outline-variant flex flex-col min-h-[300px]">
+<div class="border-b border-outline-variant p-2 px-4 flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Top Endpoints</span>
+<button class="font-data-mono-bold text-data-mono-bold text-primary text-xs hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-card/50">
+<th class="font-label-caps text-label-caps text-on-surface-variant py-2 px-4 font-normal">Method</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-2 px-4 font-normal">Path</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-2 px-4 font-normal text-right">Requests</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-2 px-4 font-normal text-right">Avg Latency</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono text-on-surface">
+<tr class="border-b border-outline-variant/30 hover:bg-surface-card transition-colors relative">
+<td class="py-2 px-4 text-primary border-l-2 border-primary">GET</td>
+<td class="py-2 px-4">/api/v1/users/auth</td>
+<td class="py-2 px-4 text-right">1.2M</td>
+<td class="py-2 px-4 text-right">45ms</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-card transition-colors">
+<td class="py-2 px-4 text-primary/70 border-l-2 border-transparent">POST</td>
+<td class="py-2 px-4">/api/v2/data/sync</td>
+<td class="py-2 px-4 text-right">845K</td>
+<td class="py-2 px-4 text-right">112ms</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-card transition-colors">
+<td class="py-2 px-4 text-primary/70 border-l-2 border-transparent">GET</td>
+<td class="py-2 px-4">/healthz</td>
+<td class="py-2 px-4 text-right">420K</td>
+<td class="py-2 px-4 text-right">12ms</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KeyOps Utility - Dashboard Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#fcf8ff",
+            "on-tertiary-fixed-variant": "#7b2f00",
+            "surface-container-highest": "#e4e0f5",
+            "tertiary-fixed-dim": "#ffb694",
+            "on-surface-variant": "#464555",
+            "surface": "#fcf8ff",
+            "inverse-on-surface": "#f2efff",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#0f0069",
+            "on-primary-container": "#b1afff",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#e5e2e1",
+            "tertiary-fixed": "#ffdbcc",
+            "on-error-container": "#93000a",
+            "surface-card": "#ffffff",
+            "on-background": "#1b1a29",
+            "inverse-surface": "#302f3e",
+            "on-tertiary-fixed": "#351000",
+            "secondary": "#5f5e5e",
+            "primary-fixed-dim": "#c3c0ff",
+            "surface-container-high": "#e9e6fa",
+            "border-subtle": "#c7c4d8",
+            "secondary-container": "#e2dfdf",
+            "on-secondary-fixed-variant": "#474647",
+            "on-primary-fixed-variant": "#3323cc",
+            "surface-container-low": "#f6f2ff",
+            "on-error": "#ffffff",
+            "surface-bg": "#f7f9fd",
+            "on-tertiary-container": "#ff9f72",
+            "on-primary": "#ffffff",
+            "primary-container": "#3525cd",
+            "on-surface": "#1b1a29",
+            "outline-variant": "#c7c4d8",
+            "surface-bright": "#fcf8ff",
+            "secondary-fixed-dim": "#c8c6c6",
+            "surface-dim": "#dbd8ec",
+            "outline": "#777587",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e4e0f5",
+            "error-container": "#ffdad6",
+            "error-alert": "#ba1a1a",
+            "tertiary": "#592000",
+            "surface-container": "#efebff",
+            "primary": "#1e00a9",
+            "on-secondary-fixed": "#1c1b1c",
+            "surface-tint": "#4d44e3",
+            "inverse-primary": "#c3c0ff",
+            "tertiary-container": "#7d3000",
+            "on-secondary-container": "#636262",
+            "primary-fixed": "#e2dfff",
+            "error": "#ba1a1a",
+            "peak-indicator": "#4f46e5"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "container-margin": "32px",
+            "component-padding-x": "12px",
+            "component-padding-y": "8px",
+            "unit": "4px"
+          },
+          "fontFamily": {
+            "display-metric": [
+              "Inter"
+            ],
+            "data-tooltip": [
+              "JetBrains Mono"
+            ],
+            "data-mono": [
+              "JetBrains Mono"
+            ],
+            "data-mono-bold": [
+              "JetBrains Mono"
+            ],
+            "headline-sm": [
+              "Inter"
+            ],
+            "label-caps": [
+              "Inter"
+            ],
+            "body-md": [
+              "Inter"
+            ]
+          },
+          "fontSize": {
+            "display-metric": [
+              "48px",
+              {
+                "lineHeight": "1.1",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "600"
+              }
+            ],
+            "data-tooltip": [
+              "10px",
+              {
+                "lineHeight": "12px",
+                "fontWeight": "400"
+              }
+            ],
+            "data-mono": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "400"
+              }
+            ],
+            "data-mono-bold": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-sm": [
+              "18px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "label-caps": [
+              "11px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.05em",
+                "fontWeight": "600"
+              }
+            ],
+            "body-md": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface-bg text-on-surface h-screen w-screen overflow-hidden font-body-md text-body-md relative antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Layer (Dimmed via Modal Backdrop) -->
+<div class="flex h-full w-full max-w-7xl mx-auto border-x border-border-subtle bg-background">
+<!-- SideNavBar -->
+<nav aria-label="Main Navigation" class="w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant dark:border-outline bg-surface-container-low dark:bg-inverse-surface flex flex-col py-6 px-4 z-10">
+<div class="mb-container-margin">
+<h1 class="text-headline-md font-headline-md text-primary dark:text-primary-fixed tracking-tight font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+          CallAnalytics
+        </h1>
+<p class="font-data-mono text-data-mono text-on-surface-variant mt-1">Enterprise Suite</p>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Active Tab -->
+<a class="flex items-center gap-3 px-component-padding-x py-component-padding-y rounded text-primary dark:text-primary-fixed font-semibold bg-secondary-container/50 dark:bg-secondary-container/20 cursor-pointer active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Overview</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-3 px-component-padding-x py-component-padding-y rounded text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors cursor-pointer active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-component-padding-x py-component-padding-y rounded text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors cursor-pointer active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md text-body-md">Logs</span>
+</a>
+<a class="flex items-center gap-3 px-component-padding-x py-component-padding-y rounded text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors cursor-pointer active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto pt-4 border-t border-border-subtle">
+<button class="w-full flex items-center justify-center gap-2 px-4 py-2 border border-primary text-primary rounded font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+          Export Report
+        </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-[260px] flex flex-col h-full w-[calc(100%-260px)] z-0">
+<!-- TopAppBar -->
+<header class="h-16 fixed top-0 right-0 w-[calc(100%-260px)] flex items-center justify-between px-gutter border-b border-outline-variant dark:border-outline bg-surface dark:bg-background z-10 transition-all duration-200">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed">Analytics Dashboard</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3 border border-border-subtle bg-surface-card px-3 py-1.5 rounded">
+<span class="font-label-caps text-label-caps text-on-surface">Gateway Service</span>
+<div aria-checked="true" class="w-8 h-4 bg-primary rounded-full relative cursor-pointer" role="switch">
+<div class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full"></div>
+</div>
+<span class="font-data-mono-bold text-data-mono-bold text-primary">Running</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-on-surface-variant hover:bg-surface-container p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-border-subtle bg-surface-container-low overflow-hidden ml-2 flex items-center justify-center">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A stylized geometric avatar placeholder featuring subtle blue and grey intersecting lines in a tech-focused, minimal light mode environment, conveying precision and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClFKF-qiBIepybdWJaWnKRWGDo8eJnnN8_82rzMdEQvByBL5AD7l6-CPnq-Y0oiJS_j2dHSphAgxwx7IMYFtEHaFpkeCIRWesDUSgf-R2REIHCaidtKQd1FzYe9hUlmMGXP1C3Q6l2UlBzyiqliO-4htyQ41Ic5MAkjVjG109ioqQub13AOq0ZSKSJNMBL1si6N9ijeIcyfDn3WELtVawAmSVbvrJlAQ94UQ-p_AH6ELPUBqPqkj9qaj_YzsRdWEWAb1Ra62g37PqS"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<main class="flex-1 pt-16 p-container-margin overflow-y-auto">
+<!-- Status Row -->
+<section class="grid grid-cols-4 gap-gutter mb-container-margin">
+<!-- Chip 1 -->
+<div class="bg-surface-card border border-border-subtle p-3 rounded flex items-center gap-3">
+<div class="w-2 h-full bg-green-500 rounded-full"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">API Gateway</span>
+<span class="font-data-mono-bold text-data-mono-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-green-600">check_circle</span>
+                Healthy
+              </span>
+</div>
+</div>
+<!-- Chip 2 -->
+<div class="bg-surface-card border border-border-subtle p-3 rounded flex items-center gap-3">
+<div class="w-2 h-full bg-green-500 rounded-full"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Auth Service</span>
+<span class="font-data-mono-bold text-data-mono-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-green-600">check_circle</span>
+                Healthy
+              </span>
+</div>
+</div>
+<!-- Chip 3 -->
+<div class="bg-surface-card border border-border-subtle p-3 rounded flex items-center gap-3">
+<div class="w-2 h-full bg-green-500 rounded-full"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">DB Cluster</span>
+<span class="font-data-mono-bold text-data-mono-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-green-600">check_circle</span>
+                Healthy
+              </span>
+</div>
+</div>
+<!-- Chip 4 -->
+<div class="bg-surface-card border border-border-subtle p-3 rounded flex items-center gap-3">
+<div class="w-2 h-full bg-green-500 rounded-full"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Cache Nodes</span>
+<span class="font-data-mono-bold text-data-mono-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-green-600">check_circle</span>
+                Healthy
+              </span>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="grid grid-cols-2 gap-gutter">
+<div class="bg-surface-card border border-border-subtle p-6 rounded flex flex-col justify-between">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-wider">Total Calls (Today)</h3>
+<div class="font-display-metric text-display-metric text-on-surface flex items-baseline gap-2">
+              1,650
+              <span class="font-data-mono-bold text-data-mono-bold text-primary flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12%
+              </span>
+</div>
+</div>
+<div class="bg-surface-card border border-border-subtle p-6 rounded flex flex-col justify-between">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-wider">Success Rate</h3>
+<div class="font-display-metric text-display-metric text-on-surface flex items-baseline gap-2">
+              96.8%
+              <span class="font-data-mono-bold text-data-mono-bold text-secondary flex items-center">
+<span class="material-symbols-outlined text-sm">horizontal_rule</span> 0%
+              </span>
+</div>
+</div>
+</section>
+<!-- Fake content to fill space below -->
+<section class="mt-container-margin h-64 border border-border-subtle bg-surface-container-lowest rounded p-4 opacity-50 relative overflow-hidden flex items-center justify-center">
+<span class="font-data-mono text-data-mono text-outline">Loading detailed telemetry...</span>
+</section>
+</main>
+</div>
+</div>
+<!-- Modal Backdrop Overlay -->
+<div class="fixed inset-0 bg-on-background/40 backdrop-blur-[1px] z-50 flex items-center justify-center p-4">
+<!-- Centered Modal (ConfirmDialog) -->
+<div aria-labelledby="modal-headline" aria-modal="true" class="bg-surface-card border border-border-subtle rounded-lg w-full max-w-md flex flex-col overflow-hidden transform transition-all shadow-2xl relative" role="dialog">
+<!-- Top decorative bar indicating danger/caution -->
+<div class="h-1 w-full bg-error-alert absolute top-0 left-0"></div>
+<!-- Header -->
+<div class="px-6 pt-6 pb-4 flex items-start gap-4">
+<div class="bg-error-container text-error-alert p-2 rounded-full flex-shrink-0 flex items-center justify-center border border-error-alert/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="modal-headline">Pause the gateway service?</h3>
+</div>
+</div>
+<!-- Body -->
+<div class="px-6 pb-6 pt-2">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          In-flight requests will fail if the gateway is paused. This action cannot be undone while the service is cycling.
+        </p>
+</div>
+<!-- Actions -->
+<div class="px-6 py-4 bg-surface-bg border-t border-border-subtle flex items-center justify-end gap-3">
+<button class="px-4 py-2 font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container-low transition-colors rounded" type="button">
+          Cancel
+        </button>
+<button class="px-4 py-2 font-label-caps text-label-caps bg-error-alert text-on-error hover:bg-error-alert/90 border border-transparent rounded transition-colors flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+          Confirm Pause
+        </button>
+</div>
+</div>
+</div>
+</body></html>

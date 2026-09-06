@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design Suite - Loading State</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "tertiary-fixed-dim": "#bfc6e0",
+              "outline-variant": "#45464d",
+              "on-primary-fixed-variant": "#3e465c",
+              "tertiary": "#dbe2fd",
+              "on-tertiary-fixed-variant": "#3f465c",
+              "secondary-container": "#39485e",
+              "error-container": "#93000a",
+              "on-tertiary-container": "#4b5268",
+              "ink-muted": "#45464d",
+              "surface-container-low": "#1b1b1d",
+              "error": "#ffb4ab",
+              "on-tertiary": "#293044",
+              "surface-variant": "#353437",
+              "on-surface": "#e4e2e4",
+              "on-secondary-container": "#a7b6d0",
+              "primary-container": "#bec6e0",
+              "surface-container-high": "#2a2a2c",
+              "primary-fixed": "#dae2fd",
+              "tertiary-fixed": "#dbe2fd",
+              "on-primary-container": "#4a5268",
+              "on-surface-variant": "#c6c6cd",
+              "surface-container-lowest": "#0e0e10",
+              "secondary-fixed-dim": "#b8c7e2",
+              "inverse-on-surface": "#303032",
+              "border-subtle": "#303032",
+              "secondary": "#b8c7e2",
+              "surface-bright": "#39393b",
+              "secondary-fixed": "#d4e3ff",
+              "surface": "#131315",
+              "surface-container": "#1f1f21",
+              "surface-dim": "#131315",
+              "inverse-surface": "#e4e2e4",
+              "inverse-primary": "#565e74",
+              "on-primary-fixed": "#131b2e",
+              "on-secondary-fixed": "#0c1c30",
+              "on-tertiary-fixed": "#141b2e",
+              "primary-fixed-dim": "#bec6e0",
+              "primary": "#dae2fd",
+              "surface-container-highest": "#353437",
+              "on-secondary": "#223146",
+              "background": "#131315",
+              "outline": "#909097",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#39485e",
+              "on-error": "#690005",
+              "slate-deep": "#131b2e",
+              "tertiary-container": "#bfc6e0",
+              "on-primary": "#283044",
+              "on-background": "#e4e2e4",
+              "surface-ink": "#1b1b1d",
+              "surface-tint": "#bec6e0"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            "spacing": {
+              "header-height": "56px",
+              "gutter": "16px",
+              "unit": "4px",
+              "margin-mobile": "16px",
+              "sidebar-width": "240px",
+              "margin-desktop": "24px"
+            },
+            "fontFamily": {
+              "label-md": [
+                "Public Sans"
+              ],
+              "body-sm": [
+                "Public Sans"
+              ],
+              "title-lg": [
+                "Public Sans"
+              ],
+              "headline-md": [
+                "Public Sans"
+              ],
+              "label-sm": [
+                "Public Sans"
+              ],
+              "headline-lg-mobile": [
+                "Public Sans"
+              ],
+              "body-md": [
+                "Public Sans"
+              ],
+              "title-md": [
+                "Public Sans"
+              ],
+              "headline-lg": [
+                "Public Sans"
+              ]
+            },
+            "fontSize": {
+              "label-md": [
+                "12px",
+                {
+                  "lineHeight": "16px",
+                  "letterSpacing": "0.02em",
+                  "fontWeight": "600"
+                }
+              ],
+              "body-sm": [
+                "13px",
+                {
+                  "lineHeight": "18px",
+                  "fontWeight": "400"
+                }
+              ],
+              "title-lg": [
+                "20px",
+                {
+                  "lineHeight": "28px",
+                  "fontWeight": "500"
+                }
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  "lineHeight": "32px",
+                  "letterSpacing": "-0.01em",
+                  "fontWeight": "600"
+                }
+              ],
+              "label-sm": [
+                "11px",
+                {
+                  "lineHeight": "14px",
+                  "letterSpacing": "0.05em",
+                  "fontWeight": "500"
+                }
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                {
+                  "lineHeight": "32px",
+                  "fontWeight": "600"
+                }
+              ],
+              "body-md": [
+                "14px",
+                {
+                  "lineHeight": "20px",
+                  "fontWeight": "400"
+                }
+              ],
+              "title-md": [
+                "16px",
+                {
+                  "lineHeight": "24px",
+                  "fontWeight": "600"
+                }
+              ],
+              "headline-lg": [
+                "30px",
+                {
+                  "lineHeight": "38px",
+                  "letterSpacing": "-0.02em",
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Overriding theme dark mode requirement based on prompt constraints */
+        html:not(.dark) {
+            --fallback-bg: #f5f5f7;
+            --fallback-surface: #ffffff;
+            --fallback-border: #e5e7eb;
+            --fallback-ink-muted: #6b7280;
+            --fallback-skeleton: #e5e7eb;
+        }
+        
+        .pulse-skeleton {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .4; }
+        }
+    </style>
+</head>
+<body class="bg-[#f5f5f7] text-[#111827] h-screen overflow-hidden font-body-md antialiased">
+<!-- Top Navigation Area (Header Shell placeholder to complete technical view) -->
+<nav class="docked full-width top-0 sticky z-40 bg-[#ffffff] border-b border-[#e5e7eb] flex justify-between items-center w-full px-margin-desktop py-stack-md h-header-height">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-black text-tertiary">Design Suite</span>
+<div class="hidden md:flex ml-8 space-x-6">
+<a class="text-secondary dark:text-on-surface-variant font-label-md text-label-md flex items-center transition-all duration-200" href="#">Projects</a>
+<a class="text-primary border-b-2 border-primary font-semibold font-label-md text-label-md flex items-center transition-all duration-200" href="#">Design</a>
+<a class="text-secondary dark:text-on-surface-variant font-label-md text-label-md flex items-center transition-all duration-200" href="#">Assets</a>
+</div>
+</div>
+<div class="flex items-center gap-4 text-[#6b7280]">
+<span class="material-symbols-outlined cursor-pointer">settings</span>
+<div class="w-8 h-8 rounded-full bg-[#e5e7eb] overflow-hidden pulse-skeleton"></div>
+</div>
+</nav>
+<!-- Main Layout Grid -->
+<div class="flex h-[calc(100vh-theme(spacing.header-height))]">
+<!-- Left Sidebar (Systems List Loading State) -->
+<aside class="flex flex-col h-full border-r border-[#e5e7eb] fixed md:relative left-0 top-0 w-sidebar-width bg-[#ffffff] hidden md:flex flex-shrink-0 z-10">
+<div class="p-6">
+<div class="h-6 w-24 bg-[#e5e7eb] rounded mb-8 pulse-skeleton"></div>
+<div class="space-y-6">
+<!-- Skeleton Row 1 -->
+<div class="flex flex-col gap-2">
+<div class="h-5 w-3/4 bg-[#e5e7eb] rounded pulse-skeleton"></div>
+<div class="h-3 w-1/2 bg-[#f3f4f6] rounded pulse-skeleton opacity-70"></div>
+</div>
+<!-- Skeleton Row 2 -->
+<div class="flex flex-col gap-2">
+<div class="h-5 w-2/3 bg-[#e5e7eb] rounded pulse-skeleton"></div>
+<div class="h-3 w-2/5 bg-[#f3f4f6] rounded pulse-skeleton opacity-70"></div>
+</div>
+<!-- Skeleton Row 3 -->
+<div class="flex flex-col gap-2">
+<div class="h-5 w-5/6 bg-[#e5e7eb] rounded pulse-skeleton"></div>
+<div class="h-3 w-1/3 bg-[#f3f4f6] rounded pulse-skeleton opacity-70"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area (Token Editing Pane) -->
+<main class="flex-1 bg-[#f5f5f7] p-8 overflow-y-auto">
+<div class="max-w-5xl mx-auto w-full">
+<!-- Section Header -->
+<header class="mb-8 border-b border-[#e5e7eb] pb-4">
+<h1 class="font-headline-md text-headline-md text-[#6b7280]">Loading tokens...</h1>
+</header>
+<!-- Token Grid: 3x2 grid of skeleton swatch squares -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Swatch 1 -->
+<div class="bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-4 h-48 flex items-center justify-center pulse-skeleton">
+<div class="w-24 h-24 rounded-full bg-[#f3f4f6]"></div>
+</div>
+<!-- Swatch 2 -->
+<div class="bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-4 h-48 flex items-center justify-center pulse-skeleton" style="animation-delay: 0.1s;">
+<div class="w-24 h-24 rounded-full bg-[#f3f4f6]"></div>
+</div>
+<!-- Swatch 3 -->
+<div class="bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-4 h-48 flex items-center justify-center pulse-skeleton" style="animation-delay: 0.2s;">
+<div class="w-24 h-24 rounded-full bg-[#f3f4f6]"></div>
+</div>
+<!-- Swatch 4 -->
+<div class="bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-4 h-48 flex items-center justify-center pulse-skeleton" style="animation-delay: 0.3s;">
+<div class="w-24 h-24 rounded-full bg-[#f3f4f6]"></div>
+</div>
+<!-- Swatch 5 -->
+<div class="bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-4 h-48 flex items-center justify-center pulse-skeleton" style="animation-delay: 0.4s;">
+<div class="w-24 h-24 rounded-full bg-[#f3f4f6]"></div>
+</div>
+<!-- Swatch 6 -->
+<div class="bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-4 h-48 flex items-center justify-center pulse-skeleton" style="animation-delay: 0.5s;">
+<div class="w-24 h-24 rounded-full bg-[#f3f4f6]"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

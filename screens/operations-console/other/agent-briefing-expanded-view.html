@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Briefing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#c4d2ff",
+            "tertiary": "#7b2600",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#380d00",
+            "surface-container": "#e9edff",
+            "secondary-container": "#cdddff",
+            "on-secondary-fixed": "#091c35",
+            "primary-container": "#0052cc",
+            "inverse-surface": "#1d3054",
+            "outline": "#737685",
+            "on-surface": "#051a3e",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#ffb59b",
+            "background": "#faf9ff",
+            "secondary-fixed-dim": "#b7c7e8",
+            "secondary-fixed": "#d6e3ff",
+            "on-primary-fixed-variant": "#0040a2",
+            "on-background": "#051a3e",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#faf9ff",
+            "on-secondary-fixed-variant": "#374763",
+            "surface": "#faf9ff",
+            "inverse-on-surface": "#edf0ff",
+            "primary-fixed": "#dae2ff",
+            "error": "#ba1a1a",
+            "primary-fixed-dim": "#b2c5ff",
+            "on-surface-variant": "#434654",
+            "primary": "#003d9b",
+            "on-primary-fixed": "#001848",
+            "on-tertiary-container": "#ffc6b2",
+            "surface-container-high": "#e1e8ff",
+            "outline-variant": "#c3c6d6",
+            "on-secondary-container": "#51617e",
+            "tertiary-fixed": "#ffdbcf",
+            "surface-tint": "#0c56d0",
+            "tertiary-container": "#a33500",
+            "surface-container-low": "#f1f3ff",
+            "surface-variant": "#d8e2ff",
+            "inverse-primary": "#b2c5ff",
+            "secondary": "#4f5f7b",
+            "surface-container-highest": "#d8e2ff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#812800",
+            "surface-dim": "#ccdaff",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "lg": "24px",
+            "base": "4px",
+            "md": "16px",
+            "margin": "24px",
+            "gutter": "16px",
+            "sm": "8px",
+            "xs": "4px",
+            "xl": "32px"
+          },
+          "fontFamily": {
+            "body-lg": ["Hanken Grotesk"],
+            "headline-lg": ["Hanken Grotesk"],
+            "code-sm": ["JetBrains Mono"],
+            "headline-md": ["Hanken Grotesk"],
+            "body-sm": ["Hanken Grotesk"],
+            "headline-sm": ["Hanken Grotesk"],
+            "code-md": ["JetBrains Mono"],
+            "label-md": ["Hanken Grotesk"],
+            "body-md": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "code-sm": ["11px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "code-md": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Preview Strip (Blurred UI Thumbnail) -->
+<div class="h-24 w-full bg-surface-container-high border-b border-outline-variant relative overflow-hidden shrink-0">
+<!-- Blurred Background Image -->
+<div class="absolute inset-0 bg-cover bg-center blur-md opacity-60" data-alt="A highly blurred, abstract representation of a complex, dense data dashboard interface. The light mode aesthetic features soft washes of pale blues, whites, and light greys. Hints of geometric shapes, data tables, and structured grids are barely discernible through the heavy blur, creating a technical yet calm atmosphere suitable for a background element." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB88i6-hPJVWj9b15jx3REK8f7aun-C2Va_YqngSL2cvY0EImWwi-4O6Sxxdbmikd5UHB8CAJVuHMsvqMMITFplCcaN92PtnPRGqPPlzrYKvqgXF_lyjjS6jcpZpbNCebDAAPVr4MuCgiOrInMnQQyeBHSJ4EcRJWQOZqOKrje3_zt6pXLFySmhG5_NMMbeXifJCoKuFacm7zBkMdDDsFWhSIVImVJTkQhvHg5R9Wc3FMeoYby_5IHpFhHZ4VDNfqNUPknGNGlq42A')"></div>
+<div class="absolute inset-0 bg-background/30 mix-blend-overlay"></div>
+</div>
+<!-- Expanded Agent Briefing Card -->
+<main class="flex-1 w-full bg-surface rounded-t-xl -mt-4 shadow-[0_-4px_24px_rgba(0,0,0,0.05)] relative z-10 flex flex-col">
+<!-- Collapse Chevron -->
+<div class="w-full flex justify-center pt-sm pb-md cursor-pointer hover:bg-surface-container-low transition-colors duration-200 rounded-t-xl">
+<span class="material-symbols-outlined text-outline">expand_less</span>
+</div>
+<div class="px-md pb-md flex-1 overflow-y-auto">
+<h2 class="font-headline-sm text-headline-sm mb-lg">Agent Briefing Details</h2>
+<!-- Code Block Surface Tile -->
+<div class="bg-surface-container-low border border-outline-variant rounded p-3 mb-xl">
+<div class="font-label-md text-label-md text-secondary mb-2">ORIGINAL PROMPT</div>
+<div class="font-code-md text-code-md text-on-surface overflow-y-auto h-[180px] bg-surface rounded border border-outline-variant p-3 whitespace-pre-wrap">Create a complex, high-density data visualization dashboard for a modern web application. The layout should include a primary sidebar navigation on the left, a top app bar with search and user profile, and a main content area organized using a CSS Grid layout. 
+
+The main content area must feature a series of distinct widgets: a line chart showing network traffic, a pie chart indicating resource allocation, a sortable data table for recent error logs, and a cluster of small status cards displaying key metrics (uptime, active users, error rate, CPU load).
+
+The color palette must be strictly light mode, utilizing pale cool greys for backgrounds, crisp white for surface tiles, and a primary brand color of deep, saturated blue (#0052CC) for key interactions and data emphasis. Use subtle 1px hairlines for dividers instead of shadows. Typography should rely heavily on 'Hanken Grotesk' for UI elements and 'JetBrains Mono' for tabular data and code snippets. Ensure the design feels highly technical, precise, and devoid of unnecessary decorative elements.</div>
+</div>
+<!-- Key-Value List -->
+<div class="flex flex-col mb-xl">
+<!-- Row 1 -->
+<div class="flex justify-between items-center py-3 border-b border-outline-variant">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Device</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">DESKTOP</span>
+</div>
+<!-- Row 2 -->
+<div class="flex justify-between items-center py-3 border-b border-outline-variant">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Theme seed</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">dark</span>
+</div>
+<!-- Row 3 -->
+<div class="flex justify-between items-center py-3 border-b border-outline-variant">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Key</span>
+<span class="font-code-sm text-code-sm text-on-surface bg-surface-container-high px-2 py-1 rounded">sandbox-02</span>
+</div>
+<!-- Row 4 -->
+<div class="flex justify-between items-center py-3 border-b border-outline-variant">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Duration</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">8.4s</span>
+</div>
+</div>
+</div>
+<!-- Fixed Bottom Actions -->
+<div class="p-md bg-surface border-t border-outline-variant mt-auto sticky bottom-0 w-full z-20 pb-8"> <!-- pb-8 for home indicator space -->
+<button class="w-full flex justify-center items-center gap-2 py-2 px-4 rounded border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors duration-200 font-body-md text-body-md bg-transparent">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+        Copy prompt
+      </button>
+</div>
+</main>
+<!-- BottomNavBar component is suppressed based on Shell Visibility & Relevance Rules:
+       "Linear/Transactional: Login, Sign-up, Onboarding, Checkout, or 'Success/Confirmation' splash screens."
+       This screen acts as a focused, modal-like briefing card expanding over a preview, implying a temporary departure from global nav. -->
+</body></html>

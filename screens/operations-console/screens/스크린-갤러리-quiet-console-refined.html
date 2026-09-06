@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevGallery - 인증 흐름</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e3e2e0",
+                      "outline": "#717973",
+                      "on-primary-fixed": "#002114",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#faf9f7",
+                      "on-tertiary-container": "#d29895",
+                      "primary": "#012d1d",
+                      "on-tertiary-fixed-variant": "#673a39",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "secondary": "#5f5e5e",
+                      "surface-container-highest": "#e3e2e0",
+                      "on-secondary-fixed-variant": "#474746",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#3f6653",
+                      "secondary-fixed": "#e5e2e1",
+                      "primary-fixed": "#c1ecd4",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dadad8",
+                      "on-surface": "#1a1c1b",
+                      "inverse-surface": "#2f3130",
+                      "tertiary": "#401b1b",
+                      "surface-container": "#efeeec",
+                      "outline-variant": "#c1c8c2",
+                      "inverse-primary": "#a5d0b9",
+                      "on-secondary-container": "#636262",
+                      "secondary-container": "#e2dfde",
+                      "surface": "#faf9f7",
+                      "tertiary-container": "#5a302f",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "surface-container-low": "#f4f3f1",
+                      "tertiary-fixed-dim": "#f5b7b4",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "inverse-on-surface": "#f1f1ef",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdad8",
+                      "on-surface-variant": "#414844",
+                      "primary-container": "#1b4332",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "on-tertiary": "#ffffff",
+                      "background": "#faf9f7",
+                      "on-tertiary-fixed": "#331111",
+                      "on-primary-container": "#86af99",
+                      "surface-container-high": "#e9e8e6",
+                      "on-error": "#ffffff",
+                      "on-background": "#1a1c1b",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "0px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "stack-md": "16px",
+                      "gutter": "1px",
+                      "edge_margin": "32px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "sidebar_width": "240px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Public Sans"
+                      ],
+                      "headline-lg": [
+                              "Public Sans"
+                      ],
+                      "display-metrics": [
+                              "Public Sans"
+                      ],
+                      "code-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Public Sans"
+                      ],
+                      "body-base": [
+                              "Noto Sans KR"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-metrics": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "code-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-base": [
+                              "14px",
+                              {
+                                      "lineHeight": "22px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body { background-color: #faf9f7; color: #1a1c1b; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="font-body-base text-body-base bg-background text-on-surface antialiased overflow-hidden h-screen flex">
+<!-- TopNavBar -->
+<header class="bg-background text-primary font-body-base text-body-base docked full-width top-0 h-[48px] border-b border-outline-variant flex items-center justify-between px-edge_margin ml-[240px] w-[calc(100%-240px)] absolute z-10">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">DevGallery</h1>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-secondary focus-within:text-on-surface focus-within:border-on-surface transition-colors duration-150">
+<span class="material-symbols-outlined text-sm">search</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-sm w-64 placeholder:text-secondary-fixed-dim" placeholder="Search Auth Flow..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-secondary hover:bg-surface-container-low px-2 py-1 transition-colors duration-150 border border-outline-variant">
+<span class="font-label-caps text-label-caps">필터 (2)</span>
+</button>
+<button class="flex items-center gap-2 text-secondary hover:bg-surface-container-low px-2 py-1 transition-colors duration-150 border border-outline-variant">
+<span class="font-label-caps text-label-caps">최신순</span>
+<span class="material-symbols-outlined text-sm">sort</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="bg-background text-primary font-body-base text-body-base fixed left-0 top-0 h-full w-[240px] border-r border-outline-variant flex flex-col h-full py-stack-lg z-20">
+<div class="px-4 mb-stack-lg">
+<h2 class="font-label-caps text-label-caps text-secondary mb-1">WORKSPACE</h2>
+<div class="font-headline-md text-headline-md font-bold text-primary truncate">DevGallery</div>
+</div>
+<ul class="flex-1 overflow-y-auto space-y-1">
+<li>
+<a class="flex items-center gap-3 text-secondary pl-[18px] py-2 hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-sm">folder</span>
+<span>메인 앱</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 border-l-2 border-primary font-semibold text-primary pl-4 py-2 hover:text-on-surface transition-colors duration-150 bg-surface-container-low" href="#">
+<span class="material-symbols-outlined text-sm fill">folder_open</span>
+<span>인증 흐름</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-secondary pl-[18px] py-2 hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-sm">folder</span>
+<span>설정</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-secondary pl-[18px] py-2 hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-sm">folder</span>
+<span>랜딩 페이지</span>
+</a>
+</li>
+</ul>
+<div class="px-4 mt-auto">
+<a class="flex items-center gap-3 text-secondary py-2 hover:text-on-surface transition-colors duration-150" href="#">
+<div class="w-6 h-6 bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">person</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold">Admin User</span>
+</div>
+</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="ml-[240px] pt-[48px] w-[calc(100%-240px)] h-full overflow-y-auto">
+<div class="p-edge_margin max-w-[1600px] mx-auto">
+<!-- Filter Tokens -->
+<div class="flex items-center gap-2 mb-stack-lg">
+<span class="font-label-caps text-label-caps text-secondary">ACTIVE FILTERS:</span>
+<span class="inline-flex items-center gap-1 bg-surface-container-low border border-outline-variant px-2 py-1 text-xs">
+                    기간: 최근 7일
+                    <button class="material-symbols-outlined text-[10px] hover:text-primary">close</button>
+</span>
+<span class="inline-flex items-center gap-1 bg-surface-container-low border border-outline-variant px-2 py-1 text-xs">
+                    기기: 모바일
+                    <button class="material-symbols-outlined text-[10px] hover:text-primary">close</button>
+</span>
+<button class="text-xs text-secondary hover:text-primary ml-2 underline underline-offset-2">Clear All</button>
+</div>
+<!-- Date Group: 오늘 -->
+<div class="mb-stack-lg">
+<div class="flex items-center gap-4 mb-stack-md">
+<h3 class="font-label-caps text-label-caps text-secondary whitespace-nowrap">오늘</h3>
+<div class="h-px bg-surface-dim w-full flex-grow"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-stack-lg">
+<!-- Card 1 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="aspect-[9/16] bg-surface-container-low border border-outline-variant relative overflow-hidden mb-3">
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A stark, minimalist wireframe representation of a mobile login screen on a warm off-white background. The UI is composed entirely of crisp, dark hairline rules and structural shapes, reflecting a mechanical operations manual aesthetic. Key elements like input fields, a solid dark green primary button, and precise typography alignment are visible. The composition is flat, highly technical, and devoid of rounded corners or shadows, conveying deep reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiofUgcu4ChiX2_eHnCKJCPFhX0USDI_kDXzxRG23tF9byNb6Q8M6buIU0VMzeUIjxBQx-OLzyfb3Lyp5shtdhcRtG10sjNq_exnkOeSnlwmTwDwg9JV6O0gE507ouCcv5Vci5PRsyskIE4TC5W3wriMI6Y9RhgSupT__IE2jZ72Z9PNEsxtrHu-MM9oO0IQJcrHy_z4Gfj_pIBz57PxDkkifazkh9uZiGA9B-7G0kUudGpUm9klCb9xCxa0fSj029BGOlHQ08k6yy"/>
+<div class="absolute top-2 right-2 flex gap-1">
+<span class="bg-primary text-on-primary font-label-caps text-[9px] px-1.5 py-0.5 tracking-wider">PROD</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-semibold text-base mb-1 group-hover:text-primary transition-colors">로그인 페이지</h4>
+<p class="font-code-sm text-code-sm text-secondary">v1.2.0 • 390x844 • 2h ago</p>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="aspect-[9/16] bg-surface-container-low border border-outline-variant relative overflow-hidden mb-3">
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A flat, zero-elevation wireframe of a mobile user dashboard UI, designed in a subtractive, functional style on a warm paper-like (#faf9f7) canvas. The interface is organized by sharp 1px grid lines and features small data visualizations and metric cards without outer borders. A distinct 'running' status indicator is shown as a solid dark green square. The overall aesthetic is serious, technical, and aligned to a strict baseline grid." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWJJuZwBOrkoRhT5YbTeHQAcj76E5mQvIOg7KHfoFG1Cr1wo200kXFEjzclKCeN4ZyeEx-Vg6trx2MaBavANC0yVPXmUje9jYfCkcs1jhSDEarOoJzWNyL9Paq7HhUfyc8XL2kPZLsC5OT-yb4cYtvVOG9vXNN1NJqdSXaE9hvD2a47F7dh8e5sVV0UdiIEUQVQuqg27Th56w8L3rBmDYPNIDIQIQ1sZ39_ulYZlOATH0LEjy9BO7FHd6WYaXDZxxZgEfWL_zR-JIg"/>
+<div class="absolute top-2 right-2 flex gap-1">
+<span class="bg-surface-variant text-on-surface border border-outline-variant font-label-caps text-[9px] px-1.5 py-0.5 tracking-wider">REVIEW</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-semibold text-base mb-1 group-hover:text-primary transition-colors">사용자 대시보드</h4>
+<p class="font-code-sm text-code-sm text-secondary">v1.1.0 • 390x844 • 4h ago</p>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="aspect-[9/16] bg-surface-container-low border border-outline-variant relative overflow-hidden mb-3">
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="An exactingly flat architectural wireframe of a Multi-Factor Authentication (MFA) mobile screen, rendered on a warm, off-white background. The layout uses stark 1px solid dark borders to define input zones for a 6-digit code. The typography is monospaced and purely functional. The visual language rejects any modern layered OS styling in favor of a raw, manual-like clarity. The design exudes an atmosphere of secure, focused execution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC3y0V9xKeb_OojIXIfb25DBuzCog8gFTmJj3WksZ_YtgZSLpIiiNJ_4opvAuVMdEHrVb837CCltyzh_8mVg1NJ0QX7neXzQbIDvdAV_6vXIZmtCjnZ-o56hhtTijElfbPgqqNR2EelP26cSBBkK5lN4tDKXE7utawVPjLeHZnldJ8IkJvWWcnVUGjiFaq6iLo-gBSEARBwNzqIVvtAJuM5l1AoAkKhcZvq4RUWNaPQjWJdYxYSmHd9iaaWePJCOw0zdDz47J-HIW6"/>
+<div class="absolute top-2 right-2 flex gap-1">
+<span class="bg-primary text-on-primary font-label-caps text-[9px] px-1.5 py-0.5 tracking-wider">PROD</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-semibold text-base mb-1 group-hover:text-primary transition-colors">MFA 인증</h4>
+<p class="font-code-sm text-code-sm text-secondary">v1.0.5 • 390x844 • 5h ago</p>
+</div>
+</article>
+</div>
+</div>
+<!-- Date Group: 어제 -->
+<div class="mb-stack-lg">
+<div class="flex items-center gap-4 mb-stack-md">
+<h3 class="font-label-caps text-label-caps text-secondary whitespace-nowrap">어제</h3>
+<div class="h-px bg-surface-dim w-full flex-grow"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-stack-lg opacity-60">
+<!-- Placeholder for yesterday's items -->
+<article class="flex flex-col group cursor-pointer">
+<div class="aspect-[9/16] bg-surface-container flex items-center justify-center border border-surface-dim mb-3">
+<span class="material-symbols-outlined text-surface-dim text-4xl">broken_image</span>
+</div>
+<div class="flex flex-col">
+<div class="h-4 bg-surface-container-low w-3/4 mb-2"></div>
+<div class="h-3 bg-surface-container-low w-1/2"></div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</main>
+</body></html>

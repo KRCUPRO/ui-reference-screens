@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OpsConsole - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#0b1326",
+            "surface-variant": "#2d3449",
+            "primary-fixed": "#d8e2ff",
+            "background": "#0b1326",
+            "on-surface-variant": "#c4c6d0",
+            "secondary": "#b9c8de",
+            "inverse-surface": "#dbe2fd",
+            "on-secondary": "#233143",
+            "tertiary-fixed-dim": "#ffb786",
+            "surface-container": "#171f33",
+            "on-tertiary": "#502501",
+            "tertiary-container": "#feb685",
+            "inverse-on-surface": "#283044",
+            "surface-container-lowest": "#060d20",
+            "secondary-fixed-dim": "#b9c8de",
+            "on-secondary-container": "#a7b6cc",
+            "ios-group-bg": "#060e20",
+            "surface-dim": "#0b1326",
+            "inverse-primary": "#455e90",
+            "on-background": "#dbe2fd",
+            "on-tertiary-fixed": "#301400",
+            "tertiary-fixed": "#ffdcc6",
+            "on-tertiary-fixed-variant": "#6b3a14",
+            "on-surface": "#dbe2fd",
+            "primary": "#d8e2ff",
+            "tertiary": "#ffdbc4",
+            "on-tertiary-container": "#79451e",
+            "danger-container": "#93000a",
+            "on-primary-fixed": "#001a42",
+            "secondary-container": "#39485a",
+            "surface-bright": "#31394e",
+            "on-error": "#690005",
+            "on-secondary-fixed": "#0d1c2d",
+            "danger-text": "#ffb4ab",
+            "secondary-fixed": "#d5e4fa",
+            "surface-tint": "#adc6ff",
+            "on-primary-container": "#385283",
+            "error": "#ffb4ab",
+            "success-glow": "#22c55e",
+            "outline-variant": "#44474f",
+            "on-primary-fixed-variant": "#2c4677",
+            "on-error-container": "#ffdad6",
+            "surface-container-highest": "#2d3449",
+            "primary-container": "#adc6ff",
+            "on-secondary-fixed-variant": "#39485a",
+            "on-primary": "#122f5f",
+            "surface-container-high": "#222a3e",
+            "outline": "#8e909a",
+            "error-container": "#93000a",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-container-low": "#131b2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "row-padding": "0.75rem",
+            "group-inset": "1rem",
+            "margin-mobile": "1rem",
+            "stack-gap": "0.5rem",
+            "section-gap": "2rem"
+          },
+          "fontFamily": {
+            "mono-data": ["JetBrains Mono"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-caps": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* iOS style toggle switch */
+    .toggle-checkbox:checked {
+      right: 0;
+      border-color: #d8e2ff; /* primary */
+    }
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #d8e2ff; /* primary */
+    }
+    .toggle-checkbox:checked + .toggle-label::after {
+      transform: translateX(100%);
+      border-color: white;
+    }
+    .toggle-label {
+      width: 50px;
+      height: 30px;
+      background-color: #2d3449; /* surface-variant */
+      border-radius: 9999px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .toggle-label::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 26px;
+      height: 26px;
+      background-color: #0b1326; /* surface */
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center w-full px-4 h-16 sticky top-0 z-40 transition-colors duration-200">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary font-headline-md" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Settings</h1>
+</div>
+<button class="hover:bg-surface-container-highest p-2 rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-margin-mobile pt-6 pb-8 space-y-section-gap">
+<!-- Group 1: Appearance -->
+<section>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-2 ml-4">Appearance</h2>
+<div class="bg-surface-container rounded-lg overflow-hidden border border-outline-variant/30">
+<div class="flex items-center justify-between p-row-padding min-h-[48px] hover:bg-surface-bright transition-colors cursor-pointer active:bg-surface-bright">
+<span class="font-body-lg text-body-lg">Theme</span>
+<div class="flex items-center gap-2">
+<span class="font-mono-data text-mono-data text-on-surface-variant">Cool Slate</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Group 2: Service -->
+<section>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-2 ml-4">Service</h2>
+<div class="bg-surface-container rounded-lg overflow-hidden border border-outline-variant/30 flex flex-col">
+<!-- Row 1: Pause on idle -->
+<div class="flex items-center justify-between p-row-padding min-h-[48px] border-b border-outline-variant/30">
+<span class="font-body-lg text-body-lg">Pause on idle</span>
+<div class="relative inline-block w-[50px] align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer opacity-0" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer" for="toggle1"></label>
+</div>
+</div>
+<!-- Row 2: Backup -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-row-padding gap-4 min-h-[48px]">
+<span class="font-body-lg text-body-lg">Backup</span>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-variant hover:bg-surface-bright text-on-surface rounded font-body-md text-body-md transition-colors border border-outline-variant">
+              Export
+            </button>
+<button class="px-4 py-2 bg-surface-variant hover:bg-surface-bright text-on-surface rounded font-body-md text-body-md transition-colors border border-outline-variant">
+              Import
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Group 3: Danger Zone -->
+<section class="mt-8">
+<h2 class="font-label-caps text-label-caps text-danger-text mb-2 ml-4">Danger Zone</h2>
+<div class="bg-danger-container/20 rounded-lg overflow-hidden border border-danger-container p-4">
+<button class="w-full flex justify-center items-center gap-2 bg-danger-container hover:bg-error-container/80 text-on-error rounded-lg py-3 font-headline-md text-headline-md transition-colors border border-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+          Reset All Service State
+        </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 bg-surface-container-lowest border-t border-outline-variant px-2 transition-transform duration-150 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform duration-200">dashboard</span>
+<span class="font-label-caps text-[10px] mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform duration-200">vpn_key</span>
+<span class="font-label-caps text-[10px] mt-1">Keys</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform duration-200">receipt_long</span>
+<span class="font-label-caps text-[10px] mt-1">Logs</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-caps text-[10px] mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

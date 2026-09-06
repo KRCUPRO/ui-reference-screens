@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#646464",
+            "on-error-container": "#93000a",
+            "primary": "#000000",
+            "on-tertiary-fixed-variant": "#484645",
+            "tertiary": "#000000",
+            "on-primary-container": "#858383",
+            "tertiary-fixed-dim": "#cac6c4",
+            "secondary-container": "#e4e2e2",
+            "secondary-fixed": "#e4e2e2",
+            "surface-container-lowest": "#ffffff",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#1c1b1b",
+            "surface-container-high": "#ebe7e6",
+            "surface-container": "#f1edec",
+            "secondary-fixed-dim": "#c8c6c6",
+            "surface-container-highest": "#e5e2e1",
+            "on-surface": "#1c1b1b",
+            "surface-bright": "#fdf8f8",
+            "outline": "#747878",
+            "inverse-primary": "#c8c6c5",
+            "secondary": "#5e5e5e",
+            "primary-fixed": "#e5e2e1",
+            "on-secondary-fixed-variant": "#464747",
+            "on-primary-fixed-variant": "#474746",
+            "background": "#fdf8f8",
+            "surface-dim": "#ddd9d8",
+            "surface": "#fdf8f8",
+            "primary-container": "#1c1b1b",
+            "surface-tint": "#5f5e5e",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#444748",
+            "tertiary-container": "#1c1b1a",
+            "inverse-surface": "#313030",
+            "on-tertiary-fixed": "#1c1b1a",
+            "on-secondary-fixed": "#1b1c1c",
+            "surface-variant": "#e5e2e1",
+            "primary-fixed-dim": "#c8c6c5",
+            "on-background": "#1c1b1b",
+            "inverse-on-surface": "#f4f0ef",
+            "surface-container-low": "#f7f3f2",
+            "tertiary-fixed": "#e6e2df",
+            "outline-variant": "#c4c7c7",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#868382"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "24px",
+            "stack-sm": "8px",
+            "stack-lg": "32px",
+            "unit": "4px",
+            "margin-safe": "40px",
+            "stack-md": "16px",
+            "section-gap": "80px"
+          },
+          "fontFamily": {
+            "ui-medium": ["Public Sans"],
+            "display-lg-mobile": ["EB Garamond"],
+            "body-md": ["EB Garamond"],
+            "caption": ["Public Sans"],
+            "headline-md": ["EB Garamond"],
+            "body-lg": ["EB Garamond"],
+            "label-bold": ["Public Sans"],
+            "display-lg": ["EB Garamond"]
+          },
+          "fontSize": {
+            "ui-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "label-bold": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-surface-variant selection:text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="w-full top-0 bg-surface border-b border-outline-variant flat no shadows flex justify-between items-center px-gutter py-stack-md max-w-[1200px] mx-auto w-full">
+<div class="flex items-center gap-stack-lg">
+<a class="font-headline-md text-headline-md text-primary tracking-tight" href="#">Marginalia</a>
+<div class="hidden md:flex items-center gap-stack-md">
+<a class="font-label-bold text-label-bold text-primary border-b border-primary pb-1 cursor-pointer active:opacity-70 transition-colors duration-200" href="#">Features</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Archive</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Pricing</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Journal</a>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="font-label-bold text-label-bold text-primary hover:opacity-70 transition-opacity">Sign In</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Row 1 -->
+<section class="max-w-[1200px] mx-auto px-gutter py-section-gap border-b border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<!-- Thumbnail -->
+<div class="col-span-1 md:col-span-6 flex justify-center md:justify-start">
+<div class="border border-outline-variant bg-surface-container-lowest p-stack-sm inline-block">
+<img class="w-full max-w-md object-contain border border-outline-variant/50" data-alt="A clean, minimalist UI screenshot of a sidebar titled 'RESEARCH MATERIALS'. Below the title are four items with folder icons: 'Legal Research', 'Q3 Board Deck', 'Historical Indices', and 'Project Archive'. The background is an off-white cream color. The typography is a refined serif font. The design is strictly two-dimensional with thin hairline borders separating the items." src="https://lh3.googleusercontent.com/aida/AEtjO1XMH5QWAYibQnp9QVNHWAcG6dJpJySsM3jyLiOg6-LLQHRIt7YhHNPhp811Vy52ciLHDTDu-UcMbwfSTZi1moRYxzJkmR98cmFlx1zi_wY8OOC-hr7kvIMQFhIgeBFJpQ3jVDfppH-K8Muv63qTc5Du8IhiYvf8SoZbb5fQfG2I-HGuMdOEgv3VMe1mBEQvpeUo-reLr9fTcWmQo4S34KmNTqwMWuKcNIFYU1Wc40_I_VReUFVemIe_ARs"/>
+</div>
+</div>
+<!-- Copy -->
+<div class="col-span-1 md:col-span-5 md:col-start-8 flex flex-col gap-stack-md">
+<h2 class="font-display-lg text-display-lg text-primary">Search across every file</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+            Unify your intellectual ecosystem. Marginalia meticulously indexes your PDFs, EPUBs, and personal notes into a single, cohesive archive. Retrieve nuanced concepts instantly without breaking your concentration.
+          </p>
+</div>
+</div>
+</section>
+<!-- Row 2 -->
+<section class="max-w-[1200px] mx-auto px-gutter py-section-gap border-b border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<!-- Copy -->
+<div class="col-span-1 md:col-span-5 flex flex-col gap-stack-md order-2 md:order-1">
+<h2 class="font-display-lg text-display-lg text-primary">Get answers with receipts</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+            Demand rigorous proof. Our conversational interface doesn't just synthesize; it cites. Every assertion is anchored to your source material with precise, inline superscript markers, preserving academic integrity.
+          </p>
+</div>
+<!-- Thumbnail -->
+<div class="col-span-1 md:col-span-6 md:col-start-7 flex justify-center md:justify-end order-1 md:order-2">
+<div class="border border-outline-variant bg-surface-container-lowest p-stack-md inline-block max-w-lg w-full">
+<img class="w-full object-cover border border-outline-variant/50" data-alt="A close-up of a digital document with black serif text on a cream background. The text discusses Alan Turing and the 'universal machine' from 1936. There are distinct superscript numbers enclosed in brackets, like [1] and [2], acting as citation markers at the end of sentences. The aesthetic resembles a scholarly article printed on fine paper." src="https://lh3.googleusercontent.com/aida/AEtjO1WLXuIEXbiNcNSuV0op2Gs8zpCdy99MCZ4DF2reZCUAk6vUSDrzWIBv75nHduGmHGqPZXz9dBJoPQngF8MOMT7k8HlIRH8WyZfLd8vdhOC2B8tqhBed-KYnYVtCl99vgJr26YgBZCMZ7WvPuxrxWTLqw3lziDprbfWYvUnoNEUmZNnZeweqwk2ncyb3j8W_SIYWvGrYtGxIKFeshWqbQnLnK6YF3Zji5clGhjwoh8LQywbq-Pt0DD91NME"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Row 3 -->
+<section class="max-w-[1200px] mx-auto px-gutter py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<!-- Thumbnail -->
+<div class="col-span-1 md:col-span-6 flex justify-center md:justify-start">
+<div class="border border-outline-variant bg-surface-container-lowest p-stack-lg inline-flex flex-col items-center justify-center gap-stack-md">
+<img class="w-64 object-contain" data-alt="A minimalist UI component showing three overlapping circular portrait avatars of professionals. Below the avatars is a pill-shaped tag with a thin 1px border containing the text 'Shared with Team' in a sans-serif font. The background is a solid cream off-white color. The design feels archival and quiet." src="https://lh3.googleusercontent.com/aida/AEtjO1VtmmEI501FaXgx87rTyIBecNbUkk4Qc8Yfpy4Fo8PHeP-CmJFcNUS0YsURCyYQc8AGy3t1iKG2U2cnso66Sw6ndgL4rngOI9vntgZxGSqkXxbGVhb0r8QwelxotuhCj29kSEoWP_Yta26WxGM47ivLHuxxYPbQlvt65tGJPqVPcIa1ksqFfmuxaEYlBXC_fdclnCUBDc6AfgVGyfqmoMdZvk0308bqHVT2ovqxa72mfxHo2KQIcUdvRXw"/>
+</div>
+</div>
+<!-- Copy -->
+<div class="col-span-1 md:col-span-5 md:col-start-8 flex flex-col gap-stack-md">
+<h2 class="font-display-lg text-display-lg text-primary">Collaborate in the margins</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+            Transform isolated research into shared inquiry. Cultivate collective intelligence by sharing specific annotations, curated reading lists, and contextual commentary with trusted peers in a low-noise environment.
+          </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 bg-surface border-t border-outline-variant flat no shadows flex flex-col md:flex-row justify-between items-center px-gutter py-stack-lg max-w-[1200px] mx-auto w-full transition-all duration-300">
+<div class="font-headline-md text-headline-md text-primary mb-stack-md md:mb-0">Marginalia</div>
+<div class="flex flex-wrap justify-center gap-stack-md mb-stack-md md:mb-0">
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Contact</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">RSS Feed</a>
+</div>
+<div class="font-caption text-caption text-on-secondary-container">
+      © 2024 Marginalia. All rights reserved.
+    </div>
+</footer>
+</body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#717973",
+                    "surface-variant": "#e3e2e0",
+                    "on-secondary-container": "#636262",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "primary": "#012d1d",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "on-primary-container": "#86af99",
+                    "on-tertiary-fixed-variant": "#673a39",
+                    "tertiary-fixed-dim": "#f5b7b4",
+                    "secondary": "#5f5e5e",
+                    "on-background": "#1a1c1b",
+                    "inverse-on-surface": "#f1f1ef",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1a1c1b",
+                    "primary-container": "#1b4332",
+                    "surface-tint": "#3f6653",
+                    "surface-bright": "#faf9f7",
+                    "background": "#faf9f7",
+                    "surface-container": "#efeeec",
+                    "outline-variant": "#c1c8c2",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#d29895",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e3e2e0",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#e2dfde",
+                    "surface-container-low": "#f4f3f1",
+                    "surface": "#faf9f7",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "inverse-surface": "#2f3130",
+                    "tertiary-fixed": "#ffdad8",
+                    "tertiary": "#401b1b",
+                    "on-primary-fixed": "#002114",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed": "#331111",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#a5d0b9",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#5a302f",
+                    "surface-dim": "#dadad8",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-surface-variant": "#414844",
+                    "surface-container-high": "#e9e8e6",
+                    "on-secondary-fixed-variant": "#474746",
+                    "primary-fixed": "#c1ecd4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "0px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "sidebar_width": "240px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "gutter": "1px",
+                    "edge_margin": "32px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Public Sans"],
+                    "label-caps": ["Public Sans"],
+                    "headline-lg": ["Public Sans"],
+                    "display-metrics": ["Public Sans"],
+                    "code-sm": ["JetBrains Mono"],
+                    "body-base": ["Noto Sans KR"]
+            },
+            "fontSize": {
+                    "headline-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-metrics": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "code-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-base": ["14px", {"lineHeight": "22px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: #F9F8F6; color: #1A1A1A; }
+        .border-hairline { border-color: #E5E2DE; border-width: 1px; }
+        .ink-muted { color: #4A524D; }
+        .ink-faint { color: #7A837D; }
+        .log-bg { background-color: #1A1A1A; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-base overflow-hidden">
+<!-- TopNavBar -->
+<header class="h-[36px] w-full flex items-center bg-surface border-b border-hairline flex justify-between px-edge_margin">
+<div class="font-headline-md text-headline-md uppercase tracking-tighter text-on-surface flex items-center">
+            System Console
+        </div>
+<div class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined cursor-pointer text-[18px]">minimize</span>
+<span class="material-symbols-outlined cursor-pointer text-[18px]">fullscreen</span>
+<span class="material-symbols-outlined cursor-pointer text-[18px]">close</span>
+</div>
+</header>
+<div class="flex flex-1 h-[calc(100vh-36px)] relative">
+<!-- SideNavBar -->
+<nav class="w-[240px] h-full fixed left-0 top-[36px] border-r border-hairline flex flex-col pt-stack-lg bg-surface z-10">
+<div class="px-stack-md mb-stack-lg flex flex-col gap-1">
+<h2 class="font-headline-md text-headline-md text-on-surface">Core Engine</h2>
+<span class="font-code-sm text-code-sm text-surface-variant">v4.2.0-stable</span>
+</div>
+<ul class="flex flex-col">
+<!-- Active Item -->
+<li class="border-l-2 border-primary-container text-on-surface font-semibold pl-stack-md py-stack-sm cursor-pointer transition-all duration-150 ease-in-out">서버 제어</li>
+<!-- Inactive Items -->
+<li class="text-on-surface-variant pl-stack-md py-stack-sm hover:text-primary transition-all duration-150 ease-in-out cursor-pointer">API 키 풀</li>
+<li class="text-on-surface-variant pl-stack-md py-stack-sm hover:text-primary transition-all duration-150 ease-in-out cursor-pointer">화면 캐시</li>
+<li class="text-on-surface-variant pl-stack-md py-stack-sm hover:text-primary transition-all duration-150 ease-in-out cursor-pointer">MCP 설정</li>
+<li class="text-on-surface-variant pl-stack-md py-stack-sm hover:text-primary transition-all duration-150 ease-in-out cursor-pointer">환경 설정</li>
+</ul>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] flex-1 p-[32px] overflow-y-auto">
+<div class="flex flex-col gap-[32px] max-w-5xl">
+<!-- Status Header -->
+<div class="flex flex-col gap-stack-sm">
+<h1 class="font-display-metrics text-display-metrics">실행 중</h1>
+<div class="font-code-sm text-code-sm ink-muted flex gap-stack-lg uppercase tracking-wider">
+<span>PORT: 8080</span>
+<span>PID: 14292</span>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex items-center gap-stack-lg pb-stack-lg border-b border-hairline">
+<button class="bg-primary-container text-on-primary h-[40px] px-stack-lg font-semibold whitespace-nowrap">시작</button>
+<button class="text-on-surface hover:ink-muted whitespace-nowrap transition-colors">중지</button>
+<button class="text-on-surface hover:ink-muted whitespace-nowrap transition-colors">재시작</button>
+<button class="text-on-surface hover:ink-muted whitespace-nowrap transition-colors">브라우저 열기</button>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-3 gap-stack-lg pb-stack-lg border-b border-hairline">
+<div class="flex flex-col gap-unit">
+<span class="font-label-caps text-label-caps ink-muted">가용 키</span>
+<div class="font-code-sm text-[32px] leading-tight font-semibold">2 / 3</div>
+</div>
+<div class="flex flex-col gap-unit">
+<span class="font-label-caps text-label-caps ink-muted">오늘 호출</span>
+<div class="font-code-sm text-[32px] leading-tight font-semibold">147 / 1200</div>
+</div>
+<div class="flex flex-col gap-unit">
+<span class="font-label-caps text-label-caps ink-muted">캐시된 화면</span>
+<div class="font-code-sm text-[32px] leading-tight font-semibold">86</div>
+</div>
+</div>
+<!-- Log Strip -->
+<div class="flex flex-col">
+<div class="flex justify-between items-center pb-unit border-b border-hairline mb-unit">
+<span class="font-label-caps text-label-caps">최근 로그</span>
+<button class="font-label-caps text-label-caps ink-muted hover:text-on-surface transition-colors cursor-pointer">전체 로그</button>
+</div>
+<div class="log-bg p-stack-md font-code-sm text-code-sm ink-faint whitespace-pre-wrap flex flex-col gap-1">
+[INFO] Server listening on port 8080
+[INFO] Loaded 3 API keys from pool
+[WARN] Cache memory usage exceeding 75%
+[INFO] Incoming request from 127.0.0.1: GET /api/status</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

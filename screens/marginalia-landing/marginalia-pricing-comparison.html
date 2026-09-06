@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Pricing Comparison</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c4c7c7",
+                        "outline-hairline": "#e5e1da",
+                        "tertiary-fixed-dim": "#dcc497",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-surface-variant": "#444748",
+                        "surface-container-highest": "#e6e1e1",
+                        "surface-dim": "#ddd9d8",
+                        "on-secondary-fixed-variant": "#464747",
+                        "outline": "#747878",
+                        "on-secondary-container": "#636262",
+                        "on-background": "#1c1b1c",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-surface": "#1c1b1c",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#313030",
+                        "surface-container-high": "#ece7e7",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "surface": "#fdf8f8",
+                        "secondary-fixed": "#e4e2e2",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#c8c6c5",
+                        "tertiary-container": "#261a00",
+                        "surface-bright": "#fdf8f8",
+                        "on-tertiary-container": "#968159",
+                        "primary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-container": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f4f0f0",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#474746",
+                        "secondary-container": "#e1dfdf",
+                        "on-tertiary-fixed-variant": "#554422",
+                        "surface-variant": "#e6e1e1",
+                        "secondary": "#5e5e5e",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "table-stripe": "#f7f3f2",
+                        "background": "#fdf8f8",
+                        "surface-container-low": "#f7f2f2",
+                        "surface-container": "#f1edec",
+                        "tertiary-fixed": "#f9dfb1",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "margin-safe": "40px",
+                        "stack-sm": "8px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["EB Garamond"],
+                        "label-bold": ["Public Sans"],
+                        "headline-md": ["EB Garamond"],
+                        "display-lg-mobile": ["EB Garamond"],
+                        "caption": ["Public Sans"],
+                        "body-md": ["EB Garamond"],
+                        "technical-value": ["JetBrains Mono"],
+                        "display-lg": ["EB Garamond"],
+                        "ui-medium": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-bold": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "technical-value": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "ui-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal table scrolling */
+        .scrollbar-thin::-webkit-scrollbar {
+            height: 6px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background-color: #e5e1da;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface w-full top-0 sticky border-b border-outline-hairline dark:border-outline-variant z-50">
+<div class="flex justify-between items-center h-16 px-gutter max-w-[1200px] mx-auto">
+<!-- Brand Logo -->
+<a class="font-headline-md text-headline-md text-primary dark:text-on-primary-fixed tracking-tight" href="#">Marginalia</a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex gap-stack-lg items-center">
+<a class="text-on-surface-variant dark:text-outline-variant font-body-lg text-body-lg hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Archive</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-lg text-body-lg hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Indices</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-lg text-body-lg hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Journal</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-lg text-body-lg hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-200 cursor-pointer active:opacity-70" href="#">About</a>
+</div>
+<!-- Trailing Action & Search -->
+<div class="flex items-center gap-stack-md">
+<button aria-label="Search" class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer flex items-center justify-center w-8 h-8 rounded-none border border-transparent hover:border-outline-hairline">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">search</span>
+</button>
+<a class="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-primary text-on-primary border border-primary font-label-bold text-label-bold uppercase hover:bg-inverse-surface hover:text-inverse-on-surface transition-colors duration-200 cursor-pointer active:opacity-70" href="#">
+                    Subscribe
+                </a>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden text-on-surface-variant flex items-center justify-center w-8 h-8">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full">
+<section class="max-w-[1200px] mx-auto px-gutter py-section-gap">
+<!-- Page Header -->
+<div class="max-w-3xl mx-auto text-center mb-section-gap">
+<h1 class="font-display-lg text-display-lg md:font-display-lg md:text-display-lg text-on-surface mb-stack-md">
+                    Choose the precision that fits your research.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Archival-grade tools designed for deep reading, synthesis, and long-term knowledge retention.
+                </p>
+</div>
+<!-- Pricing Table Container -->
+<div class="w-full overflow-x-auto scrollbar-thin border border-outline-hairline bg-surface">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<!-- Sticky Header -->
+<thead class="sticky top-[64px] bg-surface-container border-b-2 border-outline-variant z-40">
+<tr>
+<th class="w-2/5 p-gutter align-bottom border-r border-outline-hairline">
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant tracking-widest">Feature Comparison</span>
+</th>
+<th class="w-1/5 p-gutter align-top text-center border-r border-outline-hairline">
+<span class="block font-headline-md text-headline-md text-on-surface mb-1">Starter</span>
+<div class="mb-4">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface">$19</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+</div>
+<a class="inline-flex w-full justify-center items-center px-4 py-3 bg-primary text-on-primary border border-primary font-label-bold text-label-bold uppercase hover:bg-inverse-surface hover:text-inverse-on-surface transition-colors duration-200" href="#">
+                                    Choose plan
+                                </a>
+</th>
+<th class="w-1/5 p-gutter align-top text-center border-r border-outline-hairline relative">
+<!-- Optional: Most Popular indicator could go here, omitting for minimalism -->
+<span class="block font-headline-md text-headline-md text-on-surface mb-1">Team</span>
+<div class="mb-4">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface">$49</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/mo per seat</span>
+</div>
+<a class="inline-flex w-full justify-center items-center px-4 py-3 bg-primary text-on-primary border border-primary font-label-bold text-label-bold uppercase hover:bg-inverse-surface hover:text-inverse-on-surface transition-colors duration-200" href="#">
+                                    Choose plan
+                                </a>
+</th>
+<th class="w-1/5 p-gutter align-top text-center">
+<span class="block font-headline-md text-headline-md text-on-surface mb-1">Enterprise</span>
+<div class="mb-4">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Custom</span>
+<span class="font-body-md text-body-md text-transparent select-none">/mo</span>
+</div>
+<a class="inline-flex w-full justify-center items-center px-4 py-3 bg-transparent text-primary border border-primary font-label-bold text-label-bold uppercase hover:bg-surface-variant transition-colors duration-200" href="#">
+                                    Contact us
+                                </a>
+</th>
+</tr>
+</thead>
+<!-- Features Body -->
+<tbody class="font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Documents indexed</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">1,000</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">10,000</td>
+<td class="p-4 text-center font-technical-value text-technical-value text-on-surface">Unlimited</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-table-stripe border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Citations per answer</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">5</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">20</td>
+<td class="p-4 text-center font-technical-value text-technical-value text-on-surface">Unlimited</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Team seats</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">1</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">Up to 10</td>
+<td class="p-4 text-center font-technical-value text-technical-value text-on-surface">Unlimited</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-table-stripe border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">SSO/SAML</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 5 -->
+<tr class="border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Audit log retention</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">30 days</td>
+<td class="p-4 text-center font-technical-value text-technical-value text-on-surface">365 days</td>
+</tr>
+<!-- Row 6 -->
+<tr class="bg-table-stripe border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">API rate limit</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">Standard</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">High</td>
+<td class="p-4 text-center font-technical-value text-technical-value text-on-surface">Custom</td>
+</tr>
+<!-- Row 7 -->
+<tr class="border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Cross-document synthesis</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 8 -->
+<tr class="bg-table-stripe border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Private indices</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 9 -->
+<tr class="border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Custom LLM fine-tuning</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 10 -->
+<tr class="bg-table-stripe border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Priority support</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 11 -->
+<tr class="border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Dedicated account manager</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 12 -->
+<tr class="bg-table-stripe border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Offline access</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 13 -->
+<tr class="border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Version history</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">7 days</td>
+<td class="p-4 text-center border-r border-outline-hairline font-technical-value text-technical-value text-on-surface">30 days</td>
+<td class="p-4 text-center font-technical-value text-technical-value text-on-surface">Unlimited</td>
+</tr>
+<!-- Row 14 -->
+<tr class="bg-table-stripe border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Advanced search filters</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 15 -->
+<tr class="border-b border-outline-hairline hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Bulk exports</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+<!-- Row 16 -->
+<tr class="bg-table-stripe border-b-0 hover:bg-surface-container-low transition-colors duration-150">
+<td class="p-4 pl-gutter font-ui-medium text-ui-medium text-on-surface-variant border-r border-outline-hairline">Annotation sharing</td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">horizontal_rule</span></td>
+<td class="p-4 text-center border-r border-outline-hairline"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">check</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Additional Info Note -->
+<div class="mt-stack-md text-center">
+<p class="font-caption text-caption text-on-surface-variant">
+                    All plans include core reading functionality and basic text extraction. Pricing is subject to local taxes.
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-dim w-full py-stack-lg border-t border-outline-hairline dark:border-outline-variant mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-[1200px] mx-auto gap-stack-md">
+<!-- Brand / Copyright -->
+<div class="flex flex-col md:flex-row items-center gap-stack-sm md:gap-gutter text-center md:text-left">
+<span class="font-label-bold text-label-bold uppercase tracking-widest text-on-surface">Marginalia</span>
+<span class="font-caption text-caption text-secondary dark:text-on-secondary-container">
+                    © 2024 Marginalia Research Collective. All rights preserved.
+                </span>
+</div>
+<!-- Links -->
+<nav class="flex flex-wrap justify-center gap-stack-md">
+<a class="font-caption text-caption text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed underline transition-all duration-200" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed underline transition-all duration-200" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed underline transition-all duration-200" href="#">Colophon</a>
+<a class="font-caption text-caption text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed underline transition-all duration-200" href="#">Accessibility</a>
+</nav>
+</div>
+</footer>
+</body></html>

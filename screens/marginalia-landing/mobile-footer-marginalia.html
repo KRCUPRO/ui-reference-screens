@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mobile Footer - Editorial Minimalist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;family=EB+Garamond:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "inverse-surface": "#313030",
+                "surface-dim": "#ddd9d8",
+                "secondary": "#5e5e5e",
+                "on-primary-fixed-variant": "#474746",
+                "on-primary": "#ffffff",
+                "surface-container-high": "#ebe7e6",
+                "tertiary-fixed-dim": "#cac6c4",
+                "on-tertiary-container": "#868382",
+                "secondary-fixed": "#e4e2e2",
+                "on-primary-fixed": "#1c1b1b",
+                "on-surface": "#1c1b1b",
+                "on-secondary-fixed": "#1b1c1c",
+                "on-secondary-container": "#646464",
+                "surface-container-low": "#f7f3f2",
+                "error-container": "#ffdad6",
+                "primary-fixed-dim": "#c8c6c5",
+                "primary-fixed": "#e5e2e1",
+                "surface-tint": "#5f5e5e",
+                "background": "#fdf8f8",
+                "outline": "#747878",
+                "tertiary-fixed": "#e6e2df",
+                "secondary-fixed-dim": "#c8c6c6",
+                "outline-variant": "#c4c7c7",
+                "on-error-container": "#93000a",
+                "on-background": "#1c1b1b",
+                "surface-variant": "#e5e2e1",
+                "surface-container-lowest": "#ffffff",
+                "primary": "#000000",
+                "on-tertiary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "inverse-primary": "#c8c6c5",
+                "tertiary-container": "#1c1b1a",
+                "surface": "#fdf8f8",
+                "surface-bright": "#fdf8f8",
+                "on-surface-variant": "#444748",
+                "error": "#ba1a1a",
+                "secondary-container": "#e4e2e2",
+                "on-primary-container": "#858383",
+                "tertiary": "#000000",
+                "on-secondary-fixed-variant": "#464747",
+                "inverse-on-surface": "#f4f0ef",
+                "surface-container-highest": "#e5e2e1",
+                "on-tertiary-fixed": "#1c1b1a",
+                "on-tertiary-fixed-variant": "#484645",
+                "surface-container": "#f1edec",
+                "primary-container": "#1c1b1b"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "margin-safe": "20px",
+                "section-gap": "80px",
+                "unit": "4px",
+                "stack-lg": "32px",
+                "gutter": "24px",
+                "stack-sm": "8px",
+                "stack-md": "16px"
+              },
+              "fontFamily": {
+                "label-bold": [
+                  "Public Sans"
+                ],
+                "body-md": [
+                  "EB Garamond"
+                ],
+                "ui-medium": [
+                  "Public Sans"
+                ],
+                "display-lg": [
+                  "EB Garamond"
+                ],
+                "caption": [
+                  "Public Sans"
+                ],
+                "body-lg": [
+                  "EB Garamond"
+                ],
+                "display-lg-mobile": [
+                  "EB Garamond"
+                ],
+                "headline-md": [
+                  "EB Garamond"
+                ]
+              },
+              "fontSize": {
+                "label-bold": [
+                  "13px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-md": [
+                  "16px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "ui-medium": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "display-lg": [
+                  "48px",
+                  {
+                    "lineHeight": "56px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "caption": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "body-lg": [
+                  "18px",
+                  {
+                    "lineHeight": "28px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "display-lg-mobile": [
+                  "32px",
+                  {
+                    "lineHeight": "40px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "headline-md": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "fontWeight": "500"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-content.expanded {
+            max-height: 200px;
+        }
+        .chevron {
+            transition: transform 0.3s ease;
+        }
+        .expanded .chevron {
+            transform: rotate(90deg);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen flex items-end justify-center pb-8 sm:pb-16 bg-surface-container-low">
+<!-- Mobile Footer Container (simulating 390px width for preview context, acting as full width on actual mobile) -->
+<footer class="w-full max-w-[390px] mx-auto bg-surface border-t border-surface-variant px-margin-safe py-stack-lg shadow-sm">
+<!-- Accordion Group -->
+<div class="flex flex-col border-t border-surface-variant" id="footer-accordion">
+<!-- Product Accordion -->
+<div class="accordion-item border-b border-surface-variant">
+<button aria-expanded="false" class="w-full py-stack-md flex justify-between items-center text-on-surface focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-ui-medium text-ui-medium">Product</span>
+<span class="material-symbols-outlined text-secondary chevron" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="accordion-content">
+<ul class="pb-stack-md flex flex-col gap-stack-sm pl-stack-sm">
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Changelog</a></li>
+</ul>
+</div>
+</div>
+<!-- Company Accordion -->
+<div class="accordion-item border-b border-surface-variant">
+<button aria-expanded="false" class="w-full py-stack-md flex justify-between items-center text-on-surface focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-ui-medium text-ui-medium">Company</span>
+<span class="material-symbols-outlined text-secondary chevron" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="accordion-content">
+<ul class="pb-stack-md flex flex-col gap-stack-sm pl-stack-sm">
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<!-- Legal Accordion -->
+<div class="accordion-item border-b border-surface-variant">
+<button aria-expanded="false" class="w-full py-stack-md flex justify-between items-center text-on-surface focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-ui-medium text-ui-medium">Legal</span>
+<span class="material-symbols-outlined text-secondary chevron" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="accordion-content">
+<ul class="pb-stack-md flex flex-col gap-stack-sm pl-stack-sm">
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Social Icons Row -->
+<div class="mt-stack-lg flex justify-center gap-gutter">
+<!-- Simulated Social Icons using Material Symbols for consistency as actual brand icons aren't standard MS -->
+<a aria-label="X (Twitter)" class="text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="alternate_email" style="font-variation-settings: 'FILL' 0;">alternate_email</span>
+</a>
+<a aria-label="LinkedIn" class="text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 0;">work</span>
+</a>
+<a aria-label="GitHub" class="text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="code" style="font-variation-settings: 'FILL' 0;">code</span>
+</a>
+<a aria-label="RSS" class="text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="rss_feed" style="font-variation-settings: 'FILL' 0;">rss_feed</span>
+</a>
+</div>
+<!-- Copyright -->
+<div class="mt-stack-md text-center">
+<p class="font-caption text-caption text-on-secondary-container">© 2026 Marginalia. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const item = button.parentElement;
+            const isExpanded = content.classList.contains('expanded');
+            
+            // Close all other accordions (optional, for classic accordion behavior)
+            // document.querySelectorAll('.accordion-content').forEach(el => {
+            //     el.classList.remove('expanded');
+            //     el.parentElement.querySelector('button').setAttribute('aria-expanded', 'false');
+            // });
+
+            if (isExpanded) {
+                content.classList.remove('expanded');
+                item.classList.remove('expanded');
+                button.setAttribute('aria-expanded', 'false');
+            } else {
+                content.classList.add('expanded');
+                item.classList.add('expanded');
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+    </script>
+</body></html>

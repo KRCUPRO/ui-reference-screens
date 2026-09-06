@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OPS_CONSOLE_V1 - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#2f3aa3",
+                        "on-primary": "#00354a",
+                        "surface-variant": "#2d3449",
+                        "tertiary-fixed-dim": "#ffb960",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-high": "#222a3d",
+                        "outline-variant": "#3e484f",
+                        "on-secondary": "#131e8c",
+                        "secondary": "#bdc2ff",
+                        "primary-fixed-dim": "#7bd0ff",
+                        "on-primary-fixed-variant": "#004c69",
+                        "on-tertiary": "#472a00",
+                        "inverse-primary": "#00668a",
+                        "on-surface": "#dae2fd",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#c4e7ff",
+                        "surface-bright": "#31394d",
+                        "surface": "#0b1326",
+                        "on-secondary-container": "#a8afff",
+                        "on-primary-fixed": "#001e2c",
+                        "background": "#0b1326",
+                        "on-secondary-fixed": "#000767",
+                        "primary": "#8ed5ff",
+                        "on-primary-container": "#004965",
+                        "tertiary-container": "#f1a02b",
+                        "on-tertiary-container": "#613b00",
+                        "inverse-surface": "#dae2fd",
+                        "outline": "#87929a",
+                        "surface-container-lowest": "#060e20",
+                        "secondary-fixed": "#e0e0ff",
+                        "secondary-container": "#2f3aa3",
+                        "on-background": "#dae2fd",
+                        "surface-dim": "#0b1326",
+                        "tertiary": "#ffc176",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface-container": "#171f33",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#38bdf8",
+                        "inverse-on-surface": "#283044",
+                        "surface-tint": "#7bd0ff",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-surface-variant": "#bdc8d1",
+                        "surface-container-low": "#131b2e",
+                        "surface-container-highest": "#2d3449",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#bdc2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "12px",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "gutter": "1px",
+                        "stack-xs": "0.25rem",
+                        "pane-margin": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-lg": ["Inter"],
+                        "data-value": ["JetBrains Mono"],
+                        "data-label": ["JetBrains Mono"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "code-sm": ["11px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "data-value": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "data-label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1326;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3e484f;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #87929a;
+        }
+        body {
+            background-color: #0f172a; /* Fallback if surface class fails */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-surface text-primary dark:text-primary font-data-label text-data-label fixed left-0 top-0 h-full w-[240px] border-r border-outline-variant flex flex-col h-full py-pane-margin z-20">
+<div class="px-container-padding mb-8 flex flex-col gap-2">
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">OPS_CONSOLE_V1</h1>
+<span class="text-on-surface-variant font-code-sm text-code-sm">API Management Layer</span>
+</div>
+<div class="flex-1 overflow-y-auto">
+<ul class="flex flex-col">
+<!-- Active Nav Item -->
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-primary border-l-2 border-primary bg-surface-container-high hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Overview
+                    </a>
+</li>
+<!-- Inactive Nav Items -->
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="vpn_key">vpn_key</span>
+                        Key Pool
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                        Logs
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+                        Rate Limits
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+                        Usage
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="vitals">vitals</span>
+                        Health
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+                        Security
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="webhook">webhook</span>
+                        Webhooks
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-container-padding py-3 transition-colors duration-150 ease-in-out text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+</li>
+</ul>
+</div>
+<div class="px-container-padding mt-auto">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<div class="w-8 h-8 rounded bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-data-label text-data-label">Admin</span>
+<span class="font-code-sm text-code-sm text-outline">System</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[240px] flex-1 flex flex-col h-screen relative">
+<!-- TopNavBar -->
+<header class="bg-surface-container dark:bg-surface-container text-primary dark:text-primary font-data-label text-data-label fixed top-0 right-0 left-[240px] h-16 border-b border-outline-variant flex justify-between items-center px-pane-margin w-[calc(100%-240px)] z-10">
+<div class="flex items-center gap-4 w-1/3">
+<div class="relative w-full max-w-xs">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" data-icon="search">search</span>
+<input class="w-full bg-surface text-on-surface border border-outline-variant rounded pl-9 pr-3 py-1.5 font-code-sm text-code-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search resources..." type="text"/>
+</div>
+</div>
+<div class="flex justify-center flex-1">
+<span class="font-headline-md text-headline-md font-black text-primary tracking-widest">SYS_STATUS_KERNEL</span>
+</div>
+<div class="flex items-center justify-end gap-2 w-1/3">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="ml-4 px-4 py-1.5 bg-transparent border border-primary text-primary font-data-label text-data-label hover:bg-primary hover:text-on-primary transition-colors rounded">
+                    Deploy New Key
+                </button>
+</div>
+</header>
+<!-- Canvas -->
+<div class="pt-16 flex-1 flex flex-col p-pane-margin gap-pane-margin overflow-y-auto">
+<!-- Stats Row -->
+<div class="flex gap-pane-margin h-24">
+<div class="flex-1 bg-surface-container border border-outline-variant flex flex-col justify-center p-4">
+<span class="font-data-label text-data-label text-on-surface-variant mb-1">TOTAL CALLS</span>
+<span class="font-data-value text-headline-lg text-outline">— calls</span>
+</div>
+<div class="flex-1 bg-surface-container border border-outline-variant flex flex-col justify-center p-4">
+<span class="font-data-label text-data-label text-on-surface-variant mb-1">SUCCESS RATE</span>
+<span class="font-data-value text-headline-lg text-outline">— success</span>
+</div>
+<div class="flex-1 bg-surface-container border border-outline-variant flex flex-col justify-center p-4">
+<span class="font-data-label text-data-label text-on-surface-variant mb-1">ACTIVE KEYS</span>
+<span class="font-data-value text-headline-lg text-outline">0 keys active</span>
+</div>
+</div>
+<!-- Split Layout -->
+<div class="flex-1 flex gap-pane-margin h-full">
+<!-- Left Half: Empty State -->
+<div class="flex-1 bg-surface-container-low border border-outline-variant flex flex-col items-center justify-center p-8 relative overflow-hidden">
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #8ed5ff 1px, transparent 0); background-size: 24px 24px;"></div>
+<span class="material-symbols-outlined text-[64px] text-outline-variant mb-6" data-icon="key_off" data-weight="fill">key_off</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2 text-center">No keys in the pool yet</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 text-center max-w-sm">
+                        Initialize your environment by generating the first access key. This will enable API routing and telemetry collection.
+                    </p>
+<button class="px-6 py-3 bg-primary text-on-primary font-data-label text-data-label rounded hover:bg-primary-container transition-colors shadow-[0_0_15px_rgba(142,213,255,0.15)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                        Add your first key
+                    </button>
+</div>
+<!-- Right Half: Service Status -->
+<div class="w-[320px] bg-surface-container border border-outline-variant flex flex-col p-6">
+<div class="flex items-center justify-between mb-8 pb-4 border-b border-outline-variant">
+<span class="font-data-label text-data-label text-on-surface-variant uppercase tracking-wider">Service Status</span>
+<div class="flex items-center gap-2 opacity-30 cursor-not-allowed">
+<span class="font-code-sm text-code-sm text-outline">PAUSED</span>
+<div class="w-10 h-5 bg-surface-variant rounded-full relative">
+<div class="w-3 h-3 bg-outline rounded-full absolute left-1 top-1"></div>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center items-center text-center gap-6 opacity-40">
+<span class="material-symbols-outlined text-[48px] text-outline" data-icon="pause_circle">pause_circle</span>
+<p class="font-code-sm text-code-sm text-outline">Service Paused — add a key to start</p>
+<div class="flex gap-3 mt-4">
+<div class="w-12 h-12 border border-outline-variant border-dashed flex items-center justify-center bg-surface-container-lowest"></div>
+<div class="w-12 h-12 border border-outline-variant border-dashed flex items-center justify-center bg-surface-container-lowest"></div>
+<div class="w-12 h-12 border border-outline-variant border-dashed flex items-center justify-center bg-surface-container-lowest"></div>
+<div class="w-12 h-12 border border-outline-variant border-dashed flex items-center justify-center bg-surface-container-lowest"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Strip -->
+<div class="h-12 border-t border-outline-variant flex items-center justify-center bg-surface-container-lowest mt-auto">
+<span class="font-code-sm text-code-sm text-outline-variant tracking-widest uppercase">Generate your first screen from the Screens tab</span>
+</div>
+</div>
+</main>
+</body></html>

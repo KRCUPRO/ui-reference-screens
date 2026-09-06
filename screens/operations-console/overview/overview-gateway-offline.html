@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Overview - Offline</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "primary": "#bec6e0",
+                "inverse-surface": "#d8e3fb",
+                "on-background": "#d8e3fb",
+                "on-surface": "#d8e3fb",
+                "outline": "#909097",
+                "secondary": "#b9c7e0",
+                "secondary-fixed-dim": "#b9c7e0",
+                "technical-green": "#22c55e",
+                "slate-surface": "#0f172a",
+                "primary-container": "#0f172a",
+                "inverse-primary": "#565e74",
+                "on-surface-variant": "#c6c6cd",
+                "secondary-container": "#3c4a5e",
+                "on-primary-container": "#798098",
+                "surface-tint": "#bec6e0",
+                "on-error-container": "#ffdad6",
+                "on-tertiary": "#00354a",
+                "slate-border": "#1e293b",
+                "on-secondary": "#233144",
+                "tertiary-container": "#001a27",
+                "surface-bright": "#2f3a4c",
+                "surface-container-highest": "#2a3548",
+                "on-error": "#690005",
+                "background": "#081425",
+                "surface-container-high": "#1f2a3c",
+                "outline-variant": "#45464d",
+                "error": "#ffb4ab",
+                "on-secondary-container": "#abb9d2",
+                "on-secondary-fixed": "#0d1c2f",
+                "secondary-fixed": "#d5e3fd",
+                "primary-fixed": "#dae2fd",
+                "surface-container-low": "#111c2d",
+                "on-tertiary-container": "#008abb",
+                "tertiary-fixed-dim": "#7bd0ff",
+                "error-container": "#93000a",
+                "inverse-on-surface": "#263143",
+                "surface": "#081425",
+                "surface-dim": "#081425",
+                "primary-fixed-dim": "#bec6e0",
+                "on-primary-fixed-variant": "#3f465c",
+                "slate-bg": "#020617",
+                "on-tertiary-fixed-variant": "#004c69",
+                "on-tertiary-fixed": "#001e2c",
+                "on-secondary-fixed-variant": "#3a485c",
+                "surface-container": "#152031",
+                "surface-container-lowest": "#040e1f",
+                "technical-amber": "#f59e0b",
+                "surface-variant": "#2a3548",
+                "on-primary-fixed": "#131b2e",
+                "tertiary": "#7bd0ff",
+                "on-primary": "#283044",
+                "tertiary-fixed": "#c4e7ff"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "margin-page": "32px",
+                "sidebar-width": "280px",
+                "gap-xs": "4px",
+                "gap-sm": "8px",
+                "base": "4px",
+                "gap-md": "16px",
+                "gap-lg": "24px"
+              },
+              "fontFamily": {
+                "headline-md": ["Hanken Grotesk"],
+                "status-code": ["JetBrains Mono"],
+                "title-md": ["Hanken Grotesk"],
+                "body-md": ["Hanken Grotesk"],
+                "label-xs": ["Hanken Grotesk"],
+                "label-md": ["Hanken Grotesk"],
+                "status-bold": ["JetBrains Mono"],
+                "headline-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "status-code": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-xs": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                "status-bold": ["13px", {"lineHeight": "18px", "fontWeight": "700"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-slate-bg text-on-surface h-screen w-full overflow-hidden flex flex-col font-body-md antialiased md:hidden selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b border-slate-border text-primary dark:text-primary-fixed-dim docked full-width top-0 flex items-center w-full px-4 h-16 shrink-0 z-40 transition-colors duration-200">
+<button aria-label="Menu" class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-highest dark:hover:bg-surface-container-highest focus:outline-none focus:ring-2 focus:ring-tertiary transition-colors" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant" data-icon="menu">menu</span>
+</button>
+<h1 class="ml-4 font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim truncate">Overview</h1>
+<div class="flex-grow"></div>
+</header>
+<!-- Alert Banner -->
+<div class="bg-error-container text-on-error-container w-full px-4 py-3 flex items-center justify-between border-b border-error/20 shrink-0 z-30">
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 bg-error rounded-sm flex-shrink-0 border border-error/50"></div>
+<p class="font-status-code text-status-code text-on-error-container break-all">Cannot reach gateway at localhost:8787</p>
+</div>
+<button class="font-label-md text-label-md text-error hover:text-on-error-container transition-colors ml-4 shrink-0 whitespace-nowrap focus:outline-none focus:underline uppercase tracking-wider font-bold" type="button">Retry</button>
+</div>
+<!-- Main Content Area - Empty State -->
+<main class="flex-grow flex flex-col items-center justify-center p-6 relative overflow-hidden">
+<!-- Subtle background pattern for technical feel -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="z-10 flex flex-col items-center text-center max-w-sm w-full bg-slate-surface border border-slate-border rounded p-8 shadow-sm">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant/50 mb-6" data-icon="cloud_off" style="font-variation-settings: 'FILL' 0, 'wght' 200;">cloud_off</span>
+<h2 class="font-status-code text-status-code text-on-surface mb-3 flex items-center justify-center">
+<span class="w-2 h-2 bg-on-surface-variant/30 rounded-full mr-2"></span>
+                Offline since 14:47:02
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
+                The console will reconnect automatically every 10 seconds.
+            </p>
+<div class="mt-8 flex items-center gap-xs">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary/20 animate-pulse delay-75"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary/40 animate-pulse delay-150"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary/60 animate-pulse delay-300"></div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface border-t border-slate-border text-primary dark:text-primary-fixed-dim md:hidden h-16 shrink-0">
+<a aria-label="Dashboard" class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-tertiary active:scale-95 transition-transform group focus:outline-none" href="#">
+<span class="material-symbols-outlined transition-colors group-hover:text-tertiary" data-icon="dashboard">dashboard</span>
+</a>
+<a aria-current="page" aria-label="Overview" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-2 hover:text-tertiary active:scale-95 transition-transform group focus:outline-none" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<a aria-label="Network" class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-tertiary active:scale-95 transition-transform group focus:outline-none" href="#">
+<span class="material-symbols-outlined transition-colors group-hover:text-tertiary" data-icon="hub">hub</span>
+</a>
+<a aria-label="Settings" class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-tertiary active:scale-95 transition-transform group focus:outline-none" href="#">
+<span class="material-symbols-outlined transition-colors group-hover:text-tertiary" data-icon="settings">settings</span>
+</a>
+</nav>
+<!-- Spacer for fixed bottom nav -->
+<div class="h-16 shrink-0 md:hidden"></div>
+</body></html>

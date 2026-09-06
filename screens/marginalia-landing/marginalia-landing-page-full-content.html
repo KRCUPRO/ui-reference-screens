@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - AI Search Layer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#43474f",
+                        "tertiary-fixed-dim": "#d1c88d",
+                        "primary": "#000000",
+                        "secondary-fixed-dim": "#a0d1c0",
+                        "on-primary-container": "#80848d",
+                        "surface-dim": "#dadad8",
+                        "on-secondary-fixed-variant": "#204f42",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#464013",
+                        "primary-fixed-dim": "#c3c6d0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#181c23",
+                        "on-secondary-fixed": "#002019",
+                        "tertiary-fixed": "#eee4a7",
+                        "surface-container-high": "#e8e8e6",
+                        "inverse-primary": "#c3c6d0",
+                        "surface": "#f9f9f7",
+                        "on-tertiary-fixed-variant": "#4d4719",
+                        "primary-fixed": "#dfe2ec",
+                        "surface-container-highest": "#e2e3e1",
+                        "on-secondary-container": "#3d6b5e",
+                        "on-primary-fixed": "#181c23",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#bceddc",
+                        "surface-bright": "#f9f9f7",
+                        "on-surface": "#1a1c1b",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#5b5e67",
+                        "inverse-on-surface": "#f1f1ef",
+                        "surface-container-low": "#f4f4f2",
+                        "outline-variant": "#c6c6cb",
+                        "secondary": "#396759",
+                        "tertiary": "#665f2f",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f7",
+                        "inverse-surface": "#2f3130",
+                        "surface-variant": "#e2e3e1",
+                        "on-surface-variant": "#45474b",
+                        "surface-container": "#eeeeec",
+                        "on-background": "#1a1c1b",
+                        "secondary-container": "#b9ead9",
+                        "on-tertiary-fixed": "#201c00",
+                        "outline": "#76777c",
+                        "tertiary-container": "#b5ad74",
+                        
+                        // Custom tokens for prompt instructions
+                        "brand-evergreen": "#2F5D50",
+                        "brand-ink": "#14181F",
+                        "brand-highlighter": "#EDE3A6",
+                        "brand-paper": "#FBFBF9",
+                        "brand-hairline": "#DEDFD8",
+                        "brand-surface-dim": "#F1F2ED"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px", // Minimalist flat design
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px" // Except for specific rounded elements like toggle
+                    },
+                    spacing: {
+                        "rail-width-desktop": "30%",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-main": "40px",
+                        "content-width-desktop": "70%"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Literata", "serif"],
+                        "headline-lg-mobile": ["Literata", "serif"],
+                        "headline-md": ["Literata", "serif"],
+                        "body-lg": ["IBM Plex Sans", "sans-serif"],
+                        "label-caps": ["IBM Plex Mono", "monospace"],
+                        "body-md": ["IBM Plex Sans", "sans-serif"],
+                        "utility-mono": ["IBM Plex Mono", "monospace"],
+                        "headline-lg": ["Literata", "serif"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "500" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "500" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "utility-mono": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "500" }]
+                    },
+                    boxShadow: {
+                        'none': 'none',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FBFBF9;
+            color: #14181F;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Utility classes for the specific brand styles */
+        .hairline-b { border-bottom: 1px solid #DEDFD8; }
+        .hairline-t { border-top: 1px solid #DEDFD8; }
+        .hairline-l { border-left: 1px solid #DEDFD8; }
+        .hairline-r { border-right: 1px solid #DEDFD8; }
+        .hairline-y { border-top: 1px solid #DEDFD8; border-bottom: 1px solid #DEDFD8; }
+        .hairline-all { border: 1px solid #DEDFD8; }
+        
+        .bg-highlighter { background-color: #EDE3A6; }
+        .text-evergreen { color: #2F5D50; }
+        .bg-evergreen { background-color: #2F5D50; }
+        
+        .editorial-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        
+        /* Highligher effect with slightly ragged edge simulation */
+        .highlight-text {
+            background-color: #EDE3A6;
+            padding: 0 4px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+    </style>
+</head>
+<body class="font-body-md antialiased selection:bg-brand-highlighter selection:text-brand-ink">
+<!-- 1) Sticky Header -->
+<header class="sticky top-0 w-full z-50 bg-brand-paper hairline-b flex justify-between items-center h-16 px-margin-main w-full max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-display-lg text-headline-md text-brand-ink tracking-tight font-semibold" href="#">Marginalia</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-brand-ink hover:text-brand-evergreen transition-colors duration-200 border-b-2 border-brand-evergreen font-bold" href="#">기능</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-brand-evergreen transition-colors duration-200" href="#">작동 방식</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-brand-evergreen transition-colors duration-200" href="#">요금제</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-brand-evergreen transition-colors duration-200" href="#">문서</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Toggle dark mode" class="w-8 h-8 rounded-full hairline-all flex items-center justify-center hover:bg-brand-surface-dim transition-colors">
+<span class="material-symbols-outlined text-sm">dark_mode</span>
+</button>
+<a class="font-body-md text-body-md text-brand-ink hover:text-brand-evergreen transition-colors" href="#">로그인</a>
+<a class="bg-brand-evergreen text-white font-body-md px-5 py-2 hover:bg-opacity-90 transition-opacity" href="#">무료로 시작</a>
+</div>
+</header>
+<main>
+<!-- 2) Hero (Editorial Margin Rail) -->
+<section class="editorial-container pt-20 pb-24">
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Left Content (70%) -->
+<div class="w-full md:w-content-width-desktop pr-0 md:pr-12">
+<div class="flex items-center gap-4 mb-8">
+<span class="font-utility-mono text-label-caps uppercase text-brand-ink tracking-widest">SOURCE-LINKED ANSWERS</span>
+<div class="h-px w-24 bg-brand-ink opacity-30"></div>
+</div>
+<h1 class="font-display-lg text-display-lg text-brand-ink mb-6 max-w-2xl leading-tight">
+                        흩어진 문서에 질문하면,<br/>근거까지 함께 답합니다.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        Notion, Google Drive, Slack, PDF 등 파편화된 사내 지식을 하나의 검색창으로 연결하세요. 가장 정확한 문서의 단락을 찾아 출처와 함께 답변을 생성합니다.
+                    </p>
+<div class="flex flex-wrap items-center gap-4 mb-4">
+<a class="bg-brand-evergreen text-white font-body-md px-6 py-3 hover:bg-opacity-90 transition-opacity flex items-center gap-2" href="#">
+                            14일 무료로 시작
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="bg-transparent hairline-all text-brand-ink font-body-md px-6 py-3 hover:bg-brand-surface-dim transition-colors" href="#">
+                            제품 둘러보기
+                        </a>
+</div>
+<p class="font-utility-mono text-xs text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">lock</span>
+                        신용카드 불필요 · 5분 내 연결
+                    </p>
+</div>
+<!-- Right Rail (30%) - Answer Card UI -->
+<div class="w-full md:w-rail-width-desktop mt-12 md:mt-0 relative">
+<!-- Decorative hairline spanning the gap -->
+<div class="hidden md:block absolute top-0 -left-6 w-px h-full bg-brand-hairline"></div>
+<div class="bg-brand-paper hairline-all p-5 mb-4 shadow-none">
+<div class="flex items-center gap-2 mb-4 hairline-b pb-3">
+<span class="material-symbols-outlined text-brand-on-surface-variant">search</span>
+<span class="font-body-md text-brand-ink">환불 정책이 B2B 계약에도 적용되나요?</span>
+</div>
+<div class="font-body-md text-brand-ink leading-relaxed mb-6">
+                            네, B2B 계약에도 적용되지만 조건이 다릅니다.<sup class="text-brand-evergreen font-utility-mono text-xs ml-1 cursor-pointer">1</sup> 일반 소비자 환불 정책과 달리, B2B 고객은 서비스 개시 후 14일 이내에만 50% 부분 환불을 요청할 수 있으며<sup class="text-brand-evergreen font-utility-mono text-xs ml-1 cursor-pointer">2</sup>, 위약금 10%가 공제됩니다.<sup class="text-brand-evergreen font-utility-mono text-xs ml-1 cursor-pointer">3</sup>
+</div>
+<!-- Source Cards -->
+<div class="space-y-3">
+<!-- Active Source Card -->
+<div class="bg-brand-surface-dim hairline-all border-brand-evergreen p-3 cursor-pointer">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-brand-evergreen text-white text-[10px] flex items-center justify-center font-utility-mono">1</div>
+<span class="font-utility-mono text-xs text-brand-ink">계약_표준약관_v4.pdf</span>
+</div>
+<span class="font-utility-mono text-[10px] text-on-surface-variant">P. 12</span>
+</div>
+<p class="font-body-md text-sm text-brand-ink leading-snug">
+                                    "제 8조 (환불 규정)... 단, <span class="highlight-text">기업 고객(B2B)의 경우 서비스 개시 14일 이내</span>에 한하여 요청 가능하며..."
+                                </p>
+</div>
+<!-- Inactive Source Card 2 -->
+<div class="bg-brand-paper hairline-all p-3 hover:bg-brand-surface-dim transition-colors cursor-pointer">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 hairline-all text-brand-ink text-[10px] flex items-center justify-center font-utility-mono bg-white">2</div>
+<span class="font-utility-mono text-xs text-brand-ink">Sales_Playbook_2024</span>
+</div>
+<span class="font-utility-mono text-[10px] text-on-surface-variant">Notion</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant leading-snug line-clamp-2">
+                                    "...B2B 고객 이탈 방지 가이드: 환불 요청 시 50% 부분 환불 정책을 우선 안내할 것."
+                                </p>
+</div>
+<!-- Inactive Source Card 3 -->
+<div class="bg-brand-paper hairline-all p-3 hover:bg-brand-surface-dim transition-colors cursor-pointer">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 hairline-all text-brand-ink text-[10px] flex items-center justify-center font-utility-mono bg-white">3</div>
+<span class="font-utility-mono text-xs text-brand-ink">#legal-updates</span>
+</div>
+<span class="font-utility-mono text-[10px] text-on-surface-variant">Slack</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- A) Trust strip -->
+<section class="hairline-b w-full">
+<div class="editorial-container py-6 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+<span class="font-utility-mono text-label-caps text-on-surface-variant whitespace-nowrap uppercase">이런 팀이 씁니다</span>
+<div class="flex-1 w-full grid grid-cols-2 md:flex md:items-center justify-between gap-6 md:gap-0">
+<span class="font-headline-md text-on-surface-variant/60 text-lg opacity-70">Toss</span>
+<div class="hidden md:block w-px h-8 bg-brand-hairline mx-4"></div>
+<span class="font-headline-md text-on-surface-variant/60 text-lg opacity-70">Woowa Bros</span>
+<div class="hidden md:block w-px h-8 bg-brand-hairline mx-4"></div>
+<span class="font-headline-md text-on-surface-variant/60 text-lg opacity-70">Karrot</span>
+<div class="hidden md:block w-px h-8 bg-brand-hairline mx-4"></div>
+<span class="font-headline-md text-on-surface-variant/60 text-lg opacity-70">Socar</span>
+<div class="hidden md:block w-px h-8 bg-brand-hairline mx-4"></div>
+<span class="font-headline-md text-on-surface-variant/60 text-lg opacity-70">Hyperconnect</span>
+</div>
+</div>
+</section>
+<!-- B) Features -->
+<section class="editorial-container py-24">
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-utility-mono text-label-caps uppercase text-brand-ink tracking-widest">WHY MARGINALIA</span>
+<div class="h-px w-12 bg-brand-ink opacity-30"></div>
+</div>
+<h2 class="font-display-lg text-headline-lg text-brand-ink max-w-2xl leading-tight">
+            문서를 옮기지 않고,<br/>있는 자리에서 검색합니다.
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 hairline-all">
+<div class="p-8 md:p-12 hairline-b md:hairline-r md:border-b-0 md:border-r border-brand-hairline">
+<span class="material-symbols-outlined text-brand-evergreen mb-6 text-3xl font-light">cable</span>
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-3">커넥터로 그대로 연결</h3>
+<p class="font-body-md text-on-surface-variant">Notion, Google Workspace, Slack, Jira 등 기존에 사용 중인 도구를 몇 번의 클릭만으로 안전하게 연결합니다.</p>
+</div>
+<div class="p-8 md:p-12 hairline-b border-brand-hairline">
+<span class="material-symbols-outlined text-brand-evergreen mb-6 text-3xl font-light">format_quote</span>
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-3">문장 단위 출처 인용</h3>
+<p class="font-body-md text-on-surface-variant">답변의 근거가 된 문서의 정확한 페이지와 단락을 인용하여, 할루시네이션(환각)을 방지하고 신뢰성을 높입니다.</p>
+</div>
+<div class="p-8 md:p-12 hairline-b md:hairline-b-0 md:hairline-r md:border-b-0 border-brand-hairline">
+<span class="material-symbols-outlined text-brand-evergreen mb-6 text-3xl font-light">key</span>
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-3">기존 권한을 그대로 상속</h3>
+<p class="font-body-md text-on-surface-variant">문서 도구의 접근 권한을 그대로 학습합니다. 권한이 없는 문서는 검색 결과나 답변에 노출되지 않습니다.</p>
+</div>
+<div class="p-8 md:p-12">
+<span class="material-symbols-outlined text-brand-evergreen mb-6 text-3xl font-light">document_scanner</span>
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-3">표와 스캔 PDF까지 읽기</h3>
+<p class="font-body-md text-on-surface-variant">강력한 OCR 및 구조 파악 엔진으로, 복잡한 표나 이미지로 된 스캔 문서의 내용도 완벽하게 이해하고 검색합니다.</p>
+</div>
+</div>
+</section>
+<!-- C) How it works -->
+<section class="editorial-container pb-24">
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-utility-mono text-label-caps uppercase text-brand-ink tracking-widest">HOW IT WORKS</span>
+<div class="h-px w-12 bg-brand-ink opacity-30"></div>
+</div>
+<h2 class="font-display-lg text-headline-lg text-brand-ink">작동 방식</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 hairline-t">
+<div class="pt-8 md:pr-10 hairline-b md:hairline-b-0 md:hairline-r pb-10 md:pb-0 border-brand-hairline">
+<div class="font-utility-mono text-4xl text-brand-ink opacity-20 mb-6">01</div>
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-3">연결한다</h3>
+<p class="font-body-md text-on-surface-variant">어드민 패널에서 사내 시스템을 연동하면 권한에 맞게 안전한 동기화가 시작됩니다.</p>
+</div>
+<div class="pt-8 md:px-10 hairline-b md:hairline-b-0 md:hairline-r pb-10 md:pb-0 border-brand-hairline">
+<div class="font-utility-mono text-4xl text-brand-ink opacity-20 mb-6">02</div>
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-3">색인한다</h3>
+<p class="font-body-md text-on-surface-variant">AI가 문서를 문맥 단위로 쪼개고 의미망을 구성하여 답변에 최적화된 형태로 저장합니다.</p>
+</div>
+<div class="pt-8 md:pl-10 pb-10 md:pb-0">
+<div class="font-utility-mono text-4xl text-brand-ink opacity-20 mb-6">03</div>
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-3">질문한다</h3>
+<p class="font-body-md text-on-surface-variant">사용자가 질문하면 가장 적합한 문맥을 찾아내어 정확한 근거와 함께 답변을 제공합니다.</p>
+</div>
+</div>
+</section>
+<!-- D) Pricing -->
+<section class="editorial-container pb-24">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+<h2 class="font-display-lg text-headline-lg text-brand-ink">요금제</h2>
+<div class="flex items-center hairline-all p-1 bg-brand-paper w-fit">
+<button class="font-body-md px-4 py-2 bg-brand-ink text-white">월간</button>
+<button class="font-body-md px-4 py-2 text-on-surface-variant hover:text-brand-ink transition-colors">연간 20% 할인</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Starter -->
+<div class="hairline-all bg-brand-paper p-8 flex flex-col h-full">
+<div class="mb-8">
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-2">스타터</h3>
+<div class="font-display-lg text-headline-lg mb-2">무료</div>
+<p class="font-body-md text-on-surface-variant h-12">개인 및 소규모 팀을 위한 기본 검색 기능</p>
+</div>
+<div class="space-y-4 mb-10 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-ink text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">최대 3개 커넥터 연동</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-ink text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">문서 색인 10,000건</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-ink text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">기본 답변 품질</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-ink text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">커뮤니티 지원</span>
+</div>
+</div>
+<a class="block text-center font-body-md text-brand-ink py-3 hairline-all hover:bg-brand-surface-dim transition-colors" href="#">시작하기</a>
+</div>
+<!-- Team -->
+<div class="border border-brand-evergreen bg-brand-paper p-8 flex flex-col h-full relative mt-4 md:mt-0">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-evergreen text-white font-utility-mono text-[10px] uppercase tracking-widest px-3 py-1 whitespace-nowrap">가장 많이 선택</div>
+<div class="mb-8">
+<h3 class="font-body-lg text-xl font-semibold text-brand-evergreen mb-2">팀</h3>
+<div class="font-display-lg text-headline-lg mb-2">₩12,000<span class="text-base text-on-surface-variant font-body-md ml-1 font-normal">/사용자·월</span></div>
+<p class="font-body-md text-on-surface-variant h-12">사내 모든 문서를 연결하고 싶은 조직</p>
+</div>
+<div class="space-y-4 mb-10 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-evergreen text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">무제한 커넥터 연동</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-evergreen text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">무제한 문서 색인</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-evergreen text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">우선순위 고성능 모델 적용</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-evergreen text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">권한 상속 기능</span>
+</div>
+</div>
+<a class="block text-center font-body-md text-white bg-brand-evergreen py-3 hover:bg-opacity-90 transition-opacity" href="#">14일 무료 체험</a>
+</div>
+<!-- Enterprise -->
+<div class="hairline-all bg-brand-paper p-8 flex flex-col h-full">
+<div class="mb-8">
+<h3 class="font-body-lg text-xl font-semibold text-brand-ink mb-2">엔터프라이즈</h3>
+<div class="font-display-lg text-headline-lg mb-2">문의</div>
+<p class="font-body-md text-on-surface-variant h-12">보안과 맞춤형 관리가 필요한 대기업</p>
+</div>
+<div class="space-y-4 mb-10 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-ink text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">VPC 및 온프레미스 구축 옵션</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-ink text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">커스텀 LLM 튜닝</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-ink text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">SSO 및 고급 보안 통제</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-ink text-sm mt-1">check</span>
+<span class="font-body-md text-brand-ink">전담 어카운트 매니저</span>
+</div>
+</div>
+<a class="block text-center font-body-md text-brand-ink py-3 hairline-all hover:bg-brand-surface-dim transition-colors" href="#">도입 문의</a>
+</div>
+</div>
+</section>
+<!-- E) FAQ -->
+<section class="editorial-container pb-24">
+<div class="mb-12">
+<h2 class="font-display-lg text-headline-lg text-brand-ink">자주 묻는 질문</h2>
+</div>
+<div class="hairline-t">
+<!-- Item 1 (Expanded) -->
+<div class="hairline-b py-6">
+<div class="flex justify-between items-center cursor-pointer mb-4">
+<h3 class="font-body-lg text-lg font-semibold text-brand-ink">사내 문서 데이터가 외부로 유출되거나 학습에 사용되나요?</h3>
+<span class="material-symbols-outlined text-brand-ink font-light">remove</span>
+</div>
+<p class="font-body-md text-on-surface-variant pl-0 pr-12">
+                아니요, 고객의 데이터는 철저히 격리되어 저장되며 LLM 학습에 절대 사용되지 않습니다. 기업용으로 특별히 보안 처리된 API만을 사용하며, 엔터프라이즈 요금제의 경우 VPC 내 단독 구축이나 온프레미스 환경 구성도 가능합니다.
+            </p>
+</div>
+<!-- Item 2 -->
+<div class="hairline-b py-6 flex justify-between items-center cursor-pointer hover:bg-brand-surface-dim/50 transition-colors">
+<h3 class="font-body-lg text-lg font-semibold text-brand-ink">지원하는 연동(커넥터) 도구는 어떤 것들이 있나요?</h3>
+<span class="material-symbols-outlined text-brand-ink font-light">add</span>
+</div>
+<!-- Item 3 -->
+<div class="hairline-b py-6 flex justify-between items-center cursor-pointer hover:bg-brand-surface-dim/50 transition-colors">
+<h3 class="font-body-lg text-lg font-semibold text-brand-ink">문서 접근 권한은 어떻게 제어되나요?</h3>
+<span class="material-symbols-outlined text-brand-ink font-light">add</span>
+</div>
+<!-- Item 4 -->
+<div class="hairline-b py-6 flex justify-between items-center cursor-pointer hover:bg-brand-surface-dim/50 transition-colors">
+<h3 class="font-body-lg text-lg font-semibold text-brand-ink">스캔한 PDF나 이미지 내의 텍스트도 검색할 수 있나요?</h3>
+<span class="material-symbols-outlined text-brand-ink font-light">add</span>
+</div>
+<!-- Item 5 -->
+<div class="hairline-b py-6 flex justify-between items-center cursor-pointer hover:bg-brand-surface-dim/50 transition-colors">
+<h3 class="font-body-lg text-lg font-semibold text-brand-ink">답변이 생성되는 데 시간이 얼마나 걸리나요?</h3>
+<span class="material-symbols-outlined text-brand-ink font-light">add</span>
+</div>
+</div>
+</section>
+<!-- F) Closing CTA band -->
+<section class="w-full bg-brand-surface-dim hairline-y py-24">
+<div class="editorial-container flex flex-col items-start">
+<h2 class="font-display-lg text-headline-lg text-brand-ink mb-4 max-w-2xl leading-tight">우리 팀 문서부터 연결해 보세요.</h2>
+<p class="font-body-lg text-on-surface-variant mb-10 max-w-xl">지금 가입하고 14일 동안 기능 제한 없이 모든 혜택을 체험해 보세요.</p>
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+<a class="bg-brand-evergreen text-white font-body-md px-8 py-4 hover:bg-opacity-90 transition-opacity flex items-center gap-2" href="#">
+                14일 무료로 시작
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<p class="font-utility-mono text-xs text-on-surface-variant flex items-center gap-2 mt-2 sm:mt-0">
+<span class="material-symbols-outlined text-xs">lock</span>
+                신용카드 불필요
+            </p>
+</div>
+</div>
+</section>
+</main>
+<!-- 9) Footer -->
+<footer class="bg-surface-container-low hairline-t w-full">
+<div class="editorial-container py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-12">
+<div class="col-span-1">
+<span class="font-display-lg text-headline-md text-primary block mb-6">Marginalia</span>
+</div>
+<div class="col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<ul class="space-y-4">
+<li><a class="font-utility-mono text-label-caps uppercase text-on-surface-variant hover:text-brand-ink transition-colors" href="#">기능</a></li>
+<li><a class="font-utility-mono text-label-caps uppercase text-on-surface-variant hover:text-brand-ink transition-colors" href="#">작동 방식</a></li>
+</ul>
+</div>
+<div>
+<ul class="space-y-4">
+<li><a class="font-utility-mono text-label-caps uppercase text-on-surface-variant hover:text-brand-ink transition-colors" href="#">요금제</a></li>
+<li><a class="font-utility-mono text-label-caps uppercase text-on-surface-variant hover:text-brand-ink transition-colors" href="#">엔터프라이즈</a></li>
+</ul>
+</div>
+<div>
+<ul class="space-y-4">
+<li><a class="font-utility-mono text-label-caps uppercase text-on-surface-variant hover:text-brand-ink transition-colors" href="#">문서</a></li>
+<li><a class="font-utility-mono text-label-caps uppercase text-on-surface-variant hover:text-brand-ink transition-colors" href="#">블로그</a></li>
+</ul>
+</div>
+<div>
+<ul class="space-y-4">
+<li><a class="font-utility-mono text-label-caps uppercase text-on-surface-variant hover:text-brand-ink transition-colors underline" href="#">Terms</a></li>
+<li><a class="font-utility-mono text-label-caps uppercase text-on-surface-variant hover:text-brand-ink transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="hairline-t pt-8">
+<p class="font-utility-mono text-xs text-on-surface-variant uppercase">© 2024 MARGINALIA RESEARCH. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+</body></html>

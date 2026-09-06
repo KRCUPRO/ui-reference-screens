@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Screens Tab - Kinetic Gateway</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#e7eeff",
+                        "surface-bright": "#f9f9ff",
+                        "on-surface-variant": "#424656",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-primary-container": "#f8f7ff",
+                        "secondary": "#515f74",
+                        "primary-container": "#0066ff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "tertiary-container": "#6f7274",
+                        "surface-container-high": "#dee8ff",
+                        "inverse-on-surface": "#ecf1ff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-dim": "#cfdaf2",
+                        "on-background": "#111c2d",
+                        "surface": "#f9f9ff",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f9f9ff",
+                        "secondary-container": "#d5e3fc",
+                        "on-surface": "#111c2d",
+                        "primary": "#0050cb",
+                        "inverse-surface": "#263143",
+                        "tertiary": "#565a5b",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c2c6d8",
+                        "secondary-fixed": "#d5e3fc",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#57657a",
+                        "on-primary": "#ffffff",
+                        "outline": "#727687",
+                        "inverse-primary": "#b3c5ff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#dae1ff",
+                        "surface-variant": "#d8e3fb",
+                        "on-primary-fixed-variant": "#003fa4",
+                        "surface-container-highest": "#d8e3fb",
+                        "surface-container-low": "#f0f3ff",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-tertiary-container": "#f6f8fa",
+                        "surface-tint": "#0054d6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001849"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "mono-sm": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface h-full flex flex-col font-body-md overflow-hidden">
+<!-- Top Navigation -->
+<header class="bg-surface w-full h-16 flex items-center border-b border-outline-variant shrink-0">
+<div class="flex justify-between items-center w-full px-lg max-w-container-max mx-auto">
+<div class="flex items-center gap-lg">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Gateway Console</div>
+<nav class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-low transition-colors px-md py-sm rounded-DEFAULT" href="#">Dashboard</a>
+<a class="text-primary font-body-md text-body-md font-bold border-b-2 border-primary px-md py-sm" href="#">Screens</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline text-body-md">search</span>
+<input class="pl-xl pr-sm py-sm bg-surface-container-low border border-outline-variant rounded-DEFAULT font-body-md text-body-md text-on-surface w-48 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<button class="p-sm hover:bg-surface-container-low rounded-DEFAULT transition-colors active:opacity-80"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-sm hover:bg-surface-container-low rounded-DEFAULT transition-colors active:opacity-80"><span class="material-symbols-outlined">settings</span></button>
+<button class="p-sm hover:bg-surface-container-low rounded-DEFAULT transition-colors active:opacity-80"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-md py-sm rounded-DEFAULT hover:opacity-90 active:opacity-80 transition-opacity ml-sm">Create Gateway</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area - Split Layout -->
+<main class="flex-1 flex overflow-hidden max-w-[768px] mx-auto w-full">
+<!-- Left Panel: Folder Tree (1/3 width approx on tablet) -->
+<aside class="w-1/3 bg-surface border-r border-outline-variant flex flex-col overflow-y-auto shrink-0">
+<div class="p-md border-b border-outline-variant">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase">Projects</h2>
+</div>
+<div class="p-sm flex flex-col gap-xs">
+<!-- Folder Item -->
+<div class="flex items-center gap-sm p-sm rounded-DEFAULT hover:bg-surface-container-low cursor-pointer text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-body-md">chevron_right</span>
+<span class="material-symbols-outlined text-body-md">folder</span>
+<span class="font-body-md text-body-md truncate">Design Systems</span>
+</div>
+<!-- Folder Item -->
+<div class="flex items-center gap-sm p-sm rounded-DEFAULT hover:bg-surface-container-low cursor-pointer text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-body-md">chevron_right</span>
+<span class="material-symbols-outlined text-body-md">folder</span>
+<span class="font-body-md text-body-md truncate">Landing Pages</span>
+</div>
+<!-- Expanded Folder Item (Active) -->
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm p-sm rounded-DEFAULT bg-secondary-container text-primary cursor-pointer transition-colors border border-outline-variant">
+<span class="material-symbols-outlined text-body-md">expand_more</span>
+<span class="material-symbols-outlined text-body-md">folder_open</span>
+<span class="font-body-md text-body-md font-bold truncate">Console Mockups</span>
+</div>
+<!-- Nested Items -->
+<div class="pl-xl pr-sm py-xs flex flex-col gap-xs border-l border-outline-variant ml-[18px]">
+<div class="flex items-center gap-sm p-sm rounded-DEFAULT hover:bg-surface-container-low cursor-pointer text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-body-md">image</span>
+<span class="font-body-md text-body-md truncate">v1_drafts</span>
+</div>
+<div class="flex items-center gap-sm p-sm rounded-DEFAULT bg-surface-container-high text-on-surface cursor-pointer transition-colors ring-1 ring-primary-fixed-dim">
+<span class="material-symbols-outlined text-body-md text-primary">image</span>
+<span class="font-body-md text-body-md font-medium truncate">final_exports</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Panel: Grid Area (2/3 width approx) -->
+<section class="flex-1 bg-surface-bright flex flex-col overflow-y-auto">
+<!-- Toolbar -->
+<div class="p-md border-b border-outline-variant bg-surface flex flex-col gap-md sticky top-0 z-10">
+<div class="flex items-center justify-between">
+<h1 class="font-headline-md text-headline-md text-on-surface">Console Mockups / final_exports</h1>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-low rounded-DEFAULT"><span class="material-symbols-outlined text-body-md">grid_view</span></button>
+<button class="p-xs text-outline hover:bg-surface-container-low rounded-DEFAULT"><span class="material-symbols-outlined text-body-md">view_list</span></button>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline text-body-md">search</span>
+<input class="w-full pl-xl pr-sm py-sm bg-surface-container-lowest border border-outline-variant rounded-DEFAULT font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Filter screens..." type="text"/>
+</div>
+<div class="relative shrink-0">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant rounded-DEFAULT font-body-md text-body-md text-on-surface pl-sm pr-xl py-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors cursor-pointer">
+<option>Theme: All</option>
+<option>Light</option>
+<option>Dark</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-outline pointer-events-none text-body-md">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Grid Content -->
+<div class="p-md flex flex-col gap-lg">
+<!-- Group: Today -->
+<div class="flex flex-col gap-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant border-b border-outline-variant pb-xs">Today</h3>
+<div class="grid grid-cols-3 gap-md">
+<!-- Thumbnail Card -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden hover:ring-2 hover:ring-primary hover:border-transparent transition-all cursor-pointer relative shadow-[0px_2px_4px_rgba(0,0,0,0.02)]">
+<div class="relative w-full aspect-[4/3] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A clean, modern light-mode dashboard UI featuring a data grid and side navigation panel, rendered in precise corporate minimalist style with a white and pale blue color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgYETrX7-pKrZAPfMzJx_FaJ0qIfGVfgki6Sue5i4PQvwsuGx8qUx4nAAyCFcDO3heVP-nRfR4M4IPXPo4OsAxrbUKqkySu7uM0qtyURLoi2E3Y7E4gj96MmlwyS4Q4LJYIa1Zm9Pt4G6XWVmcB1LVCaGAYOXqQcyJGnMr77gRzvPtUs3-uIl9gf4fr6YKLcJMIJUrgrFIYPposV2VPcIcuLqACuYCW9l3CGCSAfXgkUGIcoDAGLIZ3pO9Uw4lKM2fJu3oHEwWf2o"/>
+<div class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<button class="absolute top-sm right-sm bg-surface-container-lowest/90 text-on-surface p-xs rounded-DEFAULT opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary backdrop-blur-sm shadow-sm">
+<span class="material-symbols-outlined text-label-md" style="font-variation-settings: 'FILL' 1;">open_in_full</span>
+</button>
+</div>
+<div class="p-sm border-t border-outline-variant bg-surface flex flex-col gap-xs">
+<span class="font-mono-sm text-mono-sm text-on-surface truncate">dash_main_v4.png</span>
+<span class="font-label-md text-label-md text-on-surface-variant text-[10px]">10:42 AM</span>
+</div>
+</div>
+<!-- Thumbnail Card -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden hover:ring-2 hover:ring-primary hover:border-transparent transition-all cursor-pointer relative shadow-[0px_2px_4px_rgba(0,0,0,0.02)]">
+<div class="relative w-full aspect-[4/3] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A complex settings panel UI in light mode, showing form fields, toggles, and a primary blue save button against a crisp white background with subtle gray structural lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSvJsnkHwSTXAGgu5ew3xwkypK-q_4pOghDbcA60uU5wtDFTlZzPQXDLU-v8SVuDLIapvMfAVJKDw7yuRaEEaSqtXynrQXh4ih6s_GUcbjAb9kqrOEctpg2oipKba-_Cm6Xy9HjijrJanSkA0eUz8YLczBjbovbv_13Wq6HQg7LMEz4oEiHjInWvYDLDwxeZcBOEKXki9lo-p5frKuUzWnBOJYg0jO19bk4hbAfF_Gv3Axym4bGNNR98Q0N2SCiOmwyWG60985pOo"/>
+<div class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="p-sm border-t border-outline-variant bg-surface flex flex-col gap-xs">
+<span class="font-mono-sm text-mono-sm text-on-surface truncate">settings_modal.png</span>
+<span class="font-label-md text-label-md text-on-surface-variant text-[10px]">09:15 AM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Group: Sep 3 -->
+<div class="flex flex-col gap-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant border-b border-outline-variant pb-xs">Sep 3</h3>
+<div class="grid grid-cols-3 gap-md">
+<!-- Thumbnail Card -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden hover:ring-2 hover:ring-primary hover:border-transparent transition-all cursor-pointer relative shadow-[0px_2px_4px_rgba(0,0,0,0.02)]">
+<div class="relative w-full aspect-[4/3] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A minimalist empty state screen UI for a data management tool, featuring a subtle folder icon, a headline, and a blue 'Create New' button in the center of a mostly empty white canvas." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmFYa5glkNQ95cTl97JbnYtEmGbiWTs1NoQ8-N7qfeYrOgGG1FlYynLPVf71fuGeyGP32Tz8cMeI1S_19fMP_KNuPsysVKZLc0DEb4ICaKxyx23yam4qnrh6N9HdmEslov2Rk1XPhYSpY138YYWX73GhWbtQMZJQ5yKifZFCAT2fXnd5XLtncayL1Eh__XoF7c9hZq1mpUDtnsyrCLAenTOTYLKOlnxzBXm_S0xiN15CJDKL8xq6XRMY9Rpulul7a2j6_yf45wdC8"/>
+<div class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="p-sm border-t border-outline-variant bg-surface flex flex-col gap-xs">
+<span class="font-mono-sm text-mono-sm text-on-surface truncate">empty_state_list.png</span>
+<span class="font-label-md text-label-md text-on-surface-variant text-[10px]">4:20 PM</span>
+</div>
+</div>
+<!-- Thumbnail Card -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden hover:ring-2 hover:ring-primary hover:border-transparent transition-all cursor-pointer relative shadow-[0px_2px_4px_rgba(0,0,0,0.02)]">
+<div class="relative w-full aspect-[4/3] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A detailed analytics dashboard UI displaying line charts and key metric summary cards. The aesthetic is highly structured, using a strict 12-column grid and subtle light grey backgrounds to separate content areas." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCObdzOXYevzKzZdMdv4bPGPxeGlqjuM-9Gfi8JH4EFWtDTyCTRoukgIDomLEsCB1bC3OMjqzj5w0DxZdO8koKBUEN8ItxnaRbJJ1bmMHnzFBhn5V5K01bm_ofegsQqzAXcpKNAImxzUEAFEEpIUcQLIVRYaEeB80YiCJTJV-LYIoor1DT47E_Xzn_wbPp2AFJSLb__hq4zxTEfy2T7LK8i-iTOGUN7LbM9Li6URL9Z6l9Y_6QTftlE4fgTtGH8ADz_pjg7mY23m7c"/>
+<div class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="p-sm border-t border-outline-variant bg-surface flex flex-col gap-xs">
+<span class="font-mono-sm text-mono-sm text-on-surface truncate">analytics_view.png</span>
+<span class="font-label-md text-label-md text-on-surface-variant text-[10px]">2:15 PM</span>
+</div>
+</div>
+<!-- Thumbnail Card -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden hover:ring-2 hover:ring-primary hover:border-transparent transition-all cursor-pointer relative shadow-[0px_2px_4px_rgba(0,0,0,0.02)]">
+<div class="relative w-full aspect-[4/3] bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-[48px]">image_not_supported</span>
+</div>
+<div class="p-sm border-t border-outline-variant bg-surface-container-low flex flex-col gap-xs">
+<span class="font-mono-sm text-mono-sm text-on-surface truncate">error_state_test.png</span>
+<span class="font-label-md text-label-md text-error text-[10px]">Failed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

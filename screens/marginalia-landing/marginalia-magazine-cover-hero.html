@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Search, Annotated</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "tertiary-fixed": "#e6e2df",
+              "on-secondary-fixed-variant": "#474747",
+              "surface-tint": "#5f5e5e",
+              "secondary-fixed-dim": "#c8c6c6",
+              "primary-fixed": "#e5e2e1",
+              "on-primary": "#ffffff",
+              "secondary-fixed": "#e4e2e1",
+              "outline-variant": "#c4c7c7",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#c8c6c5",
+              "outline": "#747878",
+              "tertiary-fixed-dim": "#cac6c4",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#c8c6c5",
+              "tertiary": "#000000",
+              "error-container": "#ffdad6",
+              "secondary": "#5f5e5e",
+              "surface": "#fdf8f8",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#e5e2e1",
+              "primary-container": "#1c1b1b",
+              "background": "#fdf8f8",
+              "secondary-container": "#e4e2e1",
+              "on-secondary-fixed": "#1b1c1c",
+              "inverse-surface": "#313030",
+              "on-primary-fixed-variant": "#474746",
+              "surface-bright": "#fdf8f8",
+              "on-tertiary-fixed": "#1c1b1a",
+              "on-secondary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#868382",
+              "on-background": "#1c1b1b",
+              "primary": "#000000",
+              "on-surface-variant": "#444748",
+              "surface-container-low": "#f7f3f2",
+              "surface-container": "#f1edec",
+              "on-surface": "#1c1b1b",
+              "on-secondary-container": "#656464",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#ebe7e6",
+              "inverse-on-surface": "#f4f0ef",
+              "surface-dim": "#ddd9d8",
+              "on-tertiary-fixed-variant": "#484645",
+              "tertiary-container": "#1c1b1a",
+              "surface-variant": "#e5e2e1",
+              "on-primary-fixed": "#1c1b1b",
+              "on-primary-container": "#858383"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "gutter": "8px",
+              "margin-page": "16px",
+              "row-gap": "4px",
+              "column-gap": "12px",
+              "unit": "4px"
+            },
+            "fontFamily": {
+              "body-md": [
+                "\"Source Serif 4\""
+              ],
+              "label-caps": [
+                "Archivo Narrow"
+              ],
+              "footer-note": [
+                "Archivo Narrow"
+              ],
+              "body-sm": [
+                "\"Source Serif 4\""
+              ],
+              "headline-md": [
+                "\"Source Serif 4\""
+              ],
+              "headline-lg": [
+                "\"Source Serif 4\""
+              ]
+            },
+            "fontSize": {
+              "body-md": [
+                "14px",
+                {
+                  "lineHeight": "18px",
+                  "fontWeight": "400"
+                }
+              ],
+              "label-caps": [
+                "11px",
+                {
+                  "lineHeight": "12px",
+                  "letterSpacing": "0.08em",
+                  "fontWeight": "700"
+                }
+              ],
+              "footer-note": [
+                "10px",
+                {
+                  "lineHeight": "14px",
+                  "letterSpacing": "0.01em",
+                  "fontWeight": "400"
+                }
+              ],
+              "body-sm": [
+                "12px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "400"
+                }
+              ],
+              "headline-md": [
+                "20px",
+                {
+                  "lineHeight": "24px",
+                  "fontWeight": "700"
+                }
+              ],
+              "headline-lg": [
+                "30px",
+                {
+                  "lineHeight": "32px",
+                  "letterSpacing": "-0.02em",
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .grid-lines > div:not(:last-child) {
+            border-right: 1px solid #e5e2e1;
+        }
+        .bg-archival {
+            background-color: #fdf8f8;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-archival text-on-background min-h-screen flex flex-col antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 border-b-2 border-primary dark:border-outline pb-1 mb-px border-double bg-background dark:bg-surface-container-low flex flex-col items-center px-margin-page py-gutter gap-row-gap z-50 sticky">
+<div class="w-full max-w-7xl mx-auto flex justify-between items-center relative">
+<div class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant">
+                NO. 04
+            </div>
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter uppercase text-primary dark:text-on-background">THE MARGINALIA DAILY</h1>
+</div>
+<div class="flex items-center gap-column-gap font-label-caps text-label-caps">
+<button class="px-3 py-1 border border-primary dark:border-outline text-primary dark:text-on-background hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors cursor-pointer active:invert">
+                    SUBSCRIBE
+                </button>
+</div>
+</div>
+<nav class="w-full max-w-7xl mx-auto flex justify-center gap-6 mt-2 font-label-caps text-label-caps">
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors px-2 py-1" href="#">ARCHIVE</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors px-2 py-1" href="#">INDEX</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors px-2 py-1" href="#">REPORTS</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors px-2 py-1" href="#">DISPATCHES</a>
+<a class="text-primary dark:text-on-background font-bold border-b border-primary dark:border-on-background hover:bg-secondary-container dark:hover:bg-tertiary-container transition-colors px-2 py-1" href="#">QUERY</a>
+</nav>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-page py-8">
+<!-- 12 Column Grid Container -->
+<div class="grid grid-cols-12 gap-0 border-t border-l border-r border-surface-variant min-h-[716px] grid-lines">
+<!-- Left Side - Headline (Columns 1-7) -->
+<div class="col-span-12 md:col-span-7 flex flex-col p-8 border-b border-surface-variant md:border-b-0">
+<div class="mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-[0.2em] border-b border-surface-variant pb-1">SEARCH, ANNOTATED</span>
+</div>
+<h2 class="font-headline-lg text-[4rem] leading-[1.1] font-bold text-primary mt-8 mb-6 max-w-2xl" style="font-family: 'Source Serif 4', serif;">
+                    The Search Engine For What You Already Wrote.
+                </h2>
+<p class="font-body-md text-lg text-on-surface-variant max-w-md mb-8 leading-relaxed">
+                    Retrieve context, citations, and lost thoughts from your own archival repository. A brutally fast index of your digital marginalia.
+                </p>
+<div class="mt-auto pt-8">
+<div class="relative w-full max-w-md border border-primary p-1 bg-surface-lowest">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-xl">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border-none bg-transparent font-body-md text-primary placeholder-on-surface-variant focus:ring-0 focus:outline-none" placeholder="Query your archives..." type="text"/>
+<button class="absolute inset-y-1 right-1 px-4 bg-primary text-on-primary font-label-caps text-label-caps hover:bg-inverse-surface transition-colors">
+                            EXECUTE
+                        </button>
+</div>
+<div class="mt-2 font-footer-note text-footer-note text-on-surface-variant">
+                        PRESS ↵ TO SEARCH GLOBALLY
+                    </div>
+</div>
+</div>
+<!-- Middle Empty Column for Spacing (Column 8) -->
+<div class="hidden md:block col-span-1 border-b md:border-b-0 border-surface-variant"></div>
+<!-- Right Side - Field Reports (Columns 9-12) -->
+<div class="col-span-12 md:col-span-4 flex flex-col p-6 border-b border-surface-variant md:border-b-0 bg-surface-container-low">
+<div class="flex justify-between items-end mb-6 pb-2 border-b-2 border-primary border-double">
+<h3 class="font-label-caps text-label-caps font-bold text-primary">FIELD REPORTS</h3>
+<span class="font-footer-note text-footer-note text-on-surface-variant">LIVE STREAM</span>
+</div>
+<div class="flex flex-col gap-0 border border-surface-variant bg-surface">
+<!-- Report Item 1 -->
+<div class="p-4 border-b border-surface-variant hover:bg-secondary-container transition-colors cursor-pointer group">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-1">description</span>
+<div>
+<div class="font-label-caps text-label-caps font-bold text-primary mb-1 group-hover:underline">Contract_Renewal_2024.pdf, p.3</div>
+<div class="font-body-sm text-on-surface-variant line-clamp-2 italic">
+                                    "...stipulates that liability falls strictly within the bounds of Section 4b, negating prior verbal agreements..."
+                                </div>
+<div class="font-footer-note text-footer-note text-outline mt-2 text-right">
+                                    RETRIEVED 12:44 PM
+                                </div>
+</div>
+</div>
+</div>
+<!-- Report Item 2 -->
+<div class="p-4 border-b border-surface-variant hover:bg-secondary-container transition-colors cursor-pointer group">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-1">forum</span>
+<div>
+<div class="font-label-caps text-label-caps font-bold text-primary mb-1 group-hover:underline">Slack #finance, Mar 14</div>
+<div class="font-body-sm text-on-surface-variant line-clamp-2 italic">
+                                    "Sarah mentioned we need to defer the Q3 OPEX until the restructuring is finalized."
+                                </div>
+<div class="font-footer-note text-footer-note text-outline mt-2 text-right">
+                                    RETRIEVED 11:12 AM
+                                </div>
+</div>
+</div>
+</div>
+<!-- Report Item 3 -->
+<div class="p-4 hover:bg-secondary-container transition-colors cursor-pointer group">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-1">note_alt</span>
+<div>
+<div class="font-label-caps text-label-caps font-bold text-primary mb-1 group-hover:underline">Obsidian: Project_Onyx.md</div>
+<div class="font-body-sm text-on-surface-variant line-clamp-2 italic">
+                                    "The core constraint isn't bandwidth, it's cognitive load on the onboarding flow."
+                                </div>
+<div class="font-footer-note text-footer-note text-outline mt-2 text-right">
+                                    RETRIEVED 09:05 AM
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 w-full">
+<div class="w-full h-32 border border-surface-variant p-1 bg-surface relative overflow-hidden group cursor-crosshair">
+<!-- Simulated visual graph/index map using CSS -->
+<div class="absolute inset-0 bg-[radial-gradient(#c8c6c6_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+<div class="absolute top-1/2 left-1/4 w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute top-1/3 left-1/2 w-1.5 h-1.5 bg-primary rounded-full"></div>
+<div class="absolute bottom-1/4 right-1/3 w-3 h-3 bg-primary rounded-full border-2 border-surface"></div>
+<svg class="absolute inset-0 w-full h-full opacity-20" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M 25 50 L 50 33 L 66 75" fill="none" stroke="#000" stroke-width="1"></path>
+</svg>
+<div class="absolute bottom-2 left-2 bg-surface px-1 border border-surface-variant font-footer-note text-[8px] text-on-surface-variant uppercase tracking-wider group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                            INDEX TOPOLOGY
+                        </div>
+</div>
+</div>
+</div>
+</div>
+<div class="border-b border-surface-variant w-full h-0"></div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 border-t border-primary dark:border-outline bg-primary dark:bg-tertiary-container flex justify-between items-center px-margin-page py-unit border-t-2 mt-gutter">
+<div class="font-label-caps text-label-caps font-bold text-on-primary">
+            MARGINALIA ARCHIVAL CORP.
+        </div>
+<nav class="flex gap-4 font-label-caps text-label-caps">
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">TERMS OF SERVICE</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">PRIVACY POLICY</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">INDEXING STATUS</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">REPRINTS</a>
+</nav>
+<div class="font-footer-note text-footer-note text-on-primary dark:text-on-tertiary">
+            © 2024 MARGINALIA ARCHIVAL CORP. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

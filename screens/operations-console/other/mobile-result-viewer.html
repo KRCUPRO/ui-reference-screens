@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>JSON Result Viewer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#002113",
+                        "inverse-primary": "#005ac2",
+                        "secondary-fixed": "#6ffbbe",
+                        "surface": "#131313",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "on-tertiary": "#68000a",
+                        "secondary-container": "#00a572",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#ff5451",
+                        "on-tertiary-container": "#5c0008",
+                        "inverse-surface": "#e5e2e1",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline-variant": "#424754",
+                        "surface-container-highest": "#353534",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary": "#adc6ff",
+                        "primary-container": "#4d8eff",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#4edea3",
+                        "surface-variant": "#353534",
+                        "surface-bright": "#393939",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-dim": "#131313",
+                        "background": "#131313",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "surface-tint": "#adc6ff",
+                        "on-primary": "#002e6a",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed-variant": "#004395",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-container": "#00285d",
+                        "secondary-fixed-dim": "#4edea3",
+                        "tertiary-fixed": "#ffdad7",
+                        "on-surface-variant": "#c2c6d6",
+                        "surface-container": "#201f1f",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-container": "#00311f",
+                        "on-primary-fixed": "#001a42",
+                        "tertiary": "#ffb3ad",
+                        "on-secondary": "#003824",
+                        "outline": "#8c909f",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "log-padding-x": "16px",
+                        "touch-target": "44px",
+                        "log-padding-y": "4px",
+                        "base": "8px",
+                        "margin-tablet": "32px",
+                        "safe": "env(safe-area-inset-bottom)"
+                    },
+                    "fontFamily": {
+                        "ui-sm": ["Inter"],
+                        "timestamp": ["JetBrains Mono"],
+                        "log-bold": ["JetBrains Mono"],
+                        "log-entry": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "ui-main": ["Inter"]
+                    },
+                    "fontSize": {
+                        "ui-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "timestamp": ["11px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "log-bold": ["13px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "log-entry": ["13px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "ui-main": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .json-key { color: theme('colors.primary'); }
+        .json-string { color: theme('colors.secondary'); }
+        .json-number { color: theme('colors.tertiary'); }
+        .json-boolean { color: theme('colors.error'); }
+        
+        .code-block-enter {
+            animation: slideIn 0.3s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-log-entry overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Header Metadata Row -->
+<header class="bg-surface-container border-b border-outline-variant sticky top-0 z-10">
+<button class="w-full px-log-padding-x h-touch-target flex items-center justify-between hover:bg-surface-variant/50 transition-colors active:bg-surface-variant group" id="metaToggle">
+<div class="flex items-center space-x-3">
+<span class="flex items-center space-x-1">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-timestamp text-timestamp text-secondary font-bold">200</span>
+</span>
+<span class="text-on-surface-variant font-timestamp text-timestamp">340ms</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-[20px]">expand_more</span>
+</button>
+<!-- Expandable Metadata Content (Hidden by default) -->
+<div class="hidden px-log-padding-x py-3 border-t border-outline-variant/50 bg-surface-container-low text-ui-sm font-ui-sm text-on-surface-variant space-y-1" id="metaDetails">
+<div class="flex justify-between"><span class="opacity-70">Content-Type:</span> <span>application/json</span></div>
+<div class="flex justify-between"><span class="opacity-70">Server:</span> <span>API-Gateway-v2</span></div>
+<div class="flex justify-between"><span class="opacity-70">X-Trace-Id:</span> <span class="font-log-entry">req_8f73b2a19</span></div>
+</div>
+</header>
+<!-- Main Content Area: JSON Body -->
+<main class="flex-1 px-log-padding-x py-4 overflow-y-auto pb-24">
+<div class="code-block-enter space-y-4">
+<div>
+<span class="text-on-surface-variant">{</span>
+</div>
+<!-- Level 1 -->
+<div class="pl-4 space-y-4">
+<!-- String -->
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"id"</span><span class="text-on-surface-variant">: </span>
+<span class="json-string break-words">"req_8f73b2a19c4d5e6f"</span><span class="text-on-surface-variant">,</span>
+</div>
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"timestamp"</span><span class="text-on-surface-variant">: </span>
+<span class="json-string break-words">"2023-10-27T14:32:45.123Z"</span><span class="text-on-surface-variant">,</span>
+</div>
+<!-- Nested Object -->
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"request"</span><span class="text-on-surface-variant">: {</span>
+</div>
+<!-- Level 2 -->
+<div class="pl-4 space-y-4">
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"tool"</span><span class="text-on-surface-variant">: </span>
+<span class="json-string break-words">"generate_screen_from_text"</span><span class="text-on-surface-variant">,</span>
+</div>
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"parameters"</span><span class="text-on-surface-variant">: {</span>
+</div>
+<!-- Level 3 -->
+<div class="pl-4 space-y-4">
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"theme"</span><span class="text-on-surface-variant">: </span>
+<span class="json-string break-words">"dark"</span><span class="text-on-surface-variant">,</span>
+</div>
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors flex items-start">
+<div class="shrink-0"><span class="json-key">"prompt"</span><span class="text-on-surface-variant">: </span></div>
+<div class="ml-1 json-string break-words overflow-wrap-anywhere">"A mobile JSON result viewer screen..."</div><span class="text-on-surface-variant shrink-0"></span>
+</div>
+</div>
+<div class="pl-4">
+<span class="text-on-surface-variant">}</span>
+</div>
+</div>
+<div>
+<span class="text-on-surface-variant">},</span>
+</div>
+<!-- More Data Types -->
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"status"</span><span class="text-on-surface-variant">: </span>
+<span class="json-string break-words">"success"</span><span class="text-on-surface-variant">,</span>
+</div>
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"statusCode"</span><span class="text-on-surface-variant">: </span>
+<span class="json-number">200</span><span class="text-on-surface-variant">,</span>
+</div>
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"isCached"</span><span class="text-on-surface-variant">: </span>
+<span class="json-boolean">false</span><span class="text-on-surface-variant">,</span>
+</div>
+<!-- Long String Wrap Test -->
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors flex items-start">
+<div class="shrink-0"><span class="json-key">"previewUrl"</span><span class="text-on-surface-variant">: </span></div>
+<div class="ml-1 json-string break-words overflow-wrap-anywhere">"https://gateway.local:8787/files/render/SCREEN_12/preview.png"</div>
+</div>
+<div class="active:bg-surface-variant/30 rounded -mx-2 px-2 py-1 transition-colors">
+<span class="json-key">"metadata"</span><span class="text-on-surface-variant">: </span>
+<span class="text-on-surface-variant">null</span>
+</div>
+</div>
+<div>
+<span class="text-on-surface-variant">}</span>
+</div>
+</div>
+</main>
+<!-- Bottom Actions Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container/95 backdrop-blur-sm border-t border-outline-variant px-4 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] flex justify-center space-x-6 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<button class="flex flex-col items-center justify-center w-touch-target h-touch-target text-on-surface-variant hover:text-primary active:scale-95 transition-all group">
+<div class="w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-surface-variant/50 group-active:bg-surface-variant">
+<span class="material-symbols-outlined text-[24px]">content_copy</span>
+</div>
+<span class="font-ui-sm text-ui-sm mt-1 opacity-0 group-hover:opacity-100 absolute bottom-[-16px] transition-opacity whitespace-nowrap bg-surface-container-high px-2 py-0.5 rounded shadow-lg border border-outline-variant">Copy</span>
+</button>
+<button class="flex flex-col items-center justify-center w-touch-target h-touch-target text-on-surface-variant hover:text-primary active:scale-95 transition-all group">
+<div class="w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-surface-variant/50 group-active:bg-surface-variant">
+<span class="material-symbols-outlined text-[24px]">share</span>
+</div>
+<span class="font-ui-sm text-ui-sm mt-1 opacity-0 group-hover:opacity-100 absolute bottom-[-16px] transition-opacity whitespace-nowrap bg-surface-container-high px-2 py-0.5 rounded shadow-lg border border-outline-variant">Share</span>
+</button>
+<button class="flex flex-col items-center justify-center w-touch-target h-touch-target text-on-surface-variant hover:text-primary active:scale-95 transition-all group">
+<div class="w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-surface-variant/50 group-active:bg-surface-variant">
+<span class="material-symbols-outlined text-[24px]">download</span>
+</div>
+</button>
+</nav>
+<script>
+        document.getElementById('metaToggle').addEventListener('click', function() {
+            const details = document.getElementById('metaDetails');
+            const icon = this.querySelector('.material-symbols-outlined');
+            if (details.classList.contains('hidden')) {
+                details.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+                icon.style.transition = 'transform 0.3s ease';
+            } else {
+                details.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    </script>
+</body></html>

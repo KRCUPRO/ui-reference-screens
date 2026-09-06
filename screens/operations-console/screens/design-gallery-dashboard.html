@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-secondary-container": "#b6b5b4",
+                        "secondary-fixed": "#e4e2e1",
+                        "secondary-container": "#474746",
+                        "primary-fixed-dim": "#bcc7de",
+                        "surface-container": "#201f1f",
+                        "surface-tint": "#bcc7de",
+                        "on-tertiary-fixed": "#271902",
+                        "on-primary": "#263143",
+                        "error-container": "#93000a",
+                        "tertiary": "#ddc39d",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#393939",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed": "#111c2d",
+                        "outline-variant": "#45474c",
+                        "primary": "#bcc7de",
+                        "on-tertiary-fixed-variant": "#564427",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "on-primary-container": "#8590a6",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-dim": "#131313",
+                        "outline": "#8f9097",
+                        "on-surface-variant": "#c5c6cd",
+                        "background": "#131313",
+                        "tertiary-fixed": "#fadfb8",
+                        "surface-variant": "#353534",
+                        "on-secondary": "#303030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#a38c6a",
+                        "inverse-primary": "#545f73",
+                        "primary-container": "#1e293b",
+                        "tertiary-fixed-dim": "#ddc39d",
+                        "secondary": "#c8c6c5",
+                        "inverse-on-surface": "#313030",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#3e2e13",
+                        "tertiary-container": "#35260c",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#d8e3fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "unit": "4px",
+                        "padding_wide": "16px",
+                        "sidebar_width": "260px",
+                        "padding_base": "8px",
+                        "padding_tight": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "data-label": ["JetBrains Mono"],
+                        "body-sm": ["Public Sans"],
+                        "data-value": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["16px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-label": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-sm": ["11px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "data-value": ["12px", { "lineHeight": "14px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #121212; }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #45474c; }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen overflow-hidden flex font-body-md">
+<!-- SideNavBar -->
+<aside class="fixed h-full w-sidebar_width left-0 top-0 flex flex-col border-r border-outline-variant bg-surface-dim overflow-y-auto z-20">
+<div class="px-padding_wide py-4 border-b border-outline-variant shrink-0">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface">Design Archive</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Technical Repository</p>
+</div>
+<nav class="flex-1 py-padding_base px-padding_tight overflow-y-auto">
+<!-- Marginalia landing -->
+<div class="mb-2">
+<a class="flex items-center gap-2 text-on-surface-variant font-body-md w-full px-padding_base py-unit hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 cursor-pointer active:opacity-80 rounded group" href="#">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span class="flex-1 truncate">Marginalia landing</span>
+<span class="font-data-label text-data-label text-on-surface-variant opacity-70 group-hover:opacity-100 transition-opacity">12</span>
+</a>
+</div>
+<!-- Console v2 -->
+<div class="mb-2">
+<a class="flex items-center gap-2 bg-primary-container text-primary font-headline-md w-full px-padding_base py-unit rounded cursor-pointer active:opacity-80 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+<span class="flex-1 truncate">Console v2</span>
+<span class="font-data-label text-data-label opacity-70">38</span>
+</a>
+<div class="pl-8 pr-2 mt-1 space-y-1">
+<a class="flex items-center justify-between text-on-surface-variant font-body-sm w-full px-padding_base py-unit hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 rounded cursor-pointer active:opacity-80 group" href="#">
+<span class="truncate">Settings</span>
+<span class="font-data-label text-data-label text-on-surface-variant opacity-50 group-hover:opacity-100 transition-opacity">14</span>
+</a>
+<a class="flex items-center justify-between text-on-surface-variant font-body-sm w-full px-padding_base py-unit hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 rounded cursor-pointer active:opacity-80 group" href="#">
+<span class="truncate">Analytics</span>
+<span class="font-data-label text-data-label text-on-surface-variant opacity-50 group-hover:opacity-100 transition-opacity">24</span>
+</a>
+</div>
+</div>
+<!-- Client — Northwind Retail -->
+<div class="mb-2">
+<a class="flex items-center gap-2 text-on-surface-variant font-body-md w-full px-padding_base py-unit hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 cursor-pointer active:opacity-80 rounded group" href="#">
+<span class="material-symbols-outlined text-[16px]">folder</span>
+<span class="flex-1 truncate">Client — Northwind Retail</span>
+<span class="font-data-label text-data-label text-on-surface-variant opacity-70 group-hover:opacity-100 transition-opacity">9</span>
+</a>
+</div>
+<!-- Archive -->
+<div class="mb-2">
+<a class="flex items-center gap-2 text-on-surface-variant font-body-md w-full px-padding_base py-unit hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 cursor-pointer active:opacity-80 rounded group" href="#">
+<span class="material-symbols-outlined text-[16px]">archive</span>
+<span class="flex-1 truncate">Archive</span>
+<span class="font-data-label text-data-label text-on-surface-variant opacity-70 group-hover:opacity-100 transition-opacity">61</span>
+</a>
+</div>
+</nav>
+<div class="p-padding_wide border-t border-outline-variant shrink-0">
+<button class="w-full py-2 px-4 border border-surface-container-high text-on-surface-variant hover:border-outline hover:text-on-surface transition-colors duration-200 rounded font-body-md flex items-center justify-center gap-2 bg-transparent focus:outline-none focus:ring-1 focus:ring-primary">
+<span class="material-symbols-outlined text-[16px]">upload</span>
+                Upload Assets
+            </button>
+</div>
+<div class="border-t border-outline-variant shrink-0 py-2">
+<a class="flex items-center gap-2 text-on-surface-variant font-body-sm w-full px-padding_wide py-2 hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-2 text-on-surface-variant font-body-sm w-full px-padding_wide py-2 hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-[16px]">help</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] flex-1 flex flex-col h-full bg-background relative z-10">
+<!-- TopAppBar -->
+<header class="h-12 w-full flex justify-between items-center px-padding_wide bg-background border-b border-outline-variant shrink-0 sticky top-0 z-10">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Design Gallery</span>
+<nav class="flex gap-4">
+<a class="text-primary font-body-md border-b-2 border-primary py-3 hover:text-on-surface transition-colors" href="#">Screens</a>
+<a class="text-on-surface-variant font-body-md border-b-2 border-transparent py-3 hover:text-on-surface transition-colors" href="#">Assets</a>
+<a class="text-on-surface-variant font-body-md border-b-2 border-transparent py-3 hover:text-on-surface transition-colors" href="#">Versions</a>
+</nav>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:text-on-surface transition-colors rounded-full hover:bg-surface-container-high focus:outline-none">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="relative">
+<span class="material-symbols-outlined text-[18px] absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-low border border-surface-container-high rounded text-on-surface font-body-sm pl-9 pr-3 py-1.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-48 transition-all placeholder:text-on-surface-variant/50" placeholder="Search" type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-on-surface transition-colors rounded-full hover:bg-surface-container-high focus:outline-none">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Gallery Canvas -->
+<div class="flex-1 overflow-y-auto p-gutter bg-surface">
+<div class="mb-6 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Console v2</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Reviewing 38 design artifacts</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-on-surface text-body-sm px-2 py-1 border border-surface-container-high rounded hover:border-outline transition-colors">Sort: Date</button>
+<button class="text-on-surface-variant hover:text-on-surface text-body-sm px-2 py-1 border border-surface-container-high rounded hover:border-outline transition-colors">View: Grid</button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-gutter auto-rows-[240px]">
+<!-- Card 1 (Large) -->
+<div class="col-span-1 md:col-span-2 xl:col-span-2 row-span-2 border border-surface-container-high rounded bg-surface-container-lowest group relative overflow-hidden flex flex-col hover:border-outline transition-colors duration-200">
+<div class="flex-1 relative">
+<img class="absolute inset-0 w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A high-fidelity minimalist UI design for a complex data analytics dashboard in a dark mode setting. The interface features a prominent area chart in vibrant blue against a dark grey background (#121212). Typography is clean and sans-serif. The layout is structured with thin 1px borders (#2A2A2A) separating widgets. The mood is professional, technical, and data-driven." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5ALyM7_d5GRIuB02SbrwfedBMo0cM4EmFoxwXLoNICBVwXFAIS9nvMpiIpLUFmIqQmdzX-xoA-8U8HdLg2q7H59DksVadM9shPUneo53uxSWVDl_vma5tMO2DJHkzBbRFdHR2dHjs4BgiBybMlYKZqJLukX4LO3TgpjjNzziA4VxPCzxvfTCqiyNu0Fa8J6WnD6gN__JoU6VueEFF1_sQSi1JSfjAheIWPYHT5r0AsjI2TPndWfrL7CYFqp_5geTabTC-kljdzJg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+</div>
+<div class="p-padding_wide border-t border-surface-container-high bg-background/90 backdrop-blur-sm z-10">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface truncate">Analytics_Main_Dashboard_v2.4</h3>
+<span class="font-data-label text-data-label text-primary">v2.4</span>
+</div>
+<p class="font-data-label text-data-label text-on-surface-variant mt-1">1920x1080 • Updated 2h ago</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="border border-surface-container-high rounded bg-surface-container-lowest group relative overflow-hidden flex flex-col hover:border-outline transition-colors duration-200">
+<div class="flex-1 relative">
+<img class="absolute inset-0 w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity duration-300" data-alt="A detailed view of a dark mode UI settings panel. The design features precise form inputs, toggle switches, and minimalist ghost buttons. The background is a deep charcoal (#131313) with inputs slightly darker (#0A0A0A). Thin 1px borders define structural elements. The aesthetic is extremely clean, resembling a professional developer tool or IDE." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFIkbAuXdWeERzVfg0OKSbdQEIA8N4r-S-rUu5la3q0AC0NY1R3RSRxWzBZcb9uEaNtJjeWlWP8VoD3RVZVrL4jo4Esi1ps_Wxz7s2EIFPmWaZcrzPNJpXOehGUBDjXk-LXTJr-B0zQF_YtV7L8IolWj4yCMwbZP1yyC-4mlAYZ-dMHRkydBdSbpBB1VIz9jcODoWYk5R8iNvTn7fkMYCUTdNU1ueNHCp359g8Vc0zC1kz7WsM_MDmcVMW8vQWMvaJWhMIqaWc_wQ"/>
+</div>
+<div class="p-padding_base border-t border-surface-container-high bg-background/90 z-10 flex justify-between items-center">
+<h3 class="font-body-md text-body-md text-on-surface truncate pr-2">Settings_Global_Preferences</h3>
+<span class="font-data-label text-data-label text-on-surface-variant whitespace-nowrap">v1.1</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="border border-surface-container-high rounded bg-surface-container-lowest group relative overflow-hidden flex flex-col hover:border-outline transition-colors duration-200">
+<div class="flex-1 relative">
+<img class="absolute inset-0 w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity duration-300" data-alt="A dark theme modal window overlay design for user authentication or onboarding. The modal is centered on a muted dark background. It contains stark typography, a primary CTA button accented in a muted blue-gray (#1E293B), and subtle structural lines. The design avoids heavy shadows, relying on tonal contrast for depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG3OOTYGhhNEjvlmDAe0ZWC9-wxJ-Ho2gigojTiVY5s_GjTnwou3oBzCHcWgmQrrSJ7qx1SdUq0b7AiQUDv7WLwsCHD6oU8T9UwxyovWhhdEA0pfSR8aGtUUPBKg6y6TRKSEbuxtg7ZiBtvP_55pY6NkhPswqdXe3IjJWY1eNvSssDI3bkSCXZB8bo6oQLH-R_dZ4f--NLaF0zjqAzgyZ1FH4Brnvl-WcbgjvT43EOVTi8QJeousJo-RikGYzrPYFUaoaPAPKb8Qo"/>
+</div>
+<div class="p-padding_base border-t border-surface-container-high bg-background/90 z-10 flex justify-between items-center">
+<h3 class="font-body-md text-body-md text-on-surface truncate pr-2">Onboarding_Modal_Flow_B</h3>
+<span class="font-data-label text-data-label text-on-surface-variant whitespace-nowrap">v2.0</span>
+</div>
+</div>
+<!-- Card 4 (Tall) -->
+<div class="row-span-2 border border-surface-container-high rounded bg-surface-container-lowest group relative overflow-hidden flex flex-col hover:border-outline transition-colors duration-200">
+<div class="flex-1 relative">
+<img class="absolute inset-0 w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity duration-300" data-alt="A long, scrolling mobile UI design presented in a dark mode context. The screen shows a list view of complex data sets, using subtle background alternating tones for rows. The typography is a mix of Public Sans for headers and JetBrains Mono for data points. The visual style is highly structured, dense, and low-ink." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU1UFqgmPVd2Zr632Vhl3R_-ngnkpATcH7djYRV2a5aiA6Rx2x021dcwXRUIf7ex6VChBKPOlGCxmlHmDOGmC9j1w0EBsP3UjCAETmMEG71nnUIlelcCjIZ3z1S7qXttN15XpyVQf7ie_jncqmAm6WmZAeOdTFtAGqPNrr50M3b1jHbtvOxWORsg3g7RFYR-UQhqQ_9XLdN2QYrEdWzVLeDVzFTj3LNCYj2mZdjRTtSJ1suUIfx1Phj9zevo4MlDIRmNXZnDYdmWU"/>
+</div>
+<div class="p-padding_base border-t border-surface-container-high bg-background/90 z-10">
+<div class="flex justify-between items-center">
+<h3 class="font-body-md text-body-md text-on-surface truncate">Mobile_Data_List_View</h3>
+</div>
+<p class="font-data-label text-data-label text-on-surface-variant mt-1">390x844 • Final</p>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="border border-surface-container-high rounded bg-surface-container-lowest group relative overflow-hidden flex flex-col hover:border-outline transition-colors duration-200">
+<div class="flex-1 relative bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] text-surface-bright">image_not_supported</span>
+</div>
+<div class="p-padding_base border-t border-surface-container-high bg-background/90 z-10 flex justify-between items-center">
+<h3 class="font-body-md text-body-md text-on-surface truncate pr-2 opacity-50">Empty_State_Draft</h3>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-data-label bg-surface-container-high text-on-surface-variant">WIP</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="border border-surface-container-high rounded bg-surface-container-lowest group relative overflow-hidden flex flex-col hover:border-outline transition-colors duration-200">
+<div class="flex-1 relative">
+<img class="absolute inset-0 w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity duration-300" data-alt="A dark mode UI design for an interactive data table. The grid lines are extremely thin and precise (1px #2A2A2A). Column headers use JetBrains Mono font. Data cells contain tiny sparkline charts and status indicators with small colored dots (red, green, gray) on muted backgrounds. The overall feel is analytical and highly technical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxNnxCoCiCkDld6keL6KrOu8molkizedbsYdtRk169YuhjKL-AoYIcU5_9-A7i7KtUHIwZamN0QBu6Kd_h_19kCqRCkprmqgdWZ6p0Ukt1pjq16wo0Ij7GLFay5tJQaIyuOB63-hNWRC2qZulhe4J6X8oWyt-8ydsQ-ctf34nXXoOLxzbZEOYE0Aqj6urUa9NhaMXDFm_A-COuWRzOuSzk-LcYnO6bYcaf5awOgDmdBqs5dr2ruq-t3MuyJqSlL6iKL9XsFy7b2Bs"/>
+</div>
+<div class="p-padding_base border-t border-surface-container-high bg-background/90 z-10 flex justify-between items-center">
+<h3 class="font-body-md text-body-md text-on-surface truncate pr-2">Analytics_Data_Table_Complex</h3>
+<span class="font-data-label text-data-label text-on-surface-variant whitespace-nowrap">v1.8</span>
+</div>
+</div>
+</div>
+<div class="mt-8 py-4 border-t border-surface-container-high text-center">
+<p class="font-data-label text-data-label text-on-surface-variant">End of design artifacts for Console v2</p>
+</div>
+</div>
+</main>
+</body></html>

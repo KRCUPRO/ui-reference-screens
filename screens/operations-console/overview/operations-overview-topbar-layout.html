@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Overview - OBSIDIAN COMMAND</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "surface": "#15121b",
+              "on-surface": "#e8dfee",
+              "primary-fixed-dim": "#d2bbff",
+              "on-secondary-fixed": "#1b1b1c",
+              "inverse-surface": "#e8dfee",
+              "primary-container": "#7c3aed",
+              "background": "#15121b",
+              "error-container": "#93000a",
+              "surface-dim": "#15121b",
+              "on-secondary-fixed-variant": "#474746",
+              "tertiary": "#ffb784",
+              "on-tertiary-fixed": "#301400",
+              "primary": "#d2bbff",
+              "inverse-on-surface": "#332f39",
+              "error": "#ffb4ab",
+              "on-primary": "#3f008e",
+              "inverse-primary": "#732ee4",
+              "on-background": "#e8dfee",
+              "surface-container-high": "#2c2833",
+              "on-error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#5a00c6",
+              "on-error": "#690005",
+              "primary-fixed": "#eaddff",
+              "outline": "#958da1",
+              "on-tertiary-container": "#ffe0cd",
+              "on-secondary": "#303030",
+              "secondary-fixed": "#e5e2e1",
+              "on-tertiary": "#4f2500",
+              "surface-tint": "#d2bbff",
+              "tertiary-container": "#a15100",
+              "surface-variant": "#37333e",
+              "surface-container-lowest": "#100d16",
+              "surface-bright": "#3c3742",
+              "surface-container": "#221e28",
+              "surface-container-highest": "#37333e",
+              "on-surface-variant": "#ccc3d8",
+              "surface-container-low": "#1d1a24",
+              "secondary-container": "#474746",
+              "on-primary-fixed": "#25005a",
+              "secondary": "#c8c6c5",
+              "tertiary-fixed-dim": "#ffb784",
+              "on-tertiary-fixed-variant": "#713700",
+              "on-secondary-container": "#b7b5b4",
+              "tertiary-fixed": "#ffdcc6",
+              "on-primary-container": "#ede0ff",
+              "outline-variant": "#4a4455",
+              "secondary-fixed-dim": "#c8c6c5"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "gutter": "12px",
+              "margin": "16px",
+              "container-max": "100%",
+              "unit": "4px"
+            },
+            "fontFamily": {
+              "headline-md": ["Inter"],
+              "body-md": ["Inter"],
+              "label-caps": ["Inter"],
+              "body-sm": ["Inter"],
+              "headline-lg": ["Inter"],
+              "data-sm": ["JetBrains Mono"],
+              "data-lg": ["JetBrains Mono"]
+            },
+            "fontSize": {
+              "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+              "label-caps": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+              "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+              "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+              "data-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+              "data-lg": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .brutal-border { border: 1px solid #1f1f1f; }
+        .brutal-border-b { border-bottom: 1px solid #1f1f1f; }
+        .brutal-border-r { border-right: 1px solid #1f1f1f; }
+        .brutal-border-t { border-top: 1px solid #1f1f1f; }
+        
+        /* Thin Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #100d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #37333e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a4455;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen flex flex-col font-body-md overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-background dark:bg-background w-full top-0 border-b border-outline-variant flex justify-between items-center px-gutter py-4 max-w-full mx-auto transition-all duration-300 ease-in-out shrink-0">
+<div class="flex items-center gap-6">
+<h1 class="font-display-lg text-headline-md tracking-tighter text-primary font-headline-md">OBSIDIAN COMMAND</h1>
+<nav class="hidden md:flex gap-4">
+<a class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)]" href="#">OVERVIEW</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out" href="#">KEY POOL</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out" href="#">LOGS</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out" href="#">USAGE</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out" href="#">SETTINGS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="text-primary dark:text-primary hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A detailed headshot portrait of a security systems operator in a dark, high-tech command center. High contrast, professional lighting, technical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcWZWIsfG-Wzv6pvXHq8BmmYFuz6bNBknfZgeQJ1p09oJgu4_8biCZ_IMvrq72Y3m5c4XG0N03lHO3pCPS2R_3KyQstzYJAdUlOTdPM5HOt10jLzyTsw0EcktdWihuOLvyefe1903kclmnysJ1bpwE_ilzTbZ7CUG1P9XcjifYQ9duzrEvDDq550DztSYwh84yk5UYGQ0BmrOe-B548sQgiAF9goUS7aeik4W6_nWqNhXG22eTgfUPvQD2CWwkcgxmfS9XxoYTneLp"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden bg-surface-container-lowest">
+<!-- Dense Two-Row Grid Container -->
+<div class="flex-1 p-4 flex flex-col gap-4 overflow-y-auto">
+<!-- Row 1 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 min-h-[200px]">
+<!-- Toggle Widget -->
+<div class="brutal-border bg-surface flex flex-col p-4 relative group">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SERVICE STATUS</span>
+<div class="w-2 h-2 rounded-full bg-[#00ff00] animate-pulse"></div>
+</div>
+<div class="flex-1 flex items-center justify-center">
+<div class="flex items-center gap-4">
+<span class="font-headline-lg text-headline-lg text-on-surface">Active</span>
+<!-- Custom Brutalist Toggle -->
+<div class="w-16 h-8 brutal-border bg-[#161616] p-1 flex cursor-pointer relative" onclick="this.querySelector('.toggle-knob').classList.toggle('translate-x-8'); this.querySelector('.toggle-knob').classList.toggle('bg-primary');">
+<div class="toggle-knob w-6 h-6 bg-primary brutal-border transition-transform duration-200 translate-x-8"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- StatusSquare Cluster -->
+<div class="brutal-border bg-surface flex flex-col p-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-4 block">KEY POOL HEALTH</span>
+<div class="grid grid-cols-5 gap-2 flex-1">
+<!-- Burst-01 (Amber) -->
+<div class="brutal-border bg-[#332200] border-[#cc8800] flex flex-col items-center justify-center gap-1 group relative">
+<span class="font-data-sm text-data-sm text-[#ffaa00]">burst-01</span>
+<span class="material-symbols-outlined text-[16px] text-[#ffaa00]">warning</span>
+<!-- Hover Tooltip -->
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#000] border border-[#ffaa00] px-2 py-1 hidden group-hover:block z-10 whitespace-nowrap">
+<span class="font-data-sm text-data-sm text-[#ffaa00]">Rate limit near</span>
+</div>
+</div>
+<!-- Green Keys -->
+<div class="brutal-border bg-[#002200] border-[#00cc00] flex flex-col items-center justify-center gap-1">
+<span class="font-data-sm text-data-sm text-[#00ff00]">prod-01</span>
+<span class="material-symbols-outlined text-[16px] text-[#00ff00]">check_circle</span>
+</div>
+<div class="brutal-border bg-[#002200] border-[#00cc00] flex flex-col items-center justify-center gap-1">
+<span class="font-data-sm text-data-sm text-[#00ff00]">prod-02</span>
+<span class="material-symbols-outlined text-[16px] text-[#00ff00]">check_circle</span>
+</div>
+<div class="brutal-border bg-[#002200] border-[#00cc00] flex flex-col items-center justify-center gap-1">
+<span class="font-data-sm text-data-sm text-[#00ff00]">prod-03</span>
+<span class="material-symbols-outlined text-[16px] text-[#00ff00]">check_circle</span>
+</div>
+<div class="brutal-border bg-[#002200] border-[#00cc00] flex flex-col items-center justify-center gap-1">
+<span class="font-data-sm text-data-sm text-[#00ff00]">prod-04</span>
+<span class="material-symbols-outlined text-[16px] text-[#00ff00]">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 min-h-[200px]">
+<!-- Meter Widget -->
+<div class="brutal-border bg-surface flex flex-col p-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-6 block">RPM HEADROOM</span>
+<div class="flex-1 flex flex-col justify-end gap-2">
+<div class="flex justify-between items-end">
+<span class="font-data-lg text-data-lg text-on-surface">340</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">/ 500 RPM</span>
+</div>
+<!-- Meter Bar -->
+<div class="w-full h-4 brutal-border bg-[#000] relative">
+<!-- Using inline style for width representation based on data -->
+<div class="h-full bg-primary brutal-border-r transition-all duration-1000" style="width: 68%;"></div>
+<!-- Markers -->
+<div class="absolute top-0 bottom-0 left-[50%] w-px bg-outline-variant"></div>
+<div class="absolute top-0 bottom-0 left-[80%] w-px bg-error"></div>
+</div>
+</div>
+</div>
+<!-- Stat Block -->
+<div class="brutal-border bg-surface flex flex-col p-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-4 block">DAILY METRICS</span>
+<div class="flex-1 flex flex-col justify-center gap-6">
+<div>
+<span class="font-data-lg text-data-lg text-primary block mb-1">2,901</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">calls today</span>
+</div>
+<div class="brutal-border-t pt-4">
+<span class="font-data-lg text-data-lg text-[#00ff00] block mb-1">94.8%</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">success rate</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Slim Strip & Quick Actions -->
+<div class="brutal-border-t bg-surface h-24 shrink-0 flex items-center px-4 gap-4">
+<!-- Recent Screens Strip -->
+<div class="flex-1 flex gap-2 overflow-x-auto pb-2 h-full items-end hidden md:flex">
+<!-- Generating 8 small thumbnails -->
+<div class="w-24 h-16 brutal-border bg-[#000] relative group flex-shrink-0 cursor-pointer overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity" data-alt="A dark, abstract digital terminal interface with glowing blue geometric lines, representing system logs. Dense and technical." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-Upz_d2vxxS0AebuZyvMLaZEkX7x14hirU1JUMEi6u4G8FpG2L1q67p9iW_lh6D0R3bPdRJrwacPWvUH8me8xO1IYN2pUxgQKcUJnAOpB79aecI5ix_tMIo1-kRDirzEk79QWfTgHup6MzCEe2SrP34oludR5k7B0Nt84ON_v2odqXPmv7DQHzh9gFsZ1S54CS1a2xxBd_heejbqA2MMf_EYCNlisvCGJMKaaUI_dazmlnVNgA2wxSuyL1qBBMNF3hIGu6M1bZzgk')"></div>
+<span class="absolute bottom-1 right-1 bg-[#000] px-1 font-data-sm text-[9px] text-on-surface">14:02</span>
+</div>
+<div class="w-24 h-16 brutal-border bg-[#000] relative group flex-shrink-0 cursor-pointer overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity" data-alt="A stylized digital map interface showing server node connections across a dark grid. Glowing green lines on a black background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCO0m8jKmy0TekcYKYCLAqXulGp6NI1fJJRAy6ZF2sNfIAty47XwgdOM5YKs6w4dKgp5LbllJ7q6fRDGs58oMH-Rh9hjoQPo_JOVewPlOPZMbt3agw55QKAJ0lCUynoIfs36pChG0nJuhrp5rGPd_2okYlw_zi_er-XCL164ykOP_9nfyN8wZwOYxEw8SOMz2v_Y18axZvYh6uFP_VKq0o4Br0ilTn3-ELvvih4XUgPA6GSFWPpA1o_kYQEjRpsn_e6-QyrzCB4wWbH')"></div>
+<span class="absolute bottom-1 right-1 bg-[#000] px-1 font-data-sm text-[9px] text-on-surface">13:45</span>
+</div>
+<div class="w-24 h-16 brutal-border bg-[#000] relative group flex-shrink-0 cursor-pointer overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity" data-alt="A data visualization dashboard showing a dense scatter plot in neon purple against a pitch-black background. High tech aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsYkHaVji0GfJhADmWNPFCbsknXrAPc46g_0Jz4BdKDH6P26fnyFBChipe2iLUofa3NGcKzOJhoiqG6H4ryu-1fyf2REEk2ow_NvH4SS4hLFRIFIy0wjjIZ6OBFkklfqxWBq05xd-uQ9HSsBDJDebhaaDvNDm7Jvpfa87Sl4h1hmY9E6emJSImsqcDnoZ_Fod5b6sOVuJHYSn9bOGxxvKnDPE7-jAuAgQ2IeGzo-QYsQbHELuCsLfmah86ObRrKDu-cL_LHE6dQ2Ue')"></div>
+<span class="absolute bottom-1 right-1 bg-[#000] px-1 font-data-sm text-[9px] text-on-surface">13:10</span>
+</div>
+<div class="w-24 h-16 brutal-border bg-[#000] relative group flex-shrink-0 cursor-pointer overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity" data-alt="A close up of lines of code in a terminal window, JetBrains Mono font, muted syntax highlighting on a black background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCsiBstEYqwgNyJky7noKm8EQhzwus_my3eZ6s2TrX7D188tnXZ37EHQTNiFkw5UxA0HxX7DGVXemFgkZvz_yFSU7WvVV-63N1nUQ9PpNK2OfCbGji0t_hFl8xcA_8E8Dzd3zdBQoLCJVzh6c5oPaRo5OAuaNb-QpctxblRfPlbmAOyM66mfO-J_B8IsPs34VR63WQDiS9-JHlk37DHoiycD9M9C52Bk2_-VxzFGYzyi4ybIhhEn2C0Km5BzfQzI5MD9vDqalumeyq')"></div>
+<span class="absolute bottom-1 right-1 bg-[#000] px-1 font-data-sm text-[9px] text-on-surface">12:55</span>
+</div>
+<div class="w-24 h-16 brutal-border bg-[#000] relative group flex-shrink-0 cursor-pointer overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity" data-alt="An abstract representation of network traffic, glowing orange data packets moving along structured paths on a dark grid." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBoabqesjpznvqHW5TA5ZXR-5imCrspRw4q8lQRkCiUL2Hlv--0M-C51_wc88p5Jc6nYSrr-QRAiXzmc_PfP5uMDnJx5HoKuRaULmxHMilD0XKAM9R_dw43i_YKAFVarH-6ZIuv-vmllNpvf7bw2WgeMgYNiEiAlZ4IOCIP4cFMp4aE5X18K0cdL9LzD8ZB1zrHZ2cjWGWooNuk4K6BMD4a7kJrdUkQ9Y3jvJrqekbcrfz5PCWJGpPLQ0JF767lSjT7PXqoO8I347Tr')"></div>
+<span class="absolute bottom-1 right-1 bg-[#000] px-1 font-data-sm text-[9px] text-on-surface">12:30</span>
+</div>
+<div class="w-24 h-16 brutal-border bg-[#000] relative group flex-shrink-0 cursor-pointer overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity" data-alt="A dark screen displaying a series of horizontal bar charts in subtle shades of grey and muted violet. Minimalist data view." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1UcXGwpU0Em1xGIRzfyyiTBmwtCKNm3zmUqD4HmSJLZAM79_u-SdZwmxxzGJGp84d-4hB65mNpqiEI5MWx295opx5pGUoFvzPtSLbiuTqv7gDqb81ig1j9J-YHhmA8D0iVoXVqOe3k972ec8Clo2zTznGBLmpUlpEdIwnDZpcMt-9SPllbxSmvuxINMy2tA8GEhxk_9Zu5jZoF6Z81rYBUoc8wsz2kO-WZfCJFOfg0cxzpTda3YydPFia9PXB5ouaRqFkmIt4yqQl')"></div>
+<span class="absolute bottom-1 right-1 bg-[#000] px-1 font-data-sm text-[9px] text-on-surface">11:15</span>
+</div>
+<div class="w-24 h-16 brutal-border bg-[#000] relative group flex-shrink-0 cursor-pointer overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity" data-alt="A highly complex geometric diagram resembling a system architecture blueprint on a dark canvas with faint white lines." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6tZvSR87qrGwqTt_TXisj6udxJum2gjgnsgmTlKdthfNUcdVNwZ6JxUR0dS-wl4-25pKwhTNcHKCGJbkKmF2sp4teByfA-uArxCcJI4WiAHeJIBV5PzZaeZvP9b0klOrul5hb2sAQTH4PIBsNwCIluW_PTvG5J1O8GmWsr502NrH1td9nnynxbi3p-c3f9hPOfkzTE-Ldxo4O1lVf9yL5ZaOilx1wQwn75PNSncJij8SZeZD4Q9fFU5fjI89WUYEafGR2fh3Qkd7A')"></div>
+<span class="absolute bottom-1 right-1 bg-[#000] px-1 font-data-sm text-[9px] text-on-surface">10:42</span>
+</div>
+<div class="w-24 h-16 brutal-border bg-[#000] relative group flex-shrink-0 cursor-pointer overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity" data-alt="A macro shot of a server rack LED indicator panel, out of focus glowing lights in a dark room environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuABr2wnlG46ZPeO-sEcgA7nPTXEwt5GDEvwgphirJw5m8eTKyHmzdyuiDihTXY2J0qmZi_ZxzLjlSVSXzX1zvLn7vBDwcTdqlZO2JqzuEA24cVlRxSh_DPaXu1IEfTAsQQk1FW0sA4nZhwd_7AYK2f3GKrJ7Xpe6AK--dGEU7pzCRXfQjJXTpDCgt9PCado0jam3lyyNWq5SpeNPFfY77mXJ9dQ9-muOeFGFyyFCIKMss5vW0YJ7P2ipdWnJJbaD_ewMJE-_UoAW_mt')"></div>
+<span class="absolute bottom-1 right-1 bg-[#000] px-1 font-data-sm text-[9px] text-on-surface">09:05</span>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="brutal-border-l pl-4 flex gap-2 h-full items-center">
+<button class="w-10 h-10 brutal-border bg-surface hover:bg-[#161616] flex items-center justify-center text-on-surface transition-colors" title="Pause">
+<span class="material-symbols-outlined" data-icon="pause">pause</span>
+</button>
+<button class="w-10 h-10 brutal-border bg-primary hover:bg-primary-fixed flex items-center justify-center text-on-primary transition-colors" title="Add">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="w-10 h-10 brutal-border bg-surface hover:bg-[#161616] flex items-center justify-center text-on-surface transition-colors" title="Restart">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+<button class="w-10 h-10 brutal-border bg-surface hover:bg-[#161616] flex items-center justify-center text-on-surface transition-colors" title="Export">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

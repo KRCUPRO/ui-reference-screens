@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevGallery - Filter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .word-keep { word-break: keep-all; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#673a39",
+                        "inverse-primary": "#a5d0b9",
+                        "surface-container": "#efeeec",
+                        "on-tertiary-container": "#d29895",
+                        "on-primary-container": "#86af99",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#717973",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e9e8e6",
+                        "on-surface": "#1a1c1b",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-tint": "#3f6653",
+                        "on-background": "#1a1c1b",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "background": "#faf9f7",
+                        "surface-container-low": "#f4f3f1",
+                        "tertiary-fixed": "#ffdad8",
+                        "secondary-container": "#e2dfde",
+                        "primary-fixed": "#c1ecd4",
+                        "on-primary-fixed": "#002114",
+                        "tertiary-container": "#5a302f",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#f5b7b4",
+                        "surface-container-highest": "#e3e2e0",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-container": "#636262",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-variant": "#e3e2e0",
+                        "surface-bright": "#faf9f7",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-dim": "#dadad8",
+                        "primary-container": "#1b4332",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#401b1b",
+                        "on-surface-variant": "#414844",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#331111",
+                        "surface": "#faf9f7",
+                        "primary": "#012d1d",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f1f1ef",
+                        "inverse-surface": "#2f3130"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "sidebar_width": "240px",
+                        "edge_margin": "32px",
+                        "stack-md": "16px",
+                        "gutter": "1px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "code-sm": ["JetBrains Mono"],
+                        "display-metrics": ["Public Sans"],
+                        "body-base": ["Noto Sans KR"],
+                        "headline-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "code-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-metrics": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-base": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-base antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 right-0 w-[calc(100%-240px)] h-[48px] bg-background dark:bg-background border-b border-outline-variant dark:border-outline flex items-center justify-between px-edge_margin ml-sidebar_width transition-all duration-200 z-50">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-on-surface">
+            DevGallery
+        </div>
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-icon="terminal">terminal</span>
+<img alt="User Avatar" class="w-8 h-8 rounded-none border border-outline-variant" data-alt="A small circular avatar of a developer in a dark room illuminated by code on multiple monitors, minimalist UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKQ3fv7PvqV6HmJZlzmAsWx3qA26OXj1cdE-LDWKyKhR6GRdkFVqWbTzGNUoR5Zp0ypl8-wfYBj7wqWK33iGwNrL82O6SYW3VrE14GCxE3PyZbIfxyws21qdg42cNdB8mmYd-aggZf9Hqk5KN7MC16oqcU5eOEXm6CV0n3dxXU6wjNbNAQBRZRXBM1Vui7gQWvvVjndfwbSvPkLFVITs1B3xA3bucSo5GGsubIvlVqPZJ3BGej9x-Q2dRgNxqd6xqQd87fPc3gwByP"/>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-background dark:bg-background border-r border-outline-variant dark:border-outline flex flex-col py-edge_margin z-40">
+<div class="px-edge_margin mb-stack-lg">
+<h1 class="font-headline-md text-headline-md text-on-surface dark:text-on-surface">DevGallery</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-unit">V 2.4.0</p>
+</div>
+<nav class="flex-1">
+<ul class="flex flex-col">
+<li class="cursor-pointer active:opacity-80 border-l-2 border-primary text-on-surface font-semibold px-stack-md py-stack-sm flex items-center gap-stack-md bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-base text-body-base">Main App</span>
+</li>
+<li class="cursor-pointer active:opacity-80 text-on-surface-variant font-normal px-stack-md py-stack-sm flex items-center gap-stack-md hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+<span class="font-body-base text-body-base">Auth Flow</span>
+</li>
+<li class="cursor-pointer active:opacity-80 text-on-surface-variant font-normal px-stack-md py-stack-sm flex items-center gap-stack-md hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-base text-body-base">Settings</span>
+</li>
+<li class="cursor-pointer active:opacity-80 text-on-surface-variant font-normal px-stack-md py-stack-sm flex items-center gap-stack-md hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined" data-icon="web">web</span>
+<span class="font-body-base text-body-base">Landing Pages</span>
+</li>
+</ul>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="ml-[240px] mt-[48px] p-edge_margin min-h-screen">
+<!-- Filter Section -->
+<section class="mb-stack-lg relative z-30">
+<!-- Filter Bar -->
+<div class="flex items-center justify-between border-b border-outline-variant pb-unit mb-stack-sm">
+<div class="flex-1 flex items-center">
+<span class="material-symbols-outlined text-outline mr-unit text-[18px]">search</span>
+<input class="w-full bg-transparent border-none p-0 text-body-base focus:ring-0 placeholder:text-outline-variant text-on-surface word-keep outline-none" placeholder="제목·프롬프트·ID 검색" type="text"/>
+</div>
+<div class="flex items-center gap-stack-lg pl-stack-lg ml-stack-lg border-l border-outline-variant relative">
+<button class="flex items-center gap-unit text-primary-container font-semibold hover:opacity-80 transition-opacity word-keep" id="filterToggle">
+                        필터
+                        <span class="font-code-sm text-code-sm">(3)</span>
+</button>
+<button class="flex items-center gap-unit text-on-surface-variant hover:text-on-surface transition-colors word-keep">
+                        최신순
+                        <span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+</div>
+</div>
+<!-- Applied Filters -->
+<div class="flex items-center gap-stack-md overflow-x-auto no-scrollbar py-unit">
+<div class="flex items-center border-b border-outline-variant pb-[2px] group cursor-pointer hover:border-on-surface transition-colors">
+<span class="text-on-surface text-sm word-keep">최근 7일</span>
+<span class="material-symbols-outlined text-[14px] ml-unit text-outline-variant group-hover:text-on-surface">close</span>
+</div>
+<div class="flex items-center border-b border-outline-variant pb-[2px] group cursor-pointer hover:border-on-surface transition-colors">
+<span class="text-on-surface text-sm word-keep">모바일</span>
+<span class="material-symbols-outlined text-[14px] ml-unit text-outline-variant group-hover:text-on-surface">close</span>
+</div>
+<div class="flex items-center border-b border-outline-variant pb-[2px] group cursor-pointer hover:border-on-surface transition-colors">
+<span class="text-on-surface text-sm word-keep">인증 흐름</span>
+<span class="material-symbols-outlined text-[14px] ml-unit text-outline-variant group-hover:text-on-surface">close</span>
+</div>
+<button class="text-outline text-sm ml-auto hover:text-on-surface transition-colors word-keep">
+                    모두 지우기
+                </button>
+</div>
+<!-- Filter Dropdown Panel (Open state requested) -->
+<div class="absolute right-0 top-[40px] w-full max-w-[600px] bg-background border border-on-surface p-stack-md mt-unit">
+<div class="grid grid-cols-3 gap-stack-lg mb-stack-md">
+<!-- Column 1 -->
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant pb-unit mb-stack-sm">기간</h3>
+<ul class="space-y-stack-sm">
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-primary">check</span>
+</div>
+<span class="text-sm font-semibold word-keep">최근 7일</span>
+</li>
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 border border-outline-variant"></div>
+<span class="text-sm text-on-surface-variant word-keep">최근 30일</span>
+</li>
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 border border-outline-variant"></div>
+<span class="text-sm text-on-surface-variant word-keep">올해</span>
+</li>
+</ul>
+</div>
+<!-- Column 2 -->
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant pb-unit mb-stack-sm">디바이스</h3>
+<ul class="space-y-stack-sm">
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-primary">check</span>
+</div>
+<span class="text-sm font-semibold word-keep">모바일</span>
+</li>
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 border border-outline-variant"></div>
+<span class="text-sm text-on-surface-variant word-keep">데스크탑</span>
+</li>
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 border border-outline-variant"></div>
+<span class="text-sm text-on-surface-variant word-keep">태블릿</span>
+</li>
+</ul>
+</div>
+<!-- Column 3 -->
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant pb-unit mb-stack-sm">출처</h3>
+<ul class="space-y-stack-sm">
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-primary">check</span>
+</div>
+<span class="text-sm font-semibold word-keep">인증 흐름</span>
+</li>
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 border border-outline-variant"></div>
+<span class="text-sm text-on-surface-variant word-keep">설정</span>
+</li>
+<li class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low p-unit -ml-unit">
+<div class="w-4 h-4 border border-outline-variant"></div>
+<span class="text-sm text-on-surface-variant word-keep">대시보드</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="flex justify-between items-center border-t border-outline-variant pt-stack-sm mt-stack-sm">
+<button class="text-sm text-outline hover:text-on-surface transition-colors word-keep">
+                        초기화
+                    </button>
+<button class="bg-primary-container text-on-primary px-stack-md py-stack-sm text-sm font-semibold hover:bg-surface-tint transition-colors word-keep">
+                        적용
+                    </button>
+</div>
+</div>
+</section>
+<!-- Content Grid -->
+<section>
+<!-- Date Group Header -->
+<div class="border-b border-outline-variant mb-stack-md pb-unit">
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">TODAY (3)</span>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-lg">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] bg-surface-container-high mb-stack-sm overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="Minimalist UI design screenshot showing a mobile login screen with stark typography, black text on off-white paper background, high contrast, structural lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9pNTBCuEA8Ts9X9lFtPoOSdCpC_yGq5UF7ScqzG5Yt_VppphctKq16LQxvV61KrY3bglO7c_6yU8sD8TsZBwDr28fX1BrCNsOpuPUHy3g3faaN7O0TvfrbLQyTnnFDDta6ElE_N2BUlS0y8RV0f_C5ILL1PzEvS9ruJ3AKErFRQNfuXbhENTqaoC7aDa0QG8p6YyKoCKhbXDzkF2TOpm6-9DfrkvkYaubQrHjdPgrXsYVLJNLBqkfWSz-MOVo38wKJTZpSioem0p7"/>
+<div class="absolute top-stack-sm left-stack-sm flex gap-unit">
+<span class="bg-background border border-on-surface px-unit py-1 text-[10px] font-bold text-on-surface">PROD</span>
+<span class="bg-background border border-on-surface px-unit py-1 text-[10px] font-bold text-on-surface">MOBILE</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-unit group-hover:text-primary-container transition-colors word-keep">Login Flow Verification</h4>
+<p class="font-code-sm text-code-sm text-on-surface-variant">v2.4.0 • 390x844 • 1h ago</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] bg-surface-container-high mb-stack-sm overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="Technical dashboard screenshot with zero elevation, flat charts, raw data tables, mechanical aesthetic, off-white background with dark green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg2p-4Ch-fpdLjhpNtBhFBiUT34dFuY0jIiNhk79L4oUOTTUAwSzafXi0rCmx3wB8Wz3nIBsfTKDZifhqiLzG9sPrEKyDdG_1dwdBt8u0y1crA2Lsk_VbLeip6a0TYZAbmGfcOA_IGgQupHTe-ghaWCGGuERfXVVZ2Pi9V7jJs8cMMWBju2wklEIbBhWk0q3YdVV8PwxSw-h13LzRfXIZ53YQwU6GJG_rX3jP7f-HJyk461rTWhSvV5-2FRUl8kWL7-5enRs89d1eN"/>
+<div class="absolute top-stack-sm left-stack-sm flex gap-unit">
+<span class="bg-background border border-on-surface px-unit py-1 text-[10px] font-bold text-on-surface">REVIEW</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-unit group-hover:text-primary-container transition-colors word-keep">Dashboard Metrics Pane</h4>
+<p class="font-code-sm text-code-sm text-on-surface-variant">v2.3.9 • 1440x900 • 3h ago</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] bg-surface-container-high mb-stack-sm overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="Settings page UI design with thin hairline borders separating sections, stark layout, monospace fonts for data values, operations manual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUF9GJpg9a3ke_bxayFfQ8Rh5_9YZFZhZs5yQqDcjvqNs5LylyssoI57Ar9qwNB5bxrAEQZB65lI4h0asFN4Fr0ax9XIucoxfPKsIY0CUsHpE0E34nJWVzJ5ocd7MBWiUMZsa14Cpz0MZ7sk6QXCEwTQzrbjJ2J_ipulSP3KDIXvFNnaaULIkr143EHy3ABRbqFnsh3h_n3abp4JjiL6Ma37HpWixYPUGyhtog93aJEyMeEcIEyEpJFB4A-t5dguxxrlMXzZzUcTAH"/>
+<div class="absolute top-stack-sm left-stack-sm flex gap-unit">
+<span class="bg-background border border-on-surface px-unit py-1 text-[10px] font-bold text-on-surface">PROD</span>
+<span class="bg-background border border-on-surface px-unit py-1 text-[10px] font-bold text-on-surface">AUTH</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-unit group-hover:text-primary-container transition-colors word-keep">OAuth Configuration Matrix</h4>
+<p class="font-code-sm text-code-sm text-on-surface-variant">v2.4.0 • 1920x1080 • 5h ago</p>
+</div>
+</div>
+</section>
+</main>
+</body></html>

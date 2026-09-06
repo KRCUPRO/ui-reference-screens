@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design Console V1 - Transform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "primary": "#fbfffa",
+              "outline-variant": "#3a4a43",
+              "on-surface": "#e5e2e1",
+              "primary-fixed-dim": "#00e1ab",
+              "inverse-primary": "#006c50",
+              "primary-fixed": "#36ffc4",
+              "on-primary-fixed": "#002116",
+              "surface-variant": "#353534",
+              "surface-bright": "#3a3939",
+              "surface-container-low": "#1c1b1b",
+              "secondary-container": "#474746",
+              "on-secondary-fixed-variant": "#474746",
+              "background": "#131313",
+              "on-tertiary": "#393000",
+              "on-tertiary-container": "#746300",
+              "on-secondary": "#313030",
+              "surface-container-highest": "#353534",
+              "surface": "#131313",
+              "on-tertiary-fixed-variant": "#534600",
+              "on-tertiary-fixed": "#211b00",
+              "error": "#ffb4ab",
+              "surface-container": "#201f1f",
+              "tertiary": "#fffeff",
+              "inverse-on-surface": "#313030",
+              "secondary": "#c8c6c5",
+              "secondary-fixed-dim": "#c8c6c5",
+              "on-primary": "#003828",
+              "on-background": "#e5e2e1",
+              "surface-container-high": "#2a2a2a",
+              "on-primary-container": "#007255",
+              "primary-container": "#00ffc2",
+              "tertiary-container": "#ffe149",
+              "on-secondary-fixed": "#1c1b1b",
+              "on-secondary-container": "#b7b5b4",
+              "tertiary-fixed-dim": "#e2c62e",
+              "surface-tint": "#00e1ab",
+              "secondary-fixed": "#e5e2e1",
+              "on-primary-fixed-variant": "#00513c",
+              "on-error": "#690005",
+              "outline": "#83958c",
+              "tertiary-fixed": "#ffe253",
+              "surface-container-lowest": "#0e0e0e",
+              "inverse-surface": "#e5e2e1",
+              "surface-dim": "#131313",
+              "on-surface-variant": "#b9cbc1",
+              "error-container": "#93000a",
+              "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "gutter": "1px",
+              "panel-width": "320px",
+              "margin-sm": "12px",
+              "margin-md": "24px",
+              "unit": "4px"
+            },
+            "fontFamily": {
+              "headline-lg": ["Inter"],
+              "body-md": ["Inter"],
+              "label-mono-sm": ["JetBrains Mono"],
+              "data-display": ["JetBrains Mono"],
+              "label-mono-xs": ["JetBrains Mono"],
+              "headline-md": ["Inter"]
+            },
+            "fontSize": {
+              "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+              "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+              "label-mono-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+              "data-display": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+              "label-mono-xs": ["10px", {"lineHeight": "12px", "fontWeight": "400"}],
+              "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-image: 
+                linear-gradient(to right, rgba(58, 74, 67, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(58, 74, 67, 0.2) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface w-full h-12 sticky top-0 border-b border-outline-variant dark:border-outline-variant flex justify-between items-center px-6 w-full z-50">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary">DESIGN_CONSOLE_V1</span>
+<div class="hidden md:flex items-center gap-6 ml-8">
+<a class="text-on-surface-variant font-label-mono-sm text-label-mono-sm hover:text-primary transition-colors duration-150 ease-in-out" href="#">Dashboard</a>
+<a class="text-primary font-bold font-label-mono-sm text-label-mono-sm hover:text-primary transition-colors duration-150 ease-in-out" href="#">Transform</a>
+<a class="text-on-surface-variant font-label-mono-sm text-label-mono-sm hover:text-primary transition-colors duration-150 ease-in-out" href="#">Components</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center border border-outline-variant rounded px-2 h-8 mr-4 focus-within:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none text-label-mono-sm text-on-surface w-48 placeholder:text-on-surface-variant focus:ring-0 p-0 h-full" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-transparent border border-outline-variant text-primary font-label-mono-sm text-label-mono-sm px-3 h-8 flex items-center justify-center hover:bg-surface-variant transition-colors duration-150 ease-in-out">WORKSPACE_01</button>
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-150 ease-in-out flex items-center justify-center w-8 h-8 rounded hover:bg-surface-variant"><span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-150 ease-in-out flex items-center justify-center w-8 h-8 rounded hover:bg-surface-variant"><span class="material-symbols-outlined text-[20px]" data-icon="help">help</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-150 ease-in-out flex items-center justify-center w-8 h-8 rounded hover:bg-surface-variant"><span class="material-symbols-outlined text-[20px]" data-icon="account_circle">account_circle</span></button>
+</div>
+</div>
+</nav>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-surface dark:bg-surface h-full w-64 fixed left-0 top-12 border-r border-outline-variant dark:border-outline-variant flex flex-col py-6 px-1 hidden md:flex z-40">
+<div class="px-3 mb-8">
+<div class="font-headline-md text-headline-md text-primary font-bold mb-1">CONSOLE_ROOT</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-surface-variant mb-2">v2.4.0-stable</div>
+<div class="flex items-center gap-2 mt-4">
+<div class="w-6 h-6 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A small profile avatar showing a generic, minimalist robot face in glowing green on a dark background. High contrast, clean vector style, technical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEKnt7iKVvKxaNyA5lhvd7nn9tTxVwGpKDmMX0eKucDc-qaTCg-Zm3pgpUc84QQUNqEfzC8ZOmqbAKKZUpYU6NQT-RQ5Lc999BR5cb5jogVOI_Zs5ZXR7zVf_opzYqWRQ4WCGnLElO7dLdi5xNEokxgxB6YTZCaMHoG0XPfgVdUZ9qBlyeU_ardqZeD0x1gxDt2Ct0KeYBTY22-QqoALRuxJlFQpL6F5M8liP3hs1Lu1WKpoejcBx_rkCyyVebXG9C4V6zsU5a_i0"/>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">System Operator</span>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto no-scrollbar space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary font-label-mono-sm text-label-mono-sm rounded hover:border-primary border border-transparent transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary text-surface font-bold font-label-mono-sm text-label-mono-sm rounded border border-primary transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="draw">draw</span>
+                    Design
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary font-label-mono-sm text-label-mono-sm rounded hover:border-primary border border-transparent transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary" data-icon="extension">extension</span>
+                    Components
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary font-label-mono-sm text-label-mono-sm rounded hover:border-primary border border-transparent transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary" data-icon="folder_open">folder_open</span>
+                    Assets
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary font-label-mono-sm text-label-mono-sm rounded hover:border-primary border border-transparent transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary" data-icon="text_fields">text_fields</span>
+                    Typography
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary font-label-mono-sm text-label-mono-sm rounded hover:border-primary border border-transparent transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary" data-icon="palette">palette</span>
+                    Colors
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary font-label-mono-sm text-label-mono-sm rounded hover:border-primary border border-transparent transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary" data-icon="rounded_corner">rounded_corner</span>
+                    Radius Tokens
+                </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary font-label-mono-sm text-label-mono-sm rounded hover:border-primary border border-transparent transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary" data-icon="menu_book">menu_book</span>
+                    Documentation
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary font-label-mono-sm text-label-mono-sm rounded hover:border-primary border border-transparent transition-all scale-98 active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary" data-icon="support_agent">support_agent</span>
+                    Support
+                </a>
+<div class="px-3 pt-4">
+<button class="w-full bg-transparent border border-primary text-primary font-label-mono-sm text-label-mono-sm h-8 flex items-center justify-center hover:bg-primary/10 transition-colors duration-150 ease-in-out">Deploy Tokens</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 p-6 lg:p-12 overflow-y-auto flex justify-center">
+<div class="w-full max-w-3xl flex flex-col gap-8">
+<!-- Transform Modal Container -->
+<div class="bg-surface-container-low border border-outline-variant p-6 shadow-2xl relative">
+<!-- Technical corners -->
+<div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-primary -mt-[1px] -ml-[1px]"></div>
+<div class="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-primary -mt-[1px] -mr-[1px]"></div>
+<div class="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-primary -mb-[1px] -ml-[1px]"></div>
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-primary -mb-[1px] -mr-[1px]"></div>
+<header class="mb-8 border-b border-outline-variant pb-4 flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">Transformation Pipeline</h1>
+<p class="font-label-mono-xs text-label-mono-xs text-on-surface-variant mt-1 uppercase">Process: ASSET_COMPILE_V1</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="transform">transform</span>
+</header>
+<!-- Transformation Chain -->
+<div class="relative pl-4 border-l border-outline-variant ml-4 mb-8 space-y-8">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-background border border-primary-container rounded-full flex items-center justify-center z-10">
+<span class="font-label-mono-xs text-[6px] text-primary-container">1</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Base Prompt</span>
+<div class="bg-surface border border-outline-variant p-2 font-data-display text-data-display text-on-surface truncate">
+                                    "A high-fidelity dashboard for..."
+                                </div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-background border border-primary-container rounded-full flex items-center justify-center z-10">
+<span class="font-label-mono-xs text-[6px] text-primary-container">2</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Inject Tokens</span>
+<div class="inline-flex items-center gap-2 bg-surface-variant border border-outline-variant px-3 py-1 w-fit">
+<span class="material-symbols-outlined text-[14px] text-primary-container" data-icon="category">category</span>
+<span class="font-label-mono-sm text-label-mono-sm text-primary">Apply Design Tokens: Console v2</span>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-background border border-primary-container rounded-full flex items-center justify-center z-10">
+<span class="font-label-mono-xs text-[6px] text-primary-container">3</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Compile Target</span>
+<div class="inline-flex items-center gap-2 bg-surface-variant border border-outline-variant px-3 py-1 w-fit">
+<span class="material-symbols-outlined text-[14px] text-primary-container" data-icon="desktop_windows">desktop_windows</span>
+<span class="font-label-mono-sm text-label-mono-sm text-primary">Device Target: DESKTOP</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Resolved Code Panel -->
+<div class="border border-outline-variant">
+<div class="bg-surface-highest border-b border-outline-variant px-3 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="terminal">terminal</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Resolved Prompt Output</span>
+</div>
+<div class="bg-surface-container-lowest p-4 overflow-y-auto max-h-[180px] custom-scrollbar">
+<pre class="font-data-display text-data-display text-primary-container whitespace-pre-wrap leading-relaxed">{
+  "system_instruction": "Generate a high-fidelity dashboard...",
+  "theme_override": "Console v2",
+  "tokens": {
+    "colors": {
+      "primary": "#fbfffa",
+      "surface": "#131313"
+    },
+    "typography": {
+      "font_family": "JetBrains Mono"
+    }
+  },
+  "viewport": "1440x900"
+}
+</pre>
+</div>
+</div>
+<div class="mt-6 flex justify-end gap-3">
+<button class="bg-transparent border border-outline-variant text-on-surface font-label-mono-sm text-label-mono-sm px-4 h-8 flex items-center justify-center hover:bg-surface-variant transition-colors duration-150 ease-in-out">CANCEL</button>
+<button class="bg-primary/10 border border-primary text-primary font-label-mono-sm text-label-mono-sm px-4 h-8 flex items-center justify-center hover:bg-primary/20 transition-colors duration-150 ease-in-out">EXECUTE COMPILE</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search vs. Skim - Marginalia</title>
+<!-- External Fonts and Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c4c7c7",
+                        "outline": "#747878",
+                        "error": "#ba1a1a",
+                        "on-background": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#1c1b1a",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#646464",
+                        "on-surface": "#1c1b1b",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-dim": "#ddd9d8",
+                        "on-tertiary-container": "#868382",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "tertiary": "#000000",
+                        "primary-container": "#1c1b1b",
+                        "on-primary-fixed": "#1c1b1b",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "surface-tint": "#5f5e5e",
+                        "primary-fixed": "#e5e2e1",
+                        "surface": "#fdf8f8",
+                        "surface-container-high": "#ebe7e6",
+                        "surface-bright": "#fdf8f8",
+                        "secondary-container": "#e4e2e2",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "surface-container-low": "#f7f3f2",
+                        "secondary-fixed": "#e4e2e2",
+                        "secondary": "#5e5e5e",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f1edec",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "background": "#fdf8f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-safe": "40px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["EB Garamond"],
+                        "body-md": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "body-lg": ["EB Garamond"],
+                        "ui-medium": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "headline-md": ["EB Garamond"],
+                        "caption": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "ui-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-bold": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-surface-variant selection:text-on-surface">
+<!-- TopNavBar: Marginalia (About active) -->
+<nav class="bg-background dark:bg-background w-full top-0 sticky border-b border-surface-variant dark:border-outline-variant max-w-[1200px] mx-auto px-margin-safe h-20 flex items-center justify-between z-50">
+<a class="font-display-lg text-display-lg-mobile md:font-display-lg md:text-display-lg tracking-tighter text-primary dark:text-on-background flex-shrink-0 cursor-pointer active:opacity-70 transition-opacity" href="#">
+            Marginalia
+        </a>
+<div class="hidden md:flex items-center gap-gutter flex-1 justify-end">
+<a class="font-label-bold text-label-bold text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Archive</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Indices</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Journal</a>
+<a class="font-label-bold text-label-bold text-primary dark:text-on-background border-b border-primary pb-1 cursor-pointer active:opacity-70" href="#">About</a>
+</div>
+<div class="flex items-center ml-gutter">
+<button class="hidden md:flex items-center justify-center font-label-bold text-label-bold bg-primary text-on-primary px-stack-md py-[10px] hover:opacity-90 transition-opacity duration-200 border border-primary">
+                Subscribe
+            </button>
+<button aria-label="Menu" class="md:hidden flex items-center justify-center p-2 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-margin-safe py-section-gap flex flex-col items-center justify-center min-h-[calc(100vh-80px-150px)]">
+<!-- Marketing Block: Search vs Skim -->
+<section class="w-full max-w-4xl flex flex-col items-center">
+<header class="text-center mb-stack-lg md:mb-section-gap w-full">
+<h1 class="font-display-lg text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary tracking-tighter">
+                    Search vs. skim
+                </h1>
+</header>
+<!-- Side-by-side Argument Cards -->
+<div class="flex flex-col md:flex-row w-full relative">
+<!-- Center Vertical Rule (Desktop) -->
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-surface-variant transform -translate-x-1/2 h-full z-0"></div>
+<!-- Horizontal Rule (Mobile) -->
+<div class="block md:hidden w-full h-[1px] bg-surface-variant my-stack-lg"></div>
+<!-- Left Card: Keyword search -->
+<div class="flex-1 flex flex-col items-start px-0 md:pr-gutter md:pl-0 z-10 bg-background md:bg-transparent">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-md pb-stack-sm border-b border-surface-variant w-full">
+                        Keyword search
+                    </h2>
+<ul class="space-y-stack-sm w-full font-body-lg text-body-lg text-on-surface-variant">
+<li class="flex items-start">
+<span class="material-symbols-outlined mr-stack-sm text-outline mt-[2px] text-[18px]" style="font-variation-settings: 'FILL' 0;">close</span>
+<span>No citations</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined mr-stack-sm text-outline mt-[2px] text-[18px]" style="font-variation-settings: 'FILL' 0;">close</span>
+<span>Manual skimming</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined mr-stack-sm text-outline mt-[2px] text-[18px]" style="font-variation-settings: 'FILL' 0;">close</span>
+<span>No source trail</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined mr-stack-sm text-outline mt-[2px] text-[18px]" style="font-variation-settings: 'FILL' 0;">close</span>
+<span>Single-format only</span>
+</li>
+</ul>
+</div>
+<!-- Right Card: Marginalia -->
+<div class="flex-1 flex flex-col items-start px-0 md:pl-gutter md:pr-0 mt-stack-lg md:mt-0 z-10 bg-background md:bg-transparent">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-md pb-stack-sm border-b border-surface-variant w-full">
+                        Marginalia
+                    </h2>
+<ul class="space-y-stack-sm w-full font-body-lg text-body-lg text-primary">
+<li class="flex items-start">
+<span class="material-symbols-outlined mr-stack-sm text-[#0D9488] mt-[2px] text-[18px]" style="font-variation-settings: 'FILL' 0;">check</span>
+<span>Inline citations</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined mr-stack-sm text-[#0D9488] mt-[2px] text-[18px]" style="font-variation-settings: 'FILL' 0;">check</span>
+<span>Answers in seconds</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined mr-stack-sm text-[#0D9488] mt-[2px] text-[18px]" style="font-variation-settings: 'FILL' 0;">check</span>
+<span>Traceable sources</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined mr-stack-sm text-[#0D9488] mt-[2px] text-[18px]" style="font-variation-settings: 'FILL' 0;">check</span>
+<span>PDF + Notion + Confluence</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer: Marginalia -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest text-on-surface dark:text-on-surface w-full mt-section-gap border-t border-surface-variant dark:border-outline-variant font-caption text-caption">
+<div class="max-w-[1200px] mx-auto px-margin-safe py-stack-lg flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="flex items-center">
+<span class="font-label-bold text-label-bold uppercase tracking-widest text-primary">
+                    Marginalia
+                </span>
+<span class="ml-stack-md text-on-secondary-container">
+                    © 2024 Marginalia Press. All rights reserved.
+                </span>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="text-on-secondary-container hover:text-primary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors cursor-pointer" href="#">Colophon</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors cursor-pointer" href="#">RSS</a>
+</div>
+</div>
+</footer>
+</body></html>

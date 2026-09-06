@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Integrations Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;family=EB+Garamond:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fdf8f8",
+                        "secondary-fixed": "#e4e2e2",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#e1dfdf",
+                        "on-tertiary-fixed-variant": "#554422",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "inverse-primary": "#c9c6c5",
+                        "surface-container-low": "#f7f2f2",
+                        "on-surface": "#1c1b1c",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-container-highest": "#e6e1e1",
+                        "divider": "#e5e2e1",
+                        "primary": "#000000",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#484646",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#dcc497",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#968159",
+                        "on-primary-container": "#868383",
+                        "surface-container": "#f1eded",
+                        "surface": "#fdf8f8",
+                        "tertiary-fixed": "#f9dfb1",
+                        "secondary": "#5e5e5e",
+                        "outline-variant": "#cfc4c6",
+                        "surface-tint": "#605e5e",
+                        "surface-variant": "#e6e1e1",
+                        "on-tertiary-fixed": "#261a00",
+                        "background": "#fdf8f8",
+                        "on-background": "#1c1b1c",
+                        "surface-dim": "#ddd9d8",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#e6e1e1",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#636262",
+                        "on-error": "#ffffff",
+                        "outline": "#7d7577",
+                        "tertiary-container": "#261a00",
+                        "container-low": "#f7f3f2",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-on-surface": "#f4f0f0",
+                        "primary-container": "#1c1b1b",
+                        "surface-container-high": "#ece7e7",
+                        "on-surface-variant": "#4c4547"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "margin-safe": "40px",
+                        "section-gap": "80px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "display-lg-mobile": ["EB Garamond"],
+                        "caption": ["Public Sans"],
+                        "body-lg": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "body-md": ["EB Garamond"],
+                        "ui-medium": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "ui-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-surface-variant selection:text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface flex justify-between items-center w-full px-margin-safe max-w-[1200px] mx-auto h-16 border-b border-divider flat no shadows docked full-width top-0">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Marginalia</div>
+<nav class="hidden md:flex gap-stack-lg">
+<a class="text-secondary hover:text-primary transition-colors duration-200 font-ui-medium text-ui-medium uppercase" href="#">Archive</a>
+<a class="text-primary border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-200 font-ui-medium text-ui-medium uppercase" href="#">Indices</a>
+<a class="text-secondary hover:text-primary transition-colors duration-200 font-ui-medium text-ui-medium uppercase" href="#">Journal</a>
+</nav>
+<button class="font-ui-medium text-ui-medium border border-primary text-primary px-4 py-2 hover:bg-primary hover:text-on-primary transition-colors duration-200 scale-95 transition-transform">Sign In</button>
+</header>
+<div class="flex max-w-[1200px] mx-auto px-margin-safe min-h-[calc(100vh-128px)]">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col py-stack-lg gap-stack-md h-full w-64 border-r border-divider flat no shadows bg-surface text-primary">
+<div class="mb-stack-md px-stack-sm">
+<h2 class="font-label-bold text-label-bold uppercase text-on-surface tracking-wider">Categories</h2>
+<p class="font-caption text-caption text-secondary mt-1">Filter Integrations</p>
+</div>
+<nav class="flex flex-col gap-unit">
+<a class="flex items-center gap-stack-sm px-stack-sm py-2 text-secondary hover:bg-surface-container-low transition-colors indent-2 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">apps</span>
+<span class="font-label-bold text-label-bold uppercase group-hover:text-primary transition-colors">All</span>
+</a>
+<a class="flex items-center gap-stack-sm px-stack-sm py-2 bg-secondary-container text-on-secondary-container font-bold hover:bg-surface-container-low transition-colors indent-2 transition-all relative" href="#">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary"></div>
+<span class="material-symbols-outlined text-[20px]">folder</span>
+<span class="font-label-bold text-label-bold uppercase">File storage</span>
+</a>
+<a class="flex items-center gap-stack-sm px-stack-sm py-2 text-secondary hover:bg-surface-container-low transition-colors indent-2 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">chat_bubble</span>
+<span class="font-label-bold text-label-bold uppercase group-hover:text-primary transition-colors">Communication</span>
+</a>
+<a class="flex items-center gap-stack-sm px-stack-sm py-2 text-secondary hover:bg-surface-container-low transition-colors indent-2 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">group</span>
+<span class="font-label-bold text-label-bold uppercase group-hover:text-primary transition-colors">CRM</span>
+</a>
+<a class="flex items-center gap-stack-sm px-stack-sm py-2 text-secondary hover:bg-surface-container-low transition-colors indent-2 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">terminal</span>
+<span class="font-label-bold text-label-bold uppercase group-hover:text-primary transition-colors">Dev tools</span>
+</a>
+<a class="flex items-center gap-stack-sm px-stack-sm py-2 text-secondary hover:bg-surface-container-low transition-colors indent-2 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">settings_input_component</span>
+<span class="font-label-bold text-label-bold uppercase group-hover:text-primary transition-colors">Automation</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 py-stack-lg md:pl-gutter w-full">
+<div class="mb-section-gap">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-stack-md">Directory</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">Connect your existing archival structures and seamlessly synchronize data repositories.</p>
+</div>
+<div class="mb-stack-lg relative">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-secondary">search</span>
+<input class="w-full bg-transparent border-0 border-b border-divider py-3 pl-8 pr-4 focus:ring-0 focus:border-primary font-ui-medium text-ui-medium text-on-surface placeholder-secondary transition-colors" placeholder="Search 40+ integrations" type="text"/>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-gutter">
+<!-- Integration Row -->
+<div class="flex items-start justify-between py-stack-md border-b border-divider group hover:bg-surface-container-low transition-colors px-stack-sm -mx-stack-sm">
+<div class="flex gap-stack-md">
+<div class="w-10 h-10 border border-divider flex items-center justify-center shrink-0 bg-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">add_to_drive</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">Google Drive</h3>
+<p class="font-body-md text-secondary mt-1">Synchronize documents and assets directly from your workspace.</p>
+</div>
+</div>
+<button class="font-ui-medium text-caption border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-on-primary transition-colors uppercase ml-stack-md shrink-0">Connect</button>
+</div>
+<!-- Integration Row -->
+<div class="flex items-start justify-between py-stack-md border-b border-divider group hover:bg-surface-container-low transition-colors px-stack-sm -mx-stack-sm">
+<div class="flex gap-stack-md">
+<div class="w-10 h-10 border border-divider flex items-center justify-center shrink-0 bg-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">inventory_2</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">Dropbox</h3>
+<p class="font-body-md text-secondary mt-1">Automated backup and retrieval for shared folders.</p>
+</div>
+</div>
+<button class="font-ui-medium text-caption border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-on-primary transition-colors uppercase ml-stack-md shrink-0">Connect</button>
+</div>
+<!-- Integration Row -->
+<div class="flex items-start justify-between py-stack-md border-b border-divider group hover:bg-surface-container-low transition-colors px-stack-sm -mx-stack-sm">
+<div class="flex gap-stack-md">
+<div class="w-10 h-10 border border-divider flex items-center justify-center shrink-0 bg-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">cloud</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">Box</h3>
+<p class="font-body-md text-secondary mt-1">Enterprise-grade secure content management integration.</p>
+</div>
+</div>
+<button class="font-ui-medium text-caption border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-on-primary transition-colors uppercase ml-stack-md shrink-0">Connect</button>
+</div>
+<!-- Integration Row -->
+<div class="flex items-start justify-between py-stack-md border-b border-divider group hover:bg-surface-container-low transition-colors px-stack-sm -mx-stack-sm">
+<div class="flex gap-stack-md">
+<div class="w-10 h-10 border border-divider flex items-center justify-center shrink-0 bg-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">share</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">SharePoint</h3>
+<p class="font-body-md text-secondary mt-1">Connect lists and libraries for organizational intranets.</p>
+</div>
+</div>
+<button class="font-ui-medium text-caption border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-on-primary transition-colors uppercase ml-stack-md shrink-0">Connect</button>
+</div>
+<!-- Integration Row -->
+<div class="flex items-start justify-between py-stack-md border-b border-divider group hover:bg-surface-container-low transition-colors px-stack-sm -mx-stack-sm">
+<div class="flex gap-stack-md">
+<div class="w-10 h-10 border border-divider flex items-center justify-center shrink-0 bg-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">backup</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">OneDrive</h3>
+<p class="font-body-md text-secondary mt-1">Personal vault synchronization and file hosting.</p>
+</div>
+</div>
+<button class="font-ui-medium text-caption border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-on-primary transition-colors uppercase ml-stack-md shrink-0">Connect</button>
+</div>
+<!-- Integration Row -->
+<div class="flex items-start justify-between py-stack-md border-b border-divider group hover:bg-surface-container-low transition-colors px-stack-sm -mx-stack-sm">
+<div class="flex gap-stack-md">
+<div class="w-10 h-10 border border-divider flex items-center justify-center shrink-0 bg-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">file_download</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">iCloud</h3>
+<p class="font-body-md text-secondary mt-1">Native ecosystem integration for media and documents.</p>
+</div>
+</div>
+<button class="font-ui-medium text-caption border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-on-primary transition-colors uppercase ml-stack-md shrink-0">Connect</button>
+</div>
+<!-- Integration Row -->
+<div class="flex items-start justify-between py-stack-md border-b border-divider group hover:bg-surface-container-low transition-colors px-stack-sm -mx-stack-sm">
+<div class="flex gap-stack-md">
+<div class="w-10 h-10 border border-divider flex items-center justify-center shrink-0 bg-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">send</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">WeTransfer</h3>
+<p class="font-body-md text-secondary mt-1">Automate large file transfers to external recipients.</p>
+</div>
+</div>
+<button class="font-ui-medium text-caption border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-on-primary transition-colors uppercase ml-stack-md shrink-0">Connect</button>
+</div>
+<!-- Integration Row -->
+<div class="flex items-start justify-between py-stack-md border-b border-divider group hover:bg-surface-container-low transition-colors px-stack-sm -mx-stack-sm">
+<div class="flex gap-stack-md">
+<div class="w-10 h-10 border border-divider flex items-center justify-center shrink-0 bg-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">dns</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">Amazon S3</h3>
+<p class="font-body-md text-secondary mt-1">Direct bucket access for scalable object storage.</p>
+</div>
+</div>
+<button class="font-ui-medium text-caption border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-on-primary transition-colors uppercase ml-stack-md shrink-0">Connect</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface flex justify-between items-center px-margin-safe max-w-[1200px] mx-auto full-width py-stack-lg border-t border-divider flat no shadows mt-section-gap">
+<p class="font-caption text-caption text-secondary">© 2024 Marginalia Research</p>
+<div class="flex gap-stack-md">
+<a class="font-caption text-caption text-secondary hover:text-primary opacity-80 hover:opacity-100 transition-colors uppercase" href="#">Privacy</a>
+<a class="font-caption text-caption text-secondary hover:text-primary opacity-80 hover:opacity-100 transition-colors uppercase" href="#">Terms</a>
+<a class="font-caption text-caption text-secondary hover:text-primary opacity-80 hover:opacity-100 transition-colors uppercase" href="#">Colophon</a>
+</div>
+</footer>
+</body></html>

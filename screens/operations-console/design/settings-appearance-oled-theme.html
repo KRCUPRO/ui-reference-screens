@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="h-full dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Console - Appearance Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container": "#111111",
+                        "background": "#000000",
+                        "secondary-container": "#333333",
+                        "on-background": "#ffffff",
+                        "surface-tint": "#00ffff",
+                        "secondary": "#a1a1aa",
+                        "secondary-fixed": "#3f3f46",
+                        "on-tertiary-container": "#ffede6",
+                        "primary": "#00ffff",
+                        "inverse-on-surface": "#111111",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#00ffff",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-container-high": "#222222",
+                        "on-tertiary": "#000000",
+                        "surface-container-low": "#050505",
+                        "outline": "#333333",
+                        "surface-bright": "#111111",
+                        "surface": "#000000",
+                        "on-secondary-fixed-variant": "#e4e4e7",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#ffffff",
+                        "on-primary-fixed-variant": "#00cccc",
+                        "tertiary-fixed": "#ffdbcd",
+                        "inverse-primary": "#008888",
+                        "surface-container-highest": "#333333",
+                        "primary-fixed-dim": "#00cccc",
+                        "tertiary-container": "#ffb596",
+                        "inverse-surface": "#f2f2f2",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-secondary": "#000000",
+                        "on-surface": "#ffffff",
+                        "surface-dim": "#0a0a0a",
+                        "on-primary": "#000000",
+                        "surface-variant": "#111111",
+                        "tertiary": "#ffb596",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#a1a1aa",
+                        "primary-container": "#004444",
+                        "on-primary-container": "#00ffff",
+                        "on-surface-variant": "#a1a1aa",
+                        "on-primary-fixed": "#000000",
+                        "outline-variant": "#333333"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "stack-sm": "8px",
+                        "margin-page": "48px",
+                        "stack-lg": "32px",
+                        "inset-stretch": "16px 12px",
+                        "inset-squish": "8px 12px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Public Sans"],
+                        "label-sm": ["Public Sans"],
+                        "code-md": ["JetBrains Mono"],
+                        "headline-lg": ["Public Sans"],
+                        "title-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "display": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "code-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .oled-glow {
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-black h-full font-body-md text-body-md text-white antialiased overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 bg-[#050505] border-r border-[#222] flex flex-col py-8 px-4 z-10">
+<div class="mb-8 px-2 flex items-center gap-3">
+<img alt="User profile" class="w-8 h-8 rounded-full border border-[#444] object-cover filter invert" data-alt="A highly stylized, minimalist icon of a cog or gear, rendered in crisp black outlines on a pure white background. The image should convey high-tech precision and system administration, suitable for a light-mode console UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBufsVlLgvXUj13y8eJzHjToz2HrYvL-H5mdqWA7DQuqgui4LqEIWokv6WK53AbDfJh2_pktdCXwLUmRgWOJ9sJ5cQ1VHyOK2w3Y77WPVm8pbmP-jjiwxJ2plX1gCkhSdjdb-Xsyz8bwXt-YIPBs760xniYzdUVlDVnsayEq5MmW3uOeYmg4lI-QjmsK5_Jv6DjeQxK0T5TGfLhqy47mlTs8aww-Ju8SvnH-73aYdcJc6n9DxFfF1CUumPjeaEak9XKOdW4hyv5dc0"/>
+<div>
+<h1 class="font-headline-lg text-title-md font-bold text-white leading-none">System Console</h1>
+<span class="font-label-sm text-label-sm text-[#888] block mt-1">v2.4.0</span>
+</div>
+</div>
+<ul class="flex flex-col gap-1 overflow-y-auto flex-grow">
+<!-- Inactive -->
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#aaa] hover:bg-[#111] hover:text-white transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span><span>Overview</span></a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#aaa] hover:bg-[#111] hover:text-white transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span><span>Analytics</span></a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#aaa] hover:bg-[#111] hover:text-white transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="vpn_key">vpn_key</span><span>Keys</span></a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#aaa] hover:bg-[#111] hover:text-white transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="monitor">monitor</span><span>Screens</span></a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#aaa] hover:bg-[#111] hover:text-white transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="palette">palette</span><span>Design</span></a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#aaa] hover:bg-[#111] hover:text-white transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="terminal">terminal</span><span>MCP</span></a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#aaa] hover:bg-[#111] hover:text-white transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="science">science</span><span>Playground</span></a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#aaa] hover:bg-[#111] hover:text-white transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="list_alt">list_alt</span><span>Logs</span></a></li>
+<!-- Active -->
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded text-[#00ffff] font-bold border-r-2 border-[#00ffff] bg-[#00ffff]/10 transition-colors duration-150 ease-in-out" href="#"><span class="material-symbols-outlined fill text-[20px]" data-icon="settings" data-weight="fill">settings</span><span>Settings</span></a></li>
+</ul>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-[#000000] border-b border-[#222] flex items-center justify-between px-gutter w-[calc(100%-16rem)] z-10">
+<div class="flex items-center gap-4">
+<span class="font-headline-lg text-headline-lg font-bold text-white">System Console</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#aaa] hover:text-white transition-opacity duration-200"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="text-[#aaa] hover:text-white transition-opacity duration-200"><span class="material-symbols-outlined" data-icon="help_outline">help_outline</span></button>
+<img alt="Administrator" class="w-8 h-8 rounded-full border border-[#444] object-cover ml-2" data-alt="A small, crisp headshot portrait of an administrator, featuring a sharply dressed individual against a neutral white background. The image should be high-contrast and professional, fitting for a minimalist tech dashboard user avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQsaIgM8HZ2cFQVcXhiLbE2f2B2mlXTMdTTtmypnSBuAFd-orEq5nVLVo1zIxXwQz-UuGalDNqkcBS8rId5W7QfuIt2zJLP1Q-_ChvQ7m8BLtluZZ1bs28ifo3l0BwAklEBDWrIyb499ZkKuDnDqrka9I8tlKZ_E2hayzvTyK-rPy5agBxh8IjMtGzvrhJ_4BamAR5rF3gCsx1a_YtSmccyYNOc_3UKWKX5_ZJ1DxsiAwcCUS1JX85zLXhfhXQAyjbXj3Rf_SgJuw"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-margin-page w-full h-[calc(100vh-4rem)] overflow-y-auto bg-black">
+<div class="max-w-6xl">
+<div class="mb-8 border-b border-[#333] pb-4">
+<h2 class="font-headline-lg text-headline-lg font-bold text-white">Appearance</h2>
+<p class="font-body-md text-body-md text-[#aaa] mt-2">Customize the visual theme and layout of the System Console.</p>
+</div>
+<!-- Theme Row -->
+<div class="flex flex-row gap-4 overflow-x-auto pb-4">
+<!-- 1. Light -->
+<button class="text-left group relative outline-none flex flex-col w-48 min-w-[12rem] rounded border border-[#333] bg-[#111] hover:border-[#666] transition-all">
+<div class="h-24 p-3 bg-white border-b border-[#333] rounded-t-sm flex flex-col gap-2 overflow-hidden relative">
+<div class="w-full h-3 bg-gray-100 rounded-sm"></div>
+<div class="w-3/4 h-6 bg-gray-50 border border-gray-200 rounded-sm mt-1"></div>
+<div class="absolute bottom-3 right-3 w-6 h-6 bg-blue-600 rounded"></div>
+</div>
+<div class="p-3 flex-grow flex flex-col justify-between bg-[#111] rounded-b-sm">
+<span class="font-title-md text-title-md text-white block">Light</span>
+<span class="font-label-sm text-label-sm text-[#888] mt-1 block uppercase tracking-wider">Default</span>
+</div>
+</button>
+<!-- 2. Dark -->
+<button class="text-left group relative outline-none flex flex-col w-48 min-w-[12rem] rounded border border-[#333] bg-[#111] hover:border-[#666] transition-all">
+<div class="h-24 p-3 bg-[#121212] border-b border-[#333] rounded-t-sm flex flex-col gap-2 overflow-hidden relative">
+<div class="w-full h-3 bg-[#2A2A2A] rounded-sm"></div>
+<div class="w-3/4 h-6 bg-[#1E1E1E] border border-[#333] rounded-sm mt-1"></div>
+<div class="absolute bottom-3 right-3 w-6 h-6 bg-white/20 rounded"></div>
+</div>
+<div class="p-3 flex-grow flex flex-col justify-between bg-[#111] rounded-b-sm">
+<span class="font-title-md text-title-md text-white block">Dark</span>
+<span class="font-label-sm text-label-sm text-[#888] mt-1 block uppercase tracking-wider">Low light</span>
+</div>
+</button>
+<!-- 3. Slate -->
+<button class="text-left group relative outline-none flex flex-col w-48 min-w-[12rem] rounded border border-[#333] bg-[#111] hover:border-[#666] transition-all">
+<div class="h-24 p-3 bg-[#1e293b] border-b border-[#333] rounded-t-sm flex flex-col gap-2 overflow-hidden relative">
+<div class="w-full h-3 bg-[#334155] rounded-sm"></div>
+<div class="w-3/4 h-6 bg-[#0f172a] border border-[#475569] rounded-sm mt-1"></div>
+<div class="absolute bottom-3 right-3 w-6 h-6 bg-blue-400 rounded"></div>
+</div>
+<div class="p-3 flex-grow flex flex-col justify-between bg-[#111] rounded-b-sm">
+<span class="font-title-md text-title-md text-white block">Slate</span>
+<span class="font-label-sm text-label-sm text-[#888] mt-1 block uppercase tracking-wider">Cool tones</span>
+</div>
+</button>
+<!-- 4. OLED (Active) -->
+<button class="text-left group relative outline-none flex flex-col w-48 min-w-[12rem] rounded border border-[#00ffff] bg-black oled-glow transition-all z-10">
+<div class="absolute top-2 right-2 w-5 h-5 bg-[#00ffff] rounded-full flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-black text-[14px] font-bold">check</span>
+</div>
+<div class="h-24 p-3 bg-black border-b border-[#222] rounded-t-sm flex flex-col gap-2 overflow-hidden relative">
+<div class="w-full h-3 border border-[#333] rounded-sm"></div>
+<div class="w-3/4 h-6 bg-[#111] border border-[#444] rounded-sm mt-1"></div>
+<div class="absolute bottom-3 right-3 w-6 h-6 border border-white rounded"></div>
+</div>
+<div class="p-3 flex-grow flex flex-col justify-between bg-black rounded-b-sm">
+<span class="font-title-md text-title-md text-white block">OLED</span>
+<span class="font-label-sm text-label-sm text-[#aaa] mt-1 block uppercase tracking-wider">True black</span>
+</div>
+</button>
+<!-- 5. Neon -->
+<button class="text-left group relative outline-none flex flex-col w-48 min-w-[12rem] rounded border border-[#333] bg-[#111] hover:border-[#666] transition-all">
+<div class="h-24 p-3 bg-[#0a0a0a] border-b border-[#333] rounded-t-sm flex flex-col gap-2 overflow-hidden relative">
+<div class="w-full h-3 bg-[#1a1a1a] rounded-sm border-l-2 border-[#39ff14]"></div>
+<div class="w-3/4 h-6 bg-[#111] border border-[#222] rounded-sm mt-1"></div>
+<div class="absolute bottom-3 right-3 w-6 h-6 bg-[#ff007f] rounded"></div>
+</div>
+<div class="p-3 flex-grow flex flex-col justify-between bg-[#111] rounded-b-sm">
+<span class="font-title-md text-title-md text-white block">Neon</span>
+<span class="font-label-sm text-label-sm text-[#888] mt-1 block uppercase tracking-wider">High contrast</span>
+</div>
+</button>
+<!-- 6. System -->
+<button class="text-left group relative outline-none flex flex-col w-48 min-w-[12rem] rounded border border-[#333] bg-[#111] hover:border-[#666] transition-all">
+<div class="h-24 border-b border-[#333] rounded-t-sm flex overflow-hidden">
+<!-- Left Half (Light) -->
+<div class="w-1/2 h-full bg-white p-2 flex flex-col gap-1 border-r border-gray-200">
+<div class="w-full h-2 bg-gray-100 rounded-sm"></div>
+<div class="w-full h-4 bg-gray-50 border border-gray-200 rounded-sm mt-1"></div>
+</div>
+<!-- Right Half (Dark) -->
+<div class="w-1/2 h-full bg-[#121212] p-2 flex flex-col gap-1">
+<div class="w-full h-2 bg-[#2A2A2A] rounded-sm"></div>
+<div class="w-full h-4 bg-[#1E1E1E] border border-[#333] rounded-sm mt-1"></div>
+</div>
+</div>
+<div class="p-3 flex-grow flex flex-col justify-between bg-[#111] rounded-b-sm">
+<span class="font-title-md text-title-md text-white block">System</span>
+<span class="font-label-sm text-label-sm text-[#888] mt-1 block uppercase tracking-wider">Auto match</span>
+</div>
+</button>
+</div>
+<!-- Token Preview Secondary Panel -->
+<div class="mt-8 border border-[#222] bg-[#0a0a0a] rounded-md overflow-hidden">
+<div class="px-6 py-4 border-b border-[#222]">
+<h3 class="font-title-md text-title-md text-white font-bold">Token preview</h3>
+</div>
+<div class="p-6">
+<pre class="font-code-md text-code-md text-[#d4d4d4] bg-[#000000] p-4 rounded border border-[#222] overflow-x-auto"><code>--paper: #000000
+--ink: #F2F2F2
+--terminal: #050505</code>
+</pre>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&amp;family=Source+Serif+4:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fdf8f8",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary-container": "#858383",
+                        "surface-container-high": "#ebe7e6",
+                        "surface-dim": "#ddd9d8",
+                        "on-secondary": "#ffffff",
+                        "primary": "#000000",
+                        "on-background": "#1c1b1b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#e6e2df",
+                        "outline": "#747878",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f7f3f2",
+                        "primary-container": "#1c1b1b",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "secondary-fixed": "#e4e2e1",
+                        "inverse-primary": "#c8c6c5",
+                        "tertiary-container": "#1c1b1a",
+                        "on-primary-fixed-variant": "#474746",
+                        "outline-variant": "#c4c7c7",
+                        "surface-tint": "#5f5e5e",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "surface-bright": "#fdf8f8",
+                        "surface-container": "#f1edec",
+                        "on-tertiary-container": "#868382",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-container": "#e4e2e1",
+                        "on-secondary-fixed-variant": "#474747",
+                        "inverse-surface": "#313030",
+                        "primary-fixed": "#e5e2e1",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-container": "#656464",
+                        "background": "#fdf8f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "8px",
+                        "row-gap": "4px",
+                        "column-gap": "12px",
+                        "margin-page": "16px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["\"Source Serif 4\""],
+                        "body-md": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "label-caps": ["Archivo Narrow"],
+                        "footer-note": ["Archivo Narrow"],
+                        "headline-lg": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "label-caps": ["11px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "footer-note": ["10px", { "lineHeight": "14px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "headline-lg": ["30px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .rule-v {
+            border-left: 1px solid theme('colors.primary');
+        }
+        .rule-h {
+            border-top: 1px solid theme('colors.primary');
+        }
+        .rule-h-double {
+            border-top: 2px solid theme('colors.primary');
+            margin-top: 2px;
+            padding-top: 2px;
+            border-bottom: 1px solid theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- Top Navigation (Shared Component Integration) -->
+<header class="bg-surface dark:bg-inverse-surface flex justify-between items-center w-full px-margin-page py-unit border-b-2 border-primary dark:border-on-primary-fixed flat no shadows docked full-width top-0">
+<div class="font-headline-lg text-headline-lg uppercase tracking-tighter text-primary dark:text-on-primary-fixed">
+            CHRONICLE FEATURES
+        </div>
+<nav class="hidden md:flex gap-column-gap">
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container-high dark:hover:bg-on-primary-fixed-variant transition-colors duration-75 px-unit py-unit" href="#">WORLD</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container-high dark:hover:bg-on-primary-fixed-variant transition-colors duration-75 px-unit py-unit" href="#">SCIENCE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container-high dark:hover:bg-on-primary-fixed-variant transition-colors duration-75 px-unit py-unit" href="#">ARTS</a>
+<a class="font-label-caps text-label-caps text-primary dark:text-on-primary-fixed font-bold border-b-2 border-primary dark:border-on-primary-fixed hover:bg-surface-container-high dark:hover:bg-on-primary-fixed-variant transition-colors duration-75 px-unit py-unit" href="#">FEATURES</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container-high dark:hover:bg-on-primary-fixed-variant transition-colors duration-75 px-unit py-unit" href="#">ARCHIVE</a>
+</nav>
+<div>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-margin-page py-unit border border-primary hover:bg-surface-variant transition-colors duration-75">SUBSCRIBE</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col px-margin-page py-margin-page">
+<!-- Header Section -->
+<div class="w-full mb-margin-page rule-h-double">
+<h1 class="font-headline-lg text-headline-lg mt-gutter mb-unit">MARGINALIA</h1>
+<p class="font-body-md text-body-md mb-gutter max-w-2xl">A comprehensive index of capabilities designed for the modern researcher. Every tool necessary to cite, search, and manage vast repositories of knowledge.</p>
+</div>
+<!-- Six Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-0 flex-grow rule-h rule-v border-r border-primary border-b">
+<!-- Item 1 -->
+<div class="rule-v p-gutter hover:bg-surface-container-lowest transition-colors duration-150">
+<h2 class="font-label-caps text-label-caps mb-gutter">CITED</h2>
+<p class="font-body-sm text-body-sm">Automatic citation tracking across all your research materials. Never lose a source link again with our deep-link indexing.</p>
+</div>
+<!-- Item 2 -->
+<div class="rule-v p-gutter hover:bg-surface-container-lowest transition-colors duration-150">
+<h2 class="font-label-caps text-label-caps mb-gutter">SEARCH ALL</h2>
+<p class="font-body-sm text-body-sm">Global search functionality that pierces through your entire library. Find a single sentence across thousands of indexed documents instantly.</p>
+</div>
+<!-- Item 3 -->
+<div class="rule-v p-gutter hover:bg-surface-container-lowest transition-colors duration-150">
+<h2 class="font-label-caps text-label-caps mb-gutter">PERMISSIONS</h2>
+<p class="font-body-sm text-body-sm">Granular access controls for teams and individuals. Manage read, write, and share permissions with a single, centralized administrative dashboard.</p>
+</div>
+<!-- Item 4 -->
+<div class="rule-v p-gutter hover:bg-surface-container-lowest transition-colors duration-150">
+<h2 class="font-label-caps text-label-caps mb-gutter">SLACK READY</h2>
+<p class="font-body-sm text-body-sm">Native integration with your existing Slack workspace. Receive real-time alerts and research updates directly in your preferred communication channels.</p>
+</div>
+<!-- Item 5 -->
+<div class="rule-v p-gutter hover:bg-surface-container-lowest transition-colors duration-150">
+<h2 class="font-label-caps text-label-caps mb-gutter">NOTION READY</h2>
+<p class="font-body-sm text-body-sm">Seamlessly export and sync your Marginalia research with Notion. Maintain perfect formatting and relational data across both powerful platforms.</p>
+</div>
+<!-- Item 6 -->
+<div class="rule-v p-gutter hover:bg-surface-container-lowest transition-colors duration-150">
+<h2 class="font-label-caps text-label-caps mb-gutter">DRIVE READY</h2>
+<p class="font-body-sm text-body-sm">Connect your Google Drive for automatic document ingestion. We index your cloud storage so your research stays current and searchable.</p>
+</div>
+</div>
+<!-- Footer Strip -->
+<div class="w-full mt-margin-page py-unit text-center border-t border-primary border-b">
+<span class="font-footer-note text-footer-note tracking-widest text-on-surface-variant">TRUSTED ACROSS 340 TEAMS · 3.2M PAGES INDEXED</span>
+</div>
+</main>
+<!-- Global Footer (Shared Component Integration) -->
+<footer class="w-full py-gutter px-margin-page flex flex-col md:flex-row justify-between items-center gap-column-gap bg-primary dark:bg-on-primary-fixed border-t-2 border-primary dark:border-on-primary-fixed flat no shadows bottom-0">
+<div class="font-label-caps text-label-caps tracking-widest text-on-primary dark:text-primary-container">
+            © 2024 THE BROADSHEET INSTITUTION. ALL RIGHTS RESERVED. PRINTED DIGITALLY.
+        </div>
+<div class="flex gap-column-gap">
+<a class="font-footer-note text-footer-note text-on-primary dark:text-primary-container opacity-80 hover:opacity-100 transition-opacity duration-150" href="#">TERMS OF SERVICE</a>
+<a class="font-footer-note text-footer-note text-on-primary dark:text-primary-container opacity-80 hover:opacity-100 transition-opacity duration-150" href="#">PRIVACY POLICY</a>
+<a class="font-footer-note text-footer-note text-on-primary dark:text-primary-container opacity-80 hover:opacity-100 transition-opacity duration-150" href="#">ADVERTISE</a>
+<a class="font-footer-note text-footer-note text-on-primary dark:text-primary-container opacity-80 hover:opacity-100 transition-opacity duration-150" href="#">CONTACT US</a>
+<a class="font-footer-note text-footer-note text-on-primary dark:text-primary-container opacity-80 hover:opacity-100 transition-opacity duration-150" href="#">RSS FEED</a>
+</div>
+</footer>
+</body></html>

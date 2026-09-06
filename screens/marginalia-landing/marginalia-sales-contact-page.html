@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us - Marginalia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-variant": "#e5e2e1",
+                "primary-fixed": "#e5e2e1",
+                "on-secondary-fixed": "#1b1c1c",
+                "tertiary-container": "#1c1b1a",
+                "secondary-fixed-dim": "#c8c6c6",
+                "on-tertiary-fixed": "#1c1b1a",
+                "on-tertiary-container": "#868382",
+                "on-primary-container": "#858383",
+                "surface-container-low": "#f7f3f2",
+                "on-surface-variant": "#444748",
+                "surface-container-lowest": "#ffffff",
+                "tertiary-fixed-dim": "#cac6c4",
+                "on-error": "#ffffff",
+                "surface-container-high": "#ebe7e6",
+                "inverse-surface": "#313030",
+                "background": "#fdf8f8",
+                "on-surface": "#1c1b1b",
+                "surface": "#fdf8f8",
+                "outline-variant": "#c4c7c7",
+                "surface-tint": "#5f5e5e",
+                "on-secondary": "#ffffff",
+                "surface-container-highest": "#e5e2e1",
+                "secondary-fixed": "#e4e2e1",
+                "error-container": "#ffdad6",
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#f4f0ef",
+                "tertiary": "#000000",
+                "primary-fixed-dim": "#c8c6c5",
+                "inverse-primary": "#c8c6c5",
+                "surface-bright": "#fdf8f8",
+                "on-primary": "#ffffff",
+                "outline": "#747878",
+                "on-primary-fixed": "#1c1b1b",
+                "on-tertiary": "#ffffff",
+                "tertiary-fixed": "#e6e2df",
+                "surface-dim": "#ddd9d8",
+                "on-background": "#1c1b1b",
+                "secondary-container": "#e4e2e1",
+                "on-error-container": "#93000a",
+                "primary": "#000000",
+                "secondary": "#5f5e5e",
+                "on-secondary-fixed-variant": "#474747",
+                "primary-container": "#1c1b1b",
+                "on-secondary-container": "#656464",
+                "on-primary-fixed-variant": "#474746",
+                "surface-container": "#f1edec",
+                "on-tertiary-fixed-variant": "#484645"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "column-gap": "12px",
+                "unit": "4px",
+                "margin-page": "16px",
+                "row-gap": "4px",
+                "gutter": "8px"
+              },
+              "fontFamily": {
+                "label-caps": [
+                  "Archivo Narrow"
+                ],
+                "footer-note": [
+                  "Archivo Narrow"
+                ],
+                "body-sm": [
+                  "\"Source Serif 4\""
+                ],
+                "headline-md": [
+                  "\"Source Serif 4\""
+                ],
+                "headline-lg": [
+                  "\"Source Serif 4\""
+                ],
+                "body-md": [
+                  "\"Source Serif 4\""
+                ]
+              },
+              "fontSize": {
+                "label-caps": [
+                  "11px",
+                  {
+                    "lineHeight": "12px",
+                    "letterSpacing": "0.08em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "footer-note": [
+                  "10px",
+                  {
+                    "lineHeight": "14px",
+                    "letterSpacing": "0.01em",
+                    "fontWeight": "400"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "20px",
+                  {
+                    "lineHeight": "24px",
+                    "fontWeight": "700"
+                  }
+                ],
+                "headline-lg": [
+                  "30px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "400"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar Component -->
+<header class="w-full border-b-[2px] border-primary dark:border-primary-fixed-dim bg-background dark:bg-on-tertiary-container text-primary dark:text-primary-fixed-dim font-label-caps text-label-caps">
+<div class="flex justify-between items-center px-margin-page py-4 w-full max-w-full mx-auto">
+<div class="flex items-center gap-6">
+<a class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary-fixed-dim cursor-pointer active:opacity-80" href="#">MARGINALIA</a>
+<nav class="hidden md:flex items-center gap-6 mt-1">
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-colors px-2 py-1 cursor-pointer active:opacity-80" href="#">ARCHIVE</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-colors px-2 py-1 cursor-pointer active:opacity-80" href="#">RESEARCH</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-colors px-2 py-1 cursor-pointer active:opacity-80" href="#">PRICING</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-colors px-2 py-1 cursor-pointer active:opacity-80" href="#">RESOURCES</a>
+<!-- Assuming ABOUT is active based on context -->
+<a class="text-primary dark:text-primary-fixed-dim border-b border-primary dark:border-primary-fixed-dim pb-1 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-colors px-2 py-1 cursor-pointer active:opacity-80" href="#">ABOUT</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="hidden md:flex items-center justify-center cursor-pointer active:opacity-80 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-colors p-1">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="border border-primary dark:border-primary-fixed-dim px-4 py-2 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-colors cursor-pointer active:opacity-80">
+                    GET ACCESS
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="flex-grow w-full max-w-7xl mx-auto flex flex-col md:flex-row border-l-[1px] border-r-[1px] border-[#333333] my-8 min-h-[600px]">
+<!-- Left Column: Form (60%) -->
+<section class="w-full md:w-[60%] p-8 md:p-12 border-b-[1px] md:border-b-0 border-[#333333] flex flex-col">
+<h1 class="font-headline-lg text-headline-lg mb-8 uppercase tracking-widest border-b-[2px] border-primary pb-2">Sales Inquiry</h1>
+<form class="flex flex-col gap-8 flex-grow">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface" for="fullName">FULL NAME</label>
+<input class="w-full bg-transparent border-0 border-b-[1px] border-primary focus:ring-0 focus:border-b-[2px] focus:border-primary px-0 py-2 font-body-md text-on-surface placeholder:text-outline-variant" id="fullName" placeholder="Jane Doe" type="text"/>
+</div>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex flex-col gap-2 w-full">
+<label class="font-label-caps text-label-caps text-on-surface" for="workEmail">WORK EMAIL</label>
+<input class="w-full bg-transparent border-0 border-b-[1px] border-primary focus:ring-0 focus:border-b-[2px] focus:border-primary px-0 py-2 font-body-md text-on-surface placeholder:text-outline-variant" id="workEmail" placeholder="jane@company.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2 w-full">
+<label class="font-label-caps text-label-caps text-on-surface" for="company">COMPANY</label>
+<input class="w-full bg-transparent border-0 border-b-[1px] border-primary focus:ring-0 focus:border-b-[2px] focus:border-primary px-0 py-2 font-body-md text-on-surface placeholder:text-outline-variant" id="company" placeholder="Company Inc." type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<label class="font-label-caps text-label-caps text-on-surface" for="message">MESSAGE</label>
+<textarea class="w-full bg-transparent border-[1px] border-primary focus:ring-0 focus:border-[2px] focus:border-primary p-4 font-body-md text-on-surface placeholder:text-outline-variant resize-none flex-grow" id="message" placeholder="Please describe your needs in detail." rows="5"></textarea>
+</div>
+<button class="w-full bg-primary text-surface-container-lowest font-label-caps text-label-caps py-4 px-6 border-[1px] border-primary hover:bg-[#1A1A1A] hover:text-[#F9F7F2] transition-colors active:opacity-80 mt-auto" type="submit">
+                    SEND MESSAGE
+                </button>
+</form>
+</section>
+<!-- Vertical Divider (md and up) -->
+<div class="hidden md:block w-[1px] bg-[#333333] flex-shrink-0"></div>
+<!-- Right Column: Sidebar (40%) -->
+<aside class="w-full md:w-[40%] flex flex-col">
+<div class="p-8 md:p-12 border-b-[1px] border-[#333333]">
+<h2 class="font-headline-md text-headline-md mb-6 uppercase tracking-wider">Office Details</h2>
+<address class="font-body-md text-on-surface not-italic flex flex-col gap-4">
+<p class="pb-4 border-b-[1px] border-[#333333] flex items-start gap-3">
+<span class="material-symbols-outlined mt-1" data-icon="location_on">location_on</span>
+<span>Marginalia<br/>88 Reading Lane<br/>Portland, OR</span>
+</p>
+<p class="pb-4 border-b-[1px] border-[#333333] flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+<a class="hover:underline" href="tel:+15035550192">+1 (503) 555-0192</a>
+</p>
+<p class="pb-4 border-b-[1px] border-[#333333] flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<a class="hover:underline" href="mailto:hello@marginalia.app">hello@marginalia.app</a>
+</p>
+</address>
+</div>
+<!-- Map Placeholder Area -->
+<div class="flex-grow bg-surface-container-high p-8 flex items-center justify-center min-h-[300px] relative overflow-hidden group border-t-[1px] border-[#333333] md:border-t-0">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwdjIwSDIwVjBIMHptMTkgMTlIMVYxSDE5djE4eiIgZmlsbD0icmdiYSgwLDAsMCwwLjA1KSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-50 mix-blend-multiply"></div>
+<div class="relative flex flex-col items-center justify-center text-on-surface-variant z-10">
+<span class="material-symbols-outlined text-4xl mb-2 text-primary" data-icon="pin_drop" data-weight="fill">pin_drop</span>
+<span class="font-label-caps text-label-caps bg-background px-3 py-1 border-[1px] border-primary">MAP DATA UNAVAILABLE</span>
+</div>
+<!-- Example of image inclusion based on instructions, though a CSS pattern is used above for the map effect -->
+<img alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 grayscale" data-alt="A highly detailed, muted grayscale map of downtown Portland, Oregon, featuring a brutalist architectural aesthetic. The map utilizes sharp, contrasting lines to denote streets and blocks, adhering to a stark, light-mode minimalist design. The map is overlaid with a subtle, textured grid pattern, evoking the feeling of vintage architectural blueprints or academic journals." data-location="Portland, OR" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_WqwZdMnJsvfMt4RYQ92z0UDAcHculMyZnIr3PmkPpBjtrLx6ZmKpjjCRWJP4ZveUVsn637Rtd-Y2ByJPME4Zdg8L-DP2X1WX0HNZeVCEDDFJMkIGb7pbsIabcEDuyNqzgvK01hJ6Apkf_q4SG5tNh59hRLryl9OK3_PwDH1KWN4rQ_-BQczwjvDsdqAPpex0-5Ni_gyZ6taDRVrtdCwmXuzaRcoImx2mHwi2-F9PzxCTa006_Ohb1zjBoZOYbgz1CuAYQgCI0m6G"/>
+</div>
+</aside>
+</main>
+<!-- Footer Component -->
+<footer class="w-full border-t-[2px] border-primary dark:border-primary-fixed-dim mt-auto bg-background dark:bg-on-tertiary-container text-primary dark:text-primary-fixed-dim font-footer-note text-footer-note">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-page py-gutter w-full gap-4 md:gap-0">
+<div class="font-label-caps text-label-caps text-primary">
+                © 2024 MARGINALIA RESEARCH SYSTEMS. ALL RIGHTS RESERVED. PRINTED IN DIGITS.
+            </div>
+<nav class="flex flex-wrap items-center justify-center gap-4">
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-opacity duration-150" href="#">PRIVACY POLICY</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-opacity duration-150" href="#">TERMS OF SERVICE</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-opacity duration-150" href="#">ACCESSIBILITY</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-opacity duration-150" href="#">SYSTEM STATUS</a>
+</nav>
+</div>
+</footer>
+</body></html>

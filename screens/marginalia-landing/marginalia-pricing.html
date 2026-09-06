@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing - Marginalia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#e4e2e2",
+                        "primary": "#000000",
+                        "surface-container": "#f1edec",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "outline": "#747878",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-container": "#868382",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fdf8f8",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ebe7e6",
+                        "inverse-on-surface": "#f4f0ef",
+                        "surface-variant": "#e5e2e1",
+                        "on-primary-container": "#858383",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#1c1b1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "on-secondary-container": "#646464",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-background": "#1c1b1b",
+                        "secondary-fixed": "#e4e2e2",
+                        "secondary": "#5e5e5e",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-highest": "#e5e2e1",
+                        "tertiary-fixed": "#e6e2df",
+                        "inverse-primary": "#c8c6c5",
+                        "surface": "#fdf8f8",
+                        "primary-fixed": "#e5e2e1",
+                        "inverse-surface": "#313030",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f7f3f2",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "background": "#fdf8f8",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "surface-tint": "#5f5e5e",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary": "#ffffff",
+                        "brand-teal": "#0d9488" // added for the subtle highlight border
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin-safe": "40px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["EB Garamond"],
+                        "caption": ["Public Sans"],
+                        "body-lg": ["EB Garamond"],
+                        "ui-medium": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "headline-md": ["EB Garamond"],
+                        "body-md": ["EB Garamond"],
+                        "display-lg-mobile": ["EB Garamond"],
+                        "mono": ["IBM Plex Mono", "monospace"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "ui-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "label-bold": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-light {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface border-b border-outline-variant w-full top-0 flat no shadows z-50">
+<div class="flex justify-between items-center h-16 px-margin-safe max-w-[1200px] mx-auto">
+<div class="flex items-center gap-8">
+<a class="text-headline-md font-headline-md text-primary font-bold tracking-tight" href="#">Marginalia</a>
+<div class="hidden md:flex gap-6">
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Platform</a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Resources</a>
+<a class="font-ui-medium text-ui-medium text-primary border-b border-primary pb-1 hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Pricing</a>
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Archive</a>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<a class="font-ui-medium text-ui-medium text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Sign In</a>
+<a class="font-ui-medium text-ui-medium text-primary border border-primary px-4 py-2 hover:bg-surface-variant transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Request Demo</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center pt-section-gap pb-section-gap px-margin-safe">
+<!-- Header -->
+<header class="text-center max-w-2xl mx-auto mb-stack-lg">
+<h1 class="font-display-lg text-display-lg text-primary mb-stack-sm">Simple, transparent pricing</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Designed for deep work. Choose the plan that fits your research needs.</p>
+</header>
+<!-- Toggle -->
+<div class="flex items-center justify-center mb-section-gap">
+<div class="inline-flex items-center p-1 border border-outline-variant bg-surface-container-lowest">
+<button class="font-ui-medium text-ui-medium px-6 py-2 text-on-surface bg-surface-variant border border-transparent transition-all" id="toggle-monthly" onclick="setPricing('monthly')">Monthly</button>
+<button class="font-ui-medium text-ui-medium px-6 py-2 text-on-surface-variant hover:text-on-surface border border-transparent transition-all flex items-center gap-2" id="toggle-annual" onclick="setPricing('annual')">
+                    Annual
+                    <span class="font-caption text-caption bg-surface-dim text-primary px-2 py-0.5 rounded-full">Save 20%</span>
+</button>
+</div>
+</div>
+<!-- Pricing Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-[1200px] w-full">
+<!-- Starter -->
+<div class="border border-surface-dim p-stack-lg flex flex-col bg-surface-container-lowest relative">
+<div class="mb-stack-md">
+<h2 class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider mb-2">Starter</h2>
+<div class="flex items-baseline gap-1">
+<span class="text-primary font-mono text-3xl font-medium" id="price-starter">$19</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg border-b border-surface-dim pb-stack-lg">Essential tools for individual researchers and academics.</p>
+<ul class="flex-grow space-y-4 mb-stack-lg">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Unlimited annotations</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Standard citation export</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Up to 5 active projects</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Basic text analysis</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Email support</span>
+</li>
+</ul>
+<button class="w-full font-ui-medium text-ui-medium text-primary border border-primary py-3 hover:bg-primary hover:text-on-primary transition-colors duration-200 mt-auto">Start trial</button>
+</div>
+<!-- Team -->
+<div class="border border-brand-teal p-stack-lg flex flex-col bg-surface-container-low relative">
+<div class="absolute top-0 right-0 transform translate-x-2 -translate-y-1/2">
+<span class="bg-brand-teal text-white font-label-bold text-label-bold px-3 py-1 uppercase tracking-wider text-[10px]">Most Popular</span>
+</div>
+<div class="mb-stack-md">
+<h2 class="font-label-bold text-label-bold text-brand-teal uppercase tracking-wider mb-2">Team</h2>
+<div class="flex items-baseline gap-1">
+<span class="text-primary font-mono text-3xl font-medium" id="price-team">$49</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg border-b border-surface-dim pb-stack-lg">Advanced collaboration for labs and research groups.</p>
+<ul class="flex-grow space-y-4 mb-stack-lg">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Everything in Starter, plus</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Real-time collaborative editing</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Unlimited projects</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">AI-assisted thematic coding</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Priority support</span>
+</li>
+</ul>
+<button class="w-full font-ui-medium text-ui-medium text-on-primary bg-primary border border-primary py-3 hover:bg-surface-tint transition-colors duration-200 mt-auto">Start trial</button>
+</div>
+<!-- Enterprise -->
+<div class="border border-surface-dim p-stack-lg flex flex-col bg-surface-container-lowest relative">
+<div class="mb-stack-md">
+<h2 class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider mb-2">Enterprise</h2>
+<div class="flex items-baseline gap-1 h-[44px] items-center">
+<span class="text-primary font-headline-md text-headline-md">Custom</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg border-b border-surface-dim pb-stack-lg">Institutional access with custom integrations and security.</p>
+<ul class="flex-grow space-y-4 mb-stack-lg">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Everything in Team, plus</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Single Sign-On (SSO)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Custom API access</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">On-premise deployment options</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined icon-light text-primary text-[20px]" data-icon="check">check</span>
+<span class="font-ui-medium text-ui-medium text-on-surface">Dedicated account manager</span>
+</li>
+</ul>
+<button class="w-full font-ui-medium text-ui-medium text-primary border border-primary py-3 hover:bg-surface-variant transition-colors duration-200 mt-auto">Contact sales</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline-variant w-full bottom-0 flat no shadows mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-safe max-w-[1200px] mx-auto">
+<div class="font-label-bold text-label-bold text-primary mb-4 md:mb-0">
+                Marginalia
+            </div>
+<div class="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80" href="#">Institutional Access</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary underline decoration-1 underline-offset-4 opacity-100 hover:opacity-80" href="#">API Documentation</a>
+</div>
+<div class="font-caption text-caption text-on-surface-variant">
+                © 2024 Marginalia Research. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        function setPricing(period) {
+            const toggleMonthly = document.getElementById('toggle-monthly');
+            const toggleAnnual = document.getElementById('toggle-annual');
+            const priceTeam = document.getElementById('price-team');
+            const priceStarter = document.getElementById('price-starter');
+            
+            if (period === 'monthly') {
+                toggleMonthly.classList.add('bg-surface-variant', 'text-on-surface');
+                toggleMonthly.classList.remove('text-on-surface-variant', 'hover:text-on-surface');
+                
+                toggleAnnual.classList.remove('bg-surface-variant', 'text-on-surface');
+                toggleAnnual.classList.add('text-on-surface-variant', 'hover:text-on-surface');
+                
+                priceTeam.innerText = '$49';
+                priceStarter.innerText = '$19'; // Assuming starter doesn't change based on prompt, but keeping logic standard
+            } else {
+                toggleAnnual.classList.add('bg-surface-variant', 'text-on-surface');
+                toggleAnnual.classList.remove('text-on-surface-variant', 'hover:text-on-surface');
+                
+                toggleMonthly.classList.remove('bg-surface-variant', 'text-on-surface');
+                toggleMonthly.classList.add('text-on-surface-variant', 'hover:text-on-surface');
+                
+                priceTeam.innerText = '$39';
+                priceStarter.innerText = '$15'; // Example annual price for starter, adjust if needed
+            }
+        }
+    </script>
+</body></html>

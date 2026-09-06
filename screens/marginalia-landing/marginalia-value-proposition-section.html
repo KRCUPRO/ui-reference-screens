@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Value Proposition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#747878",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-fixed": "#e4e2e2",
+                        "inverse-surface": "#313030",
+                        "surface-container": "#f1edec",
+                        "on-tertiary-container": "#868382",
+                        "primary": "#000000",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "surface-bright": "#fdf8f8",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-low": "#f7f3f2",
+                        "tertiary": "#000000",
+                        "background": "#fdf8f8",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "on-background": "#1c1b1b",
+                        "tertiary-fixed": "#e6e2df",
+                        "primary-container": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474746",
+                        "tertiary-container": "#1c1b1a",
+                        "on-secondary-fixed-variant": "#464747",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#ebe7e6",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "secondary-container": "#e4e2e2",
+                        "secondary": "#5e5e5e",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#c8c6c5",
+                        "on-surface": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#646464",
+                        "on-primary-container": "#858383",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#ddd9d8",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface": "#fdf8f8",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-fixed": "#e5e2e1",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-safe": "40px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "section-gap": "80px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["EB Garamond"],
+                        "label-bold": ["Public Sans"],
+                        "display-lg": ["EB Garamond"],
+                        "body-md": ["EB Garamond"],
+                        "ui-medium": ["Public Sans"],
+                        "caption": ["Public Sans"],
+                        "body-lg": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "label-bold": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "ui-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fdf8f8; /* Enforcing background as requested */
+            color: #1c1b1b;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-surface-variant selection:text-primary">
+<!-- Top Navigation Placeholder (Required Semantic Shell, conceptually "Home" or "About" but no exact match, skipping active state logic for a specific nav item as it's a generic landing page intent) -->
+<header class="bg-surface border-b border-outline-variant flex justify-between items-center h-16 px-gutter max-w-[1200px] mx-auto w-full sticky top-0 z-50">
+<div class="font-headline-md text-headline-md text-primary tracking-tight">Marginalia</div>
+<nav class="hidden md:flex gap-gutter items-center h-full">
+<a class="text-on-surface-variant font-ui-medium text-ui-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 h-full flex items-center" href="#">Archive</a>
+<a class="text-on-surface-variant font-ui-medium text-ui-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 h-full flex items-center" href="#">Indices</a>
+<a class="text-on-surface-variant font-ui-medium text-ui-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 h-full flex items-center" href="#">Journal</a>
+</nav>
+<button class="hidden md:block font-ui-medium text-ui-medium text-on-primary bg-primary border border-primary px-4 py-2 hover:bg-inverse-surface transition-colors duration-200">Sign In</button>
+<!-- Mobile Menu Icon (Simplified for demonstration) -->
+<span class="material-symbols-outlined md:hidden text-primary text-[24px]" data-icon="menu">menu</span>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-gutter py-section-gap flex flex-col items-center">
+<!-- Value Proposition Section -->
+<section class="w-full flex flex-col items-center">
+<!-- Caption -->
+<p class="font-caption text-caption text-primary mb-stack-lg uppercase tracking-wider text-center">
+                10,400 documents indexed this week
+            </p>
+<!-- Grid of Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter w-full">
+<!-- Card 1 -->
+<article class="flex flex-col border border-outline-variant bg-transparent p-margin-safe hover:bg-surface-container-low transition-colors duration-300">
+<div class="mb-stack-md">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="chat_bubble_outline">chat_bubble_outline</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">
+                        Ask in plain language
+                    </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Navigate complex research and extract precise insights using natural language.
+                    </p>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col border border-outline-variant bg-transparent p-margin-safe hover:bg-surface-container-low transition-colors duration-300">
+<div class="mb-stack-md flex gap-1">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="format_quote">format_quote</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">
+                        Answers cite the page
+                    </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Every claim is anchored to its original source with verifiable, linked citations.
+                    </p>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col border border-outline-variant bg-transparent p-margin-safe hover:bg-surface-container-low transition-colors duration-300">
+<div class="mb-stack-md flex gap-stack-sm">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="description">description</span>
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="web">web</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">
+                        Works with what you already have
+                    </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Seamlessly synchronize your existing archival structures and data repositories.
+                    </p>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer Placeholder -->
+<footer class="bg-surface border-t border-outline-variant full-width py-stack-lg mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-[1200px] mx-auto w-full gap-stack-md">
+<div class="font-label-bold text-label-bold text-on-surface">© 2024 Marginalia. All rights reserved.</div>
+<nav class="flex gap-gutter">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">Legal</a>
+</nav>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>High-Density Desktop Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "tertiary-fixed": "#ffddb8",
+                "on-secondary-container": "#a8afff",
+                "error-container": "#93000a",
+                "primary-fixed-dim": "#7bd0ff",
+                "primary": "#8ed5ff",
+                "inverse-surface": "#dae2fd",
+                "inverse-on-surface": "#283044",
+                "on-primary-fixed": "#001e2c",
+                "on-primary-container": "#004965",
+                "secondary-fixed": "#e0e0ff",
+                "on-primary": "#00354a",
+                "on-tertiary-fixed": "#2a1700",
+                "on-surface-variant": "#bdc8d1",
+                "on-tertiary-fixed-variant": "#653e00",
+                "surface-container-highest": "#2d3449",
+                "surface-dim": "#0b1326",
+                "on-error-container": "#ffdad6",
+                "surface-tint": "#7bd0ff",
+                "on-secondary-fixed": "#000767",
+                "tertiary-container": "#f1a02b",
+                "surface": "#0b1326",
+                "surface-container-high": "#222a3d",
+                "on-background": "#dae2fd",
+                "secondary": "#bdc2ff",
+                "tertiary-fixed-dim": "#ffb960",
+                "secondary-fixed-dim": "#bdc2ff",
+                "tertiary": "#ffc176",
+                "on-primary-fixed-variant": "#004c69",
+                "primary-container": "#38bdf8",
+                "error": "#ffb4ab",
+                "on-surface": "#dae2fd",
+                "surface-container-low": "#131b2e",
+                "secondary-container": "#2f3aa3",
+                "surface-container": "#171f33",
+                "surface-container-lowest": "#060e20",
+                "surface-variant": "#2d3449",
+                "outline": "#87929a",
+                "inverse-primary": "#00668a",
+                "on-secondary-fixed-variant": "#2f3aa3",
+                "on-error": "#690005",
+                "surface-bright": "#31394d",
+                "on-tertiary": "#472a00",
+                "on-secondary": "#131e8c",
+                "primary-fixed": "#c4e7ff",
+                "outline-variant": "#3e484f",
+                "background": "#0b1326",
+                "on-tertiary-container": "#613b00"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "gutter": "1px",
+                "container-padding": "12px",
+                "stack-md": "1rem",
+                "stack-sm": "0.5rem",
+                "stack-xs": "0.25rem",
+                "pane-margin": "1rem"
+              },
+              "fontFamily": {
+                "body-md": [
+                  "Inter"
+                ],
+                "headline-lg": [
+                  "Inter"
+                ],
+                "data-value": [
+                  "JetBrains Mono"
+                ],
+                "data-label": [
+                  "JetBrains Mono"
+                ],
+                "body-sm": [
+                  "Inter"
+                ],
+                "headline-md": [
+                  "Inter"
+                ],
+                "code-sm": [
+                  "JetBrains Mono"
+                ]
+              },
+              "fontSize": {
+                "body-md": [
+                  "13px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-lg": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-value": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-label": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.02em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "18px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "code-sm": [
+                  "11px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom Slim Scrollbar for High-Density */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen overflow-hidden flex font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (METRIC_ENGINE) -->
+<header class="fixed top-0 right-0 w-[calc(100%-240px)] z-50 border-b border-outline-variant bg-surface flex justify-between items-center h-12 px-pane-margin transition-all duration-200">
+<div class="flex items-center space-x-8 h-full">
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">METRIC_ENGINE</span>
+<nav class="hidden md:flex h-full">
+<!-- Telemetry -->
+<a class="h-full px-4 flex items-center border-b-2 border-transparent text-on-surface-variant font-medium hover:text-primary transition-colors font-data-label text-data-label" href="#">Telemetry</a>
+<!-- Analysis (Active) -->
+<a class="h-full px-4 flex items-center font-bold border-b-2 border-primary text-primary pb-1 font-data-label text-data-label" href="#">Analysis</a>
+<!-- Logs -->
+<a class="h-full px-4 flex items-center border-b-2 border-transparent text-on-surface-variant font-medium hover:text-primary transition-colors font-data-label text-data-label" href="#">Logs</a>
+<!-- Nodes -->
+<a class="h-full px-4 flex items-center border-b-2 border-transparent text-on-surface-variant font-medium hover:text-primary transition-colors font-data-label text-data-label" href="#">Nodes</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex space-x-2 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors scale-95 active:opacity-80" title="Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+<button class="p-1 hover:text-primary transition-colors scale-95 active:opacity-80" title="Notifications">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+</button>
+</div>
+<button class="border border-outline-variant hover:border-primary text-primary px-3 py-1 font-data-label text-data-label rounded-DEFAULT scale-95 active:opacity-80 transition-all flex items-center space-x-1 bg-surface-container-low">
+<span>Deploy</span>
+<span class="material-symbols-outlined text-[14px]">rocket_launch</span>
+</button>
+<div class="h-6 w-6 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A small, professional headshot of an administrative user in a futuristic setting. Lighting is sharp, cool-toned studio lighting against a dark minimalist background. The style is hyper-realistic corporate headshot suitable for an enterprise dashboard. High resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfdOVM0aFnwxgLYESM3VHcu7bNgVY0ePUaCXilDxmZAc6MGBJhJnDIl6I0kiNxOQqlmXRF0CajPi4AD08ESGAGo3fcuEh9axS5ySFepu9Mv1GX5NudeDMHZ2OWzsm07bCnkLeyglUKXkptLgJ3G3xF-0cyTmgwY6sfyqA7s2Kl0_f0-5WU2QOcHaSG5ocbljSTp52WhvjmsXkRS5QqL62_F2SFrBAORSKDLdsPfmhwfeqQ89q_-UtQhq2YlE0SsKxXwUMn0-ZZnt86"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation (OP_CENTER_v1) -->
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-surface-container border-r border-outline-variant flex flex-col overflow-y-auto z-40 transition-transform">
+<!-- Header -->
+<div class="p-pane-margin border-b border-outline-variant">
+<h1 class="font-data-label text-data-label font-bold text-primary tracking-tighter mb-1">OP_CENTER_v1</h1>
+<p class="font-data-label text-data-label text-on-surface-variant">Cluster Node 04</p>
+</div>
+<!-- Navigation Rails -->
+<nav class="flex-1 py-4 flex flex-col">
+<!-- Network -->
+<a class="flex items-center space-x-3 px-pane-margin py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors cursor-pointer active:bg-primary-container group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary transition-colors">hub</span>
+<span class="font-data-label text-data-label">Network</span>
+</a>
+<!-- Compute -->
+<a class="flex items-center space-x-3 px-pane-margin py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors cursor-pointer active:bg-primary-container group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary transition-colors">memory</span>
+<span class="font-data-label text-data-label">Compute</span>
+</a>
+<!-- Storage -->
+<a class="flex items-center space-x-3 px-pane-margin py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors cursor-pointer active:bg-primary-container group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary transition-colors">database</span>
+<span class="font-data-label text-data-label">Storage</span>
+</a>
+<!-- Traffic -->
+<a class="flex items-center space-x-3 px-pane-margin py-3 text-primary border-l-2 border-primary bg-surface-container-high transition-colors cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined text-[18px]" data-weight="fill">analytics</span>
+<span class="font-data-label text-data-label">Traffic</span>
+</a>
+<!-- Alerts -->
+<a class="flex items-center space-x-3 px-pane-margin py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors cursor-pointer active:bg-primary-container group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary transition-colors">warning</span>
+<span class="font-data-label text-data-label">Alerts</span>
+</a>
+</nav>
+<!-- Footer / Admin Info -->
+<div class="p-pane-margin border-t border-outline-variant flex items-center space-x-3">
+<div class="h-8 w-8 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant border border-outline-variant">
+<span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-data-label text-data-label text-on-surface">System Administrator</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Active Session</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] mt-12 w-[calc(100%-240px)] h-[calc(100vh-3rem)] flex bg-background">
+<!-- Left Summary Rail (Fixed Split-Pane) -->
+<div class="w-[320px] h-full border-r border-outline-variant bg-surface-container-low flex flex-col flex-shrink-0">
+<!-- Section Header -->
+<div class="p-pane-margin border-b border-outline-variant bg-surface-container">
+<h2 class="font-data-label text-data-label text-on-surface-variant tracking-wider uppercase">Pipeline Status</h2>
+</div>
+<!-- Summary Stats Container -->
+<div class="flex-1 overflow-y-auto p-pane-margin space-y-4">
+<!-- Status Square 1: Success -->
+<div class="flex justify-between items-center pb-2 border-b border-outline-variant/50">
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="font-data-label text-data-label text-on-surface-variant">Success</span>
+</div>
+<span class="font-data-value text-data-value text-on-surface">96.2%</span>
+</div>
+<!-- Status Square 2: Failure -->
+<div class="flex justify-between items-center pb-2 border-b border-outline-variant/50">
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-error"></div>
+<span class="font-data-label text-data-label text-on-surface-variant">Failure</span>
+</div>
+<span class="font-data-value text-data-value text-on-surface">3.8%</span>
+</div>
+<!-- Status Square 3: Total -->
+<div class="flex justify-between items-center pb-2 border-b border-outline-variant/50">
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-outline-variant"></div>
+<span class="font-data-label text-data-label text-on-surface-variant">Total</span>
+</div>
+<span class="font-data-value text-data-value text-on-surface">12,440</span>
+</div>
+</div>
+</div>
+<!-- Right Chart Pane (Fluid) -->
+<div class="flex-1 h-full flex flex-col overflow-hidden bg-background">
+<!-- Pane Header -->
+<div class="px-pane-margin py-4 border-b border-outline-variant bg-surface-container-lowest flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface">Success vs failure</h2>
+<div class="flex items-center space-x-2 text-on-surface-variant">
+<button class="px-2 py-1 text-xs border border-outline-variant rounded hover:bg-surface-variant transition-colors">14d</button>
+<button class="px-2 py-1 text-xs border border-transparent rounded hover:bg-surface-variant transition-colors">30d</button>
+<button class="px-2 py-1 text-xs border border-transparent rounded hover:bg-surface-variant transition-colors">90d</button>
+</div>
+</div>
+<!-- Chart Container -->
+<div class="flex-1 p-pane-margin relative flex flex-col">
+<!-- Annotation (Dense Typographic Label) -->
+<div class="absolute top-4 left-4 z-10 bg-surface border border-outline-variant px-3 py-2 rounded-sm shadow-sm backdrop-blur-md bg-opacity-90">
+<div class="flex items-center space-x-2">
+<div class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></div>
+<span class="font-data-label text-data-label text-on-surface">Feb 9 · 1,204 / <span class="text-error">41 failed</span></span>
+</div>
+</div>
+<!-- Simulated Stacked Area Chart -->
+<div class="flex-1 relative w-full h-full border-b border-l border-outline-variant mt-8 ml-8">
+<!-- Gridlines (Y-axis) -->
+<div class="absolute inset-0 flex flex-col justify-between">
+<div class="w-full h-px bg-outline-variant/20"></div>
+<div class="w-full h-px bg-outline-variant/20"></div>
+<div class="w-full h-px bg-outline-variant/20"></div>
+<div class="w-full h-px bg-outline-variant/20"></div>
+<div class="w-full h-px bg-outline-variant/20"></div>
+</div>
+<!-- Chart SVG Implementation -->
+<svg class="absolute inset-0 w-full h-full preserve-aspect-none" preserveaspectratio="none" viewbox="0 0 1000 400">
+<!-- Success Data Band (Accent Soft / Primary) -->
+<path d="M0,400 L0,150 Q100,100 200,200 T400,100 T600,180 T800,80 L1000,120 L1000,400 Z" fill="rgba(142, 213, 255, 0.1)" stroke="none"></path>
+<path d="M0,150 Q100,100 200,200 T400,100 T600,180 T800,80 L1000,120" fill="none" stroke="#8ed5ff" stroke-width="2"></path>
+<!-- Failure Data Band (Danger Soft / Error) -->
+<path d="M0,400 L0,380 Q100,390 200,370 T400,385 T600,375 T800,380 L1000,370 L1000,400 Z" fill="rgba(255, 180, 171, 0.2)" stroke="none"></path>
+<path d="M0,380 Q100,390 200,370 T400,385 T600,375 T800,380 L1000,370" fill="none" stroke="#ffb4ab" stroke-width="1.5"></path>
+<!-- Marker for Peak Failure (Feb 9 approx) -->
+<line class="opacity-50" stroke="#ffb4ab" stroke-dasharray="4 4" stroke-width="1" x1="640" x2="640" y1="0" y2="400"></line>
+<circle cx="640" cy="378" fill="#0b1326" r="4" stroke="#ffb4ab" stroke-width="2"></circle>
+</svg>
+<!-- Y-Axis Labels -->
+<div class="absolute -left-10 top-0 bottom-0 flex flex-col justify-between text-right py-1">
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">1.5k</span>
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">1.1k</span>
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">750</span>
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">375</span>
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">0</span>
+</div>
+</div>
+<!-- X-Axis Labels (14 days) -->
+<div class="w-full flex justify-between ml-8 mt-2 pr-8">
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">Feb 1</span>
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">Feb 4</span>
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">Feb 7</span>
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">Feb 10</span>
+<span class="font-data-label text-data-label text-on-surface-variant text-[10px]">Feb 14</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>

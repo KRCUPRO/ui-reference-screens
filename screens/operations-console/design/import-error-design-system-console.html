@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design System Import Error</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "surface-bright": "#fcf8fa",
+              "outline": "#76777d",
+              "surface-container-low": "#f6f3f4",
+              "inverse-primary": "#c0c6db",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f3f0f1",
+              "on-primary-container": "#7d8497",
+              "surface": "#fcf8fa",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed": "#261906",
+              "inverse-surface": "#303031",
+              "outline-variant": "#c6c6cd",
+              "secondary": "#0058be",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#575e70",
+              "primary-fixed": "#dce2f7",
+              "on-secondary-fixed-variant": "#004395",
+              "on-secondary-container": "#fefcff",
+              "on-error-container": "#93000a",
+              "tertiary": "#000000",
+              "primary-fixed-dim": "#c0c6db",
+              "tertiary-fixed": "#f9debf",
+              "on-primary-fixed": "#141b2b",
+              "on-surface": "#1b1b1d",
+              "on-tertiary-fixed-variant": "#55442d",
+              "background": "#fcf8fa",
+              "surface-container-highest": "#e5e2e3",
+              "on-primary-fixed-variant": "#404758",
+              "primary-container": "#141b2b",
+              "tertiary-container": "#261906",
+              "secondary-container": "#2170e4",
+              "primary": "#000000",
+              "surface-dim": "#dcd9db",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#eae7e9",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-background": "#1b1b1d",
+              "surface-variant": "#e5e2e3",
+              "secondary-fixed": "#d8e2ff",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container": "#f0edee",
+              "on-surface-variant": "#45464c",
+              "tertiary-fixed-dim": "#dcc2a4",
+              "on-secondary-fixed": "#001a42",
+              "on-tertiary-container": "#968065"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            "spacing": {
+              "row-height-sm": "24px",
+              "container-padding": "1.5rem",
+              "gutter": "1rem",
+              "stack-base": "0.5rem",
+              "row-height-md": "32px",
+              "unit": "4px",
+              "stack-tight": "0.25rem"
+            },
+            "fontFamily": {
+              "ui-medium": [
+                "Inter"
+              ],
+              "h2": [
+                "Inter"
+              ],
+              "ui-bold": [
+                "Inter"
+              ],
+              "ui-regular": [
+                "Inter"
+              ],
+              "mono-label": [
+                "JetBrains Mono"
+              ],
+              "mono-data": [
+                "JetBrains Mono"
+              ],
+              "h1": [
+                "Inter"
+              ]
+            },
+            "fontSize": {
+              "ui-medium": [
+                "13px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "500"
+                }
+              ],
+              "h2": [
+                "18px",
+                {
+                  "lineHeight": "24px",
+                  "letterSpacing": "-0.01em",
+                  "fontWeight": "600"
+                }
+              ],
+              "ui-bold": [
+                "13px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "600"
+                }
+              ],
+              "ui-regular": [
+                "13px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "400"
+                }
+              ],
+              "mono-label": [
+                "10px",
+                {
+                  "lineHeight": "12px",
+                  "fontWeight": "500"
+                }
+              ],
+              "mono-data": [
+                "12px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "400"
+                }
+              ],
+              "h1": [
+                "24px",
+                {
+                  "lineHeight": "32px",
+                  "letterSpacing": "-0.02em",
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-ui-regular text-ui-regular h-full flex flex-col antialiased selection:bg-inverse-surface selection:text-surface-bright">
+<!-- Top Navigation (from JSON) -->
+<nav class="h-row-height-md sticky top-0 z-10 border-b border-outline-variant bg-surface flex items-center justify-between px-container-padding">
+<div class="flex items-center gap-stack-base">
+<span class="font-h1 text-h1 text-primary">System Console</span>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="font-ui-medium text-ui-medium px-4 py-1.5 border border-outline-variant rounded hover:bg-surface-container-low transition-colors duration-150 ease-in-out text-on-surface flex items-center gap-2">
+<span>New Design System</span>
+</button>
+<div class="flex items-center gap-stack-base text-on-surface-variant">
+<button aria-label="Notifications" class="hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button aria-label="User Account" class="hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Layout Grid -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Side Navigation (from JSON) -->
+<aside class="w-64 h-full border-r border-outline-variant bg-surface flex flex-col py-spacing-gutter shrink-0 hidden md:flex overflow-y-auto">
+<div class="px-container-padding mb-row-height-sm">
+<!-- Header info from side nav -->
+</div>
+<nav class="flex-1 px-stack-base space-y-stack-tight">
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-primary font-ui-bold bg-surface-container transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">palette</span>
+<span>Design</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">extension</span>
+<span>Components</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+<span>Assets</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">format_size</span>
+<span>Typography</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">colorize</span>
+<span>Colors</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+<span>Library</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span>Help</span>
+</a>
+</nav>
+<div class="px-stack-base mt-auto pt-row-height-sm">
+<a class="flex items-center gap-stack-base px-stack-base py-2 rounded text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-surface-bright flex flex-col relative">
+<!-- Section Header -->
+<header class="px-container-padding py-row-height-md border-b border-outline-variant bg-surface flex items-center justify-between shrink-0">
+<div>
+<h2 class="font-h2 text-h2 text-primary">Import Design System</h2>
+</div>
+<div class="flex items-center gap-stack-base text-on-surface-variant font-mono-label text-mono-label uppercase tracking-widest">
+<span>Task ID:</span>
+<span class="text-primary font-mono-data">#98-B</span>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 flex items-center justify-center p-container-padding relative z-0">
+<!-- Error Panel -->
+<div class="w-full max-w-2xl bg-surface-container-lowest border border-[#ffb4ab] border-opacity-40 p-container-padding rounded shadow-sm relative overflow-hidden group">
+<!-- Decorative subtle indicator -->
+<div class="absolute top-0 left-0 w-1 h-full bg-error opacity-80"></div>
+<div class="flex items-start gap-gutter">
+<!-- Icon -->
+<div class="shrink-0 pt-1">
+<span class="material-symbols-outlined text-error text-[24px]" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+<!-- Details -->
+<div class="flex-1 space-y-row-height-sm">
+<div class="space-y-stack-base">
+<h3 class="font-h2 text-h2 text-primary tracking-tight">Could not parse design.md</h3>
+<p class="font-ui-regular text-ui-regular text-on-surface-variant leading-relaxed">
+                                    The import process was halted due to a syntax error. We encountered an unrecognized token format on Line 14 during the parsing of visual tokens.
+                                </p>
+</div>
+<!-- Code Snippet -->
+<div class="bg-inverse-surface text-inverse-on-surface rounded p-stack-base border border-outline border-opacity-20 flex flex-col gap-stack-tight relative">
+<div class="font-mono-label text-mono-label text-inverse-primary/60 flex justify-between">
+<span>design.md</span>
+<span>Line 14</span>
+</div>
+<div class="font-mono-data text-mono-data whitespace-pre font-medium leading-loose">
+<span class="opacity-50">12:   colors:</span>
+<span class="opacity-50">13:     primary: #000000</span>
+14:   - <span class="border-b-2 border-error text-error-container bg-error/10 pb-0.5 px-0.5 rounded-sm">accnt</span>: #12345
+<span class="opacity-50">15:     secondary: #0058be</span>
+</div>
+<div class="mt-stack-base pt-stack-base border-t border-outline/30 font-ui-regular text-ui-regular text-inverse-primary/80 flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] shrink-0 mt-0.5">info</span>
+<span>Expected valid token key (e.g., <code class="font-mono-data text-mono-data bg-inverse-primary/10 px-1 py-0.5 rounded">accent</code>). Found unrecognized key <code class="font-mono-data text-mono-data bg-error/10 text-error-container px-1 py-0.5 rounded">accnt</code>.</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-row-height-sm flex items-center justify-end gap-stack-base">
+<button class="font-ui-medium text-ui-medium px-4 py-2 border border-outline-variant rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary/20">
+                                    Cancel Import
+                                </button>
+<button class="font-ui-medium text-ui-medium px-4 py-2 bg-primary text-on-primary rounded hover:bg-inverse-surface transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary/40 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit and Retry
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

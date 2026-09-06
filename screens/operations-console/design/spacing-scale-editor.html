@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Spacing Tokens - Scale Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-tertiary": "#393000",
+                "secondary-fixed": "#e5e2e1",
+                "on-secondary-fixed": "#1c1b1b",
+                "inverse-primary": "#006c50",
+                "surface-tint": "#00e1ab",
+                "tertiary-fixed": "#ffe253",
+                "outline-variant": "#3a4a43",
+                "primary-fixed": "#36ffc4",
+                "tertiary-container": "#ffe149",
+                "error": "#ffb4ab",
+                "inverse-surface": "#e5e2e1",
+                "on-tertiary-container": "#746300",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-secondary-fixed-variant": "#474746",
+                "on-primary-fixed-variant": "#00513c",
+                "surface-variant": "#353534",
+                "on-background": "#e5e2e1",
+                "on-primary-container": "#007255",
+                "error-container": "#93000a",
+                "outline": "#83958c",
+                "surface-container-high": "#2a2a2a",
+                "primary-container": "#00ffc2",
+                "surface-dim": "#131313",
+                "on-secondary": "#313030",
+                "on-error": "#690005",
+                "secondary-container": "#474746",
+                "primary-fixed-dim": "#00e1ab",
+                "tertiary-fixed-dim": "#e2c62e",
+                "secondary": "#c8c6c5",
+                "on-primary": "#003828",
+                "surface": "#131313",
+                "tertiary": "#fffeff",
+                "inverse-on-surface": "#313030",
+                "surface-bright": "#3a3939",
+                "background": "#131313",
+                "on-tertiary-fixed-variant": "#534600",
+                "on-primary-fixed": "#002116",
+                "surface-container-lowest": "#0e0e0e",
+                "on-surface-variant": "#b9cbc1",
+                "on-secondary-container": "#b7b5b4",
+                "primary": "#fbfffa",
+                "on-error-container": "#ffdad6",
+                "on-surface": "#e5e2e1",
+                "on-tertiary-fixed": "#211b00",
+                "surface-container-highest": "#353534",
+                "surface-container": "#201f1f",
+                "surface-container-low": "#1c1b1b"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "panel-width": "320px",
+                "margin-md": "24px",
+                "margin-sm": "12px",
+                "unit": "4px",
+                "gutter": "1px"
+              },
+              "fontFamily": {
+                "headline-md": [
+                  "Inter"
+                ],
+                "data-display": [
+                  "JetBrains Mono"
+                ],
+                "label-mono-xs": [
+                  "JetBrains Mono"
+                ],
+                "label-mono-sm": [
+                  "JetBrains Mono"
+                ],
+                "headline-lg": [
+                  "Inter"
+                ],
+                "body-md": [
+                  "Inter"
+                ]
+              },
+              "fontSize": {
+                "headline-md": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-display": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "label-mono-xs": [
+                  "10px",
+                  {
+                    "lineHeight": "12px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "label-mono-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.02em",
+                    "fontWeight": "500"
+                  }
+                ],
+                "headline-lg": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ]
+              },
+              "backgroundImage": {
+                "grid-pattern": "linear-gradient(to right, #262626 1px, transparent 1px), linear-gradient(to bottom, #262626 1px, transparent 1px)"
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .grid-bg {
+            background-image: linear-gradient(to right, #262626 1px, transparent 1px), linear-gradient(to bottom, #262626 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .ruler-tick {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            border-left: 1px dashed #3a4a43;
+            z-index: 0;
+        }
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen w-screen overflow-hidden flex font-body-md text-body-md antialiased">
+<!-- TopNavBar -->
+<header class="bg-background dark:bg-background fixed top-0 w-full z-50 border-b border-outline-variant flat no shadows flex justify-between items-center h-12 px-margin-md">
+<div class="flex items-center gap-4">
+<span class="font-data-display text-data-display font-bold text-primary-fixed tracking-tighter cursor-pointer active:opacity-80">SCALE_EDITOR_V1</span>
+</div>
+<div class="flex items-center gap-4 hidden">
+<!-- Search bar hidden as per JSON -->
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-fixed dark:text-primary-fixed cursor-pointer active:opacity-80 hover:bg-surface-variant transition-colors p-1 rounded" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-primary-fixed dark:text-primary-fixed cursor-pointer active:opacity-80 hover:bg-surface-variant transition-colors p-1 rounded" data-icon="help_outline">help_outline</span>
+<span class="material-symbols-outlined text-primary-fixed dark:text-primary-fixed cursor-pointer active:opacity-80 hover:bg-surface-variant transition-colors p-1 rounded" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-surface fixed left-0 top-12 h-[calc(100vh-48px)] w-panel-width border-r border-outline-variant flat no shadows flex flex-col py-margin-md z-40">
+<div class="px-margin-md mb-6">
+<h2 class="font-data-display text-data-display text-primary-fixed mb-1">SCALE_EDITOR</h2>
+<p class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">v1.0.4-stable</p>
+</div>
+<ul class="flex-1 overflow-y-auto">
+<li class="mb-1">
+<a class="flex items-center gap-3 px-margin-md py-2 font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view" style="font-size: 18px;">grid_view</span>
+                    Workspace
+                </a>
+</li>
+<li class="mb-1">
+<a class="flex items-center gap-3 px-margin-md py-2 font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="book" style="font-size: 18px;">book</span>
+                    Library
+                </a>
+</li>
+<li class="mb-1">
+<!-- ACTIVE STATE -->
+<a class="flex items-center gap-3 px-margin-md py-2 font-label-mono-sm text-label-mono-sm text-primary-fixed bg-surface-container-high border-r-2 border-primary-fixed active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="numbers" style="font-size: 18px;">numbers</span>
+                    Variables
+                </a>
+</li>
+<li class="mb-1">
+<a class="flex items-center gap-3 px-margin-md py-2 font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="ios_share" style="font-size: 18px;">ios_share</span>
+                    Export
+                </a>
+</li>
+<li class="mb-1">
+<a class="flex items-center gap-3 px-margin-md py-2 font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-size: 18px;">history</span>
+                    History
+                </a>
+</li>
+</ul>
+<div class="mt-auto px-margin-md flex flex-col gap-2 border-t border-outline-variant pt-4">
+<button class="w-full py-2 border border-primary-fixed text-primary-fixed hover:bg-primary-fixed/10 transition-colors font-label-mono-sm text-label-mono-sm text-center">
+                Deploy Scale
+            </button>
+<ul class="flex gap-4 mt-4">
+<li>
+<a class="flex items-center gap-1 font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description" style="font-size: 14px;">description</span> Docs
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-1 font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-size: 14px;">check_circle</span> Status
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-[320px] mt-12 flex-1 h-[calc(100vh-48px)] bg-[#0A0A0A] grid-bg relative overflow-x-auto overflow-y-auto">
+<div class="p-8 max-w-5xl mx-auto w-full h-full flex flex-col">
+<!-- Header -->
+<header class="mb-8 border-b border-outline-variant pb-4 flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-2">Spacing Tokens</h1>
+<p class="font-data-display text-data-display text-on-surface-variant">Manage proportional spacing scale across the design system.</p>
+</div>
+</header>
+<!-- Workspace Area -->
+<div class="flex-1 bg-surface border border-outline-variant flex flex-col relative">
+<!-- Ruler Header -->
+<div class="h-8 border-b border-outline-variant flex items-end pl-32 relative bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 pl-32 w-[800px] flex">
+<!-- Ruler Marks (8px increments scaled visually for readability) -->
+<div class="relative w-full h-full font-label-mono-xs text-label-mono-xs text-outline flex items-end">
+<span class="absolute left-0 bottom-1">0</span>
+<span class="absolute left-[32px] bottom-1">8</span>
+<span class="absolute left-[64px] bottom-1">16</span>
+<span class="absolute left-[96px] bottom-1">24</span>
+<span class="absolute left-[128px] bottom-1">32</span>
+<span class="absolute left-[160px] bottom-1">40</span>
+<span class="absolute left-[192px] bottom-1">48</span>
+<span class="absolute left-[224px] bottom-1">56</span>
+<span class="absolute left-[256px] bottom-1">64</span>
+<span class="absolute left-[288px] bottom-1">72</span>
+<span class="absolute left-[320px] bottom-1">80</span>
+<span class="absolute left-[352px] bottom-1">88</span>
+<span class="absolute left-[384px] bottom-1">96</span>
+<span class="absolute left-[416px] bottom-1">104</span>
+<span class="absolute left-[448px] bottom-1">112</span>
+<span class="absolute left-[480px] bottom-1">120</span>
+<span class="absolute left-[512px] bottom-1">128</span>
+</div>
+</div>
+</div>
+<!-- Editor Canvas -->
+<div class="flex-1 relative overflow-hidden p-6 py-8">
+<!-- Background Ruler Lines -->
+<div class="absolute top-0 bottom-0 left-[152px] w-[800px] pointer-events-none z-0">
+<div class="ruler-tick left-[32px]"></div>
+<div class="ruler-tick left-[64px]"></div>
+<div class="ruler-tick left-[96px]"></div>
+<div class="ruler-tick left-[128px]"></div>
+<div class="ruler-tick left-[160px]"></div>
+<div class="ruler-tick left-[192px]"></div>
+<div class="ruler-tick left-[224px]"></div>
+<div class="ruler-tick left-[256px]"></div>
+<div class="ruler-tick left-[288px]"></div>
+<div class="ruler-tick left-[320px]"></div>
+<div class="ruler-tick left-[352px]"></div>
+<div class="ruler-tick left-[384px]"></div>
+<div class="ruler-tick left-[416px]"></div>
+<div class="ruler-tick left-[448px]"></div>
+<div class="ruler-tick left-[480px]"></div>
+<div class="ruler-tick left-[512px]"></div>
+</div>
+<div class="relative z-10 flex flex-col gap-6 w-full">
+<!-- Token Row: xs -->
+<div class="flex items-center w-full group">
+<div class="w-24 font-data-display text-data-display text-on-surface shrink-0 text-right pr-4 border-r border-outline-variant mr-4">
+                                xs
+                            </div>
+<div class="w-[800px] flex items-center relative">
+<!-- Visual Bar (scaled visually 1px = 4px width for display purposes, so 4px * 4 = 16px wide visually) -->
+<div class="h-6 bg-primary-fixed border border-primary-fixed shadow-[0_0_8px_rgba(54,255,196,0.3)] transition-all duration-200" style="width: 16px;"></div>
+<!-- Input -->
+<div class="absolute -right-24 flex items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+<input class="w-16 h-8 bg-surface-container-high border border-[#262626] focus:border-primary-fixed focus:ring-0 text-primary-fixed font-data-display text-data-display px-2 text-center outline-none transition-colors" type="number" value="4"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">px</span>
+</div>
+</div>
+</div>
+<!-- Token Row: sm -->
+<div class="flex items-center w-full group">
+<div class="w-24 font-data-display text-data-display text-on-surface shrink-0 text-right pr-4 border-r border-outline-variant mr-4">
+                                sm
+                            </div>
+<div class="w-[800px] flex items-center relative">
+<!-- Visual Bar (8px = 32px visual width) -->
+<div class="h-6 bg-primary-fixed border border-primary-fixed shadow-[0_0_8px_rgba(54,255,196,0.3)] transition-all duration-200" style="width: 32px;"></div>
+<!-- Input -->
+<div class="absolute -right-24 flex items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+<input class="w-16 h-8 bg-surface-container-high border border-[#262626] focus:border-primary-fixed focus:ring-0 text-primary-fixed font-data-display text-data-display px-2 text-center outline-none transition-colors" type="number" value="8"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">px</span>
+</div>
+</div>
+</div>
+<!-- Token Row: md -->
+<div class="flex items-center w-full group">
+<div class="w-24 font-data-display text-data-display text-on-surface shrink-0 text-right pr-4 border-r border-outline-variant mr-4">
+                                md
+                            </div>
+<div class="w-[800px] flex items-center relative">
+<!-- Visual Bar (16px = 64px visual width) -->
+<div class="h-6 bg-primary-fixed border border-primary-fixed shadow-[0_0_8px_rgba(54,255,196,0.3)] transition-all duration-200" style="width: 64px;"></div>
+<!-- Input -->
+<div class="absolute -right-24 flex items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+<input class="w-16 h-8 bg-surface-container-high border border-[#262626] focus:border-primary-fixed focus:ring-0 text-primary-fixed font-data-display text-data-display px-2 text-center outline-none transition-colors" type="number" value="16"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">px</span>
+</div>
+</div>
+</div>
+<!-- Token Row: lg -->
+<div class="flex items-center w-full group">
+<div class="w-24 font-data-display text-data-display text-on-surface shrink-0 text-right pr-4 border-r border-outline-variant mr-4">
+                                lg
+                            </div>
+<div class="w-[800px] flex items-center relative">
+<!-- Visual Bar (24px = 96px visual width) -->
+<div class="h-6 bg-primary-fixed border border-primary-fixed shadow-[0_0_8px_rgba(54,255,196,0.3)] transition-all duration-200" style="width: 96px;"></div>
+<!-- Input -->
+<div class="absolute -right-24 flex items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+<input class="w-16 h-8 bg-surface-container-high border border-[#262626] focus:border-primary-fixed focus:ring-0 text-primary-fixed font-data-display text-data-display px-2 text-center outline-none transition-colors" type="number" value="24"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">px</span>
+</div>
+</div>
+</div>
+<!-- Token Row: xl -->
+<div class="flex items-center w-full group">
+<div class="w-24 font-data-display text-data-display text-on-surface shrink-0 text-right pr-4 border-r border-outline-variant mr-4">
+                                xl
+                            </div>
+<div class="w-[800px] flex items-center relative">
+<!-- Visual Bar (40px = 160px visual width) -->
+<div class="h-6 bg-primary-fixed border border-primary-fixed shadow-[0_0_8px_rgba(54,255,196,0.3)] transition-all duration-200" style="width: 160px;"></div>
+<!-- Input -->
+<div class="absolute -right-24 flex items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+<input class="w-16 h-8 bg-surface-container-high border border-[#262626] focus:border-primary-fixed focus:ring-0 text-primary-fixed font-data-display text-data-display px-2 text-center outline-none transition-colors" type="number" value="40"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">px</span>
+</div>
+</div>
+</div>
+<!-- Token Row: xxl -->
+<div class="flex items-center w-full group">
+<div class="w-24 font-data-display text-data-display text-on-surface shrink-0 text-right pr-4 border-r border-outline-variant mr-4">
+                                xxl
+                            </div>
+<div class="w-[800px] flex items-center relative">
+<!-- Visual Bar (64px = 256px visual width) -->
+<div class="h-6 bg-primary-fixed border border-primary-fixed shadow-[0_0_8px_rgba(54,255,196,0.3)] transition-all duration-200" style="width: 256px;"></div>
+<!-- Input -->
+<div class="absolute -right-24 flex items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+<input class="w-16 h-8 bg-surface-container-high border border-[#262626] focus:border-primary-fixed focus:ring-0 text-primary-fixed font-data-display text-data-display px-2 text-center outline-none transition-colors" type="number" value="64"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">px</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="px-6 py-2 bg-surface-container-high border border-[#262626] text-on-surface hover:border-primary-fixed hover:text-primary-fixed transition-colors font-data-display text-data-display flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="add" style="font-size: 18px;">add</span>
+                    Add Token
+                </button>
+</div>
+</div>
+</main>
+<script>
+        // Simple script to update bar width based on input
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', (e) => {
+                const val = parseInt(e.target.value) || 0;
+                // Multiplier for visual representation (e.g., 1px = 4px visual width)
+                const visualMultiplier = 4;
+                const bar = e.target.closest('.relative').querySelector('div.bg-primary-fixed');
+                if(bar) {
+                    bar.style.width = `${val * visualMultiplier}px`;
+                }
+            });
+        });
+    </script>
+</body></html>

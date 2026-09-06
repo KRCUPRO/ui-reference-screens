@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Overview - Technical Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#293040",
+                        "on-secondary-fixed": "#151c27",
+                        "on-primary-fixed": "#001452",
+                        "secondary-container": "#dce2f3",
+                        "outline": "#737688",
+                        "secondary-fixed": "#dce2f3",
+                        "on-secondary-fixed-variant": "#404754",
+                        "surface-dim": "#d3daef",
+                        "surface-container": "#e9edff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#0052ff",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb4a1",
+                        "secondary-fixed-dim": "#c0c7d6",
+                        "on-background": "#141b2b",
+                        "on-tertiary-fixed": "#3c0800",
+                        "outline-variant": "#c3c5d9",
+                        "primary-fixed": "#dde1ff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#434656",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e1e8fd",
+                        "surface-container-low": "#f1f3ff",
+                        "surface-variant": "#dce2f7",
+                        "tertiary-fixed": "#ffdbd2",
+                        "inverse-primary": "#b7c4ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "surface-tint": "#004ced",
+                        "surface-container-highest": "#dce2f7",
+                        "on-surface": "#141b2b",
+                        "on-error-container": "#93000a",
+                        "primary": "#003ec7",
+                        "on-tertiary-fixed-variant": "#891e00",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5e6572",
+                        "on-primary-fixed-variant": "#0038b6",
+                        "secondary": "#585f6c",
+                        "background": "#f9f9ff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#dfe3ff",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-container": "#ffddd5",
+                        "tertiary-container": "#bf3003",
+                        "tertiary": "#952200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-tablet": "32px",
+                        "margin-desktop": "64px",
+                        "container-max-width": "1440px",
+                        "gutter": "32px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F9FAFB; }
+        .toggle-checkbox:checked { right: 0; border-color: #0052FF; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #0052FF; }
+        .toggle-checkbox:checked + .toggle-label:after { transform: translateX(100%); border-color: white; }
+    </style>
+</head>
+<body class="font-body-md text-on-background flex min-h-screen">
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-surface-container h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline flat no shadows flex flex-col py-stack-md px-stack-sm z-50">
+<div class="mb-stack-lg px-unit">
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Console</h1>
+<p class="font-label-sm text-label-sm text-secondary mt-1">v1.0.4</p>
+</div>
+<ul class="flex-1 space-y-2">
+<li>
+<a class="flex items-center px-unit py-2 rounded-DEFAULT text-primary dark:text-primary-fixed font-bold bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center px-unit py-2 rounded-DEFAULT text-secondary dark:text-on-secondary-fixed-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined mr-3">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center px-unit py-2 rounded-DEFAULT text-secondary dark:text-on-secondary-fixed-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined mr-3">vpn_key</span>
+<span class="font-body-md text-body-md">Keys</span>
+</a>
+</li>
+<li>
+<a class="flex items-center px-unit py-2 rounded-DEFAULT text-secondary dark:text-on-secondary-fixed-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto px-unit pt-stack-md border-t border-outline-variant dark:border-outline">
+<div class="flex items-center">
+<img alt="User profile" class="w-8 h-8 rounded-full bg-surface-variant object-cover" data-alt="A clean, modern headshot of a professional in a minimalist studio setting, high key lighting, subtle gray background, conveying trust and technical competence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcgnf-8PorN-vpJnt3LB1FEHEGiqheyck9JhHB08tECWJPhMggGfddkWC8jXEw4kz0sjzdPBHHcsQJ8J0QlVYaYHJRaWtqJJkycdRiRaScp8P8l5oSbbdSRPewTWfQjV6cWq_AqOjvr8SlPgWg3qjFeJZIMixwsuXD2R7Q2JRgee7tV97B6uMrDluQNuTVkBH_zkLueJ2Ik0PeHzUkNaWOLP5UUS003Qs1t7ZkUCqZ1t4rOci5ATJpXxecYSTK0plIXjhNC1zn4ZfV"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-margin-desktop bg-background min-h-screen">
+<div class="max-w-container-max-width mx-auto flex flex-col h-full">
+<!-- Header -->
+<header class="mb-stack-lg">
+<h2 class="font-display-lg text-display-lg text-on-surface">Overview</h2>
+</header>
+<!-- Section 1: Service Toggle -->
+<section class="mb-32 flex items-center gap-4">
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant z-10 transition-transform duration-300 ease-in-out transform translate-x-6" id="service-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-primary-container cursor-pointer transition-colors duration-300 ease-in-out" for="service-toggle"></label>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface">Service Running</span>
+</section>
+<!-- Section 2: Key Pool Summary -->
+<section class="mb-24">
+<p class="font-data-mono text-data-mono text-secondary">4 keys, 3 active, 1 cooling</p>
+</section>
+<!-- Section 3: Today's Stats -->
+<section class="mb-auto">
+<div class="flex gap-gutter max-w-3xl">
+<div class="flex-1">
+<div class="font-display-lg text-display-lg text-on-surface mb-2">1,284</div>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">calls</div>
+</div>
+<div class="flex-1">
+<div class="font-display-lg text-display-lg text-on-surface mb-2">96.2%</div>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">success</div>
+</div>
+<div class="flex-1">
+<div class="font-display-lg text-display-lg text-on-surface mb-2">3</div>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">active keys</div>
+</div>
+</div>
+</section>
+<!-- Bottom Area: Recents & Actions -->
+<section class="mt-32 border-t border-outline-variant pt-stack-md flex justify-between items-end">
+<div class="flex gap-4">
+<div class="w-32 h-20 bg-surface-container-lowest border border-outline-variant rounded flex items-center justify-center cursor-pointer hover:shadow-sm transition-shadow">
+<span class="font-label-sm text-label-sm text-secondary">Log /today</span>
+</div>
+<div class="w-32 h-20 bg-surface-container-lowest border border-outline-variant rounded flex items-center justify-center cursor-pointer hover:shadow-sm transition-shadow">
+<span class="font-label-sm text-label-sm text-secondary">Key #42</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-3 bg-transparent border border-outline-variant text-on-surface font-label-sm text-label-sm rounded hover:bg-surface-container-lowest transition-colors">
+                        Export Log
+                    </button>
+<button class="px-6 py-3 bg-primary-container text-on-primary font-label-sm text-label-sm rounded hover:bg-primary transition-colors">
+                        New Key
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Simple toggle logic for visual feedback
+        const toggle = document.getElementById('service-toggle');
+        toggle.addEventListener('change', (e) => {
+            const label = e.target.nextElementSibling;
+            if(e.target.checked) {
+                e.target.classList.add('translate-x-6');
+                e.target.classList.remove('translate-x-0');
+                label.classList.add('bg-primary-container');
+                label.classList.remove('bg-outline-variant');
+            } else {
+                e.target.classList.remove('translate-x-6');
+                e.target.classList.add('translate-x-0');
+                label.classList.remove('bg-primary-container');
+                label.classList.add('bg-outline-variant');
+            }
+        });
+    </script>
+</body></html>

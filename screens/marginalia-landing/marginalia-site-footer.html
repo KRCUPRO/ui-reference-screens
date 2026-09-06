@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE MARGINALIA DAILY - Footer</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts as per Design System -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary": "#5f5e5e",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-container": "#656464",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-low": "#f7f3f2",
+                        "error-container": "#ffdad6",
+                        "primary": "#000000",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-bright": "#fdf8f8",
+                        "primary-container": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "outline": "#747878",
+                        "tertiary-fixed": "#e6e2df",
+                        "surface-container": "#f1edec",
+                        "inverse-surface": "#313030",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary-container": "#868382",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e4e2e1",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#ebe7e6",
+                        "on-secondary-fixed-variant": "#474747",
+                        "surface": "#fdf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "secondary-container": "#e4e2e1",
+                        "primary-fixed": "#e5e2e1",
+                        "background": "#fdf8f8",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#444748",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "tertiary-container": "#1c1b1a",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-primary-container": "#858383",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "16px",
+                        "row-gap": "4px",
+                        "column-gap": "12px",
+                        "unit": "4px",
+                        "gutter": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["\"Source Serif 4\""],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "footer-note": ["Archivo Narrow"],
+                        "label-caps": ["Archivo Narrow"],
+                        "body-sm": ["\"Source Serif 4\""],
+                        "body-md": ["\"Source Serif 4\""],
+                        "inter": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "headline-lg": ["30px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "footer-note": ["10px", { "lineHeight": "14px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary">
+<!-- Main Content Area (Placeholder for context) -->
+<main class="flex-grow flex items-center justify-center p-8">
+<p class="font-headline-md text-headline-md text-secondary">Page Content Area</p>
+</main>
+<!-- Footer Component Based on JSON and Guidelines -->
+<footer class="w-full bottom-0 bg-primary dark:bg-tertiary-container text-on-primary dark:text-on-tertiary border-t border-primary dark:border-outline mt-gutter">
+<!-- Newsletter Strip (User requirement merged with brand aesthetic) -->
+<div class="border-b border-surface-variant/20 py-6 px-margin-page w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<h3 class="font-headline-md text-headline-md text-on-primary">Get one email a month, nothing more.</h3>
+<form class="flex items-end gap-2 w-full md:w-auto">
+<div class="flex flex-col flex-grow md:w-80">
+<label class="font-label-caps text-label-caps text-on-primary mb-1" for="newsletter-email">EMAIL ADDRESS</label>
+<input class="bg-transparent border-b border-on-primary text-on-primary font-body-md text-body-md py-2 px-0 focus:outline-none focus:ring-0 focus:border-white w-full placeholder-on-primary/50 rounded-none" id="newsletter-email" placeholder="reader@example.com" type="email"/>
+</div>
+<button class="border border-on-primary text-on-primary font-label-caps text-label-caps px-6 py-2 hover:bg-white hover:text-primary transition-colors h-[35px] cursor-pointer" type="submit">
+                    SUBSCRIBE
+                </button>
+</form>
+</div>
+<!-- Main Footer Navigation Area -->
+<div class="w-full max-w-7xl mx-auto px-margin-page py-12 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-12 lg:gap-8 border-b border-surface-variant/20">
+<!-- Brand Column -->
+<div class="lg:col-span-1 flex flex-col">
+<span class="font-label-caps text-label-caps font-bold text-on-primary mb-6">MARGINALIA ARCHIVAL CORP.</span>
+<p class="font-body-sm text-body-sm text-on-primary-container dark:text-on-tertiary-container max-w-xs">
+                    Preserving the ephemeral digital marginalia of the late anthropocene through rigorous categorization and flat-file storage.
+                </p>
+</div>
+<!-- Navigation Columns (User requested layout with brand typography) -->
+<div class="lg:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+<!-- Product Column -->
+<div class="flex flex-col gap-4">
+<h4 class="font-headline-md text-headline-md text-on-primary mb-2 text-sm">Product</h4>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Features</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Search</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Archive</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Pricing</a>
+</div>
+<!-- Company Column -->
+<div class="flex flex-col gap-4">
+<h4 class="font-headline-md text-headline-md text-on-primary mb-2 text-sm">Company</h4>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">About</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Methodology</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Careers</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Contact</a>
+</div>
+<!-- Resources Column -->
+<div class="flex flex-col gap-4">
+<h4 class="font-headline-md text-headline-md text-on-primary mb-2 text-sm">Resources</h4>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Documentation</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Case Studies</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">API</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Support</a>
+</div>
+<!-- Legal Column -->
+<div class="flex flex-col gap-4">
+<h4 class="font-headline-md text-headline-md text-on-primary mb-2 text-sm">Legal</h4>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Terms of Service</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Security</a>
+<a class="font-inter text-sm text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+<!-- JSON Shared Component Footer Bottom Bar -->
+<div class="flex justify-between items-center w-full px-margin-page py-unit max-w-7xl mx-auto flex-col md:flex-row gap-4 mt-gutter mb-4">
+<span class="font-footer-note text-footer-note text-on-primary-container dark:text-on-tertiary-container">
+                © 2024 MARGINALIA ARCHIVAL CORP. ALL RIGHTS RESERVED.
+            </span>
+<div class="flex gap-4">
+<a class="font-label-caps text-label-caps text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">TERMS OF SERVICE</a>
+<a class="font-label-caps text-label-caps text-on-primary underline hover:text-white transition-opacity cursor-pointer" href="#">PRIVACY POLICY</a>
+<a class="font-label-caps text-label-caps text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">INDEXING STATUS</a>
+<a class="font-label-caps text-label-caps text-on-primary-container dark:text-on-tertiary-container hover:text-white transition-opacity cursor-pointer" href="#">REPRINTS</a>
+</div>
+</div>
+</footer>
+</body></html>

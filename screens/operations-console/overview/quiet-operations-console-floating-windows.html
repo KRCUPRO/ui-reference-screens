@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Console Floating Windows</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&amp;family=Noto+Sans+KR:wght@400;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#401b1b",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dadad8",
+                        "on-secondary-container": "#636262",
+                        "inverse-on-surface": "#f1f1ef",
+                        "background": "#faf9f7",
+                        "tertiary-fixed": "#ffdad8",
+                        "surface-container-highest": "#e3e2e0",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#E5E2DE", /* Adjusted to match hairline rules request */
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2f3130",
+                        "on-primary-container": "#86af99",
+                        "on-tertiary-fixed-variant": "#673a39",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f4f3f1",
+                        "on-tertiary-fixed": "#331111",
+                        "surface-tint": "#3f6653",
+                        "inverse-primary": "#a5d0b9",
+                        "on-primary-fixed": "#002114",
+                        "surface-bright": "#faf9f7",
+                        "on-surface-variant": "#4A524D", /* Muted */
+                        "on-surface": "#1a1c1b", /* Ink */
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container-high": "#e9e8e6",
+                        "primary-container": "#1b4332", /* Accent Green */
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#d29895",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-container": "#5a302f",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#faf9f7", /* Paper */
+                        "on-secondary-fixed-variant": "#474746",
+                        "tertiary-fixed-dim": "#f5b7b4",
+                        "surface-variant": "#e3e2e0",
+                        "primary-fixed": "#c1ecd4",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#e2dfde",
+                        "secondary": "#7A837D", /* Faint */
+                        "outline": "#717973",
+                        "surface-container": "#efeeec",
+                        "primary": "#012d1d",
+                        "on-background": "#1a1c1b"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Public Sans", "Noto Sans KR", "sans-serif"],
+                        "display-metrics": ["Public Sans", "sans-serif"],
+                        "body-base": ["Noto Sans KR", "sans-serif"],
+                        "label-caps": ["Public Sans", "sans-serif"],
+                        "headline-lg": ["Public Sans", "Noto Sans KR", "sans-serif"],
+                        "code-sm": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    spacing: {
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "edge_margin": "32px",
+                        "unit": "4px",
+                        "gutter": "1px",
+                        "stack-md": "16px",
+                        "sidebar_width": "240px"
+                    },
+                    fontSize: {
+                        "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display-metrics": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-base": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "code-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .keep-all { word-break: keep-all; }
+        
+        /* Specific overrides for this exact layout requirement */
+        .window-chrome { height: 36px; }
+        
+        /* Backdrop blur for Window A */
+        .backdrop-blur-window {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(249, 248, 246, 0.85); /* #F9F8F6 with 85% opacity */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-base antialiased h-screen w-screen overflow-hidden keep-all relative">
+<!-- DIMMED BACKGROUND LAYER -->
+<!-- Simulating an inactive background dashboard -->
+<div class="absolute inset-0 z-0 opacity-40 bg-surface-variant flex">
+<!-- Sidebar Shell (Inactive) -->
+<div class="w-[240px] h-full border-r border-outline-variant flex flex-col bg-background">
+<div class="h-10 border-b border-outline-variant flex items-center px-4">
+<span class="font-headline-md text-headline-md text-primary">Admin Console</span>
+</div>
+<div class="flex-col p-4 space-y-4">
+<div class="h-4 w-3/4 bg-outline-variant opacity-50"></div>
+<div class="h-4 w-1/2 bg-outline-variant opacity-50"></div>
+<div class="h-4 w-5/6 bg-outline-variant opacity-50"></div>
+<div class="h-4 w-2/3 bg-outline-variant opacity-50"></div>
+</div>
+</div>
+<!-- Main Canvas (Inactive) -->
+<div class="flex-1 flex flex-col">
+<div class="h-10 w-full border-b border-outline-variant bg-background flex items-center px-edge_margin">
+<div class="h-4 w-48 bg-outline-variant opacity-50"></div>
+</div>
+<div class="p-edge_margin flex flex-wrap gap-4">
+<div class="w-64 h-32 border border-outline-variant bg-background flex flex-col p-4">
+<div class="h-3 w-20 bg-outline-variant opacity-50 mb-2"></div>
+<div class="border-b border-outline-variant w-full mb-4"></div>
+<div class="h-8 w-24 bg-outline-variant opacity-50"></div>
+</div>
+<div class="w-64 h-32 border border-outline-variant bg-background flex flex-col p-4">
+<div class="h-3 w-20 bg-outline-variant opacity-50 mb-2"></div>
+<div class="border-b border-outline-variant w-full mb-4"></div>
+<div class="h-8 w-16 bg-outline-variant opacity-50"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- OVERLAY SHADOW / DIMMER (Optional depending on how dark "inactive" should feel, handled by background container mostly) -->
+<div class="absolute inset-0 z-10 bg-on-surface opacity-10 pointer-events-none"></div>
+<!-- WINDOW SYSTEM CONTAINER -->
+<div class="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+<div class="relative w-[800px] h-[600px] pointer-events-auto">
+<!-- WINDOW B (Behind, Unfocused, 520x420, shifted left) -->
+<div class="absolute top-[80px] left-[40px] w-[520px] h-[420px] bg-[#1A1A1A] border border-outline-variant flex flex-col">
+<!-- Window Chrome (Transparent top rule logic: using generic border color) -->
+<div class="window-chrome border-t-2 border-transparent border-b border-[#333333] flex items-center justify-between px-3 bg-[#1A1A1A] text-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span class="text-[12px] font-semibold tracking-wide">실시간 트래픽 로그 (Real-time Traffic Log)</span>
+</div>
+<div class="flex items-center gap-3 font-code-sm text-code-sm text-secondary">
+<button class="hover:text-surface transition-colors">100%</button>
+<button class="hover:text-surface transition-colors flex items-center justify-center w-5 h-5"><span class="material-symbols-outlined text-[16px]">refresh</span></button>
+<button class="hover:text-surface transition-colors flex items-center justify-center w-5 h-5"><span class="material-symbols-outlined text-[16px]">remove</span></button>
+<button class="hover:text-surface transition-colors flex items-center justify-center w-5 h-5"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+</div>
+<!-- Window Content -->
+<div class="flex-1 p-4 overflow-y-auto font-code-sm text-code-sm bg-[#1A1A1A] text-surface-variant flex flex-col gap-1">
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:02]</span> <span class="text-surface font-semibold shrink-0">[SUCCESS]</span> <span class="text-secondary shrink-0">[Gateway]</span> <span>Request routed to infra-node-01</span></div>
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:05]</span> <span class="text-surface font-semibold shrink-0">[SUCCESS]</span> <span class="text-secondary shrink-0">[Auth]</span> <span>Token validated for admin_user</span></div>
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:12]</span> <span class="text-surface font-semibold shrink-0">[SUCCESS]</span> <span class="text-secondary shrink-0">[API]</span> <span>GET /v1/metrics/pool returned 200 OK</span></div>
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:18]</span> <span class="text-[#ba1a1a] font-semibold shrink-0">[ERROR]</span> <span class="text-secondary shrink-0">[DB]</span> <span class="text-[#ba1a1a]">Connection timeout resolving host replica-db-2</span></div>
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:19]</span> <span class="text-surface font-semibold shrink-0">[SUCCESS]</span> <span class="text-secondary shrink-0">[DB]</span> <span>Failover to replica-db-3 initiated</span></div>
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:22]</span> <span class="text-surface font-semibold shrink-0">[SUCCESS]</span> <span class="text-secondary shrink-0">[Cache]</span> <span>Purged stale entries (142 keys)</span></div>
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:25]</span> <span class="text-surface font-semibold shrink-0">[SUCCESS]</span> <span class="text-secondary shrink-0">[Gateway]</span> <span>Request routed to infra-node-02</span></div>
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:28]</span> <span class="text-[#ba1a1a] font-semibold shrink-0">[ERROR]</span> <span class="text-secondary shrink-0">[Worker]</span> <span class="text-[#ba1a1a]">Job processing failed: payload too large</span></div>
+<div class="flex gap-3"><span class="text-secondary shrink-0">[10:14:31]</span> <span class="text-surface font-semibold shrink-0">[SUCCESS]</span> <span class="text-secondary shrink-0">[API]</span> <span>POST /v2/deploy submitted successfully</span></div>
+</div>
+</div>
+<!-- WINDOW A (Front, Focused, 400x500) -->
+<div class="absolute top-[40px] left-[320px] w-[400px] h-[500px] border border-outline-variant flex flex-col backdrop-blur-window shadow-none">
+<!-- Window Chrome (Accent Green Top Rule) -->
+<div class="window-chrome border-t-2 border-primary-container border-b border-outline-variant flex items-center justify-between px-3 bg-transparent text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span class="text-[12px] font-semibold tracking-wide">사용 안내 (Usage Guide)</span>
+</div>
+<div class="flex items-center gap-3 font-code-sm text-code-sm text-on-surface-variant relative">
+<!-- Opacity Menu Trigger -->
+<button class="hover:text-on-surface transition-colors flex items-center gap-1 group">
+                            85%
+                            <!-- Simulated Dropdown (Visually constructed as part of design request) -->
+<div class="hidden group-hover:flex absolute top-full mt-1 right-12 w-24 bg-background border border-on-surface flex-col z-50 shadow-none">
+<div class="px-3 py-1 hover:bg-surface-container-low cursor-pointer flex items-center justify-between">100%</div>
+<div class="px-3 py-1 bg-surface-container-low cursor-pointer flex items-center justify-between font-semibold">
+                                    85% <div class="w-2 h-2 bg-primary-container"></div>
+</div>
+<div class="px-3 py-1 hover:bg-surface-container-low cursor-pointer flex items-center justify-between">70%</div>
+<div class="px-3 py-1 hover:bg-surface-container-low cursor-pointer flex items-center justify-between">55%</div>
+</div>
+</button>
+<button class="hover:text-on-surface transition-colors flex items-center justify-center w-5 h-5"><span class="material-symbols-outlined text-[16px]">refresh</span></button>
+<button class="hover:text-on-surface transition-colors flex items-center justify-center w-5 h-5"><span class="material-symbols-outlined text-[16px]">remove</span></button>
+<button class="hover:text-on-surface transition-colors flex items-center justify-center w-5 h-5"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+</div>
+<!-- Window Content -->
+<div class="flex-1 flex flex-col opacity-100 text-on-surface">
+<!-- Tab Strip -->
+<div class="flex border-b border-outline-variant px-2 h-10 items-end">
+<button class="px-4 py-2 border-b-2 border-primary-container text-on-surface font-semibold text-[13px]">빠른 시작</button>
+<button class="px-4 py-2 border-b-2 border-transparent text-secondary hover:text-on-surface transition-colors text-[13px]">MCP 연동</button>
+<button class="px-4 py-2 border-b-2 border-transparent text-secondary hover:text-on-surface transition-colors text-[13px]">키 풀 관리</button>
+</div>
+<!-- Guide Body -->
+<div class="p-6 flex flex-col gap-6">
+<div class="flex gap-4">
+<span class="font-code-sm text-code-sm text-secondary pt-1">01</span>
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface text-[14px]">환경 변수 구성</span>
+<p class="text-on-surface-variant text-[13px] leading-relaxed">
+                                    `.env` 파일을 생성하고 발급받은 관리자 토큰을 입력합니다. 보안을 위해 해당 파일은 버전 관리 시스템에서 제외되어야 합니다.
+                                </p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="font-code-sm text-code-sm text-secondary pt-1">02</span>
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface text-[14px]">연결 테스트 실행</span>
+<p class="text-on-surface-variant text-[13px] leading-relaxed">
+                                    콘솔 터미널에서 `ping` 명령어를 통해 게이트웨이 서버와의 정상적인 통신 상태를 확인합니다. 타임아웃 발생 시 네트워크 정책을 검토하세요.
+                                </p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="font-code-sm text-code-sm text-secondary pt-1">03</span>
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface text-[14px]">초기 권한 설정</span>
+<p class="text-on-surface-variant text-[13px] leading-relaxed">
+                                    시스템 개요 패널에서 '권한 부여' 섹션으로 이동하여 첫 번째 서비스 계정의 접근 범위를 최소 단위로 할당합니다.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

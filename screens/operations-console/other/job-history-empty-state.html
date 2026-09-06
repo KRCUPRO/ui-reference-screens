@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Console - Job History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d8e2ff",
+                        "surface-dim": "#131313",
+                        "surface-container": "#201f1f",
+                        "on-surface-variant": "#c2c6d6",
+                        "on-error": "#690005",
+                        "inverse-primary": "#005ac2",
+                        "on-secondary-container": "#00311f",
+                        "surface-variant": "#353534",
+                        "on-secondary": "#003824",
+                        "on-secondary-fixed": "#002113",
+                        "primary": "#adc6ff",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#ff5451",
+                        "surface": "#131313",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-primary-container": "#00285d",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-tint": "#adc6ff",
+                        "tertiary": "#ffb3ad",
+                        "on-tertiary-container": "#5c0008",
+                        "secondary": "#4edea3",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-tertiary": "#68000a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#004395",
+                        "outline-variant": "#424754",
+                        "on-primary-fixed": "#001a42",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "on-background": "#e5e2e1",
+                        "secondary-container": "#00a572",
+                        "primary-fixed-dim": "#adc6ff",
+                        "outline": "#8c909f",
+                        "on-tertiary-fixed": "#410004",
+                        "on-primary": "#002e6a",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-bright": "#393939",
+                        "primary-container": "#4d8eff",
+                        "surface-container-high": "#2a2a2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "log-padding-y": "4px",
+                        "log-padding-x": "16px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "touch-target": "44px",
+                        "margin-tablet": "32px"
+                    },
+                    "fontFamily": {
+                        "log-bold": ["JetBrains Mono"],
+                        "log-entry": ["JetBrains Mono"],
+                        "ui-main": ["Inter"],
+                        "timestamp": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "ui-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "log-bold": ["13px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "log-entry": ["13px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "ui-main": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "timestamp": ["11px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "ui-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-background text-on-surface font-ui-main antialiased h-screen flex overflow-hidden">
+<!-- Side NavBar -->
+<nav class="hidden md:flex w-64 h-screen border-r border-outline-variant dark:border-outline bg-surface dark:bg-surface-dim flex-col py-stack-md z-40 shrink-0">
+<div class="px-gutter mb-8">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">System Console</h1>
+<p class="font-ui-sm text-ui-sm text-on-surface-variant">Technical Suite</p>
+</div>
+<ul class="flex-1 px-base space-y-1">
+<!-- Inactive -->
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-ui-main text-ui-main">Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-ui-main text-ui-main">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="vpn_key">vpn_key</span>
+<span class="font-ui-main text-ui-main">Keys</span>
+</a>
+</li>
+<!-- Active -->
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-primary dark:text-primary-fixed bg-surface-container-high dark:bg-surface-container-highest border-l-4 border-primary dark:border-primary-fixed cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-ui-main text-ui-main">MCP</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+<span class="font-ui-main text-ui-main">Playground</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-ui-main text-ui-main">Logs</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto px-base pb-base">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-ui-main text-ui-main">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col relative min-w-0">
+<!-- TopAppBar (Mobile Fallback) -->
+<header class="md:hidden flex items-center justify-between px-margin-tablet w-full h-16 bg-surface dark:bg-surface-dim sticky top-0 z-50 shadow-sm shadow-surface-container-low">
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">System Console</span>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 flex flex-col p-gutter overflow-y-auto">
+<div class="mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface">Job History</h2>
+<p class="font-ui-sm text-ui-sm text-on-surface-variant mt-1">Invocation logs for MCP tools</p>
+</div>
+<!-- Ghosted Table Header -->
+<div class="grid grid-cols-12 gap-4 px-log-padding-x py-log-padding-y border-b border-outline-variant/30 text-on-surface-variant opacity-40 font-log-bold text-log-bold uppercase tracking-wider mb-8">
+<div class="col-span-4">Tool</div>
+<div class="col-span-3">Status</div>
+<div class="col-span-2">Duration</div>
+<div class="col-span-3 text-right">Started</div>
+</div>
+<!-- Empty State Centered Component -->
+<div class="flex-1 flex flex-col items-center justify-center text-center max-w-md mx-auto">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-6 border border-outline-variant shadow-sm shadow-surface-container-low">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant" data-icon="history" style="font-variation-settings: 'FILL' 0, 'wght' 300;">history</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">No jobs run yet</h3>
+<p class="font-ui-main text-ui-main text-on-surface-variant mb-8">Invoke a tool from the Playground tab to see its history here.</p>
+<button class="flex items-center gap-2 px-6 py-2.5 rounded border border-outline-variant text-on-surface hover:bg-surface-container hover:text-primary transition-colors font-ui-main text-ui-main">
+<span class="material-symbols-outlined text-sm" data-icon="extension">extension</span>
+                    Go to Playground
+                </button>
+</div>
+</div>
+</main>
+</body></html>

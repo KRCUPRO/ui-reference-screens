@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Technical Console - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "secondary-fixed-dim": "#b9c8de",
+              "on-tertiary-fixed-variant": "#723600",
+              "surface-variant": "#2d3449",
+              "surface-dim": "#0b1326",
+              "surface-container": "#171f33",
+              "on-error": "#690005",
+              "on-surface": "#dae2fd",
+              "on-primary-fixed-variant": "#004395",
+              "secondary": "#b9c8de",
+              "primary-container": "#4d8eff",
+              "on-background": "#dae2fd",
+              "surface-tint": "#adc6ff",
+              "tertiary-fixed": "#ffdcc6",
+              "surface-container-highest": "#2d3449",
+              "on-tertiary-fixed": "#311400",
+              "inverse-surface": "#dae2fd",
+              "surface-container-high": "#222a3d",
+              "tertiary-fixed-dim": "#ffb786",
+              "surface-container-lowest": "#060e20",
+              "outline": "#8c909f",
+              "on-secondary-container": "#a7b6cc",
+              "background": "#0b1326",
+              "inverse-primary": "#005ac2",
+              "on-surface-variant": "#c2c6d6",
+              "secondary-container": "#39485a",
+              "primary": "#adc6ff",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "on-primary-fixed": "#001a42",
+              "on-tertiary": "#502400",
+              "on-tertiary-container": "#461f00",
+              "on-secondary-fixed": "#0d1c2d",
+              "surface": "#0b1326",
+              "secondary-fixed": "#d4e4fa",
+              "on-primary-container": "#00285d",
+              "surface-bright": "#31394d",
+              "primary-fixed": "#d8e2ff",
+              "tertiary-container": "#df7412",
+              "outline-variant": "#424754",
+              "on-secondary": "#233143",
+              "surface-container-low": "#131b2e",
+              "primary-fixed-dim": "#adc6ff",
+              "on-primary": "#002e6a",
+              "on-secondary-fixed-variant": "#39485a",
+              "inverse-on-surface": "#283044",
+              "tertiary": "#ffb786",
+              "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            "spacing": {
+              "md": "16px",
+              "xs": "4px",
+              "gutter": "16px",
+              "sm": "8px",
+              "margin": "24px",
+              "lg": "24px",
+              "base": "4px",
+              "xl": "32px"
+            },
+            "fontFamily": {
+              "body-md": ["Inter"],
+              "mono-md": ["JetBrains Mono"],
+              "body-sm": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-md": ["Inter"],
+              "label-md": ["Inter"],
+              "display": ["Inter"],
+              "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+              "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+              "mono-md": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+              "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+              "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+              "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+              "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+              "display": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-hidden flex h-screen antialiased">
+<!-- SideNavBar Component -->
+<aside class="bg-surface-container-low border-r border-outline-variant h-screen w-64 flex flex-col z-40 fixed left-0 top-0 transition-all duration-200 ease-in-out hidden md:flex">
+<div class="p-lg border-b border-outline-variant">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-primary text-2xl">developer_board</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Console v2.4</h1>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global Cluster</p>
+</div>
+<div class="p-md">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-on-primary-container font-label-md text-label-md py-2 rounded-lg hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Resource
+            </button>
+</div>
+<nav class="flex-1 overflow-y-auto py-sm">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-md text-label-md uppercase" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+                        Overview
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-md text-label-md uppercase" href="#">
+<span class="material-symbols-outlined text-lg">memory</span>
+                        Nodes
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-md text-label-md uppercase" href="#">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+                        Deployments
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-md text-label-md uppercase" href="#">
+<span class="material-symbols-outlined text-lg">security</span>
+                        Security
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-md text-label-md uppercase" href="#">
+<span class="material-symbols-outlined text-lg text-error">error_med</span>
+                        Errors
+                    </a>
+</li>
+</ul>
+</nav>
+<div class="mt-auto border-t border-outline-variant p-sm">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-md text-label-md uppercase" href="#">
+<span class="material-symbols-outlined text-lg">description</span>
+                        Documentation
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-md text-label-md uppercase" href="#">
+<span class="material-symbols-outlined text-lg">support_agent</span>
+                        Support
+                    </a>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="flex-1 flex flex-col ml-0 md:ml-64 relative min-h-screen bg-background">
+<!-- TopNavBar Component -->
+<header class="h-16 flex items-center justify-between px-lg w-full z-30 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-xl">
+<div class="font-headline-md text-headline-md font-bold text-primary md:hidden">SystemArchitect</div>
+<nav class="hidden md:flex gap-6 h-full items-center">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md h-full flex items-center border-b-2 border-transparent" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md h-full flex items-center border-b-2 border-transparent" href="#">Metrics</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md h-full flex items-center border-b-2 border-transparent" href="#">Logs</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md h-full flex items-center border-b-2 border-transparent" href="#">Infrastructure</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-primary font-bold bg-surface-container-high rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-surface-variant border border-outline flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">person</span>
+</div>
+</div>
+</header>
+<!-- Dummy Settings Content (Background) -->
+<div aria-hidden="true" class="flex-1 p-xl overflow-y-auto">
+<div class="max-w-4xl mx-auto space-y-8 opacity-40 select-none pointer-events-none">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Service Settings</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage local daemon configurations and cache policies.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Glassmorphism-style mock card -->
+<div class="bg-surface-container/50 border border-outline-variant rounded-xl p-lg backdrop-blur-md">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Telemetry Sync</h3>
+<div class="w-12 h-6 bg-primary-container rounded-full relative">
+<div class="w-4 h-4 bg-on-primary-container rounded-full absolute right-1 top-1"></div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Automatically push localized metrics to the central cluster every 5 minutes.</p>
+<div class="bg-surface-container-lowest p-3 rounded-lg font-mono-md text-mono-md text-on-surface-variant">
+                            sync_interval: 300s
+                        </div>
+</div>
+<div class="bg-surface-container/50 border border-outline-variant rounded-xl p-lg backdrop-blur-md">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Local Cache Management</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Current disk usage for temporary assets and service state metrics.</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1 text-on-surface">
+<span>RPM Counters</span>
+<span>14.2 MB</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[45%]"></div>
+</div>
+</div>
+</div>
+<button class="mt-6 px-4 py-2 border border-error text-error rounded-md font-label-md text-label-md w-full uppercase">Reset Local State</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL OVERLAY -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-surface-dim/80 backdrop-blur-sm p-4">
+<!-- ConfirmDialog -->
+<div class="w-full max-w-md bg-surface-container-high rounded-xl border-t-4 border-error shadow-[0px_4px_24px_rgba(0,0,0,0.6)] flex flex-col transform transition-all">
+<div class="p-lg">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-error text-[28px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h2 class="font-headline-md text-headline-md text-error">Reset all service state</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4">
+                        This action will clear all local service data:
+                    </p>
+<ul class="mt-3 space-y-2 bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/50">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-sm mt-0.5">remove</span>
+<span class="font-mono-md text-mono-md text-on-surface">Cached RPM counters</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-sm mt-0.5">remove</span>
+<span class="font-mono-md text-mono-md text-on-surface">Cooldown timers</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-sm mt-0.5">remove</span>
+<span class="font-mono-md text-mono-md text-on-surface">Local screens gallery</span>
+</li>
+</ul>
+<div class="mt-6">
+<label class="block font-label-md text-label-md text-on-surface mb-2 uppercase tracking-wider" for="confirm-input">
+                            Type RESET to confirm
+                        </label>
+<input autocomplete="off" class="w-full bg-surface-container border border-outline-variant rounded-md px-4 py-2.5 font-mono-md text-mono-md text-on-surface placeholder-on-surface-variant/40 focus:outline-none focus:border-error focus:ring-1 focus:ring-error transition-colors" id="confirm-input" placeholder="RESET" spellcheck="false" type="text"/>
+</div>
+</div>
+<div class="bg-surface-container-highest/50 px-lg py-4 border-t border-outline-variant flex items-center justify-end gap-3 rounded-b-xl">
+<button class="px-5 py-2 rounded-md font-label-md text-label-md text-on-surface hover:bg-surface-variant border border-outline-variant hover:border-outline transition-colors uppercase tracking-wider">
+                        Cancel
+                    </button>
+<button class="px-5 py-2 rounded-md font-label-md text-label-md bg-surface-variant text-on-surface-variant cursor-not-allowed opacity-60 uppercase tracking-wider flex items-center gap-2" disabled="">
+<span class="material-symbols-outlined text-sm">delete_forever</span>
+                        Reset Everything
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

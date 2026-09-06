@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Playground - Result Viewer</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Public Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-tint": "#0053db",
+                "surface-bright": "#f9f9fa",
+                "on-tertiary": "#ffffff",
+                "inverse-on-surface": "#f0f1f2",
+                "background": "#f9f9fa",
+                "surface-container": "#eeeeef",
+                "surface-container-highest": "#e2e2e3",
+                "surface-container-low": "#f3f3f4",
+                "secondary-container": "#e5e2e1",
+                "on-primary-fixed": "#00174b",
+                "on-background": "#1a1c1d",
+                "tertiary": "#943700",
+                "surface-dim": "#dadadb",
+                "primary-fixed-dim": "#b4c5ff",
+                "on-error": "#ffffff",
+                "on-surface": "#1a1c1d",
+                "on-secondary": "#ffffff",
+                "inverse-primary": "#b4c5ff",
+                "surface-variant": "#e2e2e3",
+                "tertiary-fixed": "#ffdbcd",
+                "error-container": "#ffdad6",
+                "surface": "#f9f9fa",
+                "on-primary-container": "#eeefff",
+                "surface-container-lowest": "#ffffff",
+                "secondary": "#5f5e5e",
+                "outline": "#737686",
+                "primary-container": "#2563eb",
+                "primary": "#004ac6",
+                "outline-variant": "#c3c6d7",
+                "primary-fixed": "#dbe1ff",
+                "on-tertiary-fixed": "#360f00",
+                "tertiary-fixed-dim": "#ffb596",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-tertiary-fixed-variant": "#7d2d00",
+                "on-secondary-container": "#656464",
+                "on-surface-variant": "#434655",
+                "inverse-surface": "#2f3132",
+                "surface-container-high": "#e8e8e9",
+                "on-error-container": "#93000a",
+                "on-primary-fixed-variant": "#003ea8",
+                "error": "#ba1a1a",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-tertiary-container": "#ffede6",
+                "tertiary-container": "#bc4800",
+                "secondary-fixed": "#e5e2e1",
+                "on-secondary-fixed-variant": "#474646",
+                "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "gutter": "32px",
+                "stack-lg": "32px",
+                "margin-page": "48px",
+                "stack-sm": "8px",
+                "inset-stretch": "16px 12px",
+                "stack-md": "16px",
+                "inset-squish": "8px 12px"
+              },
+              "fontFamily": {
+                "title-md": ["Public Sans"],
+                "headline-lg-mobile": ["Public Sans"],
+                "display": ["Public Sans"],
+                "headline-lg": ["Public Sans"],
+                "code-md": ["JetBrains Mono"],
+                "label-sm": ["Public Sans"],
+                "body-md": ["Public Sans"],
+                "body-lg": ["Public Sans"]
+              },
+              "fontSize": {
+                "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                "code-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen w-full flex overflow-hidden relative">
+<!-- Left Side: Code Editor Context (Muted) -->
+<div class="hidden lg:flex w-1/2 flex-col border-r border-outline-variant bg-surface opacity-50 relative pointer-events-none">
+<div class="px-gutter py-stack-md border-b border-outline-variant flex items-center h-16">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Request.json</span>
+</div>
+<div class="p-gutter font-code-md text-code-md text-on-surface-variant overflow-y-auto whitespace-pre leading-loose">
+{
+  <span class="text-on-surface font-semibold">"endpoint"</span>: <span class="text-primary">"/v1/ui/generate"</span>,
+  <span class="text-on-surface font-semibold">"method"</span>: <span class="text-primary">"POST"</span>,
+  <span class="text-on-surface font-semibold">"payload"</span>: {
+    <span class="text-on-surface font-semibold">"themeContext"</span>: <span class="text-primary">"light_minimal"</span>,
+    <span class="text-on-surface font-semibold">"density"</span>: <span class="text-tertiary">1</span>,
+    <span class="text-on-surface font-semibold">"components"</span>: [
+      <span class="text-primary">"SharedLayout"</span>,
+      <span class="text-primary">"DataCard"</span>
+    ]
+  },
+  <span class="text-on-surface font-semibold">"timestamp"</span>: <span class="text-tertiary">1715839201</span>
+}
+        </div>
+</div>
+<!-- Right Side: Result Viewer (Focus) -->
+<div class="w-full lg:w-1/2 flex flex-col h-full bg-surface-container-lowest relative z-10 shadow-[-4px_0_24px_rgba(0,0,0,0.02)]">
+<!-- Header -->
+<header class="px-gutter py-stack-md border-b border-outline-variant flex items-center justify-between h-16 shrink-0">
+<div class="flex items-center gap-stack-md">
+<h1 class="font-title-md text-title-md text-on-surface">Result</h1>
+<div class="flex items-center gap-3">
+<!-- Status Badge (High Contrast Minimalist interpretation) -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 border border-outline-variant rounded bg-surface text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>200 OK</span>
+</div>
+<!-- Timing -->
+<span class="font-code-md text-code-md text-secondary">340ms</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded text-secondary hover:text-on-surface hover:bg-surface-container transition-colors border border-transparent hover:border-outline-variant focus:outline-none" title="Copy to clipboard">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 rounded text-secondary hover:text-on-surface hover:bg-surface-container transition-colors border border-transparent hover:border-outline-variant focus:outline-none lg:hidden" title="Close">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</header>
+<!-- JSON Tree Viewer Area -->
+<div class="flex-1 overflow-y-auto p-gutter font-code-md text-code-md bg-surface-container-lowest">
+<!-- Root Object -->
+<div class="leading-[28px]">
+<span class="text-secondary">{</span>
+</div>
+<!-- Root Indent Level -->
+<div class="ml-2 pl-6 border-l border-outline-variant flex flex-col py-1">
+<!-- String Node: screenId -->
+<div class="flex items-start group hover:bg-surface-bright -ml-6 pl-6 rounded-sm transition-colors cursor-default">
+<div class="relative left-[-24px] top-[2px] w-4 h-4 flex items-center justify-center cursor-pointer text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</div>
+<div class="-ml-4">
+<span class="text-on-surface font-semibold">"screenId"</span><span class="text-secondary mr-2">:</span>
+<span class="text-primary">"scr_7f8a9b0c1d2e"</span><span class="text-secondary">,</span>
+</div>
+</div>
+<!-- String Node: previewUrl -->
+<div class="flex items-start group hover:bg-surface-bright -ml-6 pl-6 rounded-sm transition-colors cursor-default mt-1">
+<div class="relative left-[-24px] top-[2px] w-4 h-4 flex items-center justify-center cursor-pointer text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</div>
+<div class="-ml-4 break-all pr-4">
+<span class="text-on-surface font-semibold">"previewUrl"</span><span class="text-secondary mr-2">:</span>
+<span class="text-primary hover:underline cursor-pointer">"https://env.sandbox.local/render/scr_7f8a9b0c1d2e"</span><span class="text-secondary">,</span>
+</div>
+</div>
+<!-- Object Node: tokens -->
+<div class="flex items-start group hover:bg-surface-bright -ml-6 pl-6 rounded-sm transition-colors cursor-default mt-1">
+<div class="relative left-[-24px] top-[2px] w-4 h-4 flex items-center justify-center cursor-pointer text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</div>
+<div class="-ml-4">
+<span class="text-on-surface font-semibold">"tokens"</span><span class="text-secondary mr-2">:</span><span class="text-secondary">{</span>
+</div>
+</div>
+<!-- Nested Indent Level: tokens -->
+<div class="ml-4 pl-6 border-l border-outline-variant flex flex-col py-1">
+<!-- String Node: accent -->
+<div class="flex items-start group hover:bg-surface-bright -ml-6 pl-[28px] rounded-sm transition-colors cursor-default">
+<div>
+<span class="text-on-surface font-semibold">"accent"</span><span class="text-secondary mr-2">:</span>
+<span class="text-primary">"#2563eb"</span><span class="text-secondary">,</span>
+</div>
+</div>
+<!-- Number Node: radius -->
+<div class="flex items-start group hover:bg-surface-bright -ml-6 pl-[28px] rounded-sm transition-colors cursor-default mt-1">
+<div>
+<span class="text-on-surface font-semibold">"radius"</span><span class="text-secondary mr-2">:</span>
+<span class="text-tertiary">8</span>
+</div>
+</div>
+</div>
+<!-- Close Object Node: tokens -->
+<div class="leading-[28px] mt-1">
+<span class="text-secondary">}</span>
+</div>
+</div>
+<!-- Root Close -->
+<div class="leading-[28px]">
+<span class="text-secondary">}</span>
+</div>
+</div>
+</div>
+<!-- Floating Logs Window -->
+<div class="absolute right-gutter bottom-gutter top-gutter w-1/3 flex flex-col z-50 rounded-lg shadow-2xl overflow-hidden border border-[#393939] pointer-events-auto">
+<!-- Title Bar: Fully Opaque -->
+<div class="bg-[#131313] px-4 py-2 flex items-center justify-between border-b border-[#393939] shrink-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#e2e2e3] text-sm">terminal</span>
+<h3 class="font-label-sm text-[#e2e2e3] uppercase tracking-wider">Logs</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#737686] text-sm">tune</span>
+<span class="font-code-md text-[11px] text-[#737686]">28%</span>
+</div>
+</div>
+<!-- Body: 28% Opacity Background, High Contrast Text -->
+<div class="flex-1 bg-[#0e0e0e]/28 backdrop-blur-md p-4 overflow-y-auto font-code-md text-code-md">
+<div class="text-[#4ade80] flex flex-col gap-1 leading-relaxed">
+<div><span class="text-[#737686]">[14:32:01.104]</span> INFO: System initialized</div>
+<div><span class="text-[#737686]">[14:32:01.215]</span> WARN: Deprecated token format detected in response</div>
+<div><span class="text-[#737686]">[14:32:01.340]</span> INFO: Rendering scr_7f8a9b0c1d2e...</div>
+<div><span class="text-[#737686]">[14:32:01.405]</span> OK: Payload processed successfully (340ms)</div>
+<div><span class="text-[#737686]">[14:32:05.882]</span> INFO: Awaiting user input...</div>
+</div>
+</div>
+</div>
+</body></html>

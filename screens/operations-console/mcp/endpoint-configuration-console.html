@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Endpoint Configuration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "tertiary": "#ffb596",
+                        "surface-container-low": "#1c1b1b",
+                        "on-background": "#e5e2e1",
+                        "primary-container": "#2563eb",
+                        "on-secondary": "#283044",
+                        "surface": "#131313",
+                        "secondary-container": "#3f465c",
+                        "on-tertiary": "#581e00",
+                        "on-tertiary-container": "#ffede6",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary-fixed": "#131b2e",
+                        "on-primary-container": "#eeefff",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed": "#360f00",
+                        "tertiary-container": "#bc4800",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "primary-fixed": "#dbe1ff",
+                        "outline": "#8d90a0",
+                        "on-surface": "#e5e2e1",
+                        "inverse-primary": "#0053db",
+                        "background": "#131313",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-surface-variant": "#c3c6d7",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-primary": "#002a78",
+                        "inverse-on-surface": "#313030",
+                        "surface-tint": "#b4c5ff",
+                        "surface-container": "#20201f",
+                        "outline-variant": "#434655",
+                        "primary": "#b4c5ff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-secondary-container": "#adb4ce",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#393939",
+                        "secondary": "#bec6e0",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#00174b",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-variant": "#353535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "12px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "xl": "24px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "lg": "16px",
+                        "margin": "16px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "label-caps": ["JetBrains Mono"],
+                        "code-block": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Public Sans"],
+                        "headline-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "code-block": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar from JSON -->
+<header class="bg-surface-container dark:bg-surface-container text-primary dark:text-primary font-headline-md text-headline-md docked full-width top-0 border-b border-outline-variant dark:border-outline-variant flat no shadows flex justify-between items-center w-full px-lg h-12 shrink-0">
+<div class="text-headline-md font-headline-md font-bold text-on-surface dark:text-on-surface">System Config</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity">settings</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity">help</span>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar from JSON -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low text-primary dark:text-primary font-body-md text-body-md border-r border-outline-variant dark:border-outline-variant flat no shadows flex flex-col py-md w-[240px] shrink-0 hidden md:flex">
+<div class="px-lg pb-md border-b border-outline-variant mb-md">
+<h2 class="font-bold text-on-surface">Configuration</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mt-xs">v4.2.0-stable</span>
+</div>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-highest transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>General</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-primary bg-primary-container/10 border-l-4 border-primary hover:bg-surface-container-highest transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">lan</span>
+<span>Network</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-highest transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">shield</span>
+<span>Security</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-highest transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">database</span>
+<span>Storage</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-highest transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span>Logs</span>
+</a>
+</nav>
+<!-- Main Content Area (Two-pane layout) -->
+<main class="flex-1 flex flex-col lg:flex-row overflow-hidden relative pb-[48px]"> <!-- pb-48 to account for absolute footer -->
+<!-- Left Pane: Configuration -->
+<div class="flex-1 p-xl overflow-y-auto border-r border-surface-variant/50 flex flex-col gap-xl">
+<div>
+<h1 class="font-headline-lg text-headline-lg mb-sm">Endpoint Configuration</h1>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Configure primary gateway connection parameters.</p>
+</div>
+<!-- Protocol Selector -->
+<div class="bg-surface-container p-lg rounded-lg border border-outline-variant/30">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-md">TRANSPORT PROTOCOL</label>
+<div class="flex flex-col gap-sm">
+<label class="flex items-center gap-sm cursor-pointer group p-sm hover:bg-surface-container-highest rounded transition-colors">
+<input checked="" class="text-primary bg-background border-outline focus:ring-primary focus:ring-offset-background" name="protocol" type="radio"/>
+<span class="font-body-md text-on-surface">Server-Sent Events (SSE)</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group p-sm hover:bg-surface-container-highest rounded transition-colors">
+<input class="text-primary bg-background border-outline focus:ring-primary focus:ring-offset-background" name="protocol" type="radio"/>
+<span class="font-body-md text-on-surface">Standard I/O (stdio)</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group p-sm hover:bg-surface-container-highest rounded transition-colors">
+<input class="text-primary bg-background border-outline focus:ring-primary focus:ring-offset-background" name="protocol" type="radio"/>
+<span class="font-body-md text-on-surface">HTTP Streaming</span>
+</label>
+</div>
+</div>
+<!-- Endpoint URL -->
+<div class="bg-surface-container p-lg rounded-lg border border-outline-variant/30">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-md">ENDPOINT URL</label>
+<div class="flex gap-sm">
+<div class="relative flex-1">
+<span class="absolute inset-y-0 left-0 flex items-center pl-sm text-outline">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</span>
+<input class="w-full bg-[#0a0a0a] border border-[#333333] text-on-surface font-code-block text-code-block py-sm pl-8 pr-sm rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" type="text" value="wss://gateway.local:8787/mcp"/>
+</div>
+<button class="bg-[#1a1a1a] border border-[#333333] hover:bg-surface-container-highest text-on-surface px-md rounded flex items-center justify-center transition-colors active:scale-95" title="Copy to clipboard">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Pane: Diagnostic Log -->
+<div class="flex-1 bg-[#0a0a0a] flex flex-col border-l border-[#333333]">
+<div class="px-lg py-sm border-b border-[#333333] bg-[#1a1a1a] flex justify-between items-center shrink-0">
+<span class="font-label-caps text-label-caps text-on-surface-variant">DIAGNOSTIC LOG</span>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+</div>
+<div class="p-lg font-code-block text-code-block text-outline-variant flex-1 overflow-y-auto">
+<div class="flex gap-md mb-xs hover:bg-[#1a1a1a] px-xs rounded">
+<span class="text-[#555] select-none">01</span>
+<span class="text-[#888]">[14:32:01.042]</span>
+<span class="text-primary">[SYS]</span>
+<span class="text-on-surface">Initializing connection sequence...</span>
+</div>
+<div class="flex gap-md mb-xs hover:bg-[#1a1a1a] px-xs rounded">
+<span class="text-[#555] select-none">02</span>
+<span class="text-[#888]">[14:32:01.084]</span>
+<span class="text-emerald-400">[NET]</span>
+<span class="text-on-surface">Handshake OK - Protocol version 2.1</span>
+</div>
+<div class="flex gap-md mb-xs hover:bg-[#1a1a1a] px-xs rounded">
+<span class="text-[#555] select-none">03</span>
+<span class="text-[#888]">[14:32:01.126]</span>
+<span class="text-emerald-400">[SEC]</span>
+<span class="text-on-surface">Auth accepted (token valid)</span>
+</div>
+<div class="flex gap-md mb-xs hover:bg-[#1a1a1a] px-xs rounded">
+<span class="text-[#555] select-none">04</span>
+<span class="text-[#888]">[14:32:01.127]</span>
+<span class="text-primary">[SYS]</span>
+<span class="text-on-surface">Stream established. Latency 42ms.</span>
+</div>
+<div class="flex gap-md mb-xs hover:bg-[#1a1a1a] px-xs rounded">
+<span class="text-[#555] select-none">05</span>
+<span class="text-[#888]">[14:32:05.551]</span>
+<span class="text-[#888]">[PING]</span>
+<span class="text-[#888]">Keepalive sent (ACK received)</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer from JSON (positioned at bottom of main view) -->
+<footer class="bg-surface-container dark:bg-surface-container text-primary dark:text-primary font-body-sm text-body-sm fixed bottom-0 w-full h-12 flex items-center border-t border-outline-variant dark:border-outline-variant flat no shadows fixed bottom-0 left-0 w-full z-50 flex justify-end items-center gap-lg px-xl md:w-[calc(100%-240px)] md:left-[240px]">
+<button class="border border-outline text-on-surface px-lg py-base rounded-lg hover:brightness-110 transition-all cursor-pointer active:scale-98">
+                Discard
+            </button>
+<button class="bg-primary text-on-primary font-bold px-lg py-base rounded-lg hover:brightness-110 transition-all cursor-pointer active:scale-98">
+                Save Changes
+            </button>
+</footer>
+</div>
+</body></html>

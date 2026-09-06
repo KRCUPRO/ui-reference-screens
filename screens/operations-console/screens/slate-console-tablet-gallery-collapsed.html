@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design Systems - Gallery View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@450;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "on-primary-container": "#7c839b",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "tertiary-fixed": "#fcdeb5",
+                        "secondary": "#515f74",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "primary": "#000000",
+                        "surface-container-low": "#eff4ff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#271901",
+                        "surface-container": "#e5eeff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#98805d",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary-fixed": "#131b2e",
+                        "inverse-surface": "#213145",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-fixed": "#271901",
+                        "background": "#f8f9ff",
+                        "secondary-fixed": "#d5e3fd",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "on-surface-variant": "#45464d",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "outline": "#76777d",
+                        "on-surface": "#0b1c30",
+                        "surface": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#d5e3fd",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "on-secondary-container": "#57657b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "lg": "24px",
+                        "unit": "4px",
+                        "margin": "24px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "rail-width": "64px",
+                        "touch-target": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "mono-label": ["JetBrains Mono"],
+                        "mono-code": ["JetBrains Mono"],
+                        "label-caps": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "mono-label": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "mono-code": ["13px", { "lineHeight": "20px", "fontWeight": "450" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen w-screen overflow-hidden flex font-body-md text-body-md">
+<!-- SideNavBar Shell -->
+<nav class="w-rail-width h-full fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant dark:border-outline-variant flex flex-col items-center py-margin space-y-4 z-50">
+<!-- Expand Button -->
+<button class="w-10 h-10 flex items-center justify-center rounded hover:bg-surface-container-high transition-colors text-on-surface-variant mb-4">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<!-- Nav Items -->
+<a class="flex items-center justify-center w-full h-touch-target text-on-surface-variant hover:bg-secondary-container/5 hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform" href="#" title="Dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="flex items-center justify-center w-full h-touch-target text-on-surface-variant hover:bg-secondary-container/5 hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform" href="#" title="Assets">
+<span class="material-symbols-outlined">inventory_2</span>
+</a>
+<!-- Active Tab: Tokens (Assuming intent maps to 'Console v2' technical focus) -->
+<a class="flex items-center justify-center w-full h-touch-target border-l-4 border-tertiary text-tertiary bg-secondary-container/10 hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform" href="#" title="Tokens">
+<span class="material-symbols-outlined">generating_tokens</span>
+</a>
+<a class="flex items-center justify-center w-full h-touch-target text-on-surface-variant hover:bg-secondary-container/5 hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform" href="#" title="Prototypes">
+<span class="material-symbols-outlined">ads_click</span>
+</a>
+<a class="flex items-center justify-center w-full h-touch-target text-on-surface-variant hover:bg-secondary-container/5 hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform" href="#" title="Settings">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-rail-width flex-1 flex flex-col h-full overflow-hidden">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 left-rail-width h-16 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant flex justify-between items-center px-margin z-40">
+<div class="flex items-center space-x-4">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface tracking-tight">Design Systems</h1>
+<!-- Simulated Tabs for Top App Bar Context if needed, but keeping minimal per prompt -->
+<nav class="hidden md:flex space-x-6 ml-8">
+<span class="text-primary border-b-2 border-primary pb-[22px] pt-[24px] font-body-sm cursor-pointer">Gallery</span>
+<span class="text-on-surface-variant pb-[24px] pt-[24px] font-body-sm cursor-pointer hover:text-primary transition-colors">List</span>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded text-body-sm font-label-caps uppercase tracking-wider hover:bg-surface-tint transition-colors">
+                    New
+                </button>
+</div>
+</header>
+<!-- Scrollable Gallery -->
+<div class="flex-1 mt-16 p-margin overflow-y-auto bg-surface-bright">
+<div class="grid grid-cols-2 gap-gutter max-w-[1200px] mx-auto">
+<!-- Card 1 -->
+<div class="group border border-outline-variant bg-surface rounded flex flex-col overflow-hidden hover:border-primary transition-colors cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container w-full relative overflow-hidden border-b border-outline-variant">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="A clean, minimalist UI design component showing a data table interface. The scene is brightly lit with high-key lighting, emphasizing the geometric precision and technical nature of the design. The color palette is strictly monochromatic with deep blacks, crisp whites, and very subtle grays, evoking a professional, authoritative console environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgmw-XzGs0ENa7WgMYD-XG9qpi9lK6UupPFhYbvwA39YDQcu-yYPEH9nq1EEHxnLZUIaL7Tq-lPmLNJWzw0qkx2ndmMMmE4tsoaHU2fbidzqibKyf2WmF4RonvPGmXbrv05THeCb2Xa7kClzaWkGnyuPhKTBbTe-vkX81ghd-ObJ153_kl-MKYdZxzsrzRvJ1RVuUYAmT6UksS53aTtbLxZcsqGueaAl1DJeDys6zR2rfk-jn7vQAMCFB25oqtjy4PbObYbxdMTZk"/>
+</div>
+<div class="p-4 flex justify-between items-center bg-surface-container-lowest">
+<div class="font-mono-label text-mono-label text-on-surface">SYS_CORE_V1</div>
+<span class="text-on-surface-variant text-xs">v1.2.4</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group border border-outline-variant bg-surface rounded flex flex-col overflow-hidden hover:border-primary transition-colors cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container w-full relative overflow-hidden border-b border-outline-variant">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="An abstract representation of a digital dashboard layout, featuring precise rectangular blocks and thin 1px dividing lines. The lighting is soft and diffuse, highlighting the structural clarity of the High-Precision Minimalism aesthetic. The environment is entirely neutral, using only shades of gray and black to create a functional, utilitarian mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpu8ItatGcU2SgJ6K_HI799ZNarzjSFEuEpqbsCkAD3O0cBx4Pcxf4eJxyvxo4MDZNXKQHr4cME5aBtrWK8Phu_gwPEgfjdAXHAXR8zephr7YnLBYoonCzwcGwzVcl60bvU6SJi8e5drlVWxd20pFuDj_OMC_C7JMcke7wvGqRtZUQKALDUScMXpmDPRZqyz7VRvlLK0ei2ipbMMgeEdb81dFMe__5AjFRc5YLUFn7OzUwFNDwdhLrGoFHVPVHyqdHzy6joWnsEbg"/>
+</div>
+<div class="p-4 flex justify-between items-center bg-surface-container-lowest">
+<div class="font-mono-label text-mono-label text-on-surface">DASH_WIDGETS</div>
+<span class="text-on-surface-variant text-xs">v0.9.1</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group border border-outline-variant bg-surface rounded flex flex-col overflow-hidden hover:border-primary transition-colors cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container w-full relative overflow-hidden border-b border-outline-variant">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="A close-up view of a typography scale and button components arranged in a strict grid. The visual style is highly technical, with no organic shapes, relying on sharp borders and tonal layering for depth. The lighting is stark and objective. The palette is dominated by stark white and deep slate grays, conveying stability and surgical accuracy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ0PFGjRpmdoyDKD9C8zq1Cod5MnhrjNMcgAA_Bfzjr4Wx_twpIw0qOaTi5_vT8SstqeWGrGByMDE1oHs5Gr_rQE7660Frc9i1X7ks1QYEklf1XFZIfpxmcjkeA0LPX9X0eUzkMhMpSSBNE4ib2mOfo02g-CSm1sto4A_Y4uELQCrmDOGahlAw_S6F9ZyZcRAzpy8ny89qzcyqogu661VlG3SEScJ1nAQVJKa6uTPAK535_HmVUeFhIg5Ab43C2IhLR8oIVoBypIU"/>
+</div>
+<div class="p-4 flex justify-between items-center bg-surface-container-lowest">
+<div class="font-mono-label text-mono-label text-on-surface">TYPO_SCALE_DEF</div>
+<span class="text-on-surface-variant text-xs">v2.0.0</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group border border-outline-variant bg-surface rounded flex flex-col overflow-hidden hover:border-primary transition-colors cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container w-full relative overflow-hidden border-b border-outline-variant">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="A macro shot of a complex data visualization graph, rendered with thin, precise lines on a light gray background. The scene is illuminated evenly to avoid shadows, aligning with the system's rule of using tonal shifts instead of drop shadows. The aesthetic is purely analytical and structured, utilizing a monochromatic scheme with a single, subtle accent color for the data points." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJurWBg3ki5-ZhqFDIJfeV2RwvKBkiKmmA5FLFCbhuaTtVQwhF5g8fA3Phb-awJmrJMwmY_YVHBxPCu2EyB8VWKnMEXLsxmoMqdkFE8ckF5F7whTtPApB0RBC1z1oqzNRAatkrEZ1X9QE2Ho9eTnA4aqcSf4GA_yiN7PKBAWrAAyPodRRBMGMDPWsktsdNhxzjRQ-kOrIC5bNJqAlo5nWmpwGuEA8PH5MQNjDEugRKkK7BvpX2iyZ_ZIaieyTgqKdOoZLC94DLMp0"/>
+</div>
+<div class="p-4 flex justify-between items-center bg-surface-container-lowest">
+<div class="font-mono-label text-mono-label text-on-surface">DATA_VIS_COMPONENTS</div>
+<span class="text-on-surface-variant text-xs">v1.5.0</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

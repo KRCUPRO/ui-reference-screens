@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create your account - Marginalia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-background": "#1c1b1b",
+                        "tertiary-fixed": "#e6e2df",
+                        "primary-fixed": "#e5e2e1",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#ebe7e6",
+                        "tertiary": "#000000",
+                        "secondary": "#5f5e5e",
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-surface": "#313030",
+                        "on-surface": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "error-container": "#ffdad6",
+                        "primary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#656464",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "surface-bright": "#fdf8f8",
+                        "on-tertiary-container": "#868382",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e4e2e1",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary-container": "#858383",
+                        "surface-container-low": "#f7f3f2",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#474747",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface-variant": "#444748",
+                        "surface-dim": "#ddd9d8",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1c1b1b",
+                        "inverse-primary": "#c8c6c5",
+                        "inverse-on-surface": "#f4f0ef",
+                        "tertiary-container": "#1c1b1a",
+                        "surface-container": "#f1edec",
+                        "surface": "#fdf8f8",
+                        "outline": "#747878",
+                        "surface-container-highest": "#e5e2e1",
+                        "background": "#fdf8f8",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-container": "#e4e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-page": "16px",
+                        "row-gap": "4px",
+                        "gutter": "8px",
+                        "column-gap": "12px"
+                    },
+                    "fontFamily": {
+                        "footer-note": [
+                            "Archivo Narrow",
+                            "sans-serif"
+                        ],
+                        "body-sm": [
+                            "\"Source Serif 4\"",
+                            "serif"
+                        ],
+                        "headline-lg": [
+                            "\"Source Serif 4\"",
+                            "serif"
+                        ],
+                        "body-md": [
+                            "\"Source Serif 4\"",
+                            "serif"
+                        ],
+                        "headline-md": [
+                            "\"Source Serif 4\"",
+                            "serif"
+                        ],
+                        "label-caps": [
+                            "Archivo Narrow",
+                            "sans-serif"
+                        ]
+                    },
+                    "fontSize": {
+                        "footer-note": [
+                            "10px",
+                            {
+                                "lineHeight": "14px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "body-sm": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-lg": [
+                            "30px",
+                            {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "body-md": [
+                            "14px",
+                            {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-md": [
+                            "20px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "label-caps": [
+                            "11px",
+                            {
+                                "lineHeight": "12px",
+                                "letterSpacing": "0.08em",
+                                "fontWeight": "700"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .thin-underline-input {
+            border: none;
+            border-bottom: 1px solid #333333;
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: transparent;
+        }
+        
+        .thin-underline-input:focus {
+            box-shadow: none;
+            border-bottom: 2px solid #1A1A1A;
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-full font-body-md flex items-center justify-center">
+<!-- Suppressed Nav/Footer per instructions for transactional/signup pages -->
+<div class="w-full max-w-[480px] p-8">
+<!-- Progress Indicator -->
+<div aria-label="Progress: Step 1 of 3" class="flex justify-center items-center gap-2 mb-12">
+<div aria-current="step" class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full border border-outline bg-transparent"></div>
+<div class="w-2 h-2 rounded-full border border-outline bg-transparent"></div>
+</div>
+<div class="text-center mb-10">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Create your account</h1>
+<p class="font-body-md text-body-md text-secondary">Join Marginalia for unhindered access.</p>
+</div>
+<form class="space-y-8">
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface uppercase tracking-widest" for="fullName">Full name</label>
+<input class="thin-underline-input w-full font-body-md text-body-md text-on-surface pb-2" id="fullName" name="fullName" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface uppercase tracking-widest" for="workEmail">Work email</label>
+<input class="thin-underline-input w-full font-body-md text-body-md text-on-surface pb-2" id="workEmail" name="workEmail" placeholder="name@company.com" required="" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface uppercase tracking-widest" for="password">Password</label>
+<input class="thin-underline-input w-full font-body-md text-body-md text-on-surface pb-2" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest py-4 border border-primary hover:bg-surface-tint hover:border-surface-tint transition-colors duration-200" type="submit">
+                Continue
+            </button>
+</form>
+<div class="mt-8 text-center border-t border-outline-variant pt-6">
+<p class="font-body-md text-body-md text-on-surface">
+                Already have an account? 
+                <a class="text-primary hover:text-secondary underline decoration-1 underline-offset-4 transition-colors duration-200" href="#">Sign in.</a>
+</p>
+</div>
+</div>
+</body></html>

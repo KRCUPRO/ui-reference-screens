@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Desktop Operations Console Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#737688",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#d3e4fe",
+            "tertiary-fixed": "#ffdbd2",
+            "on-secondary-fixed": "#0b1c30",
+            "on-primary-fixed-variant": "#0038b6",
+            "on-error": "#ffffff",
+            "inverse-primary": "#b7c4ff",
+            "on-surface-variant": "#434656",
+            "background": "#f8f9fa",
+            "primary-container": "#0052ff",
+            "surface-container-low": "#f3f4f5",
+            "surface-bright": "#f8f9fa",
+            "tertiary": "#952200",
+            "on-secondary-fixed-variant": "#38485d",
+            "secondary-fixed-dim": "#b7c8e1",
+            "secondary-container": "#d0e1fb",
+            "on-primary-container": "#dfe3ff",
+            "surface-container-highest": "#e1e3e4",
+            "inverse-surface": "#2e3132",
+            "outline-variant": "#c3c5d9",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb4a1",
+            "on-background": "#191c1d",
+            "inverse-on-surface": "#f0f1f2",
+            "surface-container-high": "#e7e8e9",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#891e00",
+            "on-surface": "#191c1d",
+            "tertiary-container": "#bf3003",
+            "surface": "#f8f9fa",
+            "on-secondary-container": "#54647a",
+            "on-tertiary-container": "#ffddd5",
+            "on-tertiary-fixed": "#3c0800",
+            "surface-dim": "#d9dadb",
+            "surface-container": "#edeeef",
+            "surface-variant": "#e1e3e4",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#dde1ff",
+            "surface-tint": "#004ced",
+            "primary-fixed-dim": "#b7c4ff",
+            "secondary": "#505f76",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#001452",
+            "primary": "#003ec7",
+            "error-container": "#ffdad6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "24px",
+            "margin": "32px",
+            "unit": "4px",
+            "container-max": "1440px"
+          },
+          "fontFamily": {
+            "headline-md": [
+              "Inter"
+            ],
+            "display-lg": [
+              "Inter"
+            ],
+            "body-md": [
+              "Inter"
+            ],
+            "headline-sm": [
+              "Inter"
+            ],
+            "metric-md": [
+              "JetBrains Mono"
+            ],
+            "metric-lg": [
+              "JetBrains Mono"
+            ],
+            "body-sm": [
+              "Inter"
+            ],
+            "label-caps": [
+              "Inter"
+            ]
+          },
+          "fontSize": {
+            "headline-md": [
+              "24px",
+              {
+                "lineHeight": "32px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "display-lg": [
+              "48px",
+              {
+                "lineHeight": "56px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-md": [
+              "15px",
+              {
+                "lineHeight": "22px",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-sm": [
+              "18px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "metric-md": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ],
+            "metric-lg": [
+              "32px",
+              {
+                "lineHeight": "40px",
+                "letterSpacing": "-0.03em",
+                "fontWeight": "500"
+              }
+            ],
+            "body-sm": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "400"
+              }
+            ],
+            "label-caps": [
+              "11px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.05em",
+                "fontWeight": "700"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #FCFCFC;
+    }
+    /* Toggle Switch Styles */
+    .toggle-checkbox:checked {
+      right: 0;
+      border-color: #0052ff;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #0052ff;
+    }
+    .toggle-checkbox:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    /* Hide scrollbar for clean look */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- SideNavBar -->
+<aside class="w-[240px] h-screen fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-margin px-unit z-50">
+<div class="px-4 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary font-bold">
+<span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary">Ops Console</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">System Administrator</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-surface-container-low text-primary font-bold border-r-2 border-primary" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+        Overview
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-secondary-container hover:bg-surface-container-low hover:text-primary transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">vpn_key</span>
+        Key Pool
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-secondary-container hover:bg-surface-container-low hover:text-primary transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+        Logs
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-secondary-container hover:bg-surface-container-low hover:text-primary transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">speed</span>
+        Rate Limits
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-secondary-container hover:bg-surface-container-low hover:text-primary transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+        Usage
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-secondary-container hover:bg-surface-container-low hover:text-primary transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+        Health
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-secondary-container hover:bg-surface-container-low hover:text-primary transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">security</span>
+        Security
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-secondary-container hover:bg-surface-container-low hover:text-primary transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">webhook</span>
+        Webhooks
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-secondary-container hover:bg-surface-container-low hover:text-primary transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+        Settings
+      </a>
+</nav>
+<div class="mt-auto px-4 pt-4 border-t border-outline-variant">
+<button class="w-full py-2 px-4 border border-outline-variant text-on-surface font-body-md rounded hover:bg-surface-container-low transition-colors duration-200">
+        Support
+      </button>
+</div>
+</aside>
+<!-- Main Pane -->
+<main class="ml-[240px] min-h-screen bg-background relative flex flex-col pb-24">
+<!-- TopAppBar -->
+<header class="h-16 sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-gutter w-full">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Operations Dashboard</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-sm text-body-sm" href="#">Docs</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-sm text-body-sm" href="#">API</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-sm text-body-sm" href="#">Status</a>
+</nav>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="px-4 py-1.5 border border-outline-variant rounded font-body-sm text-body-sm hover:bg-surface-container-low transition-colors duration-200">Export</button>
+<button class="px-4 py-1.5 bg-primary-container text-on-primary rounded font-body-sm text-body-sm hover:bg-primary transition-colors duration-200 shadow-sm">Deploy</button>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-margin flex-1 w-full max-w-container-max mx-auto">
+<!-- Top Row: Service Running & Status Chips -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center mb-margin gap-6 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-[#0052ff] right-0 z-10 transition-all duration-300" id="service-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-[#0052ff] cursor-pointer transition-colors duration-300" for="service-toggle"></label>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Service Running</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Main orchestration engine active</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded font-metric-md text-metric-md text-green-800">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+            primary-a1
+          </div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded font-metric-md text-metric-md text-green-800">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+            overflow-b2
+          </div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-amber-50 border border-amber-200 rounded font-metric-md text-metric-md text-amber-800">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            coldkey-c3
+          </div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded font-metric-md text-metric-md text-green-800">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+            scratch-d4
+          </div>
+</div>
+</section>
+<!-- Section: Today's Metrics -->
+<section class="mb-margin">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">calendar_today</span>
+          Today
+        </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Total Calls</span>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-lg text-metric-lg text-on-surface">1,284</span>
+<span class="font-metric-md text-metric-md text-green-600 flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> 12%
+              </span>
+</div>
+<div class="mt-4 h-12 w-full bg-slate-50 flex items-end gap-1 opacity-70">
+<div class="w-1/6 bg-blue-200 h-[20%] rounded-t-sm"></div>
+<div class="w-1/6 bg-blue-200 h-[40%] rounded-t-sm"></div>
+<div class="w-1/6 bg-blue-300 h-[30%] rounded-t-sm"></div>
+<div class="w-1/6 bg-blue-400 h-[60%] rounded-t-sm"></div>
+<div class="w-1/6 bg-blue-500 h-[80%] rounded-t-sm"></div>
+<div class="w-1/6 bg-blue-600 h-[100%] rounded-t-sm"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Success Rate</span>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-lg text-metric-lg text-on-surface">96.2%</span>
+<span class="font-metric-md text-metric-md text-amber-600 flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span> 0.5%
+              </span>
+</div>
+<div class="mt-4 h-12 w-full flex items-center">
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-primary-container h-2 rounded-full" style="width: 96.2%"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Active Keys</span>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-lg text-metric-lg text-on-surface">3</span>
+<span class="font-metric-md text-metric-md text-outline">/ 10</span>
+</div>
+<div class="mt-4 flex gap-2">
+<div class="flex-1 h-2 bg-primary-container rounded-sm"></div>
+<div class="flex-1 h-2 bg-primary-container rounded-sm"></div>
+<div class="flex-1 h-2 bg-primary-container rounded-sm"></div>
+<div class="flex-1 h-2 bg-surface-container-high rounded-sm"></div>
+<div class="flex-1 h-2 bg-surface-container-high rounded-sm"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Recent Screens -->
+<section class="mb-margin">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">history</span>
+            Recent Screens
+          </h3>
+<button class="font-body-sm text-body-sm text-primary hover:underline">View All</button>
+</div>
+<div class="flex overflow-x-auto gap-6 pb-4 snap-x">
+<!-- Screen 1 -->
+<div class="flex-shrink-0 w-[280px] snap-start group cursor-pointer">
+<div class="h-[160px] w-full rounded-lg border border-outline-variant bg-surface-container-lowest overflow-hidden relative mb-3 group-hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow duration-200">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A clean, minimalist UI dashboard mockup showing onboarding steps. Bright lighting, modern corporate style, light theme with subtle blue accents. Generative geometric wireframe aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0hDy6WgmzJsC-MADHzCDzmucfD9Td2THI4HdCFTy9HugvX6yaj3QJdY6VcSFbfrNx0q8pbp1mbTnWV8swHY1VfTE8fgriVDcpR8sKTBNLPKvtYsy18vg4styf0LkbCHTelKAFP7Cn2hTAoc6T3HnDHC5teJqSkaIqzlzIRdGgQ0x2umDrnd56S88NrPU8uNgojp4onzdlULdgs-5zyU86E_b_YlxFcUFR3WGoWLKTVZafQVa4bpqDoIrkpdUKXWT8WvSiG6aAJqMk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">draw</span>
+<span class="font-metric-md text-metric-md text-on-surface">onboarding-v3</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant ml-6">2m ago</p>
+</div>
+<!-- Screen 2 -->
+<div class="flex-shrink-0 w-[280px] snap-start group cursor-pointer">
+<div class="h-[160px] w-full rounded-lg border border-outline-variant bg-surface-container-lowest overflow-hidden relative mb-3 group-hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow duration-200">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A detailed analytics dashboard UI with bar charts and line graphs. Professional, high-density data display, minimalist white background with grey grid lines and blue data points." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFrrYqvsTqPeBrc0WmjT5RS9fZtqpe5-RoaDmqJtFvcPbuca13FVI61hrS3xdVQITMPuTxB7R8IsQO2kkFnJHfg3bs_2dlMS3u1UnBO23R3rVxCj6tCyHlswLp856qS5fIV_hUaYGSgL-mJgs-hswpXLM0AlDeeUQq5W6X__wsWZIDbnogGxd0bB8BQM5HJ5HCf2iOAZ-KclC1cOB2P3eN9dRNTquvhU_MYfXVgUChvJ6SopINtc-SYA8miEGPnJNpnQAgK6CAHBV-"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">analytics</span>
+<span class="font-metric-md text-metric-md text-on-surface">analytics-main</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant ml-6">5m ago</p>
+</div>
+<!-- Screen 3 -->
+<div class="flex-shrink-0 w-[280px] snap-start group cursor-pointer">
+<div class="h-[160px] w-full rounded-lg border border-outline-variant bg-surface-container-lowest overflow-hidden relative mb-3 group-hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow duration-200">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A modern authentication flow interface with clean input fields and a prominent blue button. High-key lighting, minimalist paper aesthetic, stark white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAsPATSgeViolewgSbISA8H2cf5uhzr98gxTbVze8gIjnYJT7fX4xzU_tQjbVbz0eMqDrS04r7LXSJ0VM7BORaVVwmmygrrgm5GVmgD_wLH1r2TrygA0Pu9BBeoYKBYDl2_sM0bJ8BAdDk57TtflnLVVVFtejjwO768FB-Qq56Idx52V_7bt6iXOdTgVDfaFnyQMOV-qcaZWZXtgvy5YmifasXbI7oRgoi_0TGBnXfRggh4V7CmTHwrlIRrBUEmeYQi1OEWaIOcmiw"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">login</span>
+<span class="font-metric-md text-metric-md text-on-surface">auth-flow-v2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant ml-6">12m ago</p>
+</div>
+<!-- Screen 4 -->
+<div class="flex-shrink-0 w-[280px] snap-start group cursor-pointer">
+<div class="h-[160px] w-full rounded-lg border border-outline-variant bg-surface-container-lowest overflow-hidden relative mb-3 group-hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow duration-200">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A billing details UI page showing an invoice summary and payment methods. Clinical, precise typographic layout, jetbrains mono font elements visible, minimalist grey borders." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9hOMV76mOT1u329B1oMl4tvU2GDkWr6e8whSQ8-DeWATkTjXVvPosWQ_2hhDFCvjXG_VnCZTigtt987xQuNEBXEO3PBuvK6qCVTQfx_xA14_mfzx9ed52Zd5Qx6aO_gBwnUnd1Z5bcszBcq7k0Ao0jz_UJwOk3Y3JTEqp73XTQLPV57Gr85fUH5mLQtpoa-3sSKpGUSgp3D3Ixy1PJskucTqlGXuwEXGKC76tGlw-49p71wkX_I_VFxknvTQ2AFFilz5KgHUIlaGd"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">receipt_long</span>
+<span class="font-metric-md text-metric-md text-on-surface">billing-detail</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant ml-6">1h ago</p>
+</div>
+<!-- Screen 5 -->
+<div class="flex-shrink-0 w-[280px] snap-start group cursor-pointer">
+<div class="h-[160px] w-full rounded-lg border border-outline-variant bg-surface-container-lowest overflow-hidden relative mb-3 group-hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow duration-200">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="API documentation interface mockup with code blocks and endpoint descriptions. High-contrast monochromatic color scheme, technical feel, structured grid layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwqo8bO8wpA5SMrc9IAdnrJUgyPHhXZehJIw5c0xn4isCrs3NdnvmcCXTi0Iofz4eagTiM5yuB6bD73y38KbZIPGaLAlYLQOnOn_uyr8zHnAcL5bPgl2N-CtVGBJjjXlLKyH5d4tALpJEQQ6HQ69ztI7Yx_L0vClECHXRyFByxRIo5s6BI1X_j9q3UwyzPRBgJhi9TAnmwV0LwRIMCKWVdtMFYLnWd7rF9UUsTsYoahrJofId4_CpgAlNdJakJfc_dKmKgvIJpT_hC"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">api</span>
+<span class="font-metric-md text-metric-md text-on-surface">api-docs-rev</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant ml-6">2h ago</p>
+</div>
+<!-- Screen 6 -->
+<div class="flex-shrink-0 w-[280px] snap-start group cursor-pointer">
+<div class="h-[160px] w-full rounded-lg border border-outline-variant bg-surface-container-lowest overflow-hidden relative mb-3 group-hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow duration-200">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Settings panel UI showing various toggle switches and configuration options. Neat, organized rows, minimalist corporate design, light grey and white layered surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiD-r-EnL-4yU0ebfT4-EOVYPQ_p8Mpr49YOCi5ZvHt0awaTWPVIBsqLTYAmq_JqX0RfT-VzX8_jjr5R5arkZLjHrg2vYTsMUM7iPZoUDPv7Smh24BQxAwbLDGY_CDpOZaVunXc8y8JDGiEiQUbrTAnydxf1GANGm2p2a_n3mz0a_ELQ9_bp0IylaEXUYMYo5Vc3QvxkDq_C8IFafMU-Lkbq_2Turh1PpaQVlZF2G1Myjx5u3iTOgxzcxo5Sw_p9LXR6-SkOcoviYt"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">settings_applications</span>
+<span class="font-metric-md text-metric-md text-on-surface">settings-exp</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant ml-6">4h ago</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Action Row -->
+<div class="fixed bottom-0 left-[240px] right-0 bg-surface-container-lowest border-t border-outline-variant py-4 px-gutter flex justify-end gap-4 shadow-[0px_-4px_12px_rgba(0,0,0,0.02)] z-30">
+<button class="px-5 py-2.5 border border-outline-variant text-on-surface font-headline-sm text-body-sm font-semibold rounded hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">pause_circle</span>
+        Pause
+      </button>
+<button class="px-5 py-2.5 border border-outline-variant text-on-surface font-headline-sm text-body-sm font-semibold rounded hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">key</span>
+        Add Key
+      </button>
+<button class="px-5 py-2.5 border border-outline-variant text-on-surface font-headline-sm text-body-sm font-semibold rounded hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+        New Screen
+      </button>
+<button class="px-6 py-2.5 bg-primary-container text-on-primary font-headline-sm text-body-sm font-semibold rounded hover:bg-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+        Export Log
+      </button>
+</div>
+</main>
+<script>
+    // Optional: Add simple scroll interactions or button ripple effects here if needed
+  </script>
+</body></html>

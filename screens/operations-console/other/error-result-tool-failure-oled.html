@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Error 500: Internal tool failure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "surface-dim": "#131313",
+                        "on-tertiary-container": "#4b6800",
+                        "on-primary-fixed": "#002022",
+                        "surface-container-highest": "#353534",
+                        "inverse-primary": "#006970",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed-dim": "#00dbe9",
+                        "outline-variant": "#3b494b",
+                        "surface-variant": "#353534",
+                        "on-primary-fixed-variant": "#004f54",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed-variant": "#840076",
+                        "tertiary-container": "#afed00",
+                        "on-background": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#ffd7f0",
+                        "on-secondary-container": "#520049",
+                        "on-secondary-fixed": "#3a0033",
+                        "on-surface-variant": "#b9cacb",
+                        "primary-container": "#00f0ff",
+                        "on-tertiary": "#253600",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed": "#b7f700",
+                        "secondary-fixed-dim": "#fface8",
+                        "on-primary-container": "#006970",
+                        "surface-bright": "#3a3939",
+                        "on-primary": "#00363a",
+                        "tertiary-fixed-dim": "#a0d800",
+                        "surface-tint": "#00dbe9",
+                        "primary": "#dbfcff",
+                        "secondary-container": "#ff24e4",
+                        "surface-container": "#201f1f",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#5e0053",
+                        "primary-fixed": "#7df4ff",
+                        "tertiary": "#e8ffb6",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#374e00",
+                        "on-tertiary-fixed": "#141f00",
+                        "secondary": "#fface8",
+                        "background": "#131313",
+                        "outline": "#849495"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "container-padding-mobile": "16px",
+                        "stack-sm": "8px",
+                        "container-padding-desktop": "40px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000; /* Pure black OLED background override */
+            color: #e5e2e1;
+        }
+        
+        .glow-halo-error {
+            box-shadow: 0 0 15px rgba(147, 0, 10, 0.4);
+        }
+        
+        .glow-halo-primary:hover {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+        
+        .code-syntax {
+            color: #b9cacb; /* on-surface-variant */
+        }
+        .code-error {
+            color: #ffb4ab; /* error */
+        }
+        .code-keyword {
+            color: #00f0ff; /* primary-container */
+        }
+        .code-string {
+            color: #afed00; /* tertiary-container */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-container-padding-mobile md:p-container-padding-desktop">
+<!-- Main Container -->
+<main class="w-full max-w-[800px] flex flex-col gap-stack-lg">
+<!-- Top Banner -->
+<div class="bg-error-container border border-error glow-halo-error rounded-DEFAULT p-stack-md flex items-center gap-stack-sm w-full">
+<span class="material-symbols-outlined text-on-error-container" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h1 class="font-headline-md text-headline-md text-on-error-container w-full m-0 p-0 leading-none">Error 500: Internal tool failure</h1>
+</div>
+<!-- Content Area -->
+<div class="flex flex-col gap-stack-md">
+<!-- Stack Trace Block -->
+<div class="bg-surface-container-highest border border-outline-variant rounded-DEFAULT p-stack-md relative group transition-colors duration-200 hover:border-outline">
+<!-- Copy Button -->
+<button aria-label="Copy Stack Trace" class="absolute top-stack-sm right-stack-sm bg-transparent border border-outline-variant rounded-DEFAULT px-stack-sm py-[4px] flex items-center gap-[4px] text-on-surface-variant hover:text-primary-container hover:border-primary-container transition-all duration-200 z-10">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Copy</span>
+</button>
+<!-- Monospace Text -->
+<pre class="font-mono text-label-sm leading-relaxed overflow-x-auto whitespace-pre-wrap pr-[80px]"><span class="code-syntax">Traceback (most recent call last):</span>
+  <span class="code-syntax">File "/opt/system/core/dispatcher.py", line 412, in <span class="code-keyword">execute_action</span></span>
+    <span class="code-syntax">result = tool.run(payload)</span>
+  <span class="code-syntax">File "/opt/system/tools/device_manager.py", line 89, in <span class="code-keyword">run</span></span>
+    <span class="code-syntax">self._validate_schema(payload)</span>
+  <span class="code-syntax">File "/opt/system/tools/base.py", line 204, in <span class="code-keyword">_validate_schema</span></span>
+<span class="code-error font-bold">ToolExecutionError: schema validation failed at properties.deviceType</span>
+                </pre>
+</div>
+<!-- Collapsible Request Payload -->
+<details class="bg-surface border border-[#222222] rounded-DEFAULT group overflow-hidden">
+<summary class="font-label-md text-label-md text-on-surface p-stack-md flex items-center gap-stack-sm cursor-pointer select-none hover:bg-[#1A1A1A] transition-colors duration-200">
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-90 transition-transform duration-200">arrow_right</span>
+                    Request Payload
+                </summary>
+<div class="p-stack-md pt-0 border-t border-[#222222] bg-[#0A0A0A]">
+<pre class="font-mono text-label-sm leading-relaxed overflow-x-auto whitespace-pre-wrap mt-stack-md"><span class="code-syntax">{</span>
+  <span class="code-keyword">"action"</span><span class="code-syntax">: </span><span class="code-string">"configure_device"</span><span class="code-syntax">,</span>
+  <span class="code-keyword">"timestamp"</span><span class="code-syntax">: </span><span class="code-string">"2024-05-20T14:32:01Z"</span><span class="code-syntax">,</span>
+  <span class="code-keyword">"properties"</span><span class="code-syntax">: {</span>
+    <span class="code-keyword">"network_id"</span><span class="code-syntax">: </span><span class="code-string">"net-alpha-09"</span><span class="code-syntax">,</span>
+    <span class="code-keyword">"deviceType"</span><span class="code-syntax">: </span><span class="code-error">null</span> <span class="code-syntax">/* Validation failure point */</span>
+  <span class="code-syntax">}</span>
+<span class="code-syntax">}</span>
+                    </pre>
+</div>
+</details>
+<!-- Action Area -->
+<div class="flex justify-end pt-stack-sm">
+<button class="bg-primary text-[#050505] font-label-md text-label-md px-stack-lg h-[48px] rounded-DEFAULT flex items-center justify-center glow-halo-primary transition-all duration-200 hover:opacity-90">
+                    Return to Dashboard
+                </button>
+</div>
+</div>
+</main>
+<script>
+        // Simple script to handle generic button interactions if needed later, 
+        // mainly demonstrating micro-interactions could be placed here.
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.98)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

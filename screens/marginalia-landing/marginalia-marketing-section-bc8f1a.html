@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Value Proposition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;family=EB+Garamond:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-bright": "#fdf8f8",
+          "on-surface-variant": "#444748",
+          "inverse-surface": "#313030",
+          "on-surface": "#1c1b1b",
+          "surface-dim": "#ddd9d8",
+          "on-primary-container": "#858383",
+          "error": "#ba1a1a",
+          "on-tertiary-container": "#868382",
+          "secondary-container": "#e4e2e2",
+          "on-primary-fixed": "#1c1b1b",
+          "surface": "#fdf8f8",
+          "on-tertiary": "#ffffff",
+          "on-background": "#1c1b1b",
+          "surface-container-lowest": "#ffffff",
+          "background": "#fdf8f8",
+          "error-container": "#ffdad6",
+          "surface-container-low": "#f7f3f2",
+          "secondary": "#5e5e5e",
+          "on-tertiary-fixed-variant": "#484645",
+          "tertiary-container": "#1c1b1a",
+          "surface-variant": "#e5e2e1",
+          "on-secondary": "#ffffff",
+          "on-secondary-fixed": "#1b1c1c",
+          "on-error": "#ffffff",
+          "tertiary": "#000000",
+          "on-error-container": "#93000a",
+          "on-secondary-fixed-variant": "#464747",
+          "primary-fixed": "#e5e2e1",
+          "on-secondary-container": "#646464",
+          "tertiary-fixed-dim": "#cac6c4",
+          "tertiary-fixed": "#e6e2df",
+          "surface-container-high": "#ebe7e6",
+          "outline": "#747878",
+          "on-tertiary-fixed": "#1c1b1a",
+          "secondary-fixed": "#e4e2e2",
+          "surface-container": "#f1edec",
+          "inverse-on-surface": "#f4f0ef",
+          "surface-tint": "#5f5e5e",
+          "surface-container-highest": "#e5e2e1",
+          "secondary-fixed-dim": "#c8c6c6",
+          "primary-container": "#1c1b1b",
+          "primary": "#000000",
+          "inverse-primary": "#c8c6c5",
+          "primary-fixed-dim": "#c8c6c5",
+          "on-primary": "#ffffff",
+          "outline-variant": "#c4c7c7",
+          "on-primary-fixed-variant": "#474746"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin-safe": "40px",
+          "section-gap": "80px",
+          "unit": "4px",
+          "stack-sm": "8px",
+          "stack-md": "16px",
+          "gutter": "24px",
+          "stack-lg": "32px"
+        },
+        "fontFamily": {
+          "ui-medium": [
+            "Public Sans"
+          ],
+          "body-md": [
+            "EB Garamond"
+          ],
+          "label-bold": [
+            "Public Sans"
+          ],
+          "display-lg-mobile": [
+            "EB Garamond"
+          ],
+          "body-lg": [
+            "EB Garamond"
+          ],
+          "headline-md": [
+            "EB Garamond"
+          ],
+          "display-lg": [
+            "EB Garamond"
+          ],
+          "caption": [
+            "Public Sans"
+          ]
+        },
+        "fontSize": {
+          "ui-medium": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "500"
+            }
+          ],
+          "body-md": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "label-bold": [
+            "13px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.05em",
+              "fontWeight": "700"
+            }
+          ],
+          "display-lg-mobile": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "500"
+            }
+          ],
+          "display-lg": [
+            "48px",
+            {
+              "lineHeight": "56px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "500"
+            }
+          ],
+          "caption": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="w-full top-0 border-b border-outline-variant bg-surface">
+<div class="flex justify-between items-center px-gutter py-stack-md max-w-[1200px] mx-auto w-full">
+<div class="font-headline-md text-headline-md text-primary tracking-tight">Marginalia</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-primary border-b border-primary pb-1 font-label-bold text-label-bold cursor-pointer active:opacity-70 hover:text-primary transition-colors duration-200" href="#">Features</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold cursor-pointer active:opacity-70 hover:text-primary transition-colors duration-200" href="#">Archive</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold cursor-pointer active:opacity-70 hover:text-primary transition-colors duration-200" href="#">Pricing</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold cursor-pointer active:opacity-70 hover:text-primary transition-colors duration-200" href="#">Journal</a>
+</div>
+<div>
+<button class="border border-outline-variant bg-transparent text-primary hover:bg-surface-container transition-colors duration-200 px-stack-md py-stack-sm font-label-bold text-label-bold">Sign In</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-safe py-section-gap w-full max-w-[1200px] mx-auto">
+<div class="w-full text-center mb-stack-lg">
+<span class="font-caption text-caption text-on-surface-variant tracking-widest uppercase">10,400 documents indexed this week</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg w-full">
+<!-- Card 1 -->
+<div class="border border-outline-variant bg-surface-bright p-stack-lg flex flex-col items-start gap-stack-md">
+<span class="material-symbols-outlined text-on-surface" data-icon="forum" style="font-size: 32px;">forum</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Ask in plain language</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Navigate complex research and extract precise insights using natural language.</p>
+</div>
+<!-- Card 2 -->
+<div class="border border-outline-variant bg-surface-bright p-stack-lg flex flex-col items-start gap-stack-md">
+<span class="material-symbols-outlined text-on-surface" data-icon="format_quote" style="font-size: 32px;">format_quote</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Answers cite the page</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Every claim is anchored to its original source with verifiable, linked citations.</p>
+</div>
+<!-- Card 3 -->
+<div class="border border-outline-variant bg-surface-bright p-stack-lg flex flex-col items-start gap-stack-md">
+<div class="flex gap-stack-sm">
+<span class="material-symbols-outlined text-on-surface" data-icon="picture_as_pdf" style="font-size: 32px;">picture_as_pdf</span>
+<span class="material-symbols-outlined text-on-surface" data-icon="description" style="font-size: 32px;">description</span>
+<span class="material-symbols-outlined text-on-surface" data-icon="article" style="font-size: 32px;">article</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Works with what you already have</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Seamlessly synchronize your existing archival structures and data repositories.</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 border-t border-outline-variant bg-surface mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-stack-lg max-w-[1200px] mx-auto w-full gap-stack-md">
+<div class="font-headline-md text-headline-md text-primary">Marginalia</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Contact</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">RSS Feed</a>
+</div>
+<div class="font-caption text-caption text-on-surface-variant">© 2024 Marginalia. All rights reserved.</div>
+</div>
+</footer>
+</body></html>

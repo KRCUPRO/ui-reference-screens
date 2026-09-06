@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gateway Console - Export Backup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "inverse-on-surface": "#ecf1ff",
+          "surface-dim": "#cfdaf2",
+          "secondary": "#515f74",
+          "secondary-fixed": "#d5e3fc",
+          "on-surface": "#111c2d",
+          "secondary-container": "#d5e3fc",
+          "tertiary-fixed": "#e0e3e5",
+          "primary-fixed-dim": "#b3c5ff",
+          "surface-bright": "#f9f9ff",
+          "on-tertiary": "#ffffff",
+          "background": "#f9f9ff",
+          "on-primary-container": "#f8f7ff",
+          "inverse-surface": "#263143",
+          "surface-container-highest": "#d8e3fb",
+          "on-tertiary-container": "#f6f8fa",
+          "surface-container": "#e7eeff",
+          "outline-variant": "#c2c6d8",
+          "primary-fixed": "#dae1ff",
+          "surface-variant": "#d8e3fb",
+          "error-container": "#ffdad6",
+          "secondary-fixed-dim": "#b9c7df",
+          "inverse-primary": "#b3c5ff",
+          "on-secondary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#dee8ff",
+          "tertiary-fixed-dim": "#c4c7c9",
+          "surface-container-low": "#f0f3ff",
+          "surface": "#f9f9ff",
+          "tertiary": "#565a5b",
+          "on-surface-variant": "#424656",
+          "primary": "#0050cb",
+          "outline": "#727687",
+          "on-secondary-fixed-variant": "#3a485b",
+          "on-error": "#ffffff",
+          "on-primary": "#ffffff",
+          "surface-tint": "#0054d6",
+          "on-secondary-container": "#57657a",
+          "on-error-container": "#93000a",
+          "on-background": "#111c2d",
+          "on-primary-fixed-variant": "#003fa4",
+          "error": "#ba1a1a",
+          "on-secondary-fixed": "#0d1c2e",
+          "on-primary-fixed": "#001849",
+          "tertiary-container": "#6f7274",
+          "on-tertiary-fixed": "#191c1e",
+          "primary-container": "#0066ff",
+          "on-tertiary-fixed-variant": "#444749"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "md": "16px",
+          "base": "4px",
+          "xl": "48px",
+          "xs": "4px",
+          "sm": "8px",
+          "lg": "24px",
+          "gutter": "24px",
+          "container-max": "1280px"
+        },
+        "fontFamily": {
+          "label-md": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Inter"
+          ],
+          "mono-sm": [
+            "JetBrains Mono"
+          ],
+          "headline-lg": [
+            "Inter"
+          ],
+          "headline-lg-mobile": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "body-lg": [
+            "Inter"
+          ]
+        },
+        "fontSize": {
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "mono-sm": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "30px",
+            {
+              "lineHeight": "38px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body {
+    background-color: #F8FAFC;
+    color: #111c2d;
+  }
+  
+  .backdrop-blur-custom {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .shadow-level-2 {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  }
+</style>
+</head>
+<body class="antialiased min-h-screen relative overflow-hidden">
+<!-- Background Layer: Dimmed Settings Screen -->
+<div class="absolute inset-0 z-0 flex flex-col md:flex-row w-full h-full">
+<!-- SideNavBar (from JSON) -->
+<nav class="hidden md:flex flex-col h-screen w-64 left-0 bg-surface-container-low dark:bg-surface-container-lowest p-md flex-shrink-0 z-10 border-r border-outline-variant">
+<!-- Header Area -->
+<div class="mb-xl flex items-center space-x-sm">
+<div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="A small, professional headshot avatar of an administrator in a modern, light-filled office setting. The styling should be crisp, high-resolution, and perfectly suited for a corporate tech dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4n4vIZiy4qovXhJ9cs3zdQHCpbw0ZDjKuDMBjfPwFdw5a4rBmMFXh4zE6n2_U8teNtmh5T_TqiagV-jmoJaiuWUb1-j3oYz5SarYEqRYk3S2iVM30Aj4Q4QGdpcqKm9Ikb9KA2axscvo7gQ5r8Qu9U3S5wsnOEiksT-28QnyanPrTFJGpncUyqzPmhB-7ch_8k-ZoE-AakHv556cyWf0v176PLXVnMsFrd5Q9fLi84g_Z_hzGntA5Zpht0TZy9UnlWk592erR-_c"/>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface leading-tight">Gateway Console</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Admin v2.4</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex-1 flex flex-col space-y-sm">
+<a class="flex items-center space-x-sm p-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center space-x-sm p-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">router</span>
+<span class="font-body-md text-body-md">Gateways</span>
+</a>
+<a class="flex items-center space-x-sm p-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
+<span class="font-body-md text-body-md">Logs</span>
+</a>
+<a class="flex items-center space-x-sm p-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shield</span>
+<span class="font-body-md text-body-md">Security</span>
+</a>
+<!-- Active Tab (Settings) -->
+<a class="flex items-center space-x-sm p-sm rounded-lg bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-bold transition-colors duration-200 scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+<!-- CTA -->
+<div class="mt-auto pt-lg">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm px-md rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center space-x-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Deploy New Node</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Area (Background) -->
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+<!-- TopAppBar (from JSON) -->
+<header class="hidden md:flex justify-between items-center px-lg h-16 w-full bg-surface dark:bg-surface flex-shrink-0 z-10 border-b border-outline-variant dark:border-outline">
+<div class="flex items-center space-x-lg">
+<span class="font-headline-md text-headline-md text-primary dark:text-inverse-primary font-bold">Technical Gateway</span>
+<!-- Navigation Links within App Bar -->
+<nav class="flex space-x-md ml-lg">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md py-1" href="#">Cluster View</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md py-1" href="#">Node Stats</a>
+</nav>
+</div>
+<div class="flex items-center space-x-md">
+<!-- Icon Actions -->
+<div class="flex space-x-xs text-on-surface-variant">
+<button class="p-xs rounded-full hover:bg-surface-container-high transition-colors focus:ring-2 focus:ring-primary outline-none">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container-high transition-colors focus:ring-2 focus:ring-primary outline-none">
+<span class="material-symbols-outlined text-[20px]">label</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container-high transition-colors focus:ring-2 focus:ring-primary outline-none">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+<div class="w-px h-6 bg-outline-variant mx-sm"></div>
+<!-- Text Actions -->
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary outline-none rounded-sm px-xs">Export</button>
+<button class="font-label-md text-label-md text-primary font-semibold hover:opacity-80 transition-colors focus:ring-2 focus:ring-primary outline-none rounded-sm px-xs">Add Filter</button>
+</div>
+</header>
+<!-- Settings Page Content Canvas (Blurred) -->
+<main class="flex-1 p-lg md:p-xl overflow-y-auto">
+<div class="max-w-container-max mx-auto space-y-lg opacity-40">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Settings</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Mock Content Blocks to create background visual interest -->
+<div class="md:col-span-8 space-y-md">
+<!-- General Settings Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md">
+<h3 class="font-headline-md text-headline-md border-b border-outline-variant pb-sm mb-md text-on-surface">General Configuration</h3>
+<div class="space-y-sm">
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high">
+<span class="font-body-md text-body-md text-on-surface">Gateway Name</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Primary-EU-West</span>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high">
+<span class="font-body-md text-body-md text-on-surface">Environment</span>
+<span class="inline-flex items-center px-sm py-[2px] rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md">Production</span>
+</div>
+</div>
+</div>
+<!-- Security Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md">
+<h3 class="font-headline-md text-headline-md border-b border-outline-variant pb-sm mb-md text-on-surface">Security</h3>
+<div class="space-y-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Data Retention Period (Days)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-xs font-body-md text-body-md text-on-surface" disabled="" type="text" value="90"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Content Block -->
+<div class="md:col-span-4 space-y-md">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md">
+<h3 class="font-headline-md text-headline-md border-b border-outline-variant pb-sm mb-md text-on-surface">Actions</h3>
+<button class="w-full bg-secondary-container text-on-secondary-container font-label-md text-label-md py-sm px-md rounded-lg mb-sm">Manage API Keys</button>
+<button class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md py-sm px-md rounded-lg">Export Backup Archive</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- Overlay / Modal Container -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-md bg-on-surface/40 backdrop-blur-custom">
+<!-- The Modal -->
+<div class="bg-surface-container-lowest rounded-xl shadow-level-2 border border-outline-variant w-full max-w-[480px] overflow-hidden flex flex-col transform transition-all">
+<!-- Modal Header -->
+<div class="px-lg pt-lg pb-md border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<h2 class="font-headline-md text-headline-md text-on-surface m-0">Export Backup</h2>
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-xs transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-lg space-y-md bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant m-0">
+          Your backup archive will include the following data:
+        </p>
+<!-- Checklist / ActionRows -->
+<div class="bg-surface-bright border border-outline-variant rounded-lg divide-y divide-outline-variant overflow-hidden">
+<!-- Item 1 -->
+<label class="flex items-center justify-between p-sm hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center space-x-sm">
+<input checked="" class="form-checkbox h-4 w-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface-container-lowest checked:bg-primary checked:border-primary" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">5 API keys (masked)</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">2.1 KB</span>
+</label>
+<!-- Item 2 -->
+<label class="flex items-center justify-between p-sm hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center space-x-sm">
+<input checked="" class="form-checkbox h-4 w-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface-container-lowest checked:bg-primary checked:border-primary" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">3 design systems</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">12.4 KB</span>
+</label>
+<!-- Item 3 -->
+<label class="flex items-center justify-between p-sm hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center space-x-sm">
+<input checked="" class="form-checkbox h-4 w-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface-container-lowest checked:bg-primary checked:border-primary" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">MCP server configuration</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">0.8 KB</span>
+</label>
+<!-- Item 4 -->
+<label class="flex items-center justify-between p-sm hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center space-x-sm">
+<input checked="" class="form-checkbox h-4 w-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface-container-lowest checked:bg-primary checked:border-primary" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Theme preferences</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">1.2 KB</span>
+</label>
+</div>
+<!-- Filename Input -->
+<div class="pt-sm">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs" for="filename">Filename</label>
+<div class="relative flex items-center">
+<span class="absolute left-sm text-on-surface-variant material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">description</span>
+<input class="block w-full pl-xl pr-sm py-sm font-mono-sm text-mono-sm text-on-surface bg-surface-bright border border-outline-variant rounded-md shadow-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-outline" id="filename" name="filename" type="text" value="gateway-backup-2026-09-04.json"/>
+</div>
+</div>
+<!-- Note -->
+<p class="font-label-md text-label-md text-outline mt-sm flex items-start">
+<span class="material-symbols-outlined text-[14px] mr-xs mt-[2px]" style="font-variation-settings: 'FILL' 0;">info</span>
+<span>Log history and generated screens are excluded to keep the archive size minimal.</span>
+</p>
+</div>
+<!-- Modal Footer (Actions) -->
+<div class="px-lg py-md border-t border-outline-variant bg-surface-bright flex justify-end space-x-sm rounded-b-xl">
+<button class="px-md py-sm bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md rounded-lg hover:bg-surface-container-low hover:text-on-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1" type="button">
+          Cancel
+        </button>
+<button class="px-md py-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-fixed-variant transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 shadow-sm flex items-center" type="button">
+<span class="material-symbols-outlined text-[16px] mr-xs">download</span>
+          Export File
+        </button>
+</div>
+</div>
+</div>
+</body></html>

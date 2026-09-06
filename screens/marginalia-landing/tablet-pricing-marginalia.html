@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing - Marginalia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#e4e2e2",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#1c1b1a",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-secondary-container": "#646464",
+                        "surface-container": "#f1edec",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "primary-container": "#1c1b1b",
+                        "inverse-on-surface": "#f4f0ef",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f7f3f2",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-high": "#ebe7e6",
+                        "secondary": "#5e5e5e",
+                        "inverse-surface": "#313030",
+                        "surface": "#fdf8f8",
+                        "outline-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "on-tertiary-container": "#868382",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#e4e2e2",
+                        "outline": "#747878",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-container": "#858383",
+                        "tertiary-fixed": "#e6e2df",
+                        "surface-bright": "#fdf8f8",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#444748",
+                        "inverse-primary": "#c8c6c5",
+                        "background": "#fdf8f8",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "error-container": "#ffdad6",
+                        "primary": "#000000",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-background": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "margin-safe": "40px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["EB Garamond"],
+                        "ui-medium": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "body-md": ["EB Garamond"],
+                        "display-lg-mobile": ["EB Garamond"],
+                        "caption": ["Public Sans"],
+                        "body-lg": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "mono": ["Space Mono", "monospace"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "ui-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-bold": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .price-figure { font-family: 'Space Mono', monospace; }
+        .hairline-border { border: 1px solid var(--tw-colors-outline-variant); }
+        .thick-border { border: 2px solid var(--tw-colors-on-surface); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<header class="w-full top-0 bg-surface border-b border-outline-variant sticky z-50">
+<div class="flex justify-between items-center px-gutter py-stack-md max-w-[1200px] mx-auto w-full">
+<div class="font-headline-md text-headline-md text-primary tracking-tight">Marginalia</div>
+<nav class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Features</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Archive</a>
+<a class="font-label-bold text-label-bold text-primary border-b border-primary pb-1 cursor-pointer active:opacity-70" href="#">Pricing</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Journal</a>
+</nav>
+<button class="hidden md:flex font-label-bold text-label-bold text-on-primary bg-primary px-4 py-2 hover:bg-surface-tint transition-colors duration-200 cursor-pointer active:opacity-70 border border-primary">
+                Sign In
+            </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-[15%] md:px-[20%] py-section-gap w-full max-w-[1200px] mx-auto">
+<div class="text-center mb-stack-lg w-full">
+<h1 class="font-display-lg text-display-lg md:font-display-lg md:text-display-lg mb-stack-md">Investment</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Need more than 20 seats? <a class="underline underline-offset-4 hover:text-primary transition-colors" href="#">Talk to sales</a>.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg w-full">
+<!-- Solo Plan -->
+<div class="bg-surface thick-border p-stack-lg flex flex-col h-full">
+<div class="mb-stack-lg flex-grow">
+<h2 class="font-headline-md text-headline-md mb-stack-sm">Solo Plan</h2>
+<div class="price-figure text-[32px] leading-tight mb-stack-md text-primary">$15<span class="text-[16px] text-on-surface-variant">/mo</span></div>
+<ul class="space-y-stack-sm font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-1" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Personal library</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-1" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Advanced search</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-1" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Basic annotations</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-1" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>5GB storage</span>
+</li>
+</ul>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary font-label-bold text-label-bold border border-primary hover:bg-surface-tint transition-colors duration-200">
+                    Start free
+                </button>
+</div>
+<!-- Team Plan -->
+<div class="bg-surface thick-border p-stack-lg flex flex-col h-full">
+<div class="mb-stack-lg flex-grow">
+<h2 class="font-headline-md text-headline-md mb-stack-sm">Team Plan</h2>
+<div class="price-figure text-[32px] leading-tight mb-stack-md text-primary">$45<span class="text-[16px] text-on-surface-variant">/mo</span></div>
+<p class="font-caption text-caption text-on-surface-variant mb-stack-md uppercase tracking-wider">For up to five seats</p>
+<ul class="space-y-stack-sm font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-1" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Shared indices</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-1" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Collaborative notes</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-1" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Team workspaces</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-1" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>50GB storage</span>
+</li>
+</ul>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary font-label-bold text-label-bold border border-primary hover:bg-surface-tint transition-colors duration-200">
+                    Upgrade to Team
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 bg-surface border-t border-outline-variant mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-stack-lg max-w-[1200px] mx-auto w-full gap-stack-md md:gap-0">
+<div class="font-headline-md text-headline-md text-primary">Marginalia</div>
+<nav class="flex flex-wrap justify-center gap-stack-md">
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Contact</a>
+<a class="font-label-bold text-label-bold text-on-secondary-container hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">RSS Feed</a>
+</nav>
+<div class="font-caption text-caption text-on-surface-variant">© 2024 Marginalia. All rights reserved.</div>
+</div>
+</footer>
+</body></html>

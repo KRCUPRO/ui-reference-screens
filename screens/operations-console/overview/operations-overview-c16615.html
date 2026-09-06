@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Architecture - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#004ced",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-container": "#54647a",
+                        "on-primary-fixed": "#001452",
+                        "primary": "#003ec7",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "primary-container": "#0052ff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d8dadc",
+                        "surface": "#f7f9fb",
+                        "outline-variant": "#c3c5d9",
+                        "on-primary-fixed-variant": "#0038b6",
+                        "on-primary-container": "#dfe3ff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-bright": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "inverse-primary": "#b7c4ff",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#464e64",
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#434656",
+                        "on-background": "#191c1e",
+                        "background": "#f7f9fb",
+                        "secondary-container": "#d0e1fb",
+                        "outline": "#737688",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#5e667d",
+                        "secondary": "#505f76",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-tertiary-container": "#dde4ff",
+                        "primary-fixed": "#dde1ff",
+                        "secondary-fixed": "#d3e4fe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "pane-padding": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "label-sm": ["Inter"],
+                        "display-mono": ["JetBrains Mono"],
+                        "data-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "data-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-mono": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background h-full flex flex-col font-body-md text-on-surface antialiased overflow-hidden">
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex justify-between items-center w-full px-pane-padding h-14 shrink-0 docked full-width top-0">
+<div class="flex items-center gap-xl">
+<div class="font-display-mono text-display-mono text-primary dark:text-primary-fixed-dim">
+                System Architecture
+            </div>
+<div class="hidden md:flex gap-md">
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors active:opacity-80 transition-opacity font-body-md text-body-md" href="#">Overview</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors active:opacity-80 transition-opacity font-body-md text-body-md" href="#">Analytics</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors active:opacity-80 transition-opacity font-body-md text-body-md" href="#">Logs</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<!-- search bar on right -->
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-8 pr-3 py-1 bg-surface-container-low border border-outline-variant rounded text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 w-64" placeholder="Search..." type="text"/>
+</div>
+<button aria-label="settings" class="text-on-surface-variant hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button aria-label="notifications" class="text-on-surface-variant hover:text-primary transition-colors p-1 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant ml-2">
+<img alt="Administrator Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a system administrator in a brightly lit modern office setting. The person is looking slightly off-camera with a confident expression. High-key lighting, sharp focus, clean corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOplTLO0rykYWoFbxiAIP0X_u-QsiC75Kqf_0gFEGmiqQI_YtxslX3CciHQ8g8bfPom8Q465XhLYz-4yaEPx-Mz4YErWhcjOWIKP6c-3wNPoF0SR4upDAnqcOudfUFyyoNQieTuJGCc6LewlVLscmX4QmSDKhKb1XWsgUSad0hPvxau7d4D9mKxhNr6mDp9FlKZitA8iAKPb1w1uCy9whDt5Qr5kLU5KDXh2xXfTR78aT7mltRl3mYtys0fNcKwYuUQk_NcORBI3ii"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Area: Split Layout -->
+<main class="flex-1 flex flex-col lg:flex-row overflow-hidden p-gutter gap-gutter">
+<!-- Left Pane: Today (Current State) -->
+<section class="flex-1 bg-surface-container-lowest border border-outline-variant rounded flex flex-col overflow-hidden">
+<header class="border-b border-outline-variant px-pane-padding py-sm bg-surface-bright flex justify-between items-center shrink-0">
+<h2 class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Today</h2>
+<div class="flex items-center gap-1 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm">Live Data</span>
+</div>
+</header>
+<div class="flex-1 p-pane-padding flex flex-col gap-lg overflow-y-auto">
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Metric Card 1 -->
+<div class="border border-outline-variant rounded p-md bg-surface flex flex-col gap-sm hover:border-primary transition-colors relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Calls</span>
+<div class="font-display-mono text-display-mono text-on-surface">1,932 calls</div>
+<div class="font-data-sm text-data-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12% from baseline
+                        </div>
+</div>
+<!-- Metric Card 2 -->
+<div class="border border-outline-variant rounded p-md bg-surface flex flex-col gap-sm hover:border-primary transition-colors relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Success Rate</span>
+<div class="font-display-mono text-display-mono text-on-surface">95.7% success</div>
+<div class="font-data-sm text-data-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_down</span> -0.4% from baseline
+                        </div>
+</div>
+</div>
+<!-- Data Table (Dense) -->
+<div class="border border-outline-variant rounded overflow-hidden flex-1 flex flex-col">
+<div class="bg-surface-container-low px-md py-sm border-b border-outline-variant grid grid-cols-4 gap-md font-body-md font-semibold text-on-surface text-sm">
+<div>Endpoint</div>
+<div class="text-right">Volume</div>
+<div class="text-right">Latency</div>
+<div class="text-right">Status</div>
+</div>
+<div class="overflow-y-auto flex-1">
+<!-- Row 1 -->
+<div class="px-md py-2 border-b border-outline-variant grid grid-cols-4 gap-md items-center font-data-sm text-data-sm hover:bg-surface-container-low transition-colors">
+<div class="text-on-surface truncate">/api/v1/users</div>
+<div class="text-right text-on-surface-variant">842</div>
+<div class="text-right text-on-surface-variant">42ms</div>
+<div class="flex justify-end"><span class="w-2 h-2 rounded-sm bg-primary"></span></div>
+</div>
+<!-- Row 2 -->
+<div class="px-md py-2 border-b border-outline-variant grid grid-cols-4 gap-md items-center font-data-sm text-data-sm hover:bg-surface-container-low transition-colors">
+<div class="text-on-surface truncate">/api/v1/auth</div>
+<div class="text-right text-on-surface-variant">610</div>
+<div class="text-right text-on-surface-variant">128ms</div>
+<div class="flex justify-end"><span class="w-2 h-2 rounded-sm bg-error"></span></div>
+</div>
+<!-- Row 3 -->
+<div class="px-md py-2 border-b border-outline-variant grid grid-cols-4 gap-md items-center font-data-sm text-data-sm hover:bg-surface-container-low transition-colors">
+<div class="text-on-surface truncate">/api/v1/billing</div>
+<div class="text-right text-on-surface-variant">480</div>
+<div class="text-right text-on-surface-variant">85ms</div>
+<div class="flex justify-end"><span class="w-2 h-2 rounded-sm bg-primary"></span></div>
+</div>
+<!-- Empty states to fill density -->
+<div class="px-md py-2 border-b border-outline-variant grid grid-cols-4 gap-md items-center font-data-sm text-data-sm opacity-50">
+<div class="text-on-surface truncate">/api/v2/beta</div>
+<div class="text-right text-on-surface-variant">--</div>
+<div class="text-right text-on-surface-variant">--</div>
+<div class="flex justify-end"><span class="w-2 h-2 rounded-sm bg-outline-variant"></span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Pane: Yesterday (Historical State) -->
+<section class="flex-1 bg-surface border border-outline-variant rounded flex flex-col overflow-hidden opacity-90">
+<header class="border-b border-outline-variant px-pane-padding py-sm bg-surface-container-low flex justify-between items-center shrink-0">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Yesterday</h2>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Historical Baseline</div>
+</header>
+<div class="flex-1 p-pane-padding flex flex-col gap-lg overflow-y-auto">
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Metric Card 1 (Muted) -->
+<div class="border border-outline-variant rounded p-md bg-surface flex flex-col gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Calls</span>
+<div class="font-display-mono text-display-mono text-on-surface-variant">1,640 calls</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant opacity-0 select-none">-</div> <!-- Spacer for alignment -->
+</div>
+<!-- Metric Card 2 (Muted) -->
+<div class="border border-outline-variant rounded p-md bg-surface flex flex-col gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Success Rate</span>
+<div class="font-display-mono text-display-mono text-on-surface-variant">94.1% success</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant opacity-0 select-none">-</div> <!-- Spacer for alignment -->
+</div>
+</div>
+<!-- Data Table (Dense, Muted) -->
+<div class="border border-outline-variant rounded overflow-hidden flex-1 flex flex-col opacity-75 grayscale-[20%]">
+<div class="bg-surface-container-low px-md py-sm border-b border-outline-variant grid grid-cols-4 gap-md font-body-md font-semibold text-on-surface text-sm">
+<div>Endpoint</div>
+<div class="text-right">Volume</div>
+<div class="text-right">Latency</div>
+<div class="text-right">Status</div>
+</div>
+<div class="overflow-y-auto flex-1">
+<!-- Row 1 -->
+<div class="px-md py-2 border-b border-outline-variant grid grid-cols-4 gap-md items-center font-data-sm text-data-sm">
+<div class="text-on-surface-variant truncate">/api/v1/users</div>
+<div class="text-right text-on-surface-variant">720</div>
+<div class="text-right text-on-surface-variant">45ms</div>
+<div class="flex justify-end"><span class="w-2 h-2 rounded-sm bg-tertiary"></span></div>
+</div>
+<!-- Row 2 -->
+<div class="px-md py-2 border-b border-outline-variant grid grid-cols-4 gap-md items-center font-data-sm text-data-sm">
+<div class="text-on-surface-variant truncate">/api/v1/auth</div>
+<div class="text-right text-on-surface-variant">580</div>
+<div class="text-right text-on-surface-variant">110ms</div>
+<div class="flex justify-end"><span class="w-2 h-2 rounded-sm bg-tertiary"></span></div>
+</div>
+<!-- Row 3 -->
+<div class="px-md py-2 border-b border-outline-variant grid grid-cols-4 gap-md items-center font-data-sm text-data-sm">
+<div class="text-on-surface-variant truncate">/api/v1/billing</div>
+<div class="text-right text-on-surface-variant">340</div>
+<div class="text-right text-on-surface-variant">90ms</div>
+<div class="flex justify-end"><span class="w-2 h-2 rounded-sm bg-tertiary"></span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer/Shared Row (Status Strip) -->
+<footer class="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant dark:border-outline shrink-0 h-16 flex items-center justify-between px-lg z-50">
+<!-- Service Toggle -->
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="power_settings_new">power_settings_new</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface">Service Toggle</span>
+<div class="flex items-center gap-2">
+<div class="w-8 h-4 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-on-primary rounded-full"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary">Running</span>
+</div>
+</div>
+</div>
+<!-- Mini-Gauge: RPM Headroom -->
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="speed">speed</span>
+<div class="flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-on-surface">RPM Headroom</span>
+<div class="flex items-center gap-2 mt-1">
+<!-- Conceptual Circular Gauge -->
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/20" style="clip-path: polygon(0 100%, 100% 100%, 100% 40%, 0 40%);"></div>
+<div class="absolute inset-x-0 bottom-0 bg-primary h-2"></div>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface">310 / 500 RPM</span>
+</div>
+</div>
+</div>
+<!-- Status Squares Summary (System Health) -->
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="grid_view">grid_view</span>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-on-surface">System Health</span>
+<div class="flex gap-1 mt-1">
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-primary" title="Latency: OK"></span> <span class="sr-only">Latency OK</span></div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-error" title="Errors: Elevated"></span> <span class="sr-only">Errors Elevated</span></div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-primary" title="Nodes: Stable"></span> <span class="sr-only">Nodes Stable</span></div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-primary" title="Uptime: Good"></span> <span class="sr-only">Uptime Good</span></div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

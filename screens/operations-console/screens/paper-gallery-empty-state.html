@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curator Console - Design Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "secondary-fixed": "#dce2f3",
+              "tertiary-fixed-dim": "#c6c6c6",
+              "on-primary-container": "#848484",
+              "secondary-fixed-dim": "#c0c7d6",
+              "error": "#ba1a1a",
+              "inverse-surface": "#303030",
+              "surface-container": "#eeeeee",
+              "secondary": "#585f6c",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#1b1b1b",
+              "on-tertiary-fixed-variant": "#474747",
+              "surface-tint": "#5e5e5e",
+              "surface-container-highest": "#e2e2e2",
+              "on-tertiary-fixed": "#1b1b1b",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed": "#151c27",
+              "outline": "#7e7576",
+              "secondary-container": "#dce2f3",
+              "primary-fixed": "#e2e2e2",
+              "background": "#f9f9f9",
+              "tertiary-container": "#1b1b1b",
+              "tertiary-fixed": "#e2e2e2",
+              "on-tertiary-container": "#848484",
+              "on-secondary-container": "#5e6572",
+              "on-background": "#1b1b1b",
+              "inverse-primary": "#c6c6c6",
+              "primary": "#000000",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#e2e2e2",
+              "on-surface": "#1b1b1b",
+              "on-error-container": "#93000a",
+              "surface": "#f9f9f9",
+              "outline-variant": "#cfc4c5",
+              "tertiary": "#000000",
+              "on-secondary-fixed-variant": "#404754",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#474747",
+              "surface-bright": "#f9f9f9",
+              "primary-fixed-dim": "#c6c6c6",
+              "surface-dim": "#dadada",
+              "inverse-on-surface": "#f1f1f1",
+              "surface-container-low": "#f3f3f3",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#1b1b1b",
+              "on-surface-variant": "#4c4546",
+              "surface-container-high": "#e8e8e8"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            "spacing": {
+              "gutter": "24px",
+              "sm": "8px",
+              "xxl": "80px",
+              "xl": "48px",
+              "margin-mobile": "16px",
+              "lg": "24px",
+              "margin-desktop": "64px",
+              "xs": "4px",
+              "unit": "4px",
+              "md": "16px",
+              "max-width": "1280px"
+            },
+            "fontFamily": {
+              "headline-md": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "label-md": ["Inter"],
+              "display": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-lg": ["Inter"],
+              "label-sm": ["Inter"]
+            },
+            "fontSize": {
+              "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+              "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+              "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+              "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+              "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+              "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+              "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface h-screen overflow-hidden flex">
+<!-- Fixed Left Sidebar (SideNavBar Implementation tailored for empty state) -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface border-r border-outline-variant flex flex-col p-lg">
+<!-- Header -->
+<div class="mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary mb-xs">Curator Console</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Minimalist Design Gallery</p>
+</div>
+<!-- Navigation Placeholder (Suppressed as per intent, showing empty state instead) -->
+<div class="flex-grow flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-[48px] text-on-surface-variant mb-md font-light" style="font-variation-settings: 'wght' 200;">folder_open</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">No folders yet</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg px-md">Group screens by project to keep the gallery tidy</p>
+<button class="bg-primary text-on-primary px-lg py-sm rounded font-label-md text-label-md hover:bg-surface-tint transition-colors duration-200">
+                New folder
+            </button>
+</div>
+<!-- Footer actions -->
+<div class="mt-auto pt-lg border-t border-outline-variant space-y-md">
+<button class="w-full text-left font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">help</span> Support
+            </button>
+<button class="w-full text-left font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">logout</span> Log Out
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] flex-grow h-full overflow-y-auto bg-surface-container-lowest p-margin-desktop">
+<div class="max-w-max-width mx-auto">
+<div class="flex justify-between items-end mb-xl border-b border-outline-variant pb-md">
+<h2 class="font-display text-display text-primary">Recent Screens</h2>
+<button class="bg-primary text-on-primary px-lg py-sm rounded font-label-md text-label-md hover:bg-surface-tint transition-colors duration-200 flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">upload</span> Upload Design
+                </button>
+</div>
+<!-- Gallery Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="group border border-outline-variant rounded hover:border-primary transition-colors duration-300 flex flex-col bg-surface cursor-pointer">
+<div class="aspect-video w-full bg-surface-container-low border-b border-outline-variant overflow-hidden relative">
+<img alt="Project Home Screen" class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A minimalist, high-fidelity UI design of a project homepage, featuring stark black and white typography, generous whitespace, and a strict grid layout, presented on a digital paper background in a high-key lighting environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9wEyCc-Nb76yjxZJgMAzmo1kO2Od6icG9meuGQ2vue_M1DQc-wtNv4axrm6rUZ__waHxh8nAXDBeQqk_fCzPqy9Cv4-RiWGXFuPDtFOw7s0pzaBQ__olyEHB9eiLqbr8oiXbFqzhmXd930VBPUNsSwucUbdQ0OjbaAkmGGfPoQhiEEm0H5JWy4MiKp68xgJk40CYhOIJlXQbw3mrmpwGsmoaLCwrxYSmyUotvIrwVjI0-XRDhXZL-yff5hNGIrmo93ZTX3wQX2QE"/>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs group-hover:underline">Project Home</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Added 2 hours ago</p>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group border border-outline-variant rounded hover:border-primary transition-colors duration-300 flex flex-col bg-surface cursor-pointer">
+<div class="aspect-video w-full bg-surface-container-low border-b border-outline-variant overflow-hidden relative">
+<img alt="Auth Flow Screen" class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A pristine, minimalist UI design for an authentication flow screen, displaying elegant input fields, subtle 1px borders, and a solid black primary button on a pure white background, illuminated by soft studio light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5NhH6m0Kwhe_ROW8_Y8c-iqkO_ZdhraWIDSKprSUYIL_h4c18N7gwFnxfDW3JJN5urOH5rsWUw49FU7AziwfM1EqN9Jh06-LDHDBrrQYtUKFGvCgf3a7FcDscCb9NhAcmljXx7pPnoUswx0JsTIw9MKrZ8SmckOMH23yEvMZQbaUEHRrvPjRuoCHUrNDGLHPkOqoZITraeNilk46s-AJWriaLyQ133VN3MZyYHm01VLtJnC6Cl_5pJQE7aG2b-d1FteX8rDypZYw"/>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs group-hover:underline">Auth Flow</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Added 5 hours ago</p>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group border border-outline-variant rounded hover:border-primary transition-colors duration-300 flex flex-col bg-surface cursor-pointer">
+<div class="aspect-video w-full bg-surface-container-low border-b border-outline-variant overflow-hidden relative">
+<img alt="Settings Screen" class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A clean, structured UI design of a settings panel, using a minimalist aesthetic with crisp typography, horizontal separator lines in pale gray, and toggle switches, presented in a sharp, high-contrast light mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOOHllO7Q1PQJ2YpXeuD1VamyeAvsOIuXRS8p-MCeOBbvTGfPqT5lmJ8J6lmAMlC-qczBEfugb3lyCVuJ7VSukUCEnOlYg7n5Ytg1aFxO2A8tKp1ggjZJ34cESYXjLG9-Z6oJgM_iFlopD0dHws86eMFXvDG-AJgMcSCAaRR1379h1tv8Vi5oyYq7FY2_lK5FR7fOwGZH2EjTk2bhOj8aQVi_bsvEWgwjI0jvfADzk9JML_x9MnC7Ns25FGRMy-4_mQ9938XiGDK4"/>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs group-hover:underline">Settings</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Added yesterday</p>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="group border border-outline-variant rounded hover:border-primary transition-colors duration-300 flex flex-col bg-surface cursor-pointer">
+<div class="aspect-video w-full bg-surface-container-low border-b border-outline-variant overflow-hidden relative">
+<img alt="Dashboard v2 Screen" class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A sophisticated dashboard interface design utilizing a strict 12-column grid, featuring data visualizations rendered in varying shades of black and gray on a white canvas, embodying a strict minimalist editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATwsvF3t9BGps2kR3isqKMz8eKhgidyZ8TaRjiODFqRluAP20HH2JnEdYXlFw-9dZAG3SZZHYlVV6dOrAgoAwmYBeDya0N3X2kuuEEtSywHMDiDnsmvq2z53wvMA43JfjprdrMZ0dzsmnKfopplp1fAXBOw3WPaAEfAnU2hdlodqWOXYVVoQRk2ZA2YTzADd9MuVhseJ592kyE6xO-_JefUqkoneOsodvUO5U0lK-Hw2jrqCc3qOBKbwdzNpQXqga-JrLUWrGz5qY"/>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs group-hover:underline">Dashboard v2</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Added 2 days ago</p>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="group border border-outline-variant rounded hover:border-primary transition-colors duration-300 flex flex-col bg-surface cursor-pointer">
+<div class="aspect-video w-full bg-surface-container-low border-b border-outline-variant overflow-hidden relative">
+<img alt="Landing Page Screen" class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A high-end, editorial-style landing page design featuring massive typography, stark asymmetrical layouts, and ample airy whitespace, executed entirely in black, white, and subtle grays, suitable for a design portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfBxuAQ_PlxSYfX5kB_IOCsPdc-dYQj5-ftjMeqWoVv2v8WaqsLIlz5SqWMsDnl2xoEIijNQ-SNSDNSlMh5rKxzJL0mCljvjof2UVWAKAarjCbZObrhnEFURtuTEHcl_v4jcZnGlJMbK_IxvXVYS85rHf6Vz_n7kpk7umxE0F88WuNjVg7p-G3CFIC-kyPW8s_bcM686bLoWQKDBQ6iY04C3q_STHpWE6xxyOWm2jvuR50HqgUQlc2-4eZh-Dqxg9fQSYDWuVkkGM"/>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs group-hover:underline">Landing Page</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Added last week</p>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="group border border-outline-variant rounded hover:border-primary transition-colors duration-300 flex flex-col bg-surface cursor-pointer">
+<div class="aspect-video w-full bg-surface-container-low border-b border-outline-variant overflow-hidden relative">
+<img alt="Mobile App Screen" class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A crisp mobile application UI layout shown in a device mockup frame, emphasizing fluid grid usage, bottom navigation bar, and stark black-on-white high contrast components in a minimalist, gallery-like presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-sHkdqkk0LK2xvluMiQ1la_6mUFEqA-M2ITu-xjC1Bikp0FIJTi6fDNBBfxpLxM9E9csbQvTAki46Jl-KcJF0wVWEcCraNNB4d_mAUUyfxXMGCgfyjIinyb_WyGpDVInzMQk_XrEZEOFZh9Wk2X84NReAjx8ZoPfzamnHwjK9lmRf7rfvvekXemceUz9iMBDqLQI-oclH_4-mYqOMnKGk-_5FANc1ClXI-b8bQJ05_v4qtf_IWCS50Zy1XaFwkBNZC0HCvS9e4is"/>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs group-hover:underline">Mobile App</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Added last week</p>
+</div>
+</article>
+</div>
+</div>
+</main>
+</body></html>

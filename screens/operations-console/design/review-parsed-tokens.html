@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Parsed Tokens - System Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "primary-fixed-dim": "#c0c6db",
+                "tertiary": "#000000",
+                "on-secondary-container": "#fefcff",
+                "surface-container-low": "#f6f3f4",
+                "secondary-fixed-dim": "#adc6ff",
+                "surface-variant": "#e5e2e3",
+                "on-secondary": "#ffffff",
+                "primary-container": "#141b2b",
+                "surface-tint": "#575e70",
+                "on-tertiary-container": "#968065",
+                "on-primary": "#ffffff",
+                "inverse-on-surface": "#f3f0f1",
+                "background": "#fcf8fa",
+                "secondary": "#0058be",
+                "on-secondary-fixed-variant": "#004395",
+                "tertiary-container": "#261906",
+                "error": "#ba1a1a",
+                "secondary-fixed": "#d8e2ff",
+                "on-surface": "#1b1b1d",
+                "primary": "#000000",
+                "on-error": "#ffffff",
+                "surface-container-highest": "#e5e2e3",
+                "on-tertiary-fixed-variant": "#55442d",
+                "tertiary-fixed": "#f9debf",
+                "outline": "#76777d",
+                "inverse-surface": "#303031",
+                "on-background": "#1b1b1d",
+                "on-primary-fixed": "#141b2b",
+                "on-primary-container": "#7d8497",
+                "surface-bright": "#fcf8fa",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed": "#001a42",
+                "surface": "#fcf8fa",
+                "on-tertiary": "#ffffff",
+                "tertiary-fixed-dim": "#dcc2a4",
+                "on-surface-variant": "#45464c",
+                "on-primary-fixed-variant": "#404758",
+                "surface-dim": "#dcd9db",
+                "surface-container-high": "#eae7e9",
+                "surface-container": "#f0edee",
+                "primary-fixed": "#dce2f7",
+                "inverse-primary": "#c0c6db",
+                "surface-container-lowest": "#ffffff",
+                "secondary-container": "#2170e4",
+                "outline-variant": "#c6c6cd",
+                "on-error-container": "#93000a",
+                "on-tertiary-fixed": "#261906"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "stack-base": "0.5rem",
+                "row-height-md": "32px",
+                "gutter": "1rem",
+                "stack-tight": "0.25rem",
+                "row-height-sm": "24px",
+                "unit": "4px",
+                "container-padding": "1.5rem"
+              },
+              "fontFamily": {
+                "ui-medium": ["Inter"],
+                "mono-label": ["JetBrains Mono"],
+                "mono-data": ["JetBrains Mono"],
+                "ui-bold": ["Inter"],
+                "h2": ["Inter"],
+                "ui-regular": ["Inter"],
+                "h1": ["Inter"]
+              },
+              "fontSize": {
+                "ui-medium": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "mono-label": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+                "mono-data": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                "ui-bold": ["13px", {"lineHeight": "16px", "fontWeight": "600"}],
+                "h2": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "ui-regular": ["13px", {"lineHeight": "16px", "fontWeight": "400"}],
+                "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col md:flex-row">
+<!-- SideNavBar -->
+<nav class="hidden md:flex w-64 h-screen fixed left-0 top-0 border-r border-outline-variant bg-surface flex-col py-gutter">
+<div class="px-container-padding mb-8">
+<h1 class="font-h2 text-h2 text-primary">System Console</h1>
+<p class="font-ui-regular text-ui-regular text-on-surface-variant mt-1">Version 4.2.1</p>
+</div>
+<div class="px-container-padding mb-6">
+<button class="w-full bg-primary text-on-primary font-ui-medium text-ui-medium py-2 px-4 rounded-DEFAULT flex items-center justify-center gap-2 hover:bg-tertiary transition-colors duration-150 ease-in-out">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Project
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto px-4 flex flex-col gap-unit">
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+                Design
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+                Components
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-primary font-ui-bold bg-surface-container transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                Assets
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">format_size</span>
+                Typography
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">colorize</span>
+                Colors
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+                Library
+            </a>
+<div class="h-px bg-outline-variant my-2 mx-3"></div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+                Help
+            </a>
+</div>
+<div class="mt-auto px-4 pt-4 border-t border-outline-variant mx-4">
+<button class="flex items-center gap-3 px-3 py-2 w-full rounded-DEFAULT text-on-surface-variant font-ui-regular hover:bg-surface-container-low transition-colors duration-150 ease-in-out">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                Log Out
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-64 min-w-0">
+<!-- TopAppBar -->
+<header class="h-row-height-md sticky top-0 z-10 bg-surface border-b border-outline-variant flex items-center justify-between px-container-padding h-16">
+<div class="flex items-center flex-1">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-transparent border border-outline-variant rounded-DEFAULT font-ui-regular text-ui-regular text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search tokens..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary font-ui-medium text-ui-medium hover:text-tertiary transition-colors">
+                    New Design System
+                </button>
+<div class="flex items-center gap-2 border-l border-outline-variant pl-4 ml-2">
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 flex flex-col p-container-padding max-w-5xl mx-auto w-full gap-6">
+<!-- Section Header -->
+<div class="flex flex-col gap-2">
+<h2 class="font-h1 text-h1 text-primary">Review Parsed Tokens — design.md</h2>
+<p class="font-ui-regular text-ui-regular text-on-surface-variant">Verify mappings before committing to the design system.</p>
+</div>
+<!-- Alert -->
+<div class="bg-error-container/20 border border-error/30 rounded-DEFAULT p-3 flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">warning</span>
+<div>
+<p class="font-ui-medium text-ui-medium text-on-surface">2 labels could not be auto-mapped</p>
+<p class="font-ui-regular text-ui-regular text-on-surface-variant mt-0.5">Please review the unmapped tokens below and assign them manually.</p>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-DEFAULT overflow-hidden flex flex-col shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low">
+<th class="py-2 px-4 font-mono-label text-mono-label text-on-surface-variant uppercase tracking-wider w-1/3">Source label</th>
+<th class="py-2 px-4 font-mono-label text-mono-label text-on-surface-variant uppercase tracking-wider w-1/3">Mapped to</th>
+<th class="py-2 px-4 font-mono-label text-mono-label text-on-surface-variant uppercase tracking-wider w-1/3">Value</th>
+</tr>
+</thead>
+<tbody class="font-mono-data text-mono-data divide-y divide-outline-variant/50">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">primary</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="accent">accent</option>
+<option value="brand">brand</option>
+<option value="primary">primary</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant flex items-center gap-2 h-10">
+<div class="w-3 h-3 rounded-sm bg-[#7C8CFF] border border-outline-variant/30"></div>
+                                    #7C8CFF
+                                </td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">error</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="danger">danger</option>
+<option value="error">error</option>
+<option value="critical">critical</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant flex items-center gap-2 h-10">
+<div class="w-3 h-3 rounded-sm bg-[#E5484D] border border-outline-variant/30"></div>
+                                    #E5484D
+                                </td>
+</tr>
+<!-- Row 3 (Unmapped Warning) -->
+<tr class="bg-error-container/10 hover:bg-error-container/20 transition-colors group h-10 relative">
+<td class="py-1 px-4 text-on-surface font-medium flex items-center gap-2 h-10">
+<span class="material-symbols-outlined text-error text-[16px]">error</span>
+                                    surface-brand
+                                </td>
+<td class="py-1 px-4">
+<select class="w-full bg-white border border-error/50 focus:border-error focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors shadow-sm">
+<option disabled="" selected="" value="">Select mapping...</option>
+<option value="surface">surface</option>
+<option value="background">background</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant flex items-center gap-2 h-10">
+<div class="w-3 h-3 rounded-sm bg-[#F0F4FF] border border-outline-variant/30"></div>
+                                    #F0F4FF
+                                </td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">gap-md</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="spacing.md">spacing.md</option>
+<option value="gap.4">gap.4</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant h-10 flex items-center">
+                                    16px
+                                </td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">gap-lg</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="spacing.lg">spacing.lg</option>
+<option value="gap.6">gap.6</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant h-10 flex items-center">
+                                    24px
+                                </td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">radius-sm</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="borderRadius.sm">borderRadius.sm</option>
+<option value="rounded.sm">rounded.sm</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant h-10 flex items-center">
+                                    4px
+                                </td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">text-base</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="fontSize.body">fontSize.body</option>
+<option value="text.md">text.md</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant h-10 flex items-center">
+                                    14px / 20px
+                                </td>
+</tr>
+<!-- Row 8 (Unmapped Warning) -->
+<tr class="bg-error-container/10 hover:bg-error-container/20 transition-colors group h-10 relative">
+<td class="py-1 px-4 text-on-surface font-medium flex items-center gap-2 h-10">
+<span class="material-symbols-outlined text-error text-[16px]">error</span>
+                                    shadow-float
+                                </td>
+<td class="py-1 px-4">
+<select class="w-full bg-white border border-error/50 focus:border-error focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors shadow-sm">
+<option disabled="" selected="" value="">Select mapping...</option>
+<option value="boxShadow.md">boxShadow.md</option>
+<option value="elevation.3">elevation.3</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant h-10 flex items-center truncate max-w-[200px]" title="0 8px 24px rgba(0,0,0,0.12)">
+                                    0 8px 24px rgba(0,0,0,0.12)
+                                </td>
+</tr>
+<!-- Row 9 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">font-sans</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="fontFamily.base">fontFamily.base</option>
+<option value="font.inter">font.inter</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant h-10 flex items-center">
+                                    "Inter", sans-serif
+                                </td>
+</tr>
+<!-- Row 10 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">success</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="positive">positive</option>
+<option value="success">success</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant flex items-center gap-2 h-10">
+<div class="w-3 h-3 rounded-sm bg-[#29A366] border border-outline-variant/30"></div>
+                                    #29A366
+                                </td>
+</tr>
+<!-- Row 11 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10">
+<td class="py-1 px-4 text-on-surface font-medium">warning</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="caution">caution</option>
+<option value="warning">warning</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant flex items-center gap-2 h-10">
+<div class="w-3 h-3 rounded-sm bg-[#FFB224] border border-outline-variant/30"></div>
+                                    #FFB224
+                                </td>
+</tr>
+<!-- Row 12 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group h-10 border-b-0">
+<td class="py-1 px-4 text-on-surface font-medium">border-subtle</td>
+<td class="py-1 px-4">
+<select class="w-full bg-transparent border-transparent hover:border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT py-1 px-2 text-on-surface h-8 cursor-pointer transition-colors">
+<option selected="" value="borderColor.subtle">borderColor.subtle</option>
+<option value="outline.variant">outline.variant</option>
+</select>
+</td>
+<td class="py-1 px-4 text-on-surface-variant flex items-center gap-2 h-10">
+<div class="w-3 h-3 rounded-sm bg-[#E5E7EB] border border-outline-variant/30"></div>
+                                    #E5E7EB
+                                </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Spacer to ensure content doesn't hide behind sticky footer -->
+<div class="h-20"></div>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 left-0 md:left-64 right-0 bg-surface/90 backdrop-blur-sm border-t border-outline-variant p-4 flex justify-between items-center px-container-padding z-20">
+<button class="px-4 py-2 border border-outline-variant text-on-surface font-ui-medium text-ui-medium rounded-DEFAULT hover:bg-surface-container-low transition-colors">
+                Back
+            </button>
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant font-ui-regular text-ui-regular text-sm hidden sm:inline-block">2 tokens require mapping</span>
+<button class="px-6 py-2 bg-primary text-on-primary font-ui-medium text-ui-medium rounded-DEFAULT hover:bg-tertiary transition-colors opacity-50 cursor-not-allowed" disabled="" title="Please map all tokens before importing">
+                    Import 12 Tokens
+                </button>
+</div>
+</footer>
+</div>
+</body></html>

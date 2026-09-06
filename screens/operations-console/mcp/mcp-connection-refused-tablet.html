@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Model Context Protocol (MCP)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "on-surface": "#e2e1f0",
+              "on-secondary-fixed": "#380038",
+              "surface-variant": "#333440",
+              "primary-fixed-dim": "#00dbe7",
+              "surface-bright": "#373844",
+              "error-container": "#93000a",
+              "on-background": "#e2e1f0",
+              "on-error": "#690005",
+              "on-secondary-container": "#500050",
+              "inverse-surface": "#e2e1f0",
+              "outline-variant": "#3a494b",
+              "outline": "#849495",
+              "on-primary-container": "#006a71",
+              "tertiary": "#fff6e4",
+              "primary": "#e1fdff",
+              "on-primary-fixed": "#002022",
+              "surface-container-low": "#1a1b26",
+              "inverse-primary": "#00696f",
+              "on-tertiary-fixed": "#221b00",
+              "tertiary-fixed-dim": "#e8c423",
+              "on-secondary": "#5b005b",
+              "on-secondary-fixed-variant": "#810081",
+              "tertiary-fixed": "#ffe173",
+              "surface-tint": "#00dbe7",
+              "on-primary": "#00363a",
+              "primary-container": "#00f2ff",
+              "on-tertiary-fixed-variant": "#554500",
+              "background": "#11131d",
+              "inverse-on-surface": "#2f303b",
+              "surface-dim": "#11131d",
+              "primary-fixed": "#74f5ff",
+              "on-primary-fixed-variant": "#004f54",
+              "surface-container-lowest": "#0c0d18",
+              "on-surface-variant": "#b9cacb",
+              "tertiary-container": "#fed83a",
+              "on-tertiary-container": "#725e00",
+              "surface-container-highest": "#333440",
+              "secondary": "#ffabf3",
+              "surface-container-high": "#282934",
+              "on-tertiary": "#3b2f00",
+              "secondary-container": "#fe00fe",
+              "on-error-container": "#ffdad6",
+              "surface": "#11131d",
+              "secondary-fixed": "#ffd7f5",
+              "surface-container": "#1e1f2a",
+              "secondary-fixed-dim": "#ffabf3",
+              "error": "#ffb4ab"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "margin-desktop": "40px",
+              "base-unit": "4px",
+              "stack-lg": "32px",
+              "stack-sm": "8px",
+              "margin-mobile": "16px",
+              "stack-md": "16px",
+              "gutter": "24px",
+              "container-max-width": "1280px"
+            },
+            "fontFamily": {
+              "headline-xl": ["Geist"],
+              "body-sm": ["Geist"],
+              "label-sm": ["JetBrains Mono"],
+              "body-md": ["Geist"],
+              "headline-lg-mobile": ["Geist"],
+              "label-md": ["JetBrains Mono"],
+              "headline-lg": ["Geist"]
+            },
+            "fontSize": {
+              "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+              "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+              "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+              "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+              "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+              "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .neon-border-red { border-color: theme('colors.error'); box-shadow: 0 0 4px theme('colors.error'); }
+        .neon-border-blue { border-color: theme('colors.primary-container'); box-shadow: 0 0 4px theme('colors.primary-container'); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex text-body-md font-body-md">
+<!-- TopNavBar (Mobile/Tablet Top) - Hidden on md and up as per instructions usually, but tablet is md, so we follow JSON logic. Actually tablet is often top nav or side nav. Using Side Nav for tablet/desktop as it's a console. Wait, responsive pivot: mobile (md:hidden) uses bottom, web (hidden md:flex) uses full nav cluster. Let's use SideNavBar for tablet (1024x768). -->
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 bg-surface-container border-r border-outline-variant pt-16 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-3xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary-container">Console v1.0</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Prod Environment</p>
+</div>
+</div>
+<ul class="flex flex-col gap-2 font-label-md text-label-md w-full">
+<li>
+<a class="flex items-center gap-stack-md text-on-surface-variant px-4 py-3 hover:bg-surface-bright hover:text-on-surface transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Overview
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-stack-md text-primary-container border-l-2 border-primary-container bg-primary-container/5 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                    MCP
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-stack-md text-on-surface-variant px-4 py-3 hover:bg-surface-bright hover:text-on-surface transition-all duration-200" href="#">
+<span class="material-symbols-outlined">subject</span>
+                    Logs
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-stack-md text-on-surface-variant px-4 py-3 hover:bg-surface-bright hover:text-on-surface transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto p-4 border-t border-outline-variant/30 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">System Admin</span>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 p-gutter md:p-margin-desktop bg-background w-full h-full min-h-screen overflow-y-auto">
+<header class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Model Context Protocol (MCP)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Manage your local server connections and exposed tools.</p>
+</header>
+<div class="grid grid-cols-1 gap-gutter">
+<!-- Connection Card -->
+<div class="bg-[#12121a] border border-[#1f1f2e] rounded-lg p-6 flex flex-col gap-stack-md">
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Endpoint URL</label>
+<div class="flex items-center bg-[#050508] border border-outline-variant rounded p-3 focus-within:neon-border-blue transition-all duration-200">
+<span class="material-symbols-outlined text-on-surface-variant mr-3">link</span>
+<input class="bg-transparent border-none outline-none text-on-surface w-full font-label-md text-label-md" readonly="" type="text" value="localhost:8080"/>
+</div>
+</div>
+<!-- Danger Banner -->
+<div class="bg-error-container/20 border border-error rounded-md p-4 flex items-start gap-3 mt-2">
+<span class="material-symbols-outlined text-error mt-0.5">warning</span>
+<p class="font-body-sm text-body-sm text-error">Connection refused — invalid auth token from client at 127.0.0.1:51422</p>
+</div>
+<div class="flex flex-col gap-stack-sm mt-4">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Authentication Token</label>
+<button class="font-label-sm text-label-sm text-primary-container hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+                            Regenerate token
+                        </button>
+</div>
+<div class="flex items-center bg-[#050508] border neon-border-red rounded p-3 transition-all duration-200">
+<span class="material-symbols-outlined text-error mr-3">key</span>
+<input class="bg-transparent border-none outline-none text-on-surface w-full font-label-md text-label-md tracking-widest" readonly="" type="password" value="************************"/>
+</div>
+</div>
+</div>
+<!-- Tools Panel -->
+<div class="bg-[#12121a] border border-[#1f1f2e] rounded-lg overflow-hidden flex flex-col">
+<div class="p-6 border-b border-[#1f1f2e] flex justify-between items-center bg-surface-container-low">
+<h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Exposed Tools</h3>
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-2 py-1 rounded">3 Active</span>
+</div>
+<div class="flex flex-col">
+<!-- List Items -->
+<div class="flex items-center justify-between p-4 border-b border-[#1f1f2e] hover:bg-primary-container/5 hover:border-l-2 hover:border-l-primary-container transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary-container transition-colors">check_box_outline_blank</span>
+<span class="font-label-md text-label-md text-on-surface">invoke_tool</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 border-b border-[#1f1f2e] hover:bg-primary-container/5 hover:border-l-2 hover:border-l-primary-container transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary-container transition-colors">check_box_outline_blank</span>
+<span class="font-label-md text-label-md text-on-surface">list_projects</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-primary-container/5 hover:border-l-2 hover:border-l-primary-container transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary-container transition-colors">check_box_outline_blank</span>
+<span class="font-label-md text-label-md text-on-surface">generate_screen_from_text</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Code Snippet Section -->
+<div class="bg-[#12121a] border border-[#1f1f2e] rounded-lg p-4 flex flex-col justify-center">
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined transition-transform">chevron_right</span>
+                    Show snippet
+                </button>
+</div>
+</div>
+</main>
+</body></html>

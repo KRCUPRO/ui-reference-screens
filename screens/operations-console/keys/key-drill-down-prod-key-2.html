@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compact Analytics Drill-Down</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1a1c1e",
+                        "on-tertiary": "#66002c",
+                        "inverse-surface": "#e2e2e5",
+                        "secondary-container": "#d05bff",
+                        "on-primary-fixed": "#002021",
+                        "surface-container": "#1e2022",
+                        "on-primary-container": "#006c71",
+                        "surface-container-highest": "#333537",
+                        "on-error": "#690005",
+                        "surface-variant": "#333537",
+                        "on-secondary-fixed-variant": "#75009e",
+                        "primary": "#e9feff",
+                        "tertiary": "#fff8f8",
+                        "surface-dim": "#121416",
+                        "surface-container-high": "#282a2c",
+                        "on-tertiary-fixed": "#3f0019",
+                        "on-surface": "#e2e2e5",
+                        "tertiary-container": "#ffd2db",
+                        "outline-variant": "#3a494a",
+                        "outline": "#849495",
+                        "on-secondary": "#520070",
+                        "background": "#121416",
+                        "on-secondary-container": "#480063",
+                        "primary-fixed": "#63f7ff",
+                        "tertiary-fixed": "#ffd9e0",
+                        "surface": "#121416",
+                        "tertiary-fixed-dim": "#ffb1c3",
+                        "surface-bright": "#38393c",
+                        "surface-tint": "#00dce5",
+                        "on-primary-fixed-variant": "#004f53",
+                        "on-tertiary-fixed-variant": "#8f0041",
+                        "error-container": "#93000a",
+                        "primary-container": "#00f5ff",
+                        "secondary": "#ecb1ff",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0c0e10",
+                        "inverse-primary": "#00696e",
+                        "on-secondary-fixed": "#320046",
+                        "on-surface-variant": "#b9caca",
+                        "inverse-on-surface": "#2f3133",
+                        "secondary-fixed-dim": "#ecb1ff",
+                        "primary-fixed-dim": "#00dce5",
+                        "on-background": "#e2e2e5",
+                        "on-tertiary-container": "#c0005a",
+                        "secondary-fixed": "#f9d8ff",
+                        "on-primary": "#003739"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "section-margin": "40px",
+                        "card-gap": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Space Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest docked full-width top-0 border-b border-outline-variant flat no shadows flex items-center px-container-padding h-16 w-full z-10 sticky">
+<button class="mr-4 hover:bg-surface-variant transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center text-outline">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary-container dark:text-primary-container tracking-tight">Dashboard</h1>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 p-container-padding flex flex-col gap-6 md:gap-8 w-full max-w-7xl mx-auto">
+<!-- Drill-down Header: StatusSquare -->
+<section class="bg-surface-container border border-outline-variant rounded p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 bg-surface-container-high rounded border border-outline-variant flex items-center justify-center text-primary-container shadow-[0_0_10px_rgba(0,245,255,0.15)]">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+</div>
+<div>
+<h2 class="font-data-mono text-data-mono text-on-surface">prod-key-2</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">API Authentication</p>
+</div>
+</div>
+<!-- Status Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-container/10 border border-primary-container/30 shadow-[0_0_12px_rgba(0,245,255,0.2)]">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,245,255,0.8)]"></span>
+<span class="font-label-caps text-label-caps text-primary-container tracking-wider uppercase">Active</span>
+</div>
+</section>
+<!-- Navigation Tabs -->
+<nav class="flex items-center gap-6 border-b border-outline-variant/50 overflow-x-auto no-scrollbar">
+<!-- Active Tab -->
+<button class="relative pb-3 px-1 flex flex-col items-center justify-center text-primary-container font-label-caps text-label-caps uppercase tracking-widest hover:bg-surface-variant transition-colors active:scale-95 duration-100 group">
+<span class="z-10 relative">Usage</span>
+<!-- Neon Underline Glow -->
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary-container shadow-[0_0_10px_rgba(0,245,255,0.8)]"></div>
+</button>
+<!-- Inactive Tabs -->
+<button class="relative pb-3 px-1 flex flex-col items-center justify-center text-outline font-label-caps text-label-caps uppercase tracking-widest hover:text-on-surface hover:bg-surface-variant transition-colors active:scale-95 duration-100">
+<span>Errors</span>
+</button>
+<button class="relative pb-3 px-1 flex flex-col items-center justify-center text-outline font-label-caps text-label-caps uppercase tracking-widest hover:text-on-surface hover:bg-surface-variant transition-colors active:scale-95 duration-100">
+<span>Cost</span>
+</button>
+</nav>
+<!-- Main Content Grid (Two-column layout) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Line Chart (8 cols) -->
+<div class="md:col-span-8 bg-surface-container rounded border border-outline-variant p-5 flex flex-col gap-4 relative overflow-hidden group">
+<!-- Subtle background texture/grid -->
+<div class="absolute inset-0 pointer-events-none opacity-5" style="background-image: linear-gradient(#3a494a 1px, transparent 1px), linear-gradient(90deg, #3a494a 1px, transparent 1px); background-size: 20px 20px;"></div>
+<header class="flex justify-between items-center z-10 relative">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Calls Over Time (24h)</h3>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="monitoring">monitoring</span>
+</header>
+<!-- Mock Chart Area -->
+<div class="h-48 w-full relative z-10 flex items-end">
+<!-- SVG Chart representation -->
+<svg class="w-full h-full preserve-3d" preserveaspectratio="none" viewbox="0 0 100 40">
+<defs>
+<lineargradient id="chart-glow" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00f5ff" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#00f5ff" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid lines faint -->
+<line stroke="#333537" stroke-dasharray="2,2" stroke-width="0.5" x1="0" x2="100" y1="10" y2="10"></line>
+<line stroke="#333537" stroke-dasharray="2,2" stroke-width="0.5" x1="0" x2="100" y1="20" y2="20"></line>
+<line stroke="#333537" stroke-dasharray="2,2" stroke-width="0.5" x1="0" x2="100" y1="30" y2="30"></line>
+<!-- Area Fill -->
+<polygon fill="url(#chart-glow)" points="0,40 0,25 20,20 40,30 60,15 80,10 100,5 100,40"></polygon>
+<!-- Neon Line -->
+<polyline class="drop-shadow-[0_0_8px_rgba(0,245,255,0.6)]" fill="none" points="0,25 20,20 40,30 60,15 80,10 100,5" stroke="#00f5ff" stroke-width="1.5" style="vector-effect: non-scaling-stroke;"></polyline>
+</svg>
+</div>
+</div>
+<!-- Right Column: Technical Stat Block (4 cols) -->
+<div class="md:col-span-4 bg-surface-container rounded border border-outline-variant p-5 flex flex-col justify-center gap-6 relative group hover:border-outline transition-colors duration-300">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Total Volume</span>
+<div class="font-data-mono text-data-mono text-xl text-on-surface flex items-baseline gap-2">
+                        4,880 <span class="text-sm text-on-surface-variant">calls</span>
+</div>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/30"></div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Reliability</span>
+<div class="font-data-mono text-data-mono text-xl text-primary-container flex items-baseline gap-2 drop-shadow-[0_0_8px_rgba(0,245,255,0.4)]">
+                        96.8% <span class="text-sm text-primary-container/70">success</span>
+</div>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/30"></div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Throughput</span>
+<div class="font-data-mono text-data-mono text-xl text-secondary-container flex items-baseline gap-2 drop-shadow-[0_0_8px_rgba(208,91,255,0.4)]">
+                        58/60 <span class="text-sm text-secondary-container/70">rpm</span>
+</div>
+</div>
+<!-- Subtle corner accent -->
+<div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-outline-variant opacity-50 group-hover:border-primary-container transition-colors duration-300 rounded-tr"></div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav is intentionally suppressed as this is a drill-down/focused task view per Shared Components logic -->
+<style>
+        /* Hide scrollbar for tabs but allow scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

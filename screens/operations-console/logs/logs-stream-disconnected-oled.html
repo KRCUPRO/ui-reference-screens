@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mobile Logs View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#181c23",
+            "surface-container-highest": "#31353d",
+            "surface-variant": "#31353d",
+            "inverse-on-surface": "#2d3039",
+            "error": "#ffb4ab",
+            "primary": "#adc7ff",
+            "error-container": "#93000a",
+            "on-tertiary": "#571e00",
+            "on-tertiary-fixed": "#351000",
+            "on-primary-fixed": "#001a41",
+            "on-primary-fixed-variant": "#004493",
+            "on-error-container": "#ffdad6",
+            "on-primary-container": "#00285b",
+            "surface-tint": "#adc7ff",
+            "on-secondary-fixed": "#351000",
+            "tertiary-fixed": "#ffdbcc",
+            "surface-dim": "#10131b",
+            "secondary": "#ffb693",
+            "primary-container": "#4a8eff",
+            "on-surface-variant": "#c1c6d7",
+            "surface-container-lowest": "#0b0e16",
+            "on-error": "#690005",
+            "tertiary": "#ffb695",
+            "tertiary-fixed-dim": "#ffb695",
+            "surface": "#10131b",
+            "inverse-surface": "#e0e2ed",
+            "on-secondary-container": "#572000",
+            "on-secondary-fixed-variant": "#7a3000",
+            "outline-variant": "#414754",
+            "on-primary": "#002e68",
+            "on-tertiary-fixed-variant": "#7c2e00",
+            "on-tertiary-container": "#4c1a00",
+            "surface-container": "#1c2027",
+            "secondary-fixed-dim": "#ffb693",
+            "surface-container-high": "#272a32",
+            "on-surface": "#e0e2ed",
+            "on-secondary": "#561f00",
+            "secondary-container": "#fe6b00",
+            "inverse-primary": "#005bc0",
+            "on-background": "#e0e2ed",
+            "background": "#10131b",
+            "tertiary-container": "#ef6719",
+            "primary-fixed": "#d8e2ff",
+            "primary-fixed-dim": "#adc7ff",
+            "outline": "#8b90a0",
+            "surface-bright": "#363942",
+            "secondary-fixed": "#ffdbcc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "16px",
+            "gutter": "12px",
+            "unit": "4px",
+            "container-max-width": "1440px"
+          },
+          "fontFamily": {
+            "code-sm": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "code-md": ["JetBrains Mono"],
+            "headline-md": ["Inter"],
+            "label-caps": ["JetBrains Mono"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "code-sm": ["12px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "1.4", "fontWeight": "500" }],
+            "code-md": ["14px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+            "label-caps": ["10px", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body { background-color: #000000; color: #e0e2ed; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col h-screen overflow-hidden antialiased">
+<!-- Danger Banner -->
+<div class="bg-error-container text-on-error-container px-margin py-unit flex items-center justify-center font-body-sm text-body-sm w-full z-50">
+<span class="material-symbols-outlined mr-2" style="font-size: 16px;">warning</span>
+<span>Stream disconnected — retrying in <span class="font-code-sm text-code-sm font-bold">00:05</span></span>
+</div>
+<!-- TopAppBar -->
+<header class="bg-background flex justify-between items-center w-full px-margin h-14 border-b border-surface-container-highest docked full-width top-0 z-40 hidden md:flex">
+<div class="flex items-center gap-gutter text-primary">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<h1 class="font-code-md text-code-md font-bold tracking-tighter text-primary">SYS_CONSOLE_V1</h1>
+</div>
+</header>
+<!-- Mobile Header Fallback -->
+<header class="bg-background flex justify-between items-center w-full px-margin h-14 md:hidden border-b border-surface-container-highest">
+<div class="flex items-center gap-gutter text-primary">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<h1 class="font-code-md text-code-md font-bold tracking-tighter text-primary">SYS_CONSOLE_V1</h1>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden pb-20">
+<!-- Controls (Disabled State) -->
+<div class="px-margin py-gutter flex gap-gutter border-b border-surface-container-highest opacity-50 pointer-events-none bg-[#121212]">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline-variant" style="font-size: 18px;">search</span>
+<input class="w-full bg-[#000000] border border-[#262626] rounded pl-8 pr-2 py-1.5 font-code-sm text-code-sm text-on-surface-variant focus:outline-none" disabled="" placeholder="Search logs..." type="text"/>
+</div>
+<button class="bg-[#000000] border border-[#262626] rounded px-3 py-1.5 font-code-sm text-code-sm flex items-center gap-1 text-on-surface-variant" disabled="">
+        All Levels
+        <span class="material-symbols-outlined text-outline-variant" style="font-size: 16px;">arrow_drop_down</span>
+</button>
+</div>
+<!-- Log Terminal Area -->
+<div class="flex-1 overflow-y-auto bg-[#000000] p-margin font-code-sm text-code-sm flex flex-col gap-1">
+<!-- Example logs -->
+<div class="flex"><span class="text-primary w-20 shrink-0">14:51:01</span><span class="text-surface-tint w-12 shrink-0">INFO</span><span class="text-on-surface opacity-80 break-all">System initialized. Awaiting stream...</span></div>
+<div class="flex"><span class="text-primary w-20 shrink-0">14:51:02</span><span class="text-surface-tint w-12 shrink-0">INFO</span><span class="text-on-surface opacity-80 break-all">Connection established to wss://api.sys.net</span></div>
+<div class="flex"><span class="text-primary w-20 shrink-0">14:51:15</span><span class="text-secondary w-12 shrink-0">WARN</span><span class="text-on-surface opacity-80 break-all">Latency spike detected: 145ms</span></div>
+<div class="flex"><span class="text-primary w-20 shrink-0">14:51:40</span><span class="text-surface-tint w-12 shrink-0">INFO</span><span class="text-on-surface opacity-80 break-all">Batch processing job #402 completed.</span></div>
+<!-- Last frozen entry -->
+<div class="flex mt-2 opacity-50"><span class="text-primary w-20 shrink-0">14:52:03</span><span class="text-surface-tint w-12 shrink-0">INFO</span><span class="text-on-surface break-all">key sk-...22c0 dispatched call #1284</span></div>
+<!-- Faint rule marking disconnection -->
+<hr class="border-[#1a1a1a] my-2 w-full"/>
+<div class="text-outline-variant italic mt-1 text-center font-body-sm text-body-sm opacity-50">Connection lost...</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-background fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t border-surface-container-highest md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" data-icon="vpn_key">vpn_key</span>
+<span class="font-label-caps text-label-caps mt-1">Keys</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary bg-surface-container-low rounded-xl px-3 py-1 border border-primary active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" data-icon="terminal" data-weight="fill" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-label-caps text-label-caps mt-1">Logs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Settings</span>
+</button>
+</nav>
+<!-- Disabled FAB -->
+<div class="fixed bottom-24 right-4 z-40 md:hidden">
+<button class="bg-[#121212] border border-[#262626] text-outline-variant p-3 rounded-full opacity-50 shadow-none pointer-events-none flex items-center justify-center h-12 w-12">
+<span class="material-symbols-outlined">expand_content</span>
+</button>
+</div>
+</body></html>

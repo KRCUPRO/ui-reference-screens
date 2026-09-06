@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Overview - SYSTEM_CORE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-container": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#c8c6c5",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#c4c7c8",
+                        "background": "#000000",
+                        "surface-container-lowest": "#000000",
+                        "on-error": "#690005",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-secondary": "#313030",
+                        "inverse-on-surface": "#303030",
+                        "tertiary": "#ffffff",
+                        "on-tertiary-container": "#636565",
+                        "surface-bright": "#393939",
+                        "on-surface": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-background": "#e2e2e2",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e2e2e2",
+                        "primary-container": "#e2e2e2",
+                        "inverse-primary": "#5d5f5f",
+                        "surface-container-low": "#0b0b0b",
+                        "outline": "#8e9192",
+                        "surface-dim": "#131313",
+                        "surface-variant": "#1a1a1a",
+                        "surface-container-highest": "#353535",
+                        "surface": "#131313",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-tint": "#c6c6c7",
+                        "outline-variant": "#262626",
+                        "on-primary": "#2f3131",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-tertiary": "#2f3131",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "secondary-container": "#474746",
+                        "surface-container": "#1f1f1f",
+                        "primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-container": "#636565",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#b7b5b4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #000000; color: #e2e2e2; }
+        .grid-bg {
+            background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+                              linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+        }
+    </style>
+</head>
+<body class="min-h-screen font-body-md text-body-md antialiased overflow-x-hidden selection:bg-surface-variant selection:text-primary">
+<!-- TopNavBar (Web) -->
+<nav class="hidden md:flex flex-col bg-background border-b border-outline-variant w-full h-auto sticky top-0 z-50">
+<div class="flex justify-between items-center px-margin-desktop w-full h-12">
+<div class="font-label-md text-label-md font-bold tracking-widest text-primary uppercase">
+                SYSTEM_CORE
+            </div>
+<div class="flex items-center h-full space-x-6">
+<a class="h-full flex items-center font-headline-sm text-headline-sm text-primary border-b-2 border-primary hover:text-primary transition-colors pb-[-2px]" href="#">
+                    Overview
+                </a>
+<a class="h-full flex items-center font-headline-sm text-headline-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+                    Analytics
+                </a>
+<a class="h-full flex items-center font-headline-sm text-headline-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+                    Logs
+                </a>
+<a class="h-full flex items-center font-headline-sm text-headline-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+                    Settings
+                </a>
+</div>
+<div class="flex items-center space-x-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Banner -->
+<div class="w-full bg-[#3a1a1a] border-b border-[#f87171] text-[#f87171] px-margin-mobile md:px-margin-desktop py-3 flex items-center justify-center font-label-md text-label-md sticky top-0 md:top-12 z-40">
+<span class="material-symbols-outlined mr-2 text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+        KEY POOL DEGRADED — 2 OF 5 KEYS UNAVAILABLE
+    </div>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop py-6 md:py-8 pb-32 md:pb-12 space-y-gutter">
+<!-- Header Row -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight">System Overview</h1>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1 uppercase opacity-70">Real-time Telemetry</p>
+</div>
+<div class="flex items-center space-x-3 bg-surface-container-low border border-outline-variant rounded-DEFAULT px-4 py-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+</span>
+<span class="font-label-md text-label-md text-primary uppercase">Service Running</span>
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Status & Stats -->
+<div class="col-span-1 md:col-span-8 flex flex-col gap-gutter">
+<!-- Keys Status Section -->
+<section class="bg-surface-container-low border border-outline-variant p-container-padding flex flex-col gap-4">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase border-b border-outline-variant pb-2">Node Key Status</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+<!-- Chip: prod-01 -->
+<div class="bg-[#1a0f0f] border border-[#f87171] p-3 flex flex-col items-center justify-center gap-2 relative overflow-hidden group">
+<div class="absolute inset-0 bg-[#f87171] opacity-10 group-hover:opacity-20 transition-opacity"></div>
+<span class="material-symbols-outlined text-[#f87171] text-[24px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-sm text-label-sm text-[#f87171]">prod-01</span>
+</div>
+<!-- Chip: prod-02 -->
+<div class="bg-[#1a0f0f] border border-[#f87171] p-3 flex flex-col items-center justify-center gap-2 relative overflow-hidden group">
+<div class="absolute inset-0 bg-[#f87171] opacity-10 group-hover:opacity-20 transition-opacity"></div>
+<span class="material-symbols-outlined text-[#f87171] text-[24px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-sm text-label-sm text-[#f87171]">prod-02</span>
+</div>
+<!-- Chip: eu-mirror -->
+<div class="bg-[#1a180f] border border-amber-500 p-3 flex flex-col items-center justify-center gap-2 relative overflow-hidden group">
+<div class="absolute inset-0 bg-amber-500 opacity-10 group-hover:opacity-20 transition-opacity"></div>
+<span class="material-symbols-outlined text-amber-500 text-[24px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-sm text-label-sm text-amber-500">eu-mirror</span>
+</div>
+<!-- Chip: asia-node -->
+<div class="bg-[#0f1a14] border border-emerald-500 p-3 flex flex-col items-center justify-center gap-2 relative overflow-hidden group">
+<div class="absolute inset-0 bg-emerald-500 opacity-10 group-hover:opacity-20 transition-opacity"></div>
+<span class="material-symbols-outlined text-emerald-500 text-[24px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm text-emerald-500">asia-node</span>
+</div>
+<!-- Chip: legacy-05 -->
+<div class="bg-[#0f1a14] border border-emerald-500 p-3 flex flex-col items-center justify-center gap-2 relative overflow-hidden group">
+<div class="absolute inset-0 bg-emerald-500 opacity-10 group-hover:opacity-20 transition-opacity"></div>
+<span class="material-symbols-outlined text-emerald-500 text-[24px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm text-emerald-500">legacy-05</span>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Stat 1 -->
+<div class="bg-surface-container-low border border-outline-variant p-container-padding flex flex-col justify-between h-32 hover:bg-[#111] transition-colors">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Calls Today</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">512</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">show_chart</span>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-low border border-outline-variant p-container-padding flex flex-col justify-between h-32 hover:bg-[#111] transition-colors relative overflow-hidden">
+<div class="absolute right-0 bottom-0 opacity-5">
+<span class="material-symbols-outlined text-[100px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase z-10">Success Rate</span>
+<div class="flex flex-col z-10">
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-emerald-500">71.3%</span>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-low border border-outline-variant p-container-padding flex flex-col justify-between h-32 hover:bg-[#111] transition-colors">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Trend</span>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1 text-[#f87171]">
+<span class="material-symbols-outlined text-[18px]">trending_down</span>
+<span class="font-headline-sm text-headline-sm">Declining</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#f87171] opacity-80">Down from yesterday's 95%</span>
+</div>
+</div>
+</section>
+<!-- Additional Chart/List Area to pad layout -->
+<section class="bg-surface-container-low border border-outline-variant p-container-padding h-64 flex flex-col relative overflow-hidden">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase border-b border-outline-variant pb-2 mb-4">Request Latency (ms)</h2>
+<div class="flex-1 w-full flex items-end gap-1 px-2 pb-2">
+<!-- Synthetic Bar Chart -->
+<div class="w-full bg-[#1a1a1a] h-[20%] border-t border-[#262626]"></div>
+<div class="w-full bg-[#1a1a1a] h-[25%] border-t border-[#262626]"></div>
+<div class="w-full bg-[#1a1a1a] h-[15%] border-t border-[#262626]"></div>
+<div class="w-full bg-amber-900 h-[60%] border-t border-amber-500"></div>
+<div class="w-full bg-[#3a1a1a] h-[90%] border-t border-[#f87171] animate-pulse"></div>
+<div class="w-full bg-[#3a1a1a] h-[85%] border-t border-[#f87171]"></div>
+<div class="w-full bg-amber-900 h-[50%] border-t border-amber-500"></div>
+<div class="w-full bg-[#1a1a1a] h-[30%] border-t border-[#262626]"></div>
+<div class="w-full bg-[#1a1a1a] h-[20%] border-t border-[#262626]"></div>
+</div>
+</section>
+</div>
+<!-- Right Column: Meter & Secondary Info -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-gutter">
+<!-- RPM Headroom Meter -->
+<section class="bg-surface-container-low border border-outline-variant p-container-padding flex flex-col gap-6 relative overflow-hidden h-64 md:h-auto">
+<!-- Subtle background grid -->
+<div class="absolute inset-0 grid-bg opacity-30"></div>
+<div class="relative z-10 flex justify-between items-start">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase">RPM Headroom</h2>
+<span class="material-symbols-outlined text-on-surface-variant">speed</span>
+</div>
+<div class="relative z-10 flex-1 flex flex-col justify-center items-center py-4">
+<!-- Circular Meter Visual (CSS approximate) -->
+<div class="relative w-40 h-40 flex items-center justify-center">
+<!-- Background Track -->
+<svg class="absolute w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="#1a1a1a" stroke-dasharray="282.7" stroke-dashoffset="0" stroke-width="8"></circle>
+<!-- Foreground Track (Danger Tint) -->
+<circle class="transition-all duration-1000 ease-in-out" cx="50" cy="50" fill="none" r="45" stroke="#f87171" stroke-dasharray="282.7" stroke-dashoffset="11.3" stroke-width="8"></circle>
+</svg>
+<!-- Inner Content -->
+<div class="flex flex-col items-center justify-center text-center">
+<span class="font-headline-lg text-headline-lg text-[#f87171] leading-none">480</span>
+<div class="w-8 h-px bg-outline-variant my-2"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">500 MAX</span>
+</div>
+</div>
+</div>
+<div class="relative z-10 text-center">
+<span class="font-label-sm text-label-sm text-[#f87171] uppercase tracking-widest bg-[#3a1a1a] px-2 py-1 rounded border border-[#f87171]">Critical Capacity</span>
+</div>
+</section>
+<!-- Recent Events Log Snippet -->
+<section class="bg-surface-container-low border border-outline-variant flex flex-col h-full min-h-[200px]">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-[#0b0b0b]">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase">System Log</h2>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">View All</a>
+</div>
+<ul class="flex flex-col divide-y divide-outline-variant font-label-sm text-label-sm">
+<li class="p-3 hover:bg-[#111] transition-colors flex gap-3">
+<span class="text-[#f87171] opacity-70 whitespace-nowrap">[10:42:05]</span>
+<span class="text-on-surface truncate">Connection timeout on prod-01</span>
+</li>
+<li class="p-3 hover:bg-[#111] transition-colors flex gap-3">
+<span class="text-[#f87171] opacity-70 whitespace-nowrap">[10:41:12]</span>
+<span class="text-on-surface truncate">prod-02 failed heartbeat check</span>
+</li>
+<li class="p-3 hover:bg-[#111] transition-colors flex gap-3">
+<span class="text-amber-500 opacity-70 whitespace-nowrap">[10:35:00]</span>
+<span class="text-on-surface truncate">eu-mirror latency spike &gt; 500ms</span>
+</li>
+<li class="p-3 hover:bg-[#111] transition-colors flex gap-3">
+<span class="text-on-surface-variant opacity-70 whitespace-nowrap">[10:30:00]</span>
+<span class="text-on-surface truncate">Routine sync completed</span>
+</li>
+</ul>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-lowest border-t border-outline-variant">
+<button class="flex flex-col items-center justify-center text-primary w-full h-full hover:bg-surface-container-low active:scale-95 transition-all">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm">Overview</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-full h-full hover:bg-surface-container-low active:scale-95 transition-all">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">analytics</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-full h-full hover:bg-surface-container-low active:scale-95 transition-all">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-label-sm text-label-sm">Logs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-full h-full hover:bg-surface-container-low active:scale-95 transition-all">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+</body></html>

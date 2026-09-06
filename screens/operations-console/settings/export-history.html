@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>API OPS - Exports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-surface": "#e8dfee",
+                "tertiary-fixed-dim": "#ffb784",
+                "on-primary-container": "#ede0ff",
+                "on-primary": "#3f008e",
+                "on-primary-fixed-variant": "#5a00c6",
+                "tertiary-container": "#a15100",
+                "surface-container-low": "#1d1a24",
+                "on-secondary-container": "#b7b5b4",
+                "surface": "#15121b",
+                "on-tertiary-fixed-variant": "#713700",
+                "on-secondary": "#303030",
+                "on-tertiary-fixed": "#301400",
+                "outline": "#958da1",
+                "on-tertiary": "#4f2500",
+                "primary-fixed": "#eaddff",
+                "on-surface-variant": "#ccc3d8",
+                "surface-bright": "#3c3742",
+                "secondary": "#c8c6c5",
+                "secondary-container": "#474746",
+                "on-error": "#690005",
+                "on-tertiary-container": "#ffe0cd",
+                "secondary-fixed": "#e5e2e1",
+                "surface-container": "#221e28",
+                "primary": "#d2bbff",
+                "on-background": "#e8dfee",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-highest": "#37333e",
+                "tertiary": "#ffb784",
+                "surface-variant": "#37333e",
+                "inverse-on-surface": "#332f39",
+                "primary-container": "#7c3aed",
+                "surface-tint": "#d2bbff",
+                "surface-container-lowest": "#100d16",
+                "surface-dim": "#15121b",
+                "on-secondary-fixed-variant": "#474746",
+                "error-container": "#93000a",
+                "outline-variant": "#4a4455",
+                "on-primary-fixed": "#25005a",
+                "tertiary-fixed": "#ffdcc6",
+                "on-secondary-fixed": "#1b1b1c",
+                "inverse-primary": "#732ee4",
+                "error": "#ffb4ab",
+                "background": "#15121b",
+                "primary-fixed-dim": "#d2bbff",
+                "inverse-surface": "#e8dfee",
+                "surface-container-high": "#2c2833",
+                "on-error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "unit": "4px",
+                "gutter": "12px",
+                "container-max": "100%",
+                "margin": "16px"
+              },
+              "fontFamily": {
+                "headline-lg": [
+                  "Inter"
+                ],
+                "data-sm": [
+                  "JetBrains Mono"
+                ],
+                "data-lg": [
+                  "JetBrains Mono"
+                ],
+                "headline-md": [
+                  "Inter"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "label-caps": [
+                  "Inter"
+                ],
+                "body-sm": [
+                  "Inter"
+                ]
+              },
+              "fontSize": {
+                "headline-lg": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "data-sm": [
+                  "11px",
+                  {
+                    "lineHeight": "14px",
+                    "letterSpacing": "0.02em",
+                    "fontWeight": "400"
+                  }
+                ],
+                "data-lg": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "headline-md": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "label-caps": [
+                  "10px",
+                  {
+                    "lineHeight": "12px",
+                    "letterSpacing": "0.08em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e8dfee;
+        }
+        .bg-base { background-color: #0a0a0a; }
+        .bg-level-1 { background-color: #0a0a0a; border: 1px solid #1f1f1f; }
+        .border-base { border-color: #1f1f1f; }
+        .hover-level-2:hover { background-color: #161616; }
+        .focus-ring:focus-within { border-color: #7c3aed; }
+        
+        /* Thin Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #15121b; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a4455; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #958da1; 
+        }
+      </style>
+</head>
+<body class="font-body-md text-body-md h-screen overflow-hidden flex bg-base">
+<!-- SideNavBar -->
+<nav class="bg-background dark:bg-background h-screen w-64 border-r border-outline-variant fixed left-0 top-0 flex flex-col z-50 flat no shadows">
+<div class="px-gutter py-4 border-b border-outline-variant">
+<h1 class="font-label-caps text-label-caps tracking-widest text-primary dark:text-primary">API OPS</h1>
+<p class="font-data-sm text-data-sm text-on-surface-variant mt-1 uppercase">LOCAL CONSOLE</p>
+</div>
+<div class="flex-1 overflow-y-auto py-2">
+<ul class="space-y-1">
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-caps text-label-caps">Overview</span>
+</a>
+</li>
+<li>
+<a class="bg-surface-variant dark:bg-surface-variant text-primary border-l-2 border-primary px-4 py-3 flex items-center gap-3 cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">vpn_key</span>
+<span class="font-label-caps text-label-caps">Keys</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">monitor</span>
+<span class="font-label-caps text-label-caps">Screens</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">palette</span>
+<span class="font-label-caps text-label-caps">Design</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-label-caps text-label-caps">MCP</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">smart_toy</span>
+<span class="font-label-caps text-label-caps">Playground</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">history_edu</span>
+<span class="font-label-caps text-label-caps">Logs</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 cursor-pointer active:bg-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="px-4 py-4 border-t border-outline-variant flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-variant rounded-sm border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 16px;">person</span>
+</div>
+<div>
+<p class="font-data-sm text-data-sm text-on-surface">System Operator</p>
+</div>
+</div>
+</nav>
+<!-- TopAppBar & Main Content Area -->
+<div class="flex-1 ml-64 flex flex-col h-screen">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background h-14 flex justify-between items-center px-gutter border-b border-outline-variant z-40 flat no shadows flex-shrink-0">
+<div class="flex items-center gap-4">
+<span class="font-data-lg text-data-lg text-on-surface font-bold">OPERATIONS_CONSOLE_V1</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 border-r border-outline-variant pr-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer p-1">
+<span class="material-symbols-outlined" style="font-size: 20px;">hub</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer p-1">
+<span class="material-symbols-outlined" style="font-size: 20px;">sensors</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer p-1">
+<span class="material-symbols-outlined" style="font-size: 20px;">memory</span>
+</button>
+</div>
+<button class="bg-primary-container hover:bg-primary text-on-primary-container px-3 py-1.5 font-label-caps text-label-caps flex items-center gap-2 transition-colors">
+<span>CREATE KEY</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-gutter lg:p-margin">
+<div class="max-w-7xl mx-auto w-full">
+<!-- Header -->
+<div class="flex justify-between items-end border-b border-base pb-3 mb-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Exports</h2>
+<p class="font-data-sm text-data-sm text-on-surface-variant mt-1">Analytics data export history and downloads.</p>
+</div>
+<button class="border border-base hover:bg-surface-variant text-on-surface px-4 py-2 font-label-caps text-label-caps flex items-center gap-2 transition-colors hover-level-2">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+                        New export
+                    </button>
+</div>
+<!-- Table -->
+<div class="bg-level-1 overflow-hidden w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-base bg-surface-container-lowest">
+<th class="p-3 font-label-caps text-label-caps text-on-surface-variant uppercase font-normal w-1/4">Date</th>
+<th class="p-3 font-label-caps text-label-caps text-on-surface-variant uppercase font-normal w-1/4">Range</th>
+<th class="p-3 font-label-caps text-label-caps text-on-surface-variant uppercase font-normal w-1/6">Format</th>
+<th class="p-3 font-label-caps text-label-caps text-on-surface-variant uppercase font-normal w-1/6 text-right">Size</th>
+<th class="p-3 font-label-caps text-label-caps text-on-surface-variant uppercase font-normal w-1/6 text-right">Link</th>
+</tr>
+</thead>
+<tbody class="font-data-sm text-data-sm text-on-surface">
+<tr class="border-b border-base hover-level-2 transition-colors">
+<td class="p-3">Mar 1, 09:12</td>
+<td class="p-3 text-on-surface-variant">Feb 1–28</td>
+<td class="p-3"><span class="bg-surface-variant px-2 py-0.5 border border-base">CSV</span></td>
+<td class="p-3 text-right">412 KB</td>
+<td class="p-3 text-right">
+<a class="text-primary hover:text-primary-fixed underline decoration-primary/30 underline-offset-4" href="#">Download</a>
+</td>
+</tr>
+<tr class="border-b border-base hover-level-2 transition-colors">
+<td class="p-3">Feb 15, 18:04</td>
+<td class="p-3 text-on-surface-variant">Jan 1–31</td>
+<td class="p-3"><span class="bg-surface-variant px-2 py-0.5 border border-base">JSON</span></td>
+<td class="p-3 text-right">1.1 MB</td>
+<td class="p-3 text-right">
+<a class="text-primary hover:text-primary-fixed underline decoration-primary/30 underline-offset-4" href="#">Download</a>
+</td>
+</tr>
+<tr class="border-b border-base hover-level-2 transition-colors">
+<td class="p-3">Jan 2, 11:45</td>
+<td class="p-3 text-on-surface-variant">Dec 1–31 (Prev Year)</td>
+<td class="p-3"><span class="bg-surface-variant px-2 py-0.5 border border-base">CSV</span></td>
+<td class="p-3 text-right">890 KB</td>
+<td class="p-3 text-right">
+<a class="text-primary hover:text-primary-fixed underline decoration-primary/30 underline-offset-4" href="#">Download</a>
+</td>
+</tr>
+<tr class="border-b border-base hover-level-2 transition-colors">
+<td class="p-3">Dec 15, 14:22</td>
+<td class="p-3 text-on-surface-variant">Nov 1–30</td>
+<td class="p-3"><span class="bg-surface-variant px-2 py-0.5 border border-base">CSV</span></td>
+<td class="p-3 text-right">380 KB</td>
+<td class="p-3 text-right">
+<span class="text-on-surface-variant opacity-50 cursor-not-allowed">Expired</span>
+</td>
+</tr>
+<tr class="border-b border-base hover-level-2 transition-colors">
+<td class="p-3">Nov 5, 08:30</td>
+<td class="p-3 text-on-surface-variant">Oct 1–31</td>
+<td class="p-3"><span class="bg-surface-variant px-2 py-0.5 border border-base">JSON</span></td>
+<td class="p-3 text-right">945 KB</td>
+<td class="p-3 text-right">
+<span class="text-on-surface-variant opacity-50 cursor-not-allowed">Expired</span>
+</td>
+</tr>
+<tr class="hover-level-2 transition-colors">
+<td class="p-3">Oct 12, 16:10</td>
+<td class="p-3 text-on-surface-variant">Q3 Analytics</td>
+<td class="p-3"><span class="bg-surface-variant px-2 py-0.5 border border-base">PARQUET</span></td>
+<td class="p-3 text-right">4.2 MB</td>
+<td class="p-3 text-right">
+<span class="text-on-surface-variant opacity-50 cursor-not-allowed">Expired</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SYS_CONSOLE - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Geist:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#11131d",
+                        "outline-variant": "#3a494b",
+                        "surface-variant": "#333440",
+                        "surface": "#11131d",
+                        "primary-fixed-dim": "#00dbe7",
+                        "on-error": "#690005",
+                        "secondary-container": "#fe00fe",
+                        "primary-fixed": "#74f5ff",
+                        "surface-dim": "#11131d",
+                        "secondary-fixed-dim": "#ffabf3",
+                        "inverse-primary": "#00696f",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#380038",
+                        "on-tertiary": "#3b2f00",
+                        "inverse-on-surface": "#2f303b",
+                        "inverse-surface": "#e2e1f0",
+                        "tertiary-container": "#fed83a",
+                        "tertiary": "#fff6e4",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#00f2ff",
+                        "on-primary": "#00363a",
+                        "secondary-fixed": "#ffd7f5",
+                        "on-surface-variant": "#b9cacb",
+                        "surface-container-highest": "#333440",
+                        "tertiary-fixed-dim": "#e8c423",
+                        "surface-container-low": "#1a1b26",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#282934",
+                        "secondary": "#ffabf3",
+                        "primary": "#e1fdff",
+                        "surface-container": "#1e1f2a",
+                        "on-primary-fixed": "#002022",
+                        "surface-container-lowest": "#0c0d18",
+                        "on-secondary-fixed-variant": "#810081",
+                        "on-primary-fixed-variant": "#004f54",
+                        "tertiary-fixed": "#ffe173",
+                        "surface-bright": "#373844",
+                        "on-secondary": "#5b005b",
+                        "on-tertiary-container": "#725e00",
+                        "on-background": "#e2e1f0",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-surface": "#e2e1f0",
+                        "on-primary-container": "#006a71",
+                        "surface-tint": "#00dbe7",
+                        "on-secondary-container": "#500050",
+                        "outline": "#849495"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-width": "1280px",
+                        "base-unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin-desktop": "40px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0a0a0f; }
+        .neon-border { border: 1px solid #1f1f2e; }
+        .neon-border:hover, .neon-border:focus-within {
+            border-color: #00f2ff;
+            box-shadow: 0 0 4px 0 rgba(0, 242, 255, 0.2);
+        }
+        .neon-text-glow {
+            text-shadow: 0 0 8px rgba(0, 219, 231, 0.5);
+        }
+        
+        /* Custom Toggle Switch Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #00f2ff;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: rgba(0, 242, 255, 0.2);
+            border-color: #00f2ff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-lowest h-screen w-64 flex flex-col border-r border-outline-variant fixed left-0 top-0 py-stack-lg z-50">
+<div class="px-gutter mb-stack-lg flex flex-col gap-1">
+<h1 class="font-headline-lg text-headline-lg font-black text-primary-fixed-dim dark:text-primary-fixed-dim tracking-tighter neon-text-glow">CYBER_OS</h1>
+<span class="font-label-sm text-label-sm text-outline-variant">v4.2.0-STABLE</span>
+</div>
+<div class="flex-1 px-stack-sm flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors hover:bg-primary-fixed-dim/5 hover:shadow-[0_0_8px_rgba(0,219,231,0.2)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors hover:bg-primary-fixed-dim/5 hover:shadow-[0_0_8px_rgba(0,219,231,0.2)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">MCP</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors hover:bg-primary-fixed-dim/5 hover:shadow-[0_0_8px_rgba(0,219,231,0.2)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">database</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Logs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-fixed-dim border-l-2 border-primary-fixed-dim bg-primary-fixed-dim/10 font-bold scale-95 transition-transform duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Settings</span>
+</a>
+</div>
+<div class="px-gutter mt-auto flex flex-col gap-4">
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-lg border border-outline-variant">
+<div class="w-8 h-8 rounded bg-surface-variant flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">admin_panel_settings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface truncate w-32">System Administrator</span>
+</div>
+</div>
+<button class="w-full py-3 bg-transparent border border-primary-fixed-dim text-primary-fixed-dim font-label-md text-label-md uppercase tracking-widest hover:bg-primary-fixed-dim/10 transition-colors flex items-center justify-center gap-2 rounded">
+<span class="material-symbols-outlined text-sm">upload</span> INITIATE_UP_LINK
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col ml-64 min-h-screen relative overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant flex justify-between items-center w-full h-16 pl-gutter pr-margin-desktop sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary-fixed-dim neon-text-glow hidden md:block">SYS_CONSOLE</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group hidden md:flex">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary-fixed-dim transition-colors">search</span>
+<input class="bg-[#050508] border border-outline-variant text-on-surface font-label-sm text-label-sm rounded px-10 py-2 w-64 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all placeholder:text-outline-variant" placeholder="QUERY_SYSTEM..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary-fixed hover:bg-surface-variant/50 rounded transition-all active:opacity-80 duration-100 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary-fixed hover:bg-surface-variant/50 rounded transition-all active:opacity-80 duration-100 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bolt</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary-fixed hover:bg-surface-variant/50 rounded transition-all active:opacity-80 duration-100 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 p-gutter md:p-margin-desktop max-w-[1000px] w-full mx-auto flex flex-col gap-stack-lg z-10 relative">
+<!-- Header -->
+<div class="flex flex-col gap-2 border-b border-outline-variant pb-stack-md">
+<h2 class="font-headline-xl text-headline-xl text-on-surface neon-text-glow">Settings</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Configure system parameters and operational directives.</p>
+</div>
+<!-- Stale Cache Warning Banner -->
+<div class="bg-tertiary-container/10 border border-tertiary-fixed-dim rounded-lg p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mt-0.5" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h4 class="font-label-md text-label-md text-tertiary-fixed-dim uppercase tracking-widest mb-1">Stale Data Detected</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Backup status last confirmed 2026-08-29 — could not verify current state, showing cached info.</p>
+</div>
+</div>
+<button class="shrink-0 font-label-md text-label-md text-tertiary-fixed-dim hover:text-tertiary-fixed uppercase tracking-widest underline underline-offset-4 transition-colors">
+                    Check Now
+                </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Theme & Toggles Section (Col span 8) -->
+<div class="md:col-span-8 flex flex-col gap-stack-md">
+<!-- Theme Picker Card -->
+<div class="bg-[#12121a] rounded-lg p-6 neon-border flex flex-col gap-6">
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-primary-fixed-dim mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">palette</span> Interface Theme
+                            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select visual operational mode.</p>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="theme" type="radio" value="dark"/>
+<div class="h-24 rounded border border-outline-variant bg-[#0a0a0f] flex items-center justify-center peer-checked:border-primary-container peer-checked:shadow-[0_0_8px_rgba(0,242,255,0.2)] transition-all group-hover:border-primary-fixed-dim/50">
+<span class="font-label-sm text-label-sm text-on-surface-variant peer-checked:text-primary-container">DARK</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" disabled="" name="theme" type="radio" value="light"/>
+<div class="h-24 rounded border border-outline-variant bg-[#e2e1f0] flex items-center justify-center opacity-50 cursor-not-allowed relative overflow-hidden">
+<div class="absolute inset-0 bg-background/80 flex items-center justify-center backdrop-blur-[2px]">
+<span class="material-symbols-outlined text-error text-xl">block</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-background">LIGHT</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" name="theme" type="radio" value="cyber"/>
+<div class="h-24 rounded border border-primary-container shadow-[0_0_8px_rgba(0,242,255,0.2)] bg-[#12121a] flex flex-col items-center justify-center relative overflow-hidden group-hover:border-primary-fixed">
+<div class="absolute top-0 w-full h-1 bg-gradient-to-r from-primary-container to-secondary-container"></div>
+<span class="font-label-sm text-label-sm text-primary-container neon-text-glow">CYBER</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Service Toggles Card -->
+<div class="bg-[#12121a] rounded-lg p-6 neon-border flex flex-col gap-6">
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-primary-fixed-dim mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">settings_power</span> Core Services
+                            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage background daemon processes.</p>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between py-3 border-b border-outline-variant hover:bg-primary-fixed-dim/5 transition-colors px-2 -mx-2 rounded">
+<div>
+<div class="font-label-md text-label-md text-on-surface mb-1">System Online</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Allow incoming external connections.</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-primary-container border-4 border-[#12121a] appearance-none cursor-pointer z-10 top-0 transition-all duration-300 right-0" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-primary-container/20 border border-primary-container cursor-pointer transition-all duration-300" for="toggle1"></label>
+</div>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between py-3 hover:bg-primary-fixed-dim/5 transition-colors px-2 -mx-2 rounded">
+<div>
+<div class="font-label-md text-label-md text-on-surface mb-1">Auto-refresh Interface</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Poll server for real-time telemetry.</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-outline-variant border-4 border-[#12121a] appearance-none cursor-pointer z-10 top-0 transition-all duration-300 left-0 checked:right-0 checked:left-auto" id="toggle2" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant border border-outline-variant cursor-pointer transition-all duration-300" for="toggle2"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Backup & Danger Section (Col span 4) -->
+<div class="md:col-span-4 flex flex-col gap-stack-md">
+<!-- Backup Card (Cached State) -->
+<div class="bg-[#12121a] rounded-lg p-6 border border-tertiary-fixed-dim/50 shadow-[0_0_15px_rgba(232,196,35,0.05)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-tertiary-fixed-dim/20 to-transparent -mr-8 -mt-8 rotate-45 pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-tertiary-fixed-dim flex items-center gap-2 opacity-80">
+<span class="material-symbols-outlined text-sm">cloud_sync</span> Backup State
+                            </h3>
+<span class="px-2 py-0.5 rounded border border-tertiary-fixed-dim text-tertiary-fixed-dim font-label-sm text-[10px] uppercase tracking-wider bg-tertiary-container/10">Cached</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-6 pb-4 border-b border-outline-variant border-dashed">
+                            Last export:<br/>
+<span class="text-on-surface">2026-08-29 09:02 UTC</span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center group-hover:bg-tertiary-fixed-dim/5 p-1 -mx-1 rounded transition-colors">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Keys securely vaulted</span>
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim animate-pulse"></div>
+<span class="font-label-md text-label-md text-on-surface">3</span>
+</div>
+</div>
+<div class="flex justify-between items-center group-hover:bg-tertiary-fixed-dim/5 p-1 -mx-1 rounded transition-colors">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Design systems tracked</span>
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim animate-pulse"></div>
+<span class="font-label-md text-label-md text-on-surface">12</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Danger Zone -->
+<div class="bg-error-container/5 rounded-lg p-6 border border-error-container/30 mt-auto">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-error mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">warning</span> Danger Zone
+                        </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Destructive actions require confirmation overrides.</p>
+<div class="flex flex-col gap-3">
+<button class="w-full py-2.5 bg-transparent border border-error/50 text-error font-label-md text-label-md uppercase tracking-widest hover:bg-error/10 hover:border-error transition-all rounded flex items-center justify-center gap-2 opacity-80 hover:opacity-100">
+                                Factory Reset
+                            </button>
+<button class="w-full py-2.5 bg-error/10 border border-error text-error font-label-md text-label-md uppercase tracking-widest hover:bg-error hover:text-on-error transition-all rounded flex items-center justify-center gap-2 shadow-[0_0_10px_rgba(255,180,171,0.1)] hover:shadow-[0_0_15px_rgba(255,180,171,0.3)]">
+<span class="material-symbols-outlined text-sm">delete_forever</span> Delete All Data
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

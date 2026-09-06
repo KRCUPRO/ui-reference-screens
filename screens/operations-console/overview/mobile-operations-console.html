@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Ops Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-secondary": "#131e8c",
+                "primary-fixed-dim": "#7bd0ff",
+                "inverse-on-surface": "#283044",
+                "secondary-fixed": "#e0e0ff",
+                "on-primary": "#00354a",
+                "surface-tint": "#7bd0ff",
+                "surface-variant": "#2d3449",
+                "primary-container": "#38bdf8",
+                "on-secondary-container": "#a8afff",
+                "surface-container-lowest": "#060e20",
+                "on-tertiary": "#472a00",
+                "on-error-container": "#ffdad6",
+                "on-tertiary-fixed": "#2a1700",
+                "surface-container-low": "#131b2e",
+                "background": "#0b1326",
+                "on-error": "#690005",
+                "on-surface": "#dae2fd",
+                "on-secondary-fixed": "#000767",
+                "tertiary": "#ffc176",
+                "outline-variant": "#3e484f",
+                "on-primary-fixed": "#001e2c",
+                "tertiary-fixed-dim": "#ffb960",
+                "surface-container-highest": "#2d3449",
+                "inverse-surface": "#dae2fd",
+                "surface": "#0b1326",
+                "surface-dim": "#0b1326",
+                "on-surface-variant": "#bdc8d1",
+                "surface-container": "#171f33",
+                "error": "#ffb4ab",
+                "surface-container-high": "#222a3d",
+                "surface-bright": "#31394d",
+                "on-tertiary-fixed-variant": "#653e00",
+                "secondary": "#bdc2ff",
+                "error-container": "#93000a",
+                "on-background": "#dae2fd",
+                "tertiary-container": "#f1a02b",
+                "inverse-primary": "#00668a",
+                "primary-fixed": "#c4e7ff",
+                "secondary-fixed-dim": "#bdc2ff",
+                "primary": "#8ed5ff",
+                "tertiary-fixed": "#ffddb8",
+                "secondary-container": "#2f3aa3",
+                "on-primary-fixed-variant": "#004c69",
+                "on-tertiary-container": "#613b00",
+                "outline": "#87929a",
+                "on-secondary-fixed-variant": "#2f3aa3",
+                "on-primary-container": "#004965"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "margin-mobile": "1rem",
+                "gutter-md": "0.75rem",
+                "stack-gap": "0.5rem",
+                "row-gap-tight": "0.25rem",
+                "unit": "4px"
+              },
+              "fontFamily": {
+                "body-md": ["Inter"],
+                "headline-sm": ["Inter"],
+                "label-caps": ["Inter"],
+                "data-md": ["JetBrains Mono"],
+                "data-lg": ["JetBrains Mono"],
+                "data-sm": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "700"}],
+                "data-md": ["14px", {"lineHeight": "18px", "fontWeight": "500"}],
+                "data-lg": ["20px", {"lineHeight": "24px", "fontWeight": "600"}],
+                "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { background-color: #020617; } /* Level 0 deep background */
+        .scan-line-container {
+            border: 1px solid #1E293B; /* Level 1 card boundary */
+            background-color: #0F172A; /* Level 1 container */
+        }
+        .separator { border-bottom: 1px solid #1E293B; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background font-body-md h-screen flex flex-col overflow-hidden max-w-[390px] mx-auto relative shadow-2xl">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary font-headline-sm text-headline-sm fixed top-0 w-full max-w-[390px] border-b border-outline-variant dark:border-outline-variant transition-colors duration-150 flex justify-between items-center h-12 px-margin-mobile z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary">terminal</span>
+<span class="font-label-caps text-label-caps tracking-widest text-primary dark:text-primary">OPS_CONSOLE_V1</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">RUNNING</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto mt-12 mb-16 p-margin-mobile space-y-stack-gap">
+<!-- Metric Stack -->
+<div class="scan-line-container rounded-lg flex flex-col">
+<div class="flex justify-between items-center py-2 px-3 separator">
+<span class="font-label-caps text-label-caps text-on-surface-variant">CALLS TODAY</span>
+<span class="font-data-lg text-data-lg text-on-surface">1,284</span>
+</div>
+<div class="flex justify-between items-center py-2 px-3 separator">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SUCCESS RATE</span>
+<span class="font-data-lg text-data-lg text-primary-container">96.2%</span>
+</div>
+<div class="flex justify-between items-center py-2 px-3">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ACTIVE KEYS</span>
+<span class="font-data-lg text-data-lg text-tertiary">3 / 5</span>
+</div>
+</div>
+<!-- Health Meter -->
+<div class="scan-line-container rounded-lg p-3 flex flex-col gap-row-gap-tight">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">KEY-POOL HEALTH</span>
+<span class="font-data-sm text-data-sm text-on-surface">82%</span>
+</div>
+<div class="w-full h-1 bg-[#1E293B] rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[82%]"></div>
+</div>
+</div>
+<!-- Recent Screens -->
+<div class="space-y-stack-gap pt-stack-gap">
+<span class="font-label-caps text-label-caps text-on-surface-variant px-1">RECENT SCREENS</span>
+<div class="scan-line-container rounded-lg p-2 flex items-center gap-3">
+<div class="w-16 h-12 bg-surface-container-high rounded overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-70 mix-blend-screen" data-alt="A dark mode UI thumbnail showing a main dashboard with intricate line graphs and metric cards. High tech, technical slate palette, glowing blue accents, high density information layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE3WVhcHIOcjfYmpCm5Cei3DSx5lRDXyC3lW8RbupOZmJLe2BbHjNKYks_74tgQv0RwiQk-9pR65Qn383rQnNqQAJjBc0LznpJMn_c4XXBzBMlVxcPLLUNmp7Cmb_R6xYWO3n--hYtaoKFgL-9itjZ7ZOv9qSZSA1M5uy915SMBtf0-HLcWtHaN2vurfi9BtRY06Ed4NUaYhM3KzKjgkknke49VtQibzDGYaafnZ-OD2NpCGvvhb0fyK_wZetuDmmCVM-mhoGXkC8"/>
+</div>
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-on-surface">scr_main_dash</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">Last accessed: 2m ago</span>
+</div>
+</div>
+<div class="scan-line-container rounded-lg p-2 flex items-center gap-3">
+<div class="w-16 h-12 bg-surface-container-high rounded overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-70 mix-blend-screen" data-alt="A dark mode UI thumbnail showing secondary metrics v2 screen with stacked horizontal bar charts and dense data tables. High tech, technical slate palette, glowing cyan accents, strict grid layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB5dE1HfZKJ24MWsf_AhYbxq6mNxQE26PI8Hb4T-WrBOIrqVRa1LxTVFLFoewAz6N_NDTuo2RPXLn8Znv6bcg0_Zzah08tkJAdTY5UIBxG7-jFDUVkrGT7FzFShWqaqjfw-cQbyY0wEFMDXXA-PUmAbq489Rm7UViH8_o7ClH0l3cHAwJqtjd7oIjQSyKQTvXHUW1HfvrZNMXzkFnoD735F0g0iEmNdOzWbKcH2obKbcwA48hUAbD1XO28zpg1OPZh0f3ZPLRT_cw"/>
+</div>
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-on-surface">scr_metrics_v2</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">Last accessed: 15m ago</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container dark:bg-surface-container font-label-caps text-label-caps fixed bottom-0 w-full max-w-[390px] z-50 border-t border-outline-variant dark:border-outline-variant flex justify-around items-center h-16 px-2 pb-safe">
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary bg-secondary-container/30 rounded-lg py-1 px-2 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Overview</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 px-2 hover:text-on-surface dark:hover:text-on-surface scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">vpn_key</span>
+<span>Keys</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 px-2 hover:text-on-surface dark:hover:text-on-surface scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">list_alt</span>
+<span>Logs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 px-2 hover:text-on-surface dark:hover:text-on-surface scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 px-2 hover:text-on-surface dark:hover:text-on-surface scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">more_horiz</span>
+<span>More</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#c8c6c6",
+            "secondary": "#5f5e5e",
+            "primary-fixed-dim": "#c8c6c5",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#e4e2e1",
+            "secondary-container": "#e4e2e1",
+            "outline": "#747878",
+            "background": "#fdf8f8",
+            "surface-container-highest": "#e5e2e1",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#ebe7e6",
+            "primary": "#000000",
+            "outline-variant": "#c4c7c7",
+            "tertiary": "#000000",
+            "surface": "#fdf8f8",
+            "on-tertiary-fixed": "#1c1b1a",
+            "primary-fixed": "#e5e2e1",
+            "on-surface": "#1c1b1b",
+            "surface-container-low": "#f7f3f2",
+            "tertiary-fixed": "#e6e2df",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#484645",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#e5e2e1",
+            "primary-container": "#1c1b1b",
+            "tertiary-fixed-dim": "#cac6c4",
+            "surface-bright": "#fdf8f8",
+            "surface-container": "#f1edec",
+            "tertiary-container": "#1c1b1a",
+            "on-secondary-fixed-variant": "#474747",
+            "on-tertiary-container": "#868382",
+            "on-primary-container": "#858383",
+            "inverse-surface": "#313030",
+            "on-background": "#1c1b1b",
+            "on-secondary-fixed": "#1b1c1c",
+            "on-primary-fixed": "#1c1b1b",
+            "inverse-primary": "#c8c6c5",
+            "on-primary-fixed-variant": "#474746",
+            "surface-dim": "#ddd9d8",
+            "on-secondary-container": "#656464",
+            "on-primary": "#ffffff",
+            "surface-tint": "#5f5e5e",
+            "on-surface-variant": "#444748",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#f4f0ef"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "row-gap": "4px",
+            "unit": "4px",
+            "margin-page": "16px",
+            "gutter": "8px",
+            "column-gap": "12px"
+          },
+          "fontFamily": {
+            "headline-md": [
+              "\"Source Serif 4\""
+            ],
+            "headline-lg": [
+              "\"Source Serif 4\""
+            ],
+            "footer-note": [
+              "Archivo Narrow"
+            ],
+            "body-sm": [
+              "\"Source Serif 4\""
+            ],
+            "label-caps": [
+              "Archivo Narrow"
+            ],
+            "body-md": [
+              "\"Source Serif 4\""
+            ]
+          },
+          "fontSize": {
+            "headline-md": [
+              "20px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "700"
+              }
+            ],
+            "headline-lg": [
+              "30px",
+              {
+                "lineHeight": "32px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "footer-note": [
+              "10px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.01em",
+                "fontWeight": "400"
+              }
+            ],
+            "body-sm": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "fontWeight": "400"
+              }
+            ],
+            "label-caps": [
+              "11px",
+              {
+                "lineHeight": "12px",
+                "letterSpacing": "0.08em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-md": [
+              "14px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "400"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Shell -->
+<nav class="bg-surface-container-lowest text-primary font-body-md docked full-width top-0 border-b border-primary flex justify-between items-center w-full px-margin-page h-12 max-w-full mx-auto hidden md:flex z-50 sticky top-0">
+<div class="flex items-center gap-6">
+<a class="font-headline-md text-headline-md font-bold text-primary tracking-tight" href="#">Marginalia</a>
+<div class="flex gap-4 items-center">
+<a class="text-primary border-b-2 border-primary hover:bg-surface-container transition-colors px-2 py-1" href="#">Search</a>
+<a class="text-secondary hover:bg-surface-container transition-colors px-2 py-1" href="#">Archive</a>
+<a class="text-secondary hover:bg-surface-container transition-colors px-2 py-1" href="#">Sources</a>
+<a class="text-secondary hover:bg-surface-container transition-colors px-2 py-1" href="#">Integration</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="border border-primary px-3 py-1 hover:bg-surface-container transition-colors text-primary font-label-caps text-label-caps">Sign In</button>
+</div>
+</nav>
+<!-- Mobile Top Nav Bar -->
+<nav class="bg-surface-container-lowest text-primary font-body-md docked full-width top-0 border-b border-primary flex justify-between items-center w-full px-margin-page h-12 max-w-full mx-auto md:hidden z-50 sticky top-0">
+<a class="font-headline-md text-headline-md font-bold text-primary tracking-tight" href="#">Marginalia</a>
+<button class="border border-primary p-1 hover:bg-surface-container transition-colors text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</nav>
+<main class="flex-grow w-full max-w-screen-xl mx-auto px-margin-page py-12 flex flex-col gap-12">
+<!-- Header Section -->
+<header class="border-b-[2px] border-primary pb-4 mb-4">
+<h1 class="font-headline-lg text-headline-lg uppercase tracking-tight text-primary">Capabilities Index</h1>
+<p class="font-body-md text-secondary mt-2 max-w-xl border-l-[1px] border-primary pl-4 py-1">A comprehensive registry of Marginalia's core functionality, structured for archival precision and rapid ingestion.</p>
+</header>
+<!-- Bento Grid / Features -->
+<section class="grid grid-cols-1 md:grid-cols-2 border-[1px] border-primary bg-primary text-primary" style="gap: 1px;">
+<!-- Block 01 -->
+<article class="bg-surface-container-lowest p-8 flex flex-col justify-between group hover:bg-inverse-surface hover:text-on-primary transition-colors duration-200">
+<div>
+<span class="font-label-caps text-label-caps opacity-50 block mb-8">01/</span>
+<h2 class="font-headline-md text-headline-md uppercase leading-tight max-w-xs mb-4">FULL-TEXT SEARCH,<br/>3.2M PAGES</h2>
+<p class="font-body-sm text-secondary group-hover:text-secondary-fixed mb-8 max-w-sm">Deep indexing across vast corpuses. Instantaneous retrieval based on semantic relevance and keyword precision.</p>
+</div>
+<a class="font-label-caps text-label-caps uppercase tracking-widest flex items-center gap-2 w-max border-b border-transparent group-hover:border-on-primary transition-colors" href="#">
+          READ MORE <span>-&gt;</span>
+</a>
+</article>
+<!-- Block 02 -->
+<article class="bg-surface-container-lowest p-8 flex flex-col justify-between group hover:bg-inverse-surface hover:text-on-primary transition-colors duration-200">
+<div>
+<span class="font-label-caps text-label-caps opacity-50 block mb-8">02/</span>
+<h2 class="font-headline-md text-headline-md uppercase leading-tight max-w-xs mb-4">CITED TO SOURCE<br/>LINE</h2>
+<p class="font-body-sm text-secondary group-hover:text-secondary-fixed mb-8 max-w-sm">Eliminate hallucination. Every assertion is cryptographically anchored to the exact line in the source material.</p>
+</div>
+<a class="font-label-caps text-label-caps uppercase tracking-widest flex items-center gap-2 w-max border-b border-transparent group-hover:border-on-primary transition-colors" href="#">
+          READ MORE <span>-&gt;</span>
+</a>
+</article>
+<!-- Block 03 -->
+<article class="bg-surface-container-lowest p-8 flex flex-col justify-between group hover:bg-inverse-surface hover:text-on-primary transition-colors duration-200">
+<div>
+<span class="font-label-caps text-label-caps opacity-50 block mb-8">03/</span>
+<h2 class="font-headline-md text-headline-md uppercase leading-tight max-w-xs mb-4">WORKS ON SLACK +<br/>NOTION + DRIVE</h2>
+<p class="font-body-sm text-secondary group-hover:text-secondary-fixed mb-8 max-w-sm">Native connectors for enterprise knowledge bases. Securely ingest fragmented data siloes into a unified graph.</p>
+</div>
+<a class="font-label-caps text-label-caps uppercase tracking-widest flex items-center gap-2 w-max border-b border-transparent group-hover:border-on-primary transition-colors" href="#">
+          READ MORE <span>-&gt;</span>
+</a>
+</article>
+<!-- Block 04 -->
+<article class="bg-surface-container-lowest p-8 flex flex-col justify-between group hover:bg-inverse-surface hover:text-on-primary transition-colors duration-200">
+<div>
+<span class="font-label-caps text-label-caps opacity-50 block mb-8">04/</span>
+<h2 class="font-headline-md text-headline-md uppercase leading-tight max-w-xs mb-4">PERMISSIONS<br/>ENFORCED</h2>
+<p class="font-body-sm text-secondary group-hover:text-secondary-fixed mb-8 max-w-sm">Strict ACL adherence. Responses are filtered based on the querying user's authorization level within the source platform.</p>
+</div>
+<a class="font-label-caps text-label-caps uppercase tracking-widest flex items-center gap-2 w-max border-b border-transparent group-hover:border-on-primary transition-colors" href="#">
+          READ MORE <span>-&gt;</span>
+</a>
+</article>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface-container-lowest text-primary font-footer-note docked full-width bottom-0 border-t border-primary w-full px-margin-page py-4 flex flex-col md:flex-row justify-between items-center z-40 gap-4 md:gap-0 mt-auto">
+<div class="font-label-caps text-label-caps font-bold uppercase">
+      Marginalia
+    </div>
+<div class="text-secondary">
+      © 2024 Marginalia Systems. All citations verified.
+    </div>
+<div class="flex gap-4 items-center">
+<a class="text-secondary hover:text-primary transition-colors underline" href="#">Privacy</a>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#">Terms</a>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#">API</a>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#">Changelog</a>
+</div>
+</footer>
+</body></html>

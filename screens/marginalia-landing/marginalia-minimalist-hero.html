@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Ask. Read the source.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed-variant": "#474646",
+            "outline-variant": "#c4c7c7",
+            "on-secondary-fixed": "#1b1c1c",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#484645",
+            "surface-container-low": "#f3f3f4",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#e2e2e2",
+            "tertiary-fixed": "#e6e1df",
+            "on-error": "#ffffff",
+            "on-surface": "#1a1c1c",
+            "surface": "#f9f9f9",
+            "tertiary-container": "#1c1b1a",
+            "inverse-on-surface": "#f0f1f1",
+            "tertiary": "#000000",
+            "surface-bright": "#f9f9f9",
+            "surface-dim": "#dadada",
+            "primary-fixed": "#e5e2e1",
+            "secondary-fixed": "#e3e2e2",
+            "secondary-fixed-dim": "#c7c6c6",
+            "surface-container-lowest": "#ffffff",
+            "on-surface-variant": "#444748",
+            "on-secondary-container": "#646464",
+            "on-tertiary-container": "#868381",
+            "on-background": "#1a1c1c",
+            "on-tertiary-fixed": "#1c1b1a",
+            "secondary": "#5e5e5e",
+            "on-secondary-fixed-variant": "#464747",
+            "on-primary-container": "#858383",
+            "primary-container": "#1c1b1b",
+            "surface-container": "#eeeeee",
+            "outline": "#747878",
+            "inverse-surface": "#2f3131",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e2e2e2",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "secondary-container": "#e3e2e2",
+            "surface-tint": "#5f5e5e",
+            "on-primary": "#ffffff",
+            "primary": "#000000",
+            "inverse-primary": "#c8c6c5",
+            "on-primary-fixed": "#1c1b1b",
+            "primary-fixed-dim": "#c8c6c5",
+            "background": "#f9f9f9",
+            "surface-container-high": "#e8e8e8",
+            "tertiary-fixed-dim": "#cac6c3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-page": "64px",
+            "gutter": "32px",
+            "stack-md": "32px",
+            "stack-lg": "64px",
+            "stack-sm": "16px",
+            "stack-xl": "128px",
+            "margin-mobile": "24px"
+          },
+          "fontFamily": {
+            "label-caps": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-md": ["Inter"],
+            "button-text": ["Inter"]
+          },
+          "fontSize": {
+            "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+            "headline-lg": ["24px", { "lineHeight": "1.3", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+            "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "button-text": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface h-screen w-screen overflow-hidden flex flex-col justify-between selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar Navigation Component (JSON provided) -->
+<header class="fixed top-0 w-full flex justify-start items-center h-24 px-margin-page bg-surface-container-lowest z-50">
+<div class="font-label-caps text-label-caps tracking-widest text-primary dark:text-on-surface">
+      Marginalia
+    </div>
+</header>
+<!-- Main Canvas Content -->
+<main class="flex-grow flex flex-col items-center justify-center w-full px-margin-page">
+<!-- Central Text Anchor -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface text-center font-light antialiased max-w-2xl mx-auto">
+      Ask. Read the source.
+    </h1>
+<!-- Ghost Button (Interaction Anchor) -->
+<div class="mt-stack-xl flex justify-center w-full">
+<button class="border border-on-surface text-on-surface px-8 py-3 font-button-text text-button-text hover:bg-on-surface hover:text-surface-container-lowest transition-colors duration-300 ease-in-out">
+        Begin
+      </button>
+</div>
+</main>
+<!-- Footer Navigation Component (JSON provided) -->
+<footer class="fixed bottom-0 w-full flex justify-center items-center py-stack-sm bg-surface-container-lowest opacity-0 pointer-events-none">
+<span class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">© 2024 Marginalia</span>
+</footer>
+</body></html>

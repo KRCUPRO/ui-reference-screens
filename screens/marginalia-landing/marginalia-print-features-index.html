@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "surface": "#fdf8f8",
+              "surface-container-high": "#ebe7e6",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-primary": "#ffffff",
+              "on-background": "#1c1b1b",
+              "primary": "#000000",
+              "tertiary-fixed": "#e6e2df",
+              "primary-fixed-dim": "#c8c6c5",
+              "inverse-primary": "#c8c6c5",
+              "background": "#fdf8f8",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#5f5e5e",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#1c1b1b",
+              "on-secondary-container": "#656464",
+              "on-primary-fixed": "#1c1b1b",
+              "outline-variant": "#c4c7c7",
+              "error": "#ba1a1a",
+              "surface-bright": "#fdf8f8",
+              "tertiary-fixed-dim": "#cac6c4",
+              "surface-variant": "#e5e2e1",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#444748",
+              "tertiary": "#000000",
+              "on-tertiary-fixed-variant": "#484645",
+              "on-tertiary-container": "#868382",
+              "surface-container-highest": "#e5e2e1",
+              "secondary-container": "#e4e2e1",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#858383",
+              "inverse-on-surface": "#f4f0ef",
+              "primary-fixed": "#e5e2e1",
+              "on-tertiary-fixed": "#1c1b1a",
+              "secondary-fixed-dim": "#c8c6c6",
+              "secondary": "#5f5e5e",
+              "primary-container": "#1c1b1b",
+              "on-secondary-fixed-variant": "#474747",
+              "outline": "#747878",
+              "secondary-fixed": "#e4e2e1",
+              "surface-dim": "#ddd9d8",
+              "surface-container": "#f1edec",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#474746",
+              "inverse-surface": "#313030",
+              "surface-container-low": "#f7f3f2",
+              "tertiary-container": "#1c1b1a",
+              "on-error": "#ffffff"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "unit": "4px",
+              "margin-page": "16px",
+              "row-gap": "4px",
+              "gutter": "8px",
+              "column-gap": "12px"
+            },
+            "fontFamily": {
+              "footer-note": [
+                "Archivo Narrow"
+              ],
+              "label-caps": [
+                "Archivo Narrow"
+              ],
+              "headline-md": [
+                "\"Source Serif 4\""
+              ],
+              "body-md": [
+                "\"Source Serif 4\""
+              ],
+              "body-sm": [
+                "\"Source Serif 4\""
+              ],
+              "headline-lg": [
+                "\"Source Serif 4\""
+              ]
+            },
+            "fontSize": {
+              "footer-note": [
+                "10px",
+                {
+                  "lineHeight": "14px",
+                  "letterSpacing": "0.01em",
+                  "fontWeight": "400"
+                }
+              ],
+              "label-caps": [
+                "11px",
+                {
+                  "lineHeight": "12px",
+                  "letterSpacing": "0.08em",
+                  "fontWeight": "700"
+                }
+              ],
+              "headline-md": [
+                "20px",
+                {
+                  "lineHeight": "24px",
+                  "fontWeight": "700"
+                }
+              ],
+              "body-md": [
+                "14px",
+                {
+                  "lineHeight": "18px",
+                  "fontWeight": "400"
+                }
+              ],
+              "body-sm": [
+                "12px",
+                {
+                  "lineHeight": "16px",
+                  "fontWeight": "400"
+                }
+              ],
+              "headline-lg": [
+                "30px",
+                {
+                  "lineHeight": "32px",
+                  "letterSpacing": "-0.02em",
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .marginalia-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border-top: 2px solid #000000;
+            border-bottom: 2px solid #000000;
+        }
+        .marginalia-col {
+            border-right: 1px solid #333333;
+            padding: 24px 16px;
+        }
+        .marginalia-col:last-child {
+            border-right: none;
+        }
+        .marginalia-hr {
+            border: 0;
+            border-top: 1px solid #333333;
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 768px) {
+            .marginalia-grid {
+                grid-template-columns: 1fr;
+            }
+            .marginalia-col {
+                border-right: none;
+                border-bottom: 1px solid #333333;
+            }
+            .marginalia-col:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-primary min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-background w-full border-b-2 border-primary dark:border-on-background flex flex-col md:flex-row justify-between items-center px-margin-page py-unit max-w-full z-50 sticky top-0">
+<div class="flex items-center w-full md:w-auto justify-between md:justify-start">
+<a class="font-headline-md text-headline-md uppercase tracking-tighter text-primary dark:text-on-background mr-8" href="#">Marginalia</a>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary flex items-center p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<nav class="hidden md:flex flex-row space-x-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-container hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors py-2 px-1 cursor-pointer active:opacity-80" href="#">Search</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-container hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors py-2 px-1 cursor-pointer active:opacity-80" href="#">Archive</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-container hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors py-2 px-1 cursor-pointer active:opacity-80" href="#">Sources</a>
+</nav>
+<div class="hidden md:flex items-center space-x-4">
+<button class="border border-primary bg-primary text-on-primary font-label-caps text-label-caps px-4 py-1 hover:bg-surface-container-high hover:text-primary transition-colors cursor-pointer">Sign In</button>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity">search</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center py-16 px-4 md:px-12 w-full max-w-[1400px] mx-auto">
+<section class="w-full mb-12 flex flex-col items-start">
+<h1 class="font-headline-lg text-headline-lg mb-4 text-primary">Capabilities &amp; Protocols</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mb-8">Systematic extraction and verification across unstructured institutional repositories. The platform emphasizes rigorous retrieval methodology over stylistic flourish.</p>
+</section>
+<!-- The Marginalia Grid -->
+<div class="w-full marginalia-grid">
+<!-- Column 1 -->
+<div class="marginalia-col flex flex-col">
+<div class="font-footer-note text-footer-note text-secondary mb-1 uppercase tracking-widest">01</div>
+<h2 class="font-label-caps text-label-caps text-primary tracking-widest mb-1">ASK</h2>
+<hr class="marginalia-hr"/>
+<p class="font-body-md text-body-md text-on-background flex-grow">
+                    Interrogate your archives using plain-English queries. Our extraction protocol parses every paragraph for semantic intent.
+                </p>
+<div class="mt-4 w-full h-32 border border-outline-variant p-2 overflow-hidden bg-surface-container-lowest">
+<span class="font-footer-note text-footer-note text-on-surface-variant block mb-1 border-b border-surface-variant pb-1">Query Log Fragment</span>
+<div class="font-body-sm text-body-sm text-on-surface opacity-80 font-mono text-xs">
+                         &gt; SELECT intent FROM doc_349<br/>
+                         &gt; PARSING: [semantic_net]<br/>
+                         &gt; MATCH: found in vol.4
+                     </div>
+</div>
+</div>
+<!-- Column 2 -->
+<div class="marginalia-col flex flex-col">
+<div class="font-footer-note text-footer-note text-secondary mb-1 uppercase tracking-widest">02</div>
+<h2 class="font-label-caps text-label-caps text-primary tracking-widest mb-1">FIND</h2>
+<hr class="marginalia-hr"/>
+<p class="font-body-md text-body-md text-on-background flex-grow">
+                    Search through a corpus of 3.2 million pages of digitized documents. Instant retrieval across vast, unvarnished repositories.
+                </p>
+<div class="mt-4 flex space-x-2">
+<span class="border border-outline px-2 py-0.5 font-footer-note text-footer-note text-on-surface bg-surface-container-high">OCR</span>
+<span class="border border-outline px-2 py-0.5 font-footer-note text-footer-note text-on-surface bg-surface-container-high">Vector</span>
+</div>
+</div>
+<!-- Column 3 -->
+<div class="marginalia-col flex flex-col">
+<div class="font-footer-note text-footer-note text-secondary mb-1 uppercase tracking-widest">03</div>
+<h2 class="font-label-caps text-label-caps text-primary tracking-widest mb-1">VERIFY</h2>
+<hr class="marginalia-hr"/>
+<p class="font-body-md text-body-md text-on-background flex-grow">
+                    Every assertion is cryptographically anchored. Footnote-style citations ensure data integrity. (see: <a class="underline hover:text-secondary transition-colors" href="#">onboarding_runbook.pdf, sec.4</a>)
+                </p>
+<div class="mt-4 pt-2 border-t border-dotted border-outline-variant">
+<span class="font-footer-note text-footer-note text-secondary block">Citation Graph Status:</span>
+<span class="font-label-caps text-label-caps text-primary flex items-center mt-1"><span class="material-symbols-outlined text-[14px] mr-1">check_circle</span> Anchored</span>
+</div>
+</div>
+<!-- Column 4 -->
+<div class="marginalia-col flex flex-col">
+<div class="font-footer-note text-footer-note text-secondary mb-1 uppercase tracking-widest">04</div>
+<h2 class="font-label-caps text-label-caps text-primary tracking-widest mb-1">TRUST</h2>
+<hr class="marginalia-hr"/>
+<p class="font-body-md text-body-md text-on-background flex-grow">
+                    Strict ACL adherence. Permissions are enforced at the line level, honoring your existing data governance structures.
+                </p>
+<div class="mt-4 flex justify-between items-center border-t border-b border-surface-variant py-2">
+<span class="font-footer-note text-footer-note text-on-surface-variant">Auth Protocol</span>
+<span class="font-label-caps text-label-caps text-primary">v2.4.1 Strict</span>
+</div>
+</div>
+</div>
+<section class="w-full mt-16 flex justify-center">
+<button class="border border-primary px-8 py-3 font-label-caps text-label-caps text-primary hover:bg-primary hover:text-on-primary transition-colors cursor-pointer uppercase tracking-widest">
+                Review Documentation
+            </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-background flex flex-col md:flex-row justify-between items-center px-margin-page py-gutter w-full border-t-2 border-primary dark:border-on-background mt-auto">
+<div class="font-label-caps text-label-caps text-primary mb-2 md:mb-0">
+            Marginalia
+        </div>
+<div class="font-footer-note text-footer-note text-secondary dark:text-on-secondary-container text-center md:text-left mb-2 md:mb-0">
+            © 2024 Marginalia Archival Systems. All rights reserved.
+        </div>
+<div class="flex flex-wrap justify-center space-x-4">
+<a class="font-footer-note text-footer-note text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-opacity duration-150" href="#">Privacy Policy</a>
+<a class="font-footer-note text-footer-note text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-opacity duration-150" href="#">Terms of Service</a>
+<a class="font-footer-note text-footer-note text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-background transition-opacity duration-150" href="#">Institutional Access</a>
+</div>
+</footer>
+<script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            // Simple mobile menu toggle logic if needed, currently just logging
+            console.log('Mobile menu toggled');
+        });
+    </script>
+</body></html>

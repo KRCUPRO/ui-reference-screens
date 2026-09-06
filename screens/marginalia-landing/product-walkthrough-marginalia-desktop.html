@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marginalia - Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#1b1c1c",
+            "surface-container-highest": "#e5e2e1",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#000000",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#cac6c4",
+            "on-surface-variant": "#444748",
+            "on-tertiary-fixed-variant": "#484645",
+            "on-secondary-fixed-variant": "#464747",
+            "surface-variant": "#e5e2e1",
+            "inverse-on-surface": "#f4f0ef",
+            "background": "#fdf8f8",
+            "on-primary": "#ffffff",
+            "primary": "#000000",
+            "on-primary-fixed": "#1c1b1b",
+            "primary-container": "#1c1b1b",
+            "outline": "#747878",
+            "on-primary-fixed-variant": "#474746",
+            "on-primary-container": "#858383",
+            "error": "#ba1a1a",
+            "secondary-container": "#e4e2e2",
+            "on-surface": "#1c1b1b",
+            "surface-dim": "#ddd9d8",
+            "inverse-primary": "#c8c6c5",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#1c1b1a",
+            "secondary-fixed": "#e4e2e2",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#646464",
+            "on-background": "#1c1b1b",
+            "secondary-fixed-dim": "#c8c6c6",
+            "secondary": "#5e5e5e",
+            "primary-fixed-dim": "#c8c6c5",
+            "outline-variant": "#c4c7c7",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#868382",
+            "inverse-surface": "#313030",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#fdf8f8",
+            "surface": "#fdf8f8",
+            "surface-tint": "#5f5e5e",
+            "surface-container-high": "#ebe7e6",
+            "surface-container": "#f1edec",
+            "on-tertiary-fixed": "#1c1b1a",
+            "surface-container-low": "#f7f3f2",
+            "tertiary-fixed": "#e6e2df",
+            "primary-fixed": "#e5e2e1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "section-gap": "80px",
+            "margin-safe": "40px",
+            "unit": "4px",
+            "stack-sm": "8px",
+            "gutter": "24px",
+            "stack-md": "16px",
+            "stack-lg": "32px"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["EB Garamond", "serif"],
+            "caption": ["Public Sans", "sans-serif"],
+            "body-md": ["EB Garamond", "serif"],
+            "label-bold": ["Public Sans", "sans-serif"],
+            "headline-md": ["EB Garamond", "serif"],
+            "display-lg": ["EB Garamond", "serif"],
+            "body-lg": ["EB Garamond", "serif"],
+            "ui-medium": ["Public Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-bold": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "ui-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-surface-variant selection:text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-background w-full top-0 sticky border-b border-surface-variant z-50">
+<div class="max-w-[1200px] mx-auto px-margin-safe h-20 flex items-center justify-between">
+<a class="font-display-lg text-display-lg-mobile tracking-tighter text-primary" href="#">Marginalia</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-secondary hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 font-label-bold text-label-bold" href="#">Archive</a>
+<a class="text-secondary hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 font-label-bold text-label-bold" href="#">Indices</a>
+<a class="text-secondary hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 font-label-bold text-label-bold" href="#">Journal</a>
+<a class="text-primary border-b border-primary pb-1 hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 font-label-bold text-label-bold" href="#">About</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button aria-label="Search" class="w-8 h-8 flex items-center justify-center border-b border-primary hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<a class="hidden md:inline-flex px-4 py-2 border border-primary bg-primary text-on-primary font-label-bold text-label-bold hover:bg-surface hover:text-primary transition-colors" href="#">Subscribe</a>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-margin-safe py-section-gap flex flex-col lg:flex-row items-center gap-12 lg:gap-24 relative overflow-hidden">
+<!-- Left: Screenshot Area with Annotations -->
+<div class="w-full lg:w-2/3 relative">
+<div class="relative w-full aspect-[4/3] bg-surface border border-surface-variant rounded-sm overflow-hidden shadow-sm flex items-center justify-center">
+<!-- Placeholder for the actual app screenshot -->
+<img alt="Marginalia App Interface" class="w-full h-full object-cover opacity-90 mix-blend-multiply" data-alt="A clean, minimalist UI interface of a research application with a left sidebar showing folders like Workspace and Research, a main chat area asking a legal question, and a right panel showing the AI response with a highlighted citation. The design is highly editorial and scholarly, featuring serif typography on a light cream background." src="https://lh3.googleusercontent.com/aida/AEtjO1Wwnhutulm5gPcnkLb3qtZF4b0rnUAFzUIRkkGpVgUSfYzJCkq1IR_4Va-k0G-vX_eFP5s0GSOCaQuyflGJHTHptIhvHbULoD6bwdryCACTY3ORIWASYe5lrLnknQ17YqbF5Ql1y5J1xyjPpsJpZcdNvm1B0lmoZmubbKOWCbN7EoRjI8QwGtHa9MAQoPOvAOIdyxs_3QjOps2nfWtTCZyF5gvifBOcT0VWb8K_ELchkaqmkbE10TDjWg"/>
+<!-- Simulated UI overlay for structure if image is missing -->
+<div class="absolute inset-0 pointer-events-none p-8 flex flex-col border border-surface-variant">
+<div class="w-full h-12 border-b border-surface-variant flex items-center justify-between px-4">
+<div class="flex items-center gap-2 text-primary font-display-lg-mobile text-xl tracking-tighter">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 0;">auto_stories</span> Marginalia
+                 </div>
+</div>
+<div class="flex-grow flex">
+<div class="w-1/4 border-r border-surface-variant p-4 flex flex-col gap-4 relative">
+<div class="text-sm font-label-bold text-secondary uppercase tracking-wider">Workspace</div>
+<div class="pl-2 border-l border-surface-variant text-sm font-ui-medium text-primary">Research</div>
+</div>
+<div class="flex-grow p-8 flex flex-col gap-6 relative">
+<div class="bg-surface-container p-4 rounded-sm border border-surface-variant w-3/4">
+<p class="font-body-md text-primary">Analyze the legal risks in the 'Project Chimera' board deck...</p>
+</div>
+<div class="bg-surface p-6 border border-surface-variant w-4/5 self-end shadow-sm relative">
+<p class="font-body-md text-on-surface leading-relaxed">The review of the 'Project Chimera' board deck highlights several potential legal risks... post-merger<sup class="text-xs text-primary cursor-pointer hover:underline">[1]</sup>.</p>
+</div>
+<div class="mt-auto border-t border-surface-variant pt-4 relative">
+<p class="font-caption text-secondary">[1] Source: Project Chimera Q3 Board Deck, Section 4.1...</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Annotations overlay -->
+<!-- 1. Workspace / Upload -->
+<div class="absolute top-[25%] left-[5%] flex flex-col items-center group">
+<div class="w-6 h-6 rounded-full bg-[#a04030] text-on-primary flex items-center justify-center font-label-bold text-xs shadow-sm z-10">1</div>
+<div class="w-px h-16 bg-[#a04030] opacity-50 -mt-2 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- 2. Citation marker -->
+<div class="absolute top-[50%] right-[30%] flex items-center group">
+<div class="w-16 h-px bg-[#a04030] opacity-50 -mr-2 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-6 h-6 rounded-full bg-[#a04030] text-on-primary flex items-center justify-center font-label-bold text-xs shadow-sm z-10">2</div>
+</div>
+<!-- 3. Source panel -->
+<div class="absolute bottom-[10%] right-[40%] flex flex-col items-center group">
+<div class="w-px h-12 bg-[#a04030] opacity-50 -mb-2 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-6 h-6 rounded-full bg-[#a04030] text-on-primary flex items-center justify-center font-label-bold text-xs shadow-sm z-10">3</div>
+</div>
+</div>
+</div>
+<!-- Right: Explanatory Text -->
+<div class="w-full lg:w-1/3 flex flex-col gap-stack-lg">
+<div class="flex items-start gap-4 group cursor-default">
+<div class="w-8 h-8 rounded-full border border-[#a04030] text-[#a04030] flex items-center justify-center font-label-bold text-sm flex-shrink-0 group-hover:bg-[#a04030] group-hover:text-on-primary transition-colors">1</div>
+<div class="pt-1">
+<h3 class="font-headline-md text-headline-md text-primary">Drop in any file</h3>
+<p class="font-body-md text-secondary mt-1 max-w-[250px]">Upload PDFs, docs, or web links directly into your workspace.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 group cursor-default">
+<div class="w-8 h-8 rounded-full border border-[#a04030] text-[#a04030] flex items-center justify-center font-label-bold text-sm flex-shrink-0 group-hover:bg-[#a04030] group-hover:text-on-primary transition-colors">2</div>
+<div class="pt-1">
+<h3 class="font-headline-md text-headline-md text-primary">Click a citation</h3>
+<p class="font-body-md text-secondary mt-1 max-w-[250px]">Every claim is tied to a specific location in your documents.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 group cursor-default">
+<div class="w-8 h-8 rounded-full border border-[#a04030] text-[#a04030] flex items-center justify-center font-label-bold text-sm flex-shrink-0 group-hover:bg-[#a04030] group-hover:text-on-primary transition-colors">3</div>
+<div class="pt-1">
+<h3 class="font-headline-md text-headline-md text-primary">Read the source</h3>
+<p class="font-body-md text-secondary mt-1 max-w-[250px]">Verify the exact sentence or paragraph the AI used to generate its response.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full mt-section-gap border-t border-surface-variant">
+<div class="max-w-[1200px] mx-auto px-margin-safe py-stack-lg flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="font-label-bold text-label-bold uppercase tracking-widest text-primary">
+        Marginalia
+      </div>
+<div class="flex flex-wrap justify-center gap-gutter font-caption text-caption">
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#">Colophon</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#">RSS</a>
+</div>
+<div class="font-caption text-caption text-on-surface">
+        © 2024 Marginalia Press. All rights reserved.
+      </div>
+</div>
+</footer>
+</body></html>

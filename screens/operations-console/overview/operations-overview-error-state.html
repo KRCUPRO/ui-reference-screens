@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Operations Overview - Error State</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "background": "#15121b",
+                "surface-variant": "#37333e",
+                "primary-container": "#7c3aed",
+                "on-background": "#e8dfee",
+                "primary": "#d2bbff",
+                "tertiary-fixed-dim": "#ffb784",
+                "on-tertiary-container": "#ffe0cd",
+                "surface-tint": "#d2bbff",
+                "inverse-primary": "#732ee4",
+                "surface-container-highest": "#37333e",
+                "outline-variant": "#4a4455",
+                "error": "#ffb4ab",
+                "on-error": "#690005",
+                "tertiary-fixed": "#ffdcc6",
+                "on-secondary-fixed-variant": "#474746",
+                "on-tertiary": "#4f2500",
+                "tertiary": "#ffb784",
+                "surface-container-lowest": "#100d16",
+                "outline": "#958da1",
+                "on-surface": "#e8dfee",
+                "primary-fixed": "#eaddff",
+                "on-secondary-container": "#b7b5b4",
+                "surface-container": "#221e28",
+                "on-tertiary-fixed-variant": "#713700",
+                "on-primary-fixed-variant": "#5a00c6",
+                "on-secondary-fixed": "#1b1b1c",
+                "on-tertiary-fixed": "#301400",
+                "surface": "#15121b",
+                "secondary-fixed-dim": "#c8c6c5",
+                "error-container": "#93000a",
+                "surface-dim": "#15121b",
+                "surface-bright": "#3c3742",
+                "on-primary-container": "#ede0ff",
+                "on-primary": "#3f008e",
+                "tertiary-container": "#a15100",
+                "surface-container-high": "#2c2833",
+                "on-surface-variant": "#ccc3d8",
+                "on-primary-fixed": "#25005a",
+                "on-error-container": "#ffdad6",
+                "surface-container-low": "#1d1a24",
+                "secondary-container": "#474746",
+                "inverse-surface": "#e8dfee",
+                "on-secondary": "#303030",
+                "inverse-on-surface": "#332f39",
+                "secondary-fixed": "#e5e2e1",
+                "secondary": "#c8c6c5",
+                "primary-fixed-dim": "#d2bbff"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "unit": "4px",
+                "margin": "16px",
+                "gutter": "12px",
+                "container-max": "100%"
+              },
+              "fontFamily": {
+                "headline-lg": [
+                  "Inter"
+                ],
+                "body-md": [
+                  "Inter"
+                ],
+                "data-lg": [
+                  "JetBrains Mono"
+                ],
+                "label-caps": [
+                  "Inter"
+                ],
+                "data-sm": [
+                  "JetBrains Mono"
+                ],
+                "headline-md": [
+                  "Inter"
+                ],
+                "body-sm": [
+                  "Inter"
+                ]
+              },
+              "fontSize": {
+                "headline-lg": [
+                  "24px",
+                  {
+                    "lineHeight": "32px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-md": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "400"
+                  }
+                ],
+                "data-lg": [
+                  "14px",
+                  {
+                    "lineHeight": "20px",
+                    "fontWeight": "500"
+                  }
+                ],
+                "label-caps": [
+                  "10px",
+                  {
+                    "lineHeight": "12px",
+                    "letterSpacing": "0.08em",
+                    "fontWeight": "700"
+                  }
+                ],
+                "data-sm": [
+                  "11px",
+                  {
+                    "lineHeight": "14px",
+                    "letterSpacing": "0.02em",
+                    "fontWeight": "400"
+                  }
+                ],
+                "headline-md": [
+                  "18px",
+                  {
+                    "lineHeight": "24px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "600"
+                  }
+                ],
+                "body-sm": [
+                  "12px",
+                  {
+                    "lineHeight": "16px",
+                    "fontWeight": "400"
+                  }
+                ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a; /* True black foundation per Brutalism spec */
+        }
+        .bg-level-1 {
+            background-color: #0a0a0a;
+            border: 1px solid #1f1f1f;
+        }
+        .btn-primary {
+            background-color: #7c3aed; /* primary-container */
+            color: #ede0ff; /* on-primary-container */
+            border-radius: 0;
+            border: 1px solid #7c3aed;
+            padding: 8px 16px;
+            font-family: Inter, sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            background-color: #732ee4; /* inverse-primary */
+            border-color: #732ee4;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #ccc3d8; /* on-surface-variant */
+            border: 1px solid #4a4455; /* outline-variant */
+            border-radius: 0;
+            padding: 8px 16px;
+            font-family: Inter, sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #161616; /* Subtle lift */
+            color: #e8dfee; /* on-surface */
+        }
+        .status-square {
+            width: 48px;
+            height: 48px;
+            border: 1px solid #4a4455;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #15121b; /* surface */
+        }
+        .status-square.unknown {
+            border-color: #4a4455; /* outline-variant */
+            color: #958da1; /* outline */
+        }
+        
+        /* Side Nav specific styles overriding tailwind generic classes if needed */
+        .side-nav-active {
+            color: #d2bbff !important;
+            background-color: #2c2833 !important;
+            border-right: 2px solid #d2bbff !important;
+        }
+    </style>
+</head>
+<body class="text-on-surface h-screen w-full flex overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Sidebar Component (Anchored Content & Styles) -->
+<nav class="fixed left-0 top-0 h-full flex flex-col z-40 bg-surface-container-lowest border-r border-outline-variant w-64 transition-colors duration-200 flat no shadows">
+<!-- Header -->
+<div class="px-gutter py-6 border-b border-outline-variant flex flex-col gap-2">
+<h1 class="font-display-lg text-primary text-headline-lg font-headline-lg truncate">NODE_01</h1>
+<p class="text-on-surface-variant text-body-sm font-body-sm">Active Session</p>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 overflow-y-auto py-4">
+<ul class="flex flex-col">
+<!-- Overview - ACTIVE -->
+<li>
+<a class="flex items-center gap-3 px-gutter py-3 text-primary bg-surface-container-high border-r-2 border-primary group" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-caps text-label-caps">Overview</span>
+</a>
+</li>
+<!-- Performance - INACTIVE -->
+<li>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary group transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+<span class="font-label-caps text-label-caps">Performance</span>
+</a>
+</li>
+<!-- Security - INACTIVE -->
+<li>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary group transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+<span class="font-label-caps text-label-caps">Security</span>
+</a>
+</li>
+<!-- Network - INACTIVE -->
+<li>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary group transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">lan</span>
+<span class="font-label-caps text-label-caps">Network</span>
+</a>
+</li>
+<!-- Settings - INACTIVE -->
+<li>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary group transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Footer / CTA -->
+<div class="p-gutter border-t border-outline-variant flex flex-col gap-4">
+<button class="w-full bg-primary-container text-on-primary-container font-label-caps text-label-caps py-2 hover:bg-inverse-primary transition-colors duration-200">
+                SYNC DATA
+            </button>
+<ul class="flex flex-col gap-2">
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[16px]">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[16px]">logout</span>
+<span class="font-label-caps text-label-caps">Logout</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col h-full bg-[#0a0a0a]">
+<!-- TopAppBar Component (Anchored Content & Styles) -->
+<header class="w-full top-0 bg-background border-b border-outline-variant flat no shadows transition-all duration-300 ease-in-out flex justify-between items-center px-gutter py-4 max-w-full mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-headline-md tracking-tighter text-primary font-headline-md">OBSIDIAN COMMAND</span>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-caps text-label-caps">Service Offline</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<!-- Dashboard - INACTIVE (Sidebar is the primary nav in this layout per prompt, top nav acts as secondary/tabs) -->
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out" href="#">Analytics</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out" href="#">Logs</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,220,229,0.4)] transition-all duration-300 ease-in-out" href="#">Systems</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 bg-surface-variant rounded-full border border-outline-variant flex items-center justify-center overflow-hidden">
+<!-- No image src provided, just gray circle for profile -->
+<span class="material-symbols-outlined text-outline text-[16px]">person</span>
+</div>
+</div>
+</header>
+<!-- Danger Banner -->
+<div class="w-full bg-error-container border-b border-error px-margin py-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-on-error-container" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-data-lg text-data-lg text-on-error-container">Service failed to start — port 8787 already in use</span>
+</div>
+<!-- Scrollable Content Pane -->
+<div class="flex-1 overflow-y-auto p-margin flex flex-col gap-6">
+<!-- Service Control Section -->
+<section class="bg-level-1 p-margin flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline">Service Control</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">Service Running</span>
+</div>
+<!-- Disabled Toggle Switch -->
+<div class="ml-4 w-12 h-6 bg-surface-container-high rounded-full border border-outline-variant relative opacity-50 cursor-not-allowed">
+<div class="absolute left-1 top-1 w-4 h-4 bg-outline rounded-full"></div>
+</div>
+</div>
+<button class="btn-secondary opacity-75">
+                    View logs
+                </button>
+</section>
+<!-- Status Indicators Row -->
+<section class="bg-level-1 p-margin flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-outline">System Health</span>
+<div class="flex gap-4">
+<!-- Square 1 -->
+<div class="status-square unknown" title="Node Status">
+<span class="material-symbols-outlined">question_mark</span>
+</div>
+<!-- Square 2 -->
+<div class="status-square unknown" title="Database Connection">
+<span class="material-symbols-outlined">question_mark</span>
+</div>
+<!-- Square 3 -->
+<div class="status-square unknown" title="Cache Layer">
+<span class="material-symbols-outlined">question_mark</span>
+</div>
+<!-- Square 4 -->
+<div class="status-square unknown" title="External API">
+<span class="material-symbols-outlined">question_mark</span>
+</div>
+</div>
+</section>
+<!-- Metrics Section -->
+<section class="bg-level-1 p-margin flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-outline">Today's Statistics</span>
+<p class="font-data-sm text-data-sm text-outline-variant">No data — service offline</p>
+</section>
+<!-- Centered Retry Action -->
+<div class="mt-auto pt-8 pb-4 flex justify-center w-full">
+<button class="btn-primary px-8 py-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Retry Connection</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>
