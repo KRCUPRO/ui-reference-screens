@@ -81,8 +81,11 @@ li a .d{flex:0 0 auto;font:10px/1 var(--mono);letter-spacing:.06em;color:var(--f
 #pv .stage{position:relative;height:290px;overflow:hidden;background:#fff}
 #pv iframe{position:absolute;top:0;left:0;border:0;transform-origin:top left;background:#fff}
 #pv .load{position:absolute;inset:0;display:grid;place-items:center;
-  color:var(--faint);font:11px var(--mono);background:var(--surface)}
-#pv.ready .load{display:none}
+  color:var(--faint);font:11px var(--mono);background:var(--surface);
+  opacity:0;transition:opacity .15s ease;pointer-events:none}
+#pv.slow .load{opacity:1}
+#pv.busy iframe{opacity:.45;transition:opacity .12s ease}
+#pv.ready iframe{opacity:1}
 .empty{color:var(--mut);font-size:14px;padding:40px 0;text-align:center;display:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 @media (max-width:640px){ #pv{display:none} h1{font-size:19px} }
@@ -137,18 +140,29 @@ li a .d{flex:0 0 auto;font:10px/1 var(--mono);letter-spacing:.06em;color:var(--f
     y=Math.max(8,Math.min(y,innerHeight-h-8));
     pv.style.left=Math.round(x)+'px'; pv.style.top=Math.round(y)+'px';
   }
+  // Keep the previous frame on screen while the next one loads. Blanking the card
+  // on every move made the common case -- a fast local load -- flash an empty box.
+  // The "loading" overlay only appears if the wait is long enough to notice.
+  var slow=null;
   function show(a,e){
     if(cur===a) { place(e); return; }
-    cur=a; pv.classList.remove('ready');
+    cur=a;
+    pv.classList.add('busy'); pv.classList.remove('slow');
+    clearTimeout(slow);
+    slow=setTimeout(function(){ if(cur===a) pv.classList.add('slow'); },380);
     curW=fit(a.dataset.dev);
     cap.textContent=a.dataset.dev+' · '+a.dataset.vp;
     fr.src=a.getAttribute('href');
     place(e); pv.classList.add('on');
   }
-  function hide(){ cur=null; pv.classList.remove('on','ready');
+  function hide(){ cur=null; clearTimeout(slow);
+    pv.classList.remove('on','ready','busy','slow');
     clearTimeout(timer); setTimeout(function(){ if(!cur) fr.removeAttribute('src'); },220); }
 
-  fr.addEventListener('load',function(){ if(cur) pv.classList.add('ready'); });
+  fr.addEventListener('load',function(){
+    clearTimeout(slow);
+    if(cur) pv.classList.add('ready'), pv.classList.remove('busy','slow');
+  });
 
   document.addEventListener('mouseover',function(e){
     var a=e.target.closest('li a[data-dev]'); if(!a) return;
