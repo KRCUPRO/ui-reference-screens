@@ -1,6 +1,6 @@
 # Registro de cambios
 
-[English](../readme/README.en.md) | [한국어](../readme/README.ko.md) | [简体中文](../readme/README.zh.md) | [日本語](../readme/README.ja.md) | **Español** | [Français](../readme/README.fr.md) | [Русский](../readme/README.ru.md) | [العربية](../readme/README.ar.md) | [हिन्दी](../readme/README.hi.md) • [📜 Registro de cambios](../changelog/CHANGELOG.es.md)
+[English](../readme/README.en.md) · [한국어](../readme/README.ko.md) · [简体中文](../readme/README.zh.md) · [日本語](../readme/README.ja.md) · **Español** · [Français](../readme/README.fr.md) · [Русский](../readme/README.ru.md) · [العربية](../readme/README.ar.md) · [हिन्दी](../readme/README.hi.md) — [🏠 README](../readme/README.es.md)
 
 ---
 

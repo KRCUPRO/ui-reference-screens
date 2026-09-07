@@ -1,6 +1,6 @@
 # 변경 이력
 
-[English](../readme/README.en.md) | **한국어** | [简体中文](../readme/README.zh.md) | [日本語](../readme/README.ja.md) | [Español](../readme/README.es.md) | [Français](../readme/README.fr.md) | [Русский](../readme/README.ru.md) | [العربية](../readme/README.ar.md) | [हिन्दी](../readme/README.hi.md) • [📜 변경 이력](../changelog/CHANGELOG.ko.md)
+[English](../readme/README.en.md) · **한국어** · [简体中文](../readme/README.zh.md) · [日本語](../readme/README.ja.md) · [Español](../readme/README.es.md) · [Français](../readme/README.fr.md) · [Русский](../readme/README.ru.md) · [العربية](../readme/README.ar.md) · [हिन्दी](../readme/README.hi.md) — [🏠 README](../readme/README.ko.md)
 
 ---
 

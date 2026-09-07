@@ -1,7 +1,25 @@
 <h1 align="center">UI संदर्भ स्क्रीन</h1>
 
 <p align="center">
-  [English](../readme/README.en.md) | [한국어](../readme/README.ko.md) | [简体中文](../readme/README.zh.md) | [日本語](../readme/README.ja.md) | [Español](../readme/README.es.md) | [Français](../readme/README.fr.md) | [Русский](../readme/README.ru.md) | [العربية](../readme/README.ar.md) | **हिन्दी** • [📜 परिवर्तन-सूची](../changelog/CHANGELOG.hi.md)
+  <a href="../readme/README.en.md">English</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.ko.md">한국어</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.zh.md">简体中文</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.ja.md">日本語</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.es.md">Español</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.fr.md">Français</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.ru.md">Русский</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.ar.md">العربية</a>
+  &nbsp;|&nbsp;
+  <b>हिन्दी</b>
+  &nbsp;•&nbsp;
+  <a href="../changelog/CHANGELOG.hi.md">📜 परिवर्तन-सूची</a>
 </p>
 
 ---
@@ -104,5 +122,7 @@ cd ui-reference-screens
 ---
 
 <p align="center">
-  <a href="https://krcupro.github.io/ui-reference-screens/">लाइव गैलरी</a> · <a href="../../README.md">मुख्य README पर लौटें</a>
+  <a href="https://krcupro.github.io/ui-reference-screens/">लाइव गैलरी</a>
+  &nbsp;·&nbsp;
+  <a href="../../README.md">मुख्य README पर लौटें</a>
 </p>

@@ -1,8 +1,6 @@
-<div dir="rtl">
-
 # سجل التغييرات
 
-[English](../readme/README.en.md) | [한국어](../readme/README.ko.md) | [简体中文](../readme/README.zh.md) | [日本語](../readme/README.ja.md) | [Español](../readme/README.es.md) | [Français](../readme/README.fr.md) | [Русский](../readme/README.ru.md) | **العربية** | [हिन्दी](../readme/README.hi.md) • [📜 سجل التغييرات](../changelog/CHANGELOG.ar.md)
+[English](../readme/README.en.md) · [한국어](../readme/README.ko.md) · [简体中文](../readme/README.zh.md) · [日本語](../readme/README.ja.md) · [Español](../readme/README.es.md) · [Français](../readme/README.fr.md) · [Русский](../readme/README.ru.md) · **العربية** · [हिन्दी](../readme/README.hi.md) — [🏠 README](../readme/README.ar.md)
 
 ---
 
@@ -16,5 +14,3 @@
 ---
 
 [العودة إلى الملف التعريفي الرئيسي](../readme/README.ar.md)
-
-</div>

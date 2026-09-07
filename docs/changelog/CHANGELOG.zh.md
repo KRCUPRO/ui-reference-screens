@@ -1,6 +1,6 @@
 # 更新日志
 
-[English](../readme/README.en.md) | [한국어](../readme/README.ko.md) | **简体中文** | [日本語](../readme/README.ja.md) | [Español](../readme/README.es.md) | [Français](../readme/README.fr.md) | [Русский](../readme/README.ru.md) | [العربية](../readme/README.ar.md) | [हिन्दी](../readme/README.hi.md) • [📜 更新日志](../changelog/CHANGELOG.zh.md)
+[English](../readme/README.en.md) · [한국어](../readme/README.ko.md) · **简体中文** · [日本語](../readme/README.ja.md) · [Español](../readme/README.es.md) · [Français](../readme/README.fr.md) · [Русский](../readme/README.ru.md) · [العربية](../readme/README.ar.md) · [हिन्दी](../readme/README.hi.md) — [🏠 README](../readme/README.zh.md)
 
 ---
 

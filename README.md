@@ -1,7 +1,25 @@
 <h1 align="center">UI Reference Screens</h1>
 
 <p align="center">
-  **English** | [한국어](docs/readme/README.ko.md) | [简体中文](docs/readme/README.zh.md) | [日本語](docs/readme/README.ja.md) | [Español](docs/readme/README.es.md) | [Français](docs/readme/README.fr.md) | [Русский](docs/readme/README.ru.md) | [العربية](docs/readme/README.ar.md) | [हिन्दी](docs/readme/README.hi.md) • [📜 Changelog](docs/changelog/CHANGELOG.md)
+  <b>English</b>
+  &nbsp;|&nbsp;
+  <a href="docs/readme/README.ko.md">한국어</a>
+  &nbsp;|&nbsp;
+  <a href="docs/readme/README.zh.md">简体中文</a>
+  &nbsp;|&nbsp;
+  <a href="docs/readme/README.ja.md">日本語</a>
+  &nbsp;|&nbsp;
+  <a href="docs/readme/README.es.md">Español</a>
+  &nbsp;|&nbsp;
+  <a href="docs/readme/README.fr.md">Français</a>
+  &nbsp;|&nbsp;
+  <a href="docs/readme/README.ru.md">Русский</a>
+  &nbsp;|&nbsp;
+  <a href="docs/readme/README.ar.md">العربية</a>
+  &nbsp;|&nbsp;
+  <a href="docs/readme/README.hi.md">हिन्दी</a>
+  &nbsp;•&nbsp;
+  <a href="docs/changelog/CHANGELOG.md">📜 Changelog</a>
 </p>
 
 ---

@@ -1,9 +1,25 @@
-<div dir="rtl">
-
 <h1 align="center">شاشات مرجعية لواجهة المستخدم</h1>
 
 <p align="center">
-  [English](../readme/README.en.md) | [한국어](../readme/README.ko.md) | [简体中文](../readme/README.zh.md) | [日本語](../readme/README.ja.md) | [Español](../readme/README.es.md) | [Français](../readme/README.fr.md) | [Русский](../readme/README.ru.md) | **العربية** | [हिन्दी](../readme/README.hi.md) • [📜 سجل التغييرات](../changelog/CHANGELOG.ar.md)
+  <a href="../readme/README.en.md">English</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.ko.md">한국어</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.zh.md">简体中文</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.ja.md">日本語</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.es.md">Español</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.fr.md">Français</a>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.ru.md">Русский</a>
+  &nbsp;|&nbsp;
+  <b>العربية</b>
+  &nbsp;|&nbsp;
+  <a href="../readme/README.hi.md">हिन्दी</a>
+  &nbsp;•&nbsp;
+  <a href="../changelog/CHANGELOG.ar.md">📜 سجل التغييرات</a>
 </p>
 
 ---
@@ -106,7 +122,7 @@ cd ui-reference-screens
 ---
 
 <p align="center">
-  <a href="https://krcupro.github.io/ui-reference-screens/">المعرض المباشر</a> · <a href="../../README.md">العودة إلى الملف التعريفي الرئيسي</a>
+  <a href="https://krcupro.github.io/ui-reference-screens/">المعرض المباشر</a>
+  &nbsp;·&nbsp;
+  <a href="../../README.md">العودة إلى الملف التعريفي الرئيسي</a>
 </p>
-
-</div>

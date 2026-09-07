@@ -1,6 +1,6 @@
 # История изменений
 
-[English](../readme/README.en.md) | [한국어](../readme/README.ko.md) | [简体中文](../readme/README.zh.md) | [日本語](../readme/README.ja.md) | [Español](../readme/README.es.md) | [Français](../readme/README.fr.md) | **Русский** | [العربية](../readme/README.ar.md) | [हिन्दी](../readme/README.hi.md) • [📜 История изменений](../changelog/CHANGELOG.ru.md)
+[English](../readme/README.en.md) · [한국어](../readme/README.ko.md) · [简体中文](../readme/README.zh.md) · [日本語](../readme/README.ja.md) · [Español](../readme/README.es.md) · [Français](../readme/README.fr.md) · **Русский** · [العربية](../readme/README.ar.md) · [हिन्दी](../readme/README.hi.md) — [🏠 README](../readme/README.ru.md)
 
 ---
 
